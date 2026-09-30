@@ -1,0 +1,97 @@
+# Paramètres d'attribution des arbres pour le Tree Generator UMEP.
+# Toutes les valeurs de taille sont des ordres de grandeur issus de la
+# littérature, à valider par des relevés de terrain locaux.
+
+crs_epsg: 32628
+
+# Noms des champs écrits pour le Tree Generator UMEP (choisis dans la boîte de
+# dialogue ; noms courts compatibles Shapefile).
+umep_fields:
+  tree_type: ttype        # 0 = suppression, 1 = conifère, 2 = feuillu
+  total_height: totheight # hauteur totale au-dessus du sol (m)
+  trunk_height: trunkheight # hauteur de la base du houppier (m)
+  diameter: diameter      # diamètre circulaire du houppier (m)
+
+# Toutes les essences retenues sont des feuillus, y compris les sempervirents.
+umep_tree_type: 2
+
+growth_stages:
+  mature: {mean: 1.0, sd: 0.12, min: 0.7, max: 1.25}
+  young:  {mean: 0.6, sd: 0.10, min: 0.4, max: 0.8}   # 10 à 15 ans après plantation
+
+individual_noise: {mean: 1.0, sd: 0.08, min: 0.85, max: 1.15}
+
+constraints:
+  min_trunk_m: 1.5
+  max_trunk_ratio: 0.5        # tronc <= 0,5 × hauteur totale
+  roadside_min_trunk_m: 4.5   # gabarit de passage des véhicules
+  rounding_m: 0.1
+
+# Contexte A : alignements de voirie. Un arbre existant est « road » s'il est
+# dans une emprise de voirie ou à moins de offset_from_edge_m du bord de la
+# chaussée (axe OSM ± width_m / 2).
+roadside:
+  offset_from_edge_m: 3.0
+  narrow_street_width_m: 8.0  # rue étroite si width_m < seuil
+  # Préférence « rues étroites » : tableau de poids appliqué à la place de
+  # species_weights. Valeur par défaut = Terminalia systématique ; modifiable.
+  narrow_street_weights:
+    Terminalia mantaly: 1.0
+  species_weights:
+    Khaya senegalensis: 0.45
+    Azadirachta indica: 0.20
+    Terminalia mantaly: 0.20
+    Tamarindus indica: 0.15
+
+# Contexte B : intérieurs d'îlots (étiquettes land_use retenues) et zones
+# inondables (couche flood_areas). Les points hors contexte ne reçoivent aucun
+# attribut UMEP et sont journalisés.
+block:
+  land_use_labels:
+    - Parc
+    - square
+    - TVBP
+    - TVB Hydraulique
+    - Jardins familiaux
+    - Foret
+    - Buffer
+    # Parcelles forestières communes / partagées (confirmé le 2026-09-30,
+    # tous quartiers confondus).
+    - par_10 variable plots forets
+  # Tout autre point hors bâtiment (parcelles loties, agricoles, parkings,
+  # servitudes, équipements) est aussi simulé comme arbre d'îlot (confirmé le
+  # 2026-09-30) ; planting_zone conserve son étiquette land_use.
+  other_points_as_block: true
+  species_weights:
+    Ficus sycomorus: 0.25
+    Vachellia nilotica: 0.10
+    Faidherbia albida: 0.20
+    Mangifera indica: 0.45
+
+flood:
+  species_weights:
+    Ficus sycomorus: 0.35
+    Mitragyna inermis: 0.30
+    Vachellia nilotica: 0.20
+    Faidherbia albida: 0.15
+
+# Dimensions de référence (arbre adulte).
+species:
+  Khaya senegalensis: {height_m: 18.0, trunk_m: 5.0, crown_m: 12.0}
+  Azadirachta indica: {height_m: 12.0, trunk_m: 3.0, crown_m: 9.0}
+  Terminalia mantaly: {height_m: 12.0, trunk_m: 3.0, crown_m: 8.0}
+  Tamarindus indica:  {height_m: 14.0, trunk_m: 3.0, crown_m: 11.0}
+  Ficus sycomorus:    {height_m: 15.0, trunk_m: 3.0, crown_m: 16.0}
+  Mitragyna inermis:  {height_m: 10.0, trunk_m: 2.0, crown_m: 8.0}
+  Vachellia nilotica: {height_m: 9.0,  trunk_m: 2.0, crown_m: 8.0}
+  Faidherbia albida:  {height_m: 16.0, trunk_m: 4.0, crown_m: 14.0}
+  Mangifera indica:   {height_m: 12.0, trunk_m: 2.5, crown_m: 13.0}
+
+# Contrôle d'espacement (diagnostic seulement : les positions CAO ne sont pas
+# déplacées) : paire trop proche si distance < factor × (r_i + r_j).
+# Plantation dense confirmée : les conflits sont signalés, jamais corrigés.
+spacing_check_factor: 0.8
+
+# Points CAO coïncidents (blocs dupliqués) : un seul arbre conservé par
+# position, le plus petit tree_id ; les autres sont journalisés.
+deduplicate_tolerance_m: 0.01

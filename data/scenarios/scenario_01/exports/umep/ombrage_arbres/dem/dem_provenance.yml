@@ -1,0 +1,49 @@
+# Provenance du MNT dérivé pour l'étude d'ombrage (scénario scenario_01).
+generated_at: "2026-09-30T17:50:12Z"
+tool: "gdal_translate 3.11.4 (-projwin, sans rééchantillonnage)"
+source:
+  path: data/sig/MNT_THIES_50cm.tif
+  bytes: 1244084746
+  sha256: ff05e174ffe16b0a83d1fc42cb781ddf84160b91730cf56f93b0377e962b4a6e
+  crs: EPSG:32628
+  pixel_size_m: [0.5, 0.5]
+  size_px: [20618, 15082]
+  origin: [279010.5, 1637026.5]
+  nodata: -9999
+  modified: false
+derived:
+  path: mnt_50cm_etude.tif
+  sha256: 3837d80fa2af2cbbb7579bb7bd234e66ad6e4f21f27007df779dca662c57b821
+  crs: EPSG:32628 (WGS 84 / UTM 28N)
+  pixel_size_m: [0.5, 0.5]
+  size_px: [2624, 2743]
+  extent: {xmin: 283091.0, ymin: 1633167.0, xmax: 284403.0, ymax: 1634538.5}
+  grid_offset_from_source_px: [8161, 4976]   # entiers : même grille, aucun rééchantillonnage
+  nodata: -9999
+  valid_percent: 100
+  value_range: [28.27, 58.58]
+  compression: DEFLATE, tuilé, PREDICTOR=3
+extent_rule: >-
+  Enveloppe de l'union emprise du projet + titre foncier + bâtiments + arbres
+  (umep_inputs.gpkg), arrondie vers l'extérieur à la grille de 0,5 m. Aucune
+  marge supplémentaire : les ombres portées depuis l'extérieur de cette
+  emprise ne sont pas représentées.
+vertical:
+  units: mètres (confirmé par l’utilisateur le 2026-09-30)
+  datum: non documenté (aucun CRS vertical dans le GeoTIFF ; à confirmer)
+  surface_type: non documenté (MNT sol nu supposé par le nom du fichier ; à confirmer)
+license: non documentée
+not_used:
+  - data/sig/MNT_THIES_5m.tif (EPSG:3857, 5 m) — non utilisé ; aucune reprojection effectuée.
+gates:
+  - CDSM/TDSM non générés tant que UMEP n'est pas installé et que le DSM bâti+sol n'existe pas.
+  - Le DSM bâti+sol (UMEP DSM Generator) doit reprendre exactement cette grille.
+derived_1m:
+  path: mnt_1m_etude.tif
+  sha256: be6df248a0b13f605f62f110b8879743a289bb7e34407c618d73acf76423f8be
+  method: "gdalwarp -r average -tr 1 1 -te 283091 1633166.5 284403 1634538.5 depuis data/sig/MNT_THIES_50cm.tif"
+  reason: "SVF/SOLWEIG anisotropes à 0,5 m : pic mémoire 51,6 Go (OOM) ; 1 m choisi par l'utilisateur le 2026-09-30"
+  size_px: [1312, 1372]
+  origin: [283091.0, 1634538.5]
+  extent_note: "1 372 px de haut : la grille s'étend de 0,5 m au sud de l'emprise 0,5 m"
+  value_range: [28.32, 58.51]

@@ -1,0 +1,179 @@
+generated_at: '2026-09-30T18:01:46+00:00'
+tool: scripts/umep_trees/ecodekk_trees.py
+python: 3.12.3
+geopandas: 1.0.1
+shapely: 2.0.3
+numpy: 1.26.4
+scenario: scenario_01
+study_id: ombrage_arbres
+growth_stage: mature
+seed: 20260930
+crs: EPSG:32628
+source_crs_note: CRS de arbres.gpkg non défini ; EPSG:32628 attribué (coordonnées
+  CAO).
+inputs:
+  trees:
+    path: /home/tiago/Dropbox/04_Data/shiny-server/apps/ecodekk/data/sig/arbres.gpkg
+    bytes: 3342336
+    sha256: fbbeb39a9741527c698aab8c2089e7cb7d6ce6f6bf6872dbe41e0f940199cb53
+  scenario_spatial:
+    path: /home/tiago/Dropbox/04_Data/shiny-server/apps/ecodekk/data/scenarios/scenario_01/spatial.gpkg
+    bytes: 1691648
+    sha256: 82e98b867fad411bb605f878cca22689e5972873a71fbd2a89c044b451c6b6ea
+  config:
+    path: /home/tiago/Dropbox/04_Data/shiny-server/apps/ecodekk/scripts/umep_trees/config.yaml
+    bytes: 3857
+    sha256: 00c3470dda54011d39f0769f97d5dbbc8fce9a7c82daa94c0c08beffa0b0f1de
+config:
+  crs_epsg: 32628
+  umep_fields: &id001
+    tree_type: ttype
+    total_height: totheight
+    trunk_height: trunkheight
+    diameter: diameter
+  umep_tree_type: 2
+  growth_stages:
+    mature:
+      mean: 1.0
+      sd: 0.12
+      min: 0.7
+      max: 1.25
+    young:
+      mean: 0.6
+      sd: 0.1
+      min: 0.4
+      max: 0.8
+  individual_noise:
+    mean: 1.0
+    sd: 0.08
+    min: 0.85
+    max: 1.15
+  constraints:
+    min_trunk_m: 1.5
+    max_trunk_ratio: 0.5
+    roadside_min_trunk_m: 4.5
+    rounding_m: 0.1
+  roadside:
+    offset_from_edge_m: 3.0
+    narrow_street_width_m: 8.0
+    narrow_street_weights:
+      Terminalia mantaly: 1.0
+    species_weights:
+      Khaya senegalensis: 0.45
+      Azadirachta indica: 0.2
+      Terminalia mantaly: 0.2
+      Tamarindus indica: 0.15
+  block:
+    land_use_labels:
+    - Parc
+    - square
+    - TVBP
+    - TVB Hydraulique
+    - Jardins familiaux
+    - Foret
+    - Buffer
+    - par_10 variable plots forets
+    other_points_as_block: true
+    species_weights:
+      Ficus sycomorus: 0.25
+      Vachellia nilotica: 0.1
+      Faidherbia albida: 0.2
+      Mangifera indica: 0.45
+  flood:
+    species_weights:
+      Ficus sycomorus: 0.35
+      Mitragyna inermis: 0.3
+      Vachellia nilotica: 0.2
+      Faidherbia albida: 0.15
+  species:
+    Khaya senegalensis:
+      height_m: 18.0
+      trunk_m: 5.0
+      crown_m: 12.0
+    Azadirachta indica:
+      height_m: 12.0
+      trunk_m: 3.0
+      crown_m: 9.0
+    Terminalia mantaly:
+      height_m: 12.0
+      trunk_m: 3.0
+      crown_m: 8.0
+    Tamarindus indica:
+      height_m: 14.0
+      trunk_m: 3.0
+      crown_m: 11.0
+    Ficus sycomorus:
+      height_m: 15.0
+      trunk_m: 3.0
+      crown_m: 16.0
+    Mitragyna inermis:
+      height_m: 10.0
+      trunk_m: 2.0
+      crown_m: 8.0
+    Vachellia nilotica:
+      height_m: 9.0
+      trunk_m: 2.0
+      crown_m: 8.0
+    Faidherbia albida:
+      height_m: 16.0
+      trunk_m: 4.0
+      crown_m: 14.0
+    Mangifera indica:
+      height_m: 12.0
+      trunk_m: 2.5
+      crown_m: 13.0
+  spacing_check_factor: 0.8
+  deduplicate_tolerance_m: 0.01
+counts:
+  source_points: 22100
+  attributed: 19288
+  by_context:
+    road: 3631
+    flood: 1559
+    block: 14098
+  by_planting_zone:
+    par_10 variable plots forets: 4314
+    voirie: 3631
+    TVBP: 3255
+    zone inondable: 1559
+    Foret: 1460
+    Parcelles Agricoles: 1366
+    TVB Hydraulique: 1092
+    Servitude RN1: 808
+    Parking: 463
+    par_ 12.5 x 20: 270
+    Equipement Sportif: 212
+    par_02 15 x 20: 202
+    Equipement Scolaire: 125
+    Jardins familiaux: 124
+    square: 95
+    par_11 12.5 x 20: 93
+    Parcelles Tertiaire Commerce: 75
+    par_08 18 x 25: 65
+    Equipement Culturel: 19
+    Hotel: 19
+    Equipement de Santé: 13
+    PHARD: 10
+    Buffer: 9
+    Maille: 4
+    par_09 30 x 30: 3
+    hors occupation du sol: 2
+  excluded:
+    doublon de position: 2676
+    dans un bâtiment: 136
+  roadside_width_missing: 239
+  narrow_street_trees: 2382
+  height_raised: 70
+  trunk_raised: 3106
+  trunk_capped: 0
+  trees_with_spacing_conflict: 19264
+  missing_land_use_labels: []
+umep:
+  algorithm: Pre-Processor > Spatial Data > Tree Generator
+  fields: *id001
+  tree_type_codes:
+    0: suppression
+    1: conifère
+    2: feuillu
+  note: 'CDSM/TDSM non générés : nécessitent UMEP et un DSM bâti+sol aligné sur le
+    MNT.'

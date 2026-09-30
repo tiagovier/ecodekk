@@ -1,0 +1,13 @@
+species,context,count,hauteur_mean_m,hauteur_min_m,hauteur_max_m,tronc_mean_m,tronc_min_m,tronc_max_m,houppier_mean_m,houppier_min_m,houppier_max_m
+Azadirachta indica,road,264,11.94,9.0,16.8,4.5,4.5,4.5,8.95,6.1,12.2
+Faidherbia albida,block,2850,15.97,9.8,22.4,4.01,3.4,4.6,13.92,8.7,19.6
+Faidherbia albida,flood,212,16.11,10.2,22.5,4.01,3.4,4.6,14.07,9.1,19.8
+Ficus sycomorus,block,3477,14.96,9.2,20.9,3.0,2.6,3.4,15.92,10.3,22.4
+Ficus sycomorus,flood,536,14.98,10.2,20.6,3.01,2.6,3.4,16.05,10.5,21.8
+Khaya senegalensis,road,549,17.98,11.1,25.1,5.01,4.5,5.7,11.91,7.9,16.4
+Mangifera indica,block,6348,11.96,7.7,16.8,2.5,2.1,2.9,12.97,8.1,18.3
+Mitragyna inermis,flood,483,9.99,6.5,13.9,1.99,1.7,2.3,7.96,5.0,11.1
+Tamarindus indica,road,184,13.81,9.6,18.5,4.5,4.5,4.5,10.96,7.2,15.0
+Terminalia mantaly,road,2634,11.98,9.0,17.0,4.5,4.5,4.5,7.98,5.0,11.2
+Vachellia nilotica,block,1423,8.98,5.7,12.7,2.0,1.7,2.3,7.96,5.0,11.2
+Vachellia nilotica,flood,328,9.04,6.4,12.2,2.0,1.7,2.3,7.97,5.1,10.5

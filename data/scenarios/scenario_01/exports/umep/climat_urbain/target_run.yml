@@ -1,0 +1,77 @@
+generated_at: '2026-09-30T23:45:09+00:00'
+qgis:
+- QGIS 3.44.15-Solothurn 'Solothurn' (44b4ef05178)
+umep_for_processing: '3.0'
+tool: scripts/umep_climat/target_runs.sh (+ target_met_excerpts.py, target_display.py)
+target_py: 0.2.1
+prepare:
+  algorithm: 'Urban Heat Island: TARGET Prepare'
+  params:
+    UMEP_LC: true
+    FRAC_CONC: 1.0
+    FRAC_IRR: 0.0
+  rationale: voirie en pavés autoblocants (béton) ; pas de gazon irrigué
+  morphology: morphometry/saison_seche/grid__IMPGrid_isotropic.txt (bâti identique
+    aux deux saisons)
+  sites:
+    saison_seche_arbres: target/prepare/saison_seche_arbres
+    saison_seche_sans_arbres: target/prepare/saison_seche_sans_arbres
+    saison_pluies_arbres: target/prepare/saison_pluies_arbres
+    saison_pluies_sans_arbres: target/prepare/saison_pluies_sans_arbres
+  model_convention: TARGET classe le sol nu en « herbe sèche » (dry) et regroupe arbres
+    sempervirents et caducifoliés en « Veg »
+forcing:
+  source: ERA5 série ponctuelle (CDS) via supy ; Ta et HR diagnostiquées à 2 m, vent
+    à 10 m (z_TaRef = 2 m, z_URef = 10 m de parameters.json)
+  files:
+    met_target_chaud_saison_seche_20170414.txt: 89d39e2cd3c98c755769dc771c8238f207fcdae18cdedb6883a442720a3a8067
+    met_target_frais_saison_seche_20180117.txt: 40a295eb7ee00424b13e03551582aa213dd7a8fd0fc3f45bb95b2d007ff6ba0e
+    met_target_saison_pluies_20170921.txt: e6f7f2753de17ca0ac5183d8b341f977be541118005c94f2646f033309b72c06
+  spin_up_h: 48
+  mod_ldown: false
+runs:
+- run: chaud_saison_seche_arbres
+  day: '2017-04-14'
+  site: saison_seche_arbres
+  start: '2017-04-12'
+  interest:
+  - '2017-04-14'
+  - '2017-04-15'
+- run: chaud_saison_seche_sans_arbres
+  day: '2017-04-14'
+  site: saison_seche_sans_arbres
+  start: '2017-04-12'
+  interest:
+  - '2017-04-14'
+  - '2017-04-15'
+- run: saison_pluies_arbres
+  day: '2017-09-21'
+  site: saison_pluies_arbres
+  start: '2017-09-19'
+  interest:
+  - '2017-09-21'
+  - '2017-09-22'
+- run: saison_pluies_sans_arbres
+  day: '2017-09-21'
+  site: saison_pluies_sans_arbres
+  start: '2017-09-19'
+  interest:
+  - '2017-09-21'
+  - '2017-09-22'
+- run: frais_saison_seche_arbres
+  day: '2018-01-17'
+  site: saison_seche_arbres
+  start: '2018-01-15'
+  interest:
+  - '2018-01-17'
+  - '2018-01-18'
+- run: frais_saison_seche_sans_arbres
+  day: '2018-01-17'
+  site: saison_seche_sans_arbres
+  start: '2018-01-15'
+  interest:
+  - '2018-01-17'
+  - '2018-01-18'
+display: display_target/ (manifest.json)
+parameters_left_default: 'albédos, émissivités et autres paramètres de parameters.json
+  TARGET : valeurs par défaut du greffon'

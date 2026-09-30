@@ -1,0 +1,65 @@
+{
+ "generated_at": "2026-09-30T23:44:42+00:00",
+ "scenario": "scenario_01",
+ "study": "climat_urbain",
+ "model": "UMEP TARGET (expérimental), target-py 0.2.1",
+ "grid": {
+  "file": "grille_100m.geojson",
+  "cells": 128,
+  "cell_m": 100,
+  "crs": "EPSG:4326"
+ },
+ "peak_hour": 14,
+ "hour_convention": "heure UTC = heure locale ; horodatage du forçage ERA5 (fin de pas)",
+ "days": [
+  {
+   "id": "chaud_saison_seche",
+   "date": "2017-04-14",
+   "label": "Journée chaude de saison sèche"
+  },
+  {
+   "id": "saison_pluies",
+   "date": "2017-09-21",
+   "label": "Journée de saison des pluies"
+  },
+  {
+   "id": "frais_saison_seche",
+   "date": "2018-01-17",
+   "label": "Journée fraîche de saison sèche"
+  }
+ ],
+ "vegetation": [
+  {
+   "id": "arbres",
+   "label": "Avec arbres"
+  },
+  {
+   "id": "sans_arbres",
+   "label": "Sans arbres (référence)"
+  }
+ ],
+ "files": {
+  "target_cells.csv": "par maille et run : Ta, UTCI, Tmrt, intensité d'îlot à 14 h et maxima",
+  "target_cells_effet_arbres.csv": "par maille et journée : avec arbres − sans arbres",
+  "target_quartiers.csv": "par quartier (pondération surface maille ∩ quartier)",
+  "target_hourly_quartiers.csv": "profils horaires pondérés par quartier"
+ },
+ "units": {
+  "ta": "°C",
+  "utci": "°C",
+  "tmrt": "°C",
+  "uhi": "K (Ta − Tb_rur)",
+  "ws": "m/s"
+ },
+ "provenance": {
+  "forcing": "ERA5 (CDS, série ponctuelle), Ta/HR diagnostiquées à 2 m, vent à 10 m ; 48 h de mise en route",
+  "land_cover": "lc_energie_* (bâtiment, arbres, pavés autoblocants = béton à 100 %, eau, sol nu classé « herbe sèche » par TARGET)",
+  "morphometry": "Morphometric Calculator (Grid), DSM bâti 1 m",
+  "limits": "TARGET est expérimental et conçu pour des villes australiennes ; comparaison de scénarios plutôt que valeurs absolues. Dans les mailles presque entièrement boisées (fraction d'arbres ≥ 0,7), TARGET réduit fortement le vent et produit des écarts de Ta de 5 à 17 K : à interpréter avec prudence.",
+  "inputs_sha256": {
+   "met_target_chaud_saison_seche_20170414.txt": "89d39e2cd3c98c755769dc771c8238f207fcdae18cdedb6883a442720a3a8067",
+   "met_target_frais_saison_seche_20180117.txt": "40a295eb7ee00424b13e03551582aa213dd7a8fd0fc3f45bb95b2d007ff6ba0e",
+   "met_target_saison_pluies_20170921.txt": "e6f7f2753de17ca0ac5183d8b341f977be541118005c94f2646f033309b72c06"
+  }
+ }
+}

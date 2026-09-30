@@ -1,0 +1,61 @@
+generated_at: '2026-09-30T23:45:09+00:00'
+qgis:
+- QGIS 3.44.15-Solothurn 'Solothurn' (44b4ef05178)
+umep_for_processing: '3.0'
+tool: scripts/umep_climat/step0_umep.sh
+morphometry:
+  algorithm: 'Urban Morphology: Morphometric Calculator (Grid)'
+  grid: grid/grille_100m.gpkg (ID grid_id)
+  params:
+    SEARCH_METHOD: 0
+    INPUT_INTERVAL: 5
+    ROUGH: 0 (rule of thumb, défaut)
+    USE_DSM_BUILD: false
+    CALC_SS: true
+    IGNORE_NODATA: true
+  inputs:
+    dsm:
+      path: data/scenarios/scenario_01/exports/umep/ombrage_arbres/rasters_1m/dsm_bati_sol_1m.tif
+      sha256: 2cc8d83cb42900fb28df31c8ef3e5c72d8243579c8571751ecd813b1feb560fb
+    dem:
+      path: data/scenarios/scenario_01/exports/umep/ombrage_arbres/dem/mnt_1m_etude.tif
+      sha256: be6df248a0b13f605f62f110b8879743a289bb7e34407c618d73acf76423f8be
+    cdsm:
+      saison_seche: data/scenarios/scenario_01/exports/umep/ombrage_arbres/rasters_1m/cdsm_saison_seche.tif
+      saison_pluies: data/scenarios/scenario_01/exports/umep/ombrage_arbres/rasters_1m/cdsm_saison_pluies.tif
+  outputs:
+  - morphometry/saison_seche
+  - morphometry/saison_pluies
+lc_fractions:
+  algorithm: 'Urban Land Cover: Land Cover Fraction (Grid)'
+  params:
+    SEARCH_METHOD: 0
+    INPUT_INTERVAL: 5
+    IGNORE_NODATA: true
+  variants:
+    saison_pluies_arbres_target9:
+      target_lc: true
+      lc_grid: landcover/lc_energie_saison_pluies_arbres.tif
+    saison_pluies_arbres_umep7:
+      target_lc: false
+      lc_grid: landcover/lc_energie_saison_pluies_arbres.tif
+    saison_pluies_sans_arbres_target9:
+      target_lc: true
+      lc_grid: landcover/lc_energie_saison_pluies_sans_arbres.tif
+    saison_pluies_sans_arbres_umep7:
+      target_lc: false
+      lc_grid: landcover/lc_energie_saison_pluies_sans_arbres.tif
+    saison_seche_arbres_target9:
+      target_lc: true
+      lc_grid: landcover/lc_energie_saison_seche_arbres.tif
+    saison_seche_arbres_umep7:
+      target_lc: false
+      lc_grid: landcover/lc_energie_saison_seche_arbres.tif
+    saison_seche_sans_arbres_target9:
+      target_lc: true
+      lc_grid: landcover/lc_energie_saison_seche_sans_arbres.tif
+    saison_seche_sans_arbres_umep7:
+      target_lc: false
+      lc_grid: landcover/lc_energie_saison_seche_sans_arbres.tif
+  validation: 128 mailles ; somme des fractions = 1,000 dans chaque maille et chaque
+    variante

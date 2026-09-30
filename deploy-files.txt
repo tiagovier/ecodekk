@@ -4,6 +4,7 @@ R/initial_data.R
 R/presentation.R
 R/scenario_data.R
 R/spatial_data.R
+R/umep_results.R
 img/logo_phard_600x250.png
 img/Safru.png
 data/building_control_overrides.csv
@@ -24,3 +25,5 @@ data/sig/landuse.gpkg
 data/sig/projet-120526.gpkg
 data/sig/quartiers.gpkg
 data/sig/thies13.osm
+data/sig/arbres.gpkg
+data/scenarios/scenario_01/exports/umep/ombrage_arbres/trees_thies_mature_seed20260930.gpkg

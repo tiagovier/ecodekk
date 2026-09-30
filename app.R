@@ -7,6 +7,7 @@ source(file.path("R", "calculations.R"), encoding = "UTF-8")
 source(file.path("R", "presentation.R"), encoding = "UTF-8")
 source(file.path("R", "spatial_data.R"), encoding = "UTF-8")
 source(file.path("R", "scenario_data.R"), encoding = "UTF-8")
+source(file.path("R", "umep_results.R"), encoding = "UTF-8")
 
 addResourcePath("branding", normalizePath("img", winslash = "/", mustWork = TRUE))
 
@@ -43,7 +44,7 @@ initialize_scenario_from_references <- function(directory, scenario_id) {
   sources <- data.frame(
     scenario_layer = c(
       "buildings", "roads", "parcels", "quartiers", "land_use",
-      "road_footprints", "flood_areas", "project_boundary", "title_boundary"
+      "trees", "road_footprints", "flood_areas", "project_boundary", "title_boundary"
     ),
     reference_source = c(
       "data/sig/buildings.gpkg + data/sig/thies13.osm",
@@ -51,6 +52,7 @@ initialize_scenario_from_references <- function(directory, scenario_id) {
       "data/sig/projet-120526.gpkg",
       "data/sig/quartiers.gpkg",
       "data/sig/landuse.gpkg",
+      "data/sig/arbres.gpkg",
       "data/sig/emprises_voirie.gpkg",
       "data/sig/inond_litmineur.gpkg + bassins_ret50.gpkg + bassins_cuvettes_ret50.gpkg",
       "data/sig/emprise_projet.gpkg",
@@ -148,6 +150,39 @@ building_control_tab <- if (show_building_control) {
   NULL
 }
 
+thermal_comfort_tab <- tabPanel(
+  "Confort thermique",
+  fluidPage(
+    h2("Confort thermique et ombrage"),
+    uiOutput("thermal_status"),
+    umep_thermal_reading_guide(),
+    fluidRow(
+      column(
+        3,
+        selectInput("thermal_day", "Journée", choices = NULL),
+        selectInput("thermal_vegetation", "Végétation", choices = NULL),
+        radioButtons(
+          "thermal_indicator", "Indicateur",
+          choices = stats::setNames(names(umep_indicator_labels), umep_indicator_labels)
+        ),
+        uiOutput("thermal_legend"),
+        uiOutput("thermal_guidance"),
+        uiOutput("thermal_notes")
+      ),
+      column(9, uiOutput("thermal_map"))
+    ),
+    h3("Indicateurs par quartier"),
+    plotOutput("thermal_bar", height = "340px"),
+    p(class = "help-text",
+      "Chaque barre est la valeur de l’indicateur choisi pour un contexte du quartier : voirie (emprises de voirie), îlots, zones inondables. Comparez les quartiers entre eux, puis changez la végétation pour voir ce que les arbres modifient."),
+    DTOutput("thermal_table"),
+    h3("Profil journalier"),
+    plotOutput("thermal_profile", height = "360px"),
+    p(class = "help-text",
+      "Tmrt médiane heure par heure, selon l’exposition. L’écart entre la courbe rouge (plein soleil) et la courbe verte (sous les houppiers) est le bénéfice de l’ombre des arbres ; la courbe pointillée verte montre les mêmes emplacements sans arbres. La nuit, les courbes se rejoignent : le gain est surtout diurne.")
+  )
+)
+
 ui <- navbarPage(
   title = div(
     class = "ecodekk-brand",
@@ -168,6 +203,27 @@ ui <- navbarPage(
       href = "https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css"
     ),
     tags$script(src = "https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.js"),
+    tags$script(HTML(
+      "window.ecodekkApplyThermalOverlay = function() {
+         var map = window.ecodekkThermalMap, m = window.ecodekkThermalOverlay;
+         if (!map || !m || !map.ecodekkReady) return;
+         var source = map.getSource('solweig');
+         if (m.url && !source) {
+           map.addSource('solweig', {type: 'image', url: m.url, coordinates: m.coordinates});
+           map.addLayer({id: 'solweig', type: 'raster', source: 'solweig',
+             paint: {'raster-opacity': 0.85, 'raster-resampling': 'nearest'}}, 'batiments');
+         } else if (m.url) {
+           source.updateImage({url: m.url, coordinates: m.coordinates});
+           map.setLayoutProperty('solweig', 'visibility', 'visible');
+         } else if (source) {
+           map.setLayoutProperty('solweig', 'visibility', 'none');
+         }
+       };
+       Shiny.addCustomMessageHandler('umep-overlay', function(message) {
+         window.ecodekkThermalOverlay = message;
+         window.ecodekkApplyThermalOverlay();
+       });"
+    )),
     tags$script(HTML(
       "Shiny.addCustomMessageHandler('scenario-loading', function(message) {
          var overlay = document.getElementById('scenario-loading-overlay');
@@ -195,7 +251,18 @@ ui <- navbarPage(
        .map3d-layers summary, .map3d-legend summary {font-weight:700;white-space:nowrap;}
        .map3d-legend-row {display:flex;align-items:center;gap:7px;margin:3px 0;}
        .map3d-swatch {width:12px;height:12px;display:inline-block;}
+       .map3d-swatch-round {border-radius:50%;}
+       .map3d-legend-trees {right:auto;left:10px;bottom:40px;max-width:280px;}
+       .map3d-legend-note {margin:6px 0 0;font-size:11px;color:#555;}
        .map3d-code {min-width:42px;font-weight:700;}
+       #thermal_map_canvas {height:620px;}
+       .thermal-legend-bar {height:14px;border:1px solid #bbb;margin:4px 0 2px;}
+       .thermal-legend-ticks {display:flex;justify-content:space-between;font-size:11px;color:#444;}
+       .thermal-note {font-size:12px;color:#555;margin-top:10px;}
+       .umep-guide {background:#f7f9f8;border:1px solid #dfe9e3;border-left:4px solid #2c6e49;padding:8px 14px;margin:6px 0 16px;}
+       .umep-guide summary {font-weight:700;cursor:pointer;color:#2c6e49;}
+       .umep-guide h4 {font-size:15px;margin:12px 0 4px;}
+       .umep-guide p, .umep-guide li {font-size:13px;}
        .map3d-view-controls {position:absolute;left:50px;top:10px;z-index:3;display:flex;gap:5px;}
        .map3d-view-controls button {background:rgba(255,255,255,.96);border:1px solid #bbb;border-radius:3px;padding:6px 10px;font-weight:600;box-shadow:0 1px 4px rgba(0,0,0,.2);}
        #scenario-loading-overlay {position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;background:rgba(255,255,255,.94);font-size:18px;color:#2c6e49;}
@@ -345,6 +412,14 @@ ui <- navbarPage(
     )
   ),
   tabPanel(
+    "Bilan d’aménagement",
+    fluidPage(
+      h2("Bilan d’aménagement"),
+      p(class = "help-text", "Montants HT, TVA et TTC. La structure reprend le bilan de référence."),
+      DTOutput("balance_table")
+    )
+  ),
+  tabPanel(
     "Cartographie",
     fluidPage(
       h2("Plan masse et volumétrie"),
@@ -357,13 +432,9 @@ ui <- navbarPage(
     )
   ),
   building_control_tab,
-  tabPanel(
-    "Bilan d’aménagement",
-    fluidPage(
-      h2("Bilan d’aménagement"),
-      p(class = "help-text", "Montants HT, TVA et TTC. La structure reprend le bilan de référence."),
-      DTOutput("balance_table")
-    )
+  navbarMenu(
+    "Analyses et simulations",
+    thermal_comfort_tab
   )
 )
 
@@ -407,9 +478,20 @@ server <- function(input, output, session) {
     scenario$path <- normalizePath(directory, winslash = "/", mustWork = TRUE)
     scenario$roads <- data$spatial$roads
     scenario$parcels <- data$spatial$parcels
+    trees <- resolve_scenario_trees(
+      data$spatial, file.path("data", "sig", "arbres.gpkg")
+    )
+    umep_trees_path <- find_umep_tree_layer(directory)
+    scenario$display_trees <- if (is.null(umep_trees_path)) NULL else load_umep_trees(umep_trees_path)
+    scenario$tree_source_label <- if (is.null(umep_trees_path)) {
+      "Arbres : inventaire CAO, essences non attribuées"
+    } else {
+      umep_tree_source_label(umep_trees_path)
+    }
     scenario$context <- list(
       quartiers = data$spatial$quartiers,
       land_use = data$spatial$land_use,
+      trees = trees,
       road_footprints = data$spatial$road_footprints,
       flood_areas = data$spatial$flood_areas,
       project_boundary = data$spatial$project_boundary,
@@ -1842,7 +1924,9 @@ server <- function(input, output, session) {
       sf::st_geometry(scenario$context$title_boundary)
     ))
 
-    map <- leaflet() |>
+    trees <- sf::st_geometry(scenario$context$trees)
+
+    map <- leaflet(options = leafletOptions(preferCanvas = TRUE)) |>
       addTiles(
         urlTemplate = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         attribution = "© contributeurs OpenStreetMap",
@@ -1927,6 +2011,15 @@ server <- function(input, output, session) {
         label = ~paste(parcel_type, "—", layer),
         group = "Limites parcellaires"
       ) |>
+      addCircleMarkers(
+        data = trees,
+        radius = 1.7,
+        stroke = FALSE,
+        fillColor = "#238b45",
+        fillOpacity = 0.78,
+        options = pathOptions(interactive = FALSE),
+        group = "Arbres"
+      ) |>
       addPolygons(
         data = buildings,
         layerId = ~building_id,
@@ -1987,7 +2080,7 @@ server <- function(input, output, session) {
           "Bâtiments consolidés", "Bâtiments à contrôler",
           "Signalements de cohérence",
           "Axes de voirie OSM", "Emprises de voirie",
-          "Limites parcellaires", "Quartiers", "Occupation du sol",
+          "Limites parcellaires", "Arbres", "Quartiers", "Occupation du sol",
           "Zones inondables", "Emprise du projet", "Titre foncier"
         ),
         options = layersControlOptions(collapsed = FALSE)
@@ -2085,6 +2178,9 @@ server <- function(input, output, session) {
     )
     project_boundary_geojson <- sf_to_geojson(scenario$context$project_boundary)
     title_boundary_geojson <- sf_to_geojson(scenario$context$title_boundary)
+    display_trees <- if (is.null(scenario$display_trees)) scenario$context$trees else scenario$display_trees
+    trees_json <- tree_display_payload_json(display_trees)
+    species_legend <- tree_species_legend(display_trees)
     colors_json <- jsonlite::toJSON(as.list(product_colors), auto_unbox = TRUE)
     bounds_json <- jsonlite::toJSON(
       list(
@@ -2103,7 +2199,7 @@ server <- function(input, output, session) {
         "if(window.ecodekkMap3d){try{window.ecodekkMap3d.remove();}catch(e){}}",
         "var buildings=%s;var levelBlocks=%s;var roads=%s;var parcels=%s;var landuse=%s;",
         "var roadFootprints=%s;var floods=%s;var districts=%s;",
-        "var projectBoundary=%s;var titleBoundary=%s;var colors=%s;var bounds=%s;",
+        "var projectBoundary=%s;var titleBoundary=%s;var trees=%s;var colors=%s;var bounds=%s;",
         "var productExpression=[\u0027match\u0027,[\u0027get\u0027,\u0027typology_code\u0027]];",
         "Object.keys(colors).forEach(function(key){productExpression.push(key,colors[key]);});",
         "productExpression.push(\u0027#777777\u0027);",
@@ -2133,6 +2229,10 @@ server <- function(input, output, session) {
         "map.addLayer({id:\u0027limites-parcellaires\u0027,type:\u0027line\u0027,source:\u0027parcelles\u0027,layout:{visibility:\u0027none\u0027},paint:{\u0027line-color\u0027:\u0027#8b6f47\u0027,\u0027line-width\u0027:1.3,\u0027line-opacity\u0027:0.85,\u0027line-dasharray\u0027:[3,2]}});",
         "map.addSource(\u0027voiries\u0027,{type:\u0027geojson\u0027,data:roads});",
         "map.addLayer({id:\u0027voiries-projet\u0027,type:\u0027line\u0027,source:\u0027voiries\u0027,layout:{visibility:\u0027none\u0027},paint:{\u0027line-color\u0027:\u0027#4d4d4d\u0027,\u0027line-width\u0027:[\u0027interpolate\u0027,[\u0027linear\u0027],[\u0027zoom\u0027],13,1.5,17,5],\u0027line-opacity\u0027:0.95}});",
+        "var treeFeatures=trees.lon.map(function(lon,i){return {type:\u0027Feature\u0027,properties:trees.species?{s:trees.species[i]}:{},geometry:{type:\u0027Point\u0027,coordinates:[lon,trees.lat[i]]}};});",
+        "map.addSource(\u0027arbres\u0027,{type:\u0027geojson\u0027,data:{type:\u0027FeatureCollection\u0027,features:treeFeatures}});",
+        "var treeColor=\u0027#238b45\u0027;if(trees.species){treeColor=[\u0027match\u0027,[\u0027get\u0027,\u0027s\u0027]];trees.species_colors.forEach(function(c,i){treeColor.push(i,c);});treeColor.push(\u0027#238b45\u0027);}",
+        "map.addLayer({id:\u0027arbres\u0027,type:\u0027circle\u0027,source:\u0027arbres\u0027,paint:{\u0027circle-radius\u0027:[\u0027interpolate\u0027,[\u0027linear\u0027],[\u0027zoom\u0027],13,1.2,17,3.5],\u0027circle-color\u0027:treeColor,\u0027circle-opacity\u0027:0.82,\u0027circle-stroke-color\u0027:\u0027#0b5d2a\u0027,\u0027circle-stroke-width\u0027:0.5}});",
         "map.addSource(\u0027batiments\u0027,{type:\u0027geojson\u0027,data:buildings});",
         "map.addSource(\u0027niveaux-batiments\u0027,{type:\u0027geojson\u0027,data:levelBlocks});",
         "map.addLayer({id:\u0027batiments-par-niveau\u0027,type:\u0027fill-extrusion\u0027,source:\u0027niveaux-batiments\u0027,paint:{\u0027fill-extrusion-color\u0027:expression,\u0027fill-extrusion-height\u0027:[\u0027get\u0027,\u0027top_height_m\u0027],\u0027fill-extrusion-base\u0027:[\u0027get\u0027,\u0027base_height_m\u0027],\u0027fill-extrusion-opacity\u0027:0.92}});",
@@ -2163,6 +2263,7 @@ server <- function(input, output, session) {
       districts_geojson,
       project_boundary_geojson,
       title_boundary_geojson,
+      trees_json,
       colors_json,
       bounds_json
     )
@@ -2177,11 +2278,21 @@ server <- function(input, output, session) {
       )
     })
 
+    species_rows <- if (is.null(species_legend)) NULL else lapply(seq_len(nrow(species_legend)), function(index) {
+      row <- species_legend[index, ]
+      div(
+        class = "map3d-legend-row",
+        span(class = "map3d-swatch map3d-swatch-round", style = paste0("background:", row$color, ";")),
+        span(tags$em(row$species), paste0(" (", format(row$count, big.mark = "\u202f"), ")"))
+      )
+    })
+
     layer_specs <- list(
       c("Ombrage du relief", "relief-ombrage", "true"),
       c("Bâtiments par niveau", "batiments-par-niveau,batiments-controle", "true"),
       c("Signalements", "signalements-coherence", "false"),
       c("Axes de voirie", "voiries-projet", "false"),
+      c("Arbres", "arbres", "true"),
       c("Emprises de voirie", "emprises-voirie", "true"),
       c("Quartiers", "quartiers", "true"),
       c("Emprise du projet", "emprise-projet", "true"),
@@ -2218,8 +2329,211 @@ server <- function(input, output, session) {
         tags$summary("Code / typologie"),
         div(legend_rows)
       ),
-      tags$script(HTML(javascript))
+      tags$details(
+        class = "map3d-legend map3d-legend-trees", open = if (length(species_rows)) NA else NULL,
+        tags$summary("Essences d'arbres"),
+        div(
+          species_rows,
+          p(class = "map3d-legend-note", scenario$tree_source_label)
+        )
+      ),
+      # Les GeoJSON sont insérés dans un <script> : neutraliser toute séquence "</".
+      tags$script(HTML(gsub("</", "<\\/", javascript, fixed = TRUE)))
     )
+  })
+
+  umep_display <- reactive({
+    req(scenario$path)
+    directory <- find_umep_display_directory(scenario$path)
+    if (is.null(directory)) return(NULL)
+    tryCatch(read_umep_display(directory), error = function(error) {
+      structure(list(message = conditionMessage(error)), class = "umep_display_error")
+    })
+  })
+
+  umep_ready <- reactive({
+    display <- umep_display()
+    if (is.null(display) || inherits(display, "umep_display_error")) NULL else display
+  })
+
+  umep_resource_prefix <- reactive({
+    display <- umep_ready()
+    req(display)
+    prefix <- paste0("umep_display_", gsub("[^A-Za-z0-9_]", "_", scenario$id))
+    addResourcePath(prefix, normalizePath(display$directory, winslash = "/", mustWork = TRUE))
+    prefix
+  })
+
+  observeEvent(umep_ready(), {
+    display <- umep_ready()
+    updateSelectInput(session, "thermal_day", choices = umep_day_choices(display))
+    updateSelectInput(session, "thermal_vegetation", choices = umep_vegetation_choices(display))
+  })
+
+  output$thermal_status <- renderUI({
+    display <- umep_display()
+    if (is.null(display)) {
+      return(div(class = "alert alert-info",
+        "Aucun résultat SOLWEIG pour ce scénario. L’étude d’ombrage porte sur le scénario scenario_01 : chargez-le pour afficher ses résultats."))
+    }
+    if (inherits(display, "umep_display_error")) {
+      return(div(class = "alert alert-danger", "Résultats SOLWEIG illisibles : ", display$message))
+    }
+    manifest <- display$manifest
+    p(
+      class = "help-text",
+      paste0(
+        "Étude « ", manifest$study, " », scénario ", manifest$scenario, ". ",
+        manifest$source, ", pixel de ",
+        format_number_fr(manifest$resolution_m, if (manifest$resolution_m %% 1 == 0) 0 else 1), " m. ",
+        "Météorologie ERA5 (maille d’environ 31 km) : climat régional, pas le microclimat mesuré du site. ",
+        "Dimensions des arbres issues de la littérature, à valider par des relevés de terrain."
+      )
+    )
+  })
+
+  output$thermal_map <- renderUI({
+    display <- umep_ready()
+    validate(need(!is.null(display), "Aucun résultat SOLWEIG à cartographier."))
+    validate(need(!is.null(scenario$context), "Les couches contextuelles ne peuvent pas être chargées."))
+    buildings_geojson <- sf_to_geojson(sf::st_sf(geometry = sf::st_geometry(urban_buildings())))
+    districts_geojson <- sf_to_geojson(scenario$context$quartiers[, "district_label"])
+    coordinates <- display$manifest$coordinates
+    center <- colMeans(matrix(unlist(coordinates), ncol = 2, byrow = TRUE))
+    javascript <- sprintf(
+      paste0(
+        "(function(){function init(){",
+        "if(typeof maplibregl==='undefined'){setTimeout(init,100);return;}",
+        "if(window.ecodekkThermalMap){try{window.ecodekkThermalMap.remove();}catch(e){}}",
+        "var coordinates=%s;var buildings=%s;var districts=%s;",
+        "var map=new maplibregl.Map({container:'thermal_map_canvas',center:%s,zoom:15,",
+        "style:{version:8,sources:{osm:{type:'raster',tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],",
+        "tileSize:256,attribution:'© contributeurs OpenStreetMap'}},layers:[{id:'osm',type:'raster',source:'osm'}]}});",
+        "window.ecodekkThermalMap=map;",
+        "map.addControl(new maplibregl.NavigationControl(),'top-left');",
+        "map.addControl(new maplibregl.ScaleControl({unit:'metric'}));",
+        "map.on('load',function(){",
+        "map.addSource('batiments',{type:'geojson',data:buildings});",
+        "map.addLayer({id:'batiments',type:'fill',source:'batiments',paint:{'fill-color':'#9e9e9e','fill-outline-color':'#424242','fill-opacity':0.9}});",
+        "map.addSource('quartiers',{type:'geojson',data:districts});",
+        "map.addLayer({id:'quartiers',type:'line',source:'quartiers',paint:{'line-color':'#333','line-width':1.6,'line-dasharray':[4,3]}});",
+        "map.fitBounds([coordinates[3],coordinates[1]],{padding:20,duration:0});",
+        "map.ecodekkReady=true;window.ecodekkApplyThermalOverlay();",
+        "});}init();})();"
+      ),
+      jsonlite::toJSON(coordinates),
+      buildings_geojson,
+      districts_geojson,
+      jsonlite::toJSON(round(center, 6))
+    )
+    tagList(
+      div(id = "thermal_map_canvas"),
+      tags$script(HTML(gsub("</", "<\\/", javascript, fixed = TRUE)))
+    )
+  })
+
+  observe({
+    display <- umep_ready()
+    req(display, input$thermal_day, input$thermal_vegetation, input$thermal_indicator)
+    file <- umep_layer_file(display, input$thermal_indicator, input$thermal_day, input$thermal_vegetation)
+    url <- if (is.na(file)) NULL else {
+      stamp <- as.integer(file.mtime(file.path(display$directory, file)))
+      paste0(umep_resource_prefix(), "/", file, "?v=", stamp)
+    }
+    session$sendCustomMessage("umep-overlay", list(
+      url = url, coordinates = display$manifest$coordinates
+    ))
+  })
+
+  output$thermal_legend <- renderUI({
+    display <- umep_ready()
+    req(display, input$thermal_indicator)
+    legend <- umep_legend(display, input$thermal_indicator)
+    div(
+      tags$strong(legend$label),
+      div(class = "thermal-legend-bar", style = paste0("background:", legend$gradient, ";")),
+      div(class = "thermal-legend-ticks", lapply(legend$ticks, function(tick) span(format_number_fr(tick, 0))))
+    )
+  })
+
+  output$thermal_guidance <- renderUI({
+    req(input$thermal_indicator)
+    p(class = "thermal-note", umep_indicator_guidance(input$thermal_indicator))
+  })
+
+  output$thermal_notes <- renderUI({
+    display <- umep_ready()
+    req(display, input$thermal_day, input$thermal_vegetation, input$thermal_indicator)
+    notes <- list(p(class = "thermal-note", "Bâtiments en gris ; le calcul porte sur le sol hors bâtiments."))
+    if (identical(input$thermal_indicator, "cooling") && identical(input$thermal_vegetation, "sans_arbres")) {
+      notes <- c(notes, list(p(class = "thermal-note",
+        "Le gain des arbres compare un calcul avec arbres à la référence sans arbres : choisissez une végétation avec arbres.")))
+    }
+    if (identical(input$thermal_day, "saison_pluies")) {
+      notes <- c(notes, list(p(class = "thermal-note",
+        "Saison des pluies : Faidherbia albida, défeuillé, est retiré ; les zones inondables sont en eau.")))
+    }
+    tagList(notes)
+  })
+
+  output$thermal_bar <- renderPlot({
+    display <- umep_ready()
+    req(display, input$thermal_day, input$thermal_vegetation, input$thermal_indicator)
+    values <- umep_indicator_matrix(display, input$thermal_indicator, input$thermal_day, input$thermal_vegetation)
+    validate(need(!is.null(values), "Indicateur non disponible pour cette combinaison."))
+    legend <- umep_legend(display, input$thermal_indicator)
+    colors <- c("Voirie" = "#737373", "Îlots" = "#41ab5d", "Zones inondables" = "#4292c6")[rownames(values)]
+    old <- graphics::par(mar = c(11, 5, 3, 1), xpd = NA)
+    on.exit(graphics::par(old), add = TRUE)
+    graphics::barplot(
+      values, beside = TRUE, col = colors, border = NA, las = 2, cex.names = 0.85,
+      ylab = legend$label,
+      legend.text = rownames(values),
+      args.legend = list(x = "top", horiz = TRUE, bty = "n", cex = 0.85, inset = c(0, -0.14))
+    )
+    graphics::abline(h = 0, col = "#555555")
+  })
+
+  output$thermal_table <- renderDT({
+    display <- umep_ready()
+    req(display, input$thermal_day, input$thermal_vegetation)
+    datatable(
+      umep_indicator_table(display, input$thermal_day, input$thermal_vegetation),
+      rownames = FALSE, options = list(dom = "t", pageLength = 50)
+    )
+  })
+
+  output$thermal_profile <- renderPlot({
+    display <- umep_ready()
+    req(display, input$thermal_day, input$thermal_vegetation)
+    data <- umep_profile_data(display, input$thermal_day, input$thermal_vegetation)
+    validate(need(nrow(data) > 0, "Profil horaire non disponible."))
+    reference <- if (identical(input$thermal_vegetation, "sans_arbres")) NULL else {
+      subset <- umep_profile_data(display, input$thermal_day, "sans_arbres")
+      subset[subset$class == "Sous houppier", , drop = FALSE]
+    }
+    air <- unique(data[order(data$hour), c("hour", "tair_c")])
+    range_y <- range(c(data$tmrt_median_c, air$tair_c, reference$tmrt_median_c), na.rm = TRUE)
+    old <- graphics::par(mar = c(5, 5, 2, 1))
+    on.exit(graphics::par(old), add = TRUE)
+    graphics::plot(NA, xlim = c(1, 24), ylim = range_y, xaxt = "n",
+      xlab = "Heure de fin de pas (UTC = heure locale)", ylab = "Température (°C)")
+    graphics::axis(1, at = seq(2, 24, 2))
+    graphics::grid(col = "#e0e0e0")
+    labels <- character(); colors <- character(); types <- integer()
+    for (klass in names(umep_profile_colors)) {
+      rows <- data[data$class == klass, , drop = FALSE]
+      if (!nrow(rows)) next
+      graphics::lines(rows$hour, rows$tmrt_median_c, col = umep_profile_colors[[klass]], lwd = 2.4)
+      labels <- c(labels, paste("Tmrt,", tolower(klass))); colors <- c(colors, umep_profile_colors[[klass]]); types <- c(types, 1L)
+    }
+    if (!is.null(reference) && nrow(reference)) {
+      graphics::lines(reference$hour, reference$tmrt_median_c, col = umep_profile_colors[["Sous houppier"]], lwd = 2, lty = 3)
+      labels <- c(labels, "Tmrt aux emplacements des arbres, sans arbres"); colors <- c(colors, umep_profile_colors[["Sous houppier"]]); types <- c(types, 3L)
+    }
+    graphics::lines(air$hour, air$tair_c, col = "#000000", lwd = 1.6, lty = 2)
+    graphics::legend("topleft", legend = c(labels, "Température de l’air (ERA5)"),
+      col = c(colors, "#000000"), lty = c(types, 2L), lwd = 2, bty = "n", cex = 0.85)
   })
 
   observeEvent(input$program_table_cell_edit, {

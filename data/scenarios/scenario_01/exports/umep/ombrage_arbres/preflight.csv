@@ -1,0 +1,11 @@
+"layer","feature_count","source_crs","output_epsg","source_invalid_geometry_count","derived_repaired_geometry_count","derived_invalid_geometry_count"
+"buildings",496,"WGS 84",32628,0,0,0
+"roads",121,"WGS 84",32628,0,0,0
+"parcels",324,"WGS 84",32628,0,0,0
+"quartiers",9,"WGS 84",32628,1,0,0
+"land_use",198,"WGS 84",32628,22,6,0
+"road_footprints",35,"WGS 84",32628,1,0,0
+"flood_areas",24,"WGS 84",32628,1,0,0
+"project_boundary",5,"WGS 84",32628,1,0,0
+"title_boundary",1,"WGS 84",32628,0,0,0
+"trees",22100,"EPSG:4326",32628,0,0,0

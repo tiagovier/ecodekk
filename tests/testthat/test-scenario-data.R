@@ -129,3 +129,61 @@ test_that("les signatures du spatial et du modèle sont indépendantes", {
   expect_identical(scenario_component_signature(paths$spatial), spatial_before)
   expect_false(identical(scenario_component_signature(paths$model), model_before))
 })
+
+test_that("la couche optionnelle des arbres est conservée dans le GeoPackage", {
+  points <- sf::st_sfc(
+    sf::st_point(c(-17, 14)),
+    sf::st_point(c(-17.001, 14.001)),
+    crs = 4326
+  )
+  buildings <- sf::st_sf(
+    building_id = "b1", product_id = "rm_2", included_in_simulation = TRUE,
+    geometry = points[1]
+  )
+  one_feature <- buildings[, "building_id", drop = FALSE]
+  context <- list(
+    quartiers = one_feature, land_use = one_feature,
+    road_footprints = one_feature, flood_areas = one_feature,
+    project_boundary = one_feature, title_boundary = one_feature
+  )
+  trees <- sf::st_sf(
+    tree_id = c("tree_a1", "tree_a2"),
+    source_handle = c("A1", "A2"),
+    tree_category = "Végétation",
+    umep_tree_type = c(2L, NA_integer_),
+    total_height_m = c(12.5, NA_real_),
+    trunk_height_m = c(3, NA_real_),
+    crown_diameter_m = c(9.2, NA_real_),
+    shadow_ready = c(TRUE, FALSE),
+    geometry = points
+  )
+  path <- tempfile("spatial-trees-", fileext = ".gpkg")
+  on.exit(unlink(path), add = TRUE)
+
+  write_scenario_spatial_geopackage(path, buildings, one_feature, one_feature, context)
+  without_trees <- read_scenario_spatial_geopackage(path)
+  expect_false("trees" %in% names(without_trees))
+  expect_false("trees" %in% sf::st_layers(path)$name)
+
+  context$trees <- trees
+  write_scenario_spatial_geopackage(path, buildings, one_feature, one_feature, context)
+  restored <- read_scenario_spatial_geopackage(path)$trees
+  expect_identical(restored$tree_id, trees$tree_id)
+  expect_identical(restored$tree_category, rep("Végétation", 2))
+  expect_equal(restored$total_height_m, c(12.5, NA))
+  expect_true(is.na(restored$umep_tree_type[2]))
+  expect_equal(sf::st_crs(restored)$epsg, 4326L)
+  expect_equal(tree_shadow_ready(restored), c(TRUE, FALSE))
+})
+
+test_that("un scénario sans arbres reste lisible", {
+  layers <- list(buildings = NULL)
+  missing_reference <- tempfile(fileext = ".gpkg")
+  empty <- resolve_scenario_trees(layers, missing_reference)
+  expect_s3_class(empty, "sf")
+  expect_equal(nrow(empty), 0)
+  expect_true(all(tree_umep_fields %in% names(empty)))
+
+  stored <- empty_project_trees()
+  expect_identical(resolve_scenario_trees(list(trees = stored), missing_reference), stored)
+})

@@ -199,6 +199,165 @@ read_project_spatial_layer <- function(path, layer = NULL, assumed_crs = NULL) {
   sf::st_transform(sf::st_zm(features, drop = TRUE, what = "ZM"), 4326)
 }
 
+
+load_project_trees <- function(gpkg_path) {
+  raw <- read_project_spatial_layer(
+    gpkg_path,
+    layer = "entities",
+    assumed_crs = 32628
+  )
+  required <- c("EntityHandle", "Layer")
+  missing <- setdiff(required, names(raw))
+  if (length(missing)) {
+    stop("La couche des arbres est incomplète : ", paste(missing, collapse = ", "), ".")
+  }
+
+  source_handle <- trimws(as.character(raw$EntityHandle))
+  if (anyNA(source_handle) || any(!nzchar(source_handle)) || anyDuplicated(source_handle)) {
+    stop("Les identifiants CAO de la couche des arbres sont absents ou dupliqués.")
+  }
+  tree_category <- trimws(as.character(raw$Layer))
+  tree_category[is.na(tree_category) | !nzchar(tree_category)] <- "Végétation non classée"
+
+  sf::st_sf(
+    tree_id = paste0("tree_", tolower(source_handle)),
+    source_handle = source_handle,
+    tree_category = tree_category,
+    umep_tree_type = NA_integer_,
+    total_height_m = NA_real_,
+    trunk_height_m = NA_real_,
+    crown_diameter_m = NA_real_,
+    shadow_ready = FALSE,
+    geometry = sf::st_geometry(raw)
+  )
+}
+
+tree_umep_fields <- c(
+  "umep_tree_type", "total_height_m", "trunk_height_m", "crown_diameter_m"
+)
+
+empty_project_trees <- function() {
+  sf::st_sf(
+    tree_id = character(),
+    source_handle = character(),
+    tree_category = character(),
+    umep_tree_type = integer(),
+    total_height_m = numeric(),
+    trunk_height_m = numeric(),
+    crown_diameter_m = numeric(),
+    shadow_ready = logical(),
+    geometry = sf::st_sfc(crs = 4326)
+  )
+}
+
+# La couche arbres est optionnelle : un scénario antérieur sans arbres utilise
+# l'inventaire de référence, ou une couche vide si celui-ci est absent.
+resolve_scenario_trees <- function(spatial_layers, reference_path) {
+  if ("trees" %in% names(spatial_layers)) return(spatial_layers$trees)
+  if (file.exists(reference_path)) return(load_project_trees(reference_path))
+  empty_project_trees()
+}
+
+tree_shadow_ready <- function(trees) {
+  missing <- setdiff(tree_umep_fields, names(trees))
+  if (length(missing)) return(rep(FALSE, nrow(trees)))
+  values <- sf::st_drop_geometry(trees)[tree_umep_fields]
+  stats::complete.cases(values) &
+    values$umep_tree_type %in% c(1L, 2L) &
+    values$total_height_m > 0 &
+    values$trunk_height_m >= 0 &
+    values$trunk_height_m < values$total_height_m &
+    values$crown_diameter_m > 0
+}
+
+# Couleurs fixes des essences (étude UMEP). Une essence absente du tableau
+# reçoit la couleur neutre, sans être masquée.
+tree_species_colors <- c(
+  "Khaya senegalensis" = "#00441b",
+  "Azadirachta indica" = "#41ab5d",
+  "Terminalia mantaly" = "#a6d96a",
+  "Tamarindus indica" = "#8c510a",
+  "Ficus sycomorus" = "#d95f02",
+  "Mangifera indica" = "#e7298a",
+  "Faidherbia albida" = "#e6ab02",
+  "Vachellia nilotica" = "#7570b3",
+  "Mitragyna inermis" = "#1b9e77"
+)
+tree_unknown_species_color <- "#238b45"
+
+# Couche d'arbres attribués par l'étude UMEP la plus récente du scénario
+# (exports/umep/<study_id>/trees_thies_*.gpkg, hors dossiers « superseded »).
+# Ces arbres servent à l'affichage ; ils ne sont jamais réécrits dans
+# spatial.gpkg.
+find_umep_tree_layer <- function(scenario_directory) {
+  root <- file.path(scenario_directory, "exports", "umep")
+  if (!dir.exists(root)) return(NULL)
+  candidates <- list.files(
+    root, pattern = "^trees_thies_.+\\.gpkg$", recursive = TRUE, full.names = TRUE
+  )
+  candidates <- candidates[!grepl("/superseded/", candidates, fixed = TRUE)]
+  if (!length(candidates)) return(NULL)
+  candidates[order(file.mtime(candidates), candidates, decreasing = TRUE)][[1]]
+}
+
+load_umep_trees <- function(path) {
+  trees <- sf::st_read(path, layer = "trees_umep", quiet = TRUE)
+  required <- c("tree_id", "species", "context")
+  missing <- setdiff(required, names(trees))
+  if (length(missing)) {
+    stop("La couche d'arbres UMEP est incomplète : ", paste(missing, collapse = ", "), ".")
+  }
+  if (anyNA(trees$species) || any(!nzchar(trees$species))) {
+    stop("La couche d'arbres UMEP contient des arbres sans essence.")
+  }
+  sf::st_transform(trees, 4326)
+}
+
+umep_tree_source_label <- function(path) {
+  study <- basename(dirname(path))
+  paste0(
+    "Arbres de l'étude UMEP « ", study, " » (",
+    sub("\\.gpkg$", "", basename(path)), ")"
+  )
+}
+
+# Charge utile compacte pour la vue 3D (sans info-bulle) : coordonnées en
+# colonnes, arrondies à 1e-7 degré (≈ 1 cm), et index d'essence si présent.
+tree_display_payload_json <- function(trees, digits = 7L) {
+  coordinates <- if (nrow(trees)) {
+    sf::st_coordinates(sf::st_transform(trees, 4326))
+  } else {
+    matrix(numeric(), 0, 2)
+  }
+  payload <- list(
+    lon = round(unname(coordinates[, 1]), digits),
+    lat = round(unname(coordinates[, 2]), digits)
+  )
+  if ("species" %in% names(trees) && nrow(trees)) {
+    levels <- sort(unique(as.character(trees$species)))
+    colors <- unname(tree_species_colors[levels])
+    colors[is.na(colors)] <- tree_unknown_species_color
+    payload$species <- match(as.character(trees$species), levels) - 1L
+    payload$species_levels <- levels
+    payload$species_colors <- colors
+  }
+  jsonlite::toJSON(payload, digits = NA)
+}
+
+tree_species_legend <- function(trees) {
+  if (!"species" %in% names(trees) || !nrow(trees)) return(NULL)
+  counts <- table(as.character(trees$species))
+  colors <- unname(tree_species_colors[names(counts)])
+  colors[is.na(colors)] <- tree_unknown_species_color
+  legend <- data.frame(
+    species = names(counts),
+    count = as.integer(counts),
+    color = colors,
+    stringsAsFactors = FALSE
+  )
+  legend[order(-legend$count, legend$species), , drop = FALSE]
+}
+
 load_corrected_buildings <- function(gpkg_path) {
   raw <- read_project_spatial_layer(
     gpkg_path,
@@ -381,6 +540,7 @@ load_project_context_layers <- function(data_directory) {
   list(
     quartiers = quartiers,
     land_use = land_use,
+    trees = resolve_scenario_trees(list(), file.path(data_directory, "arbres.gpkg")),
     road_footprints = road_footprints,
     flood_areas = flood_areas,
     project_boundary = read_project_spatial_layer(
@@ -746,7 +906,7 @@ scenario_parameters_from_table <- function(table, defaults) {
 }
 
 scenario_spatial_layers <- function(buildings, roads, parcels, context) {
-  list(
+  layers <- list(
     buildings = buildings,
     roads = roads,
     parcels = parcels,
@@ -757,6 +917,8 @@ scenario_spatial_layers <- function(buildings, roads, parcels, context) {
     project_boundary = context$project_boundary,
     title_boundary = context$title_boundary
   )
+  if (!is.null(context$trees)) layers$trees <- context$trees
+  layers
 }
 
 write_scenario_geopackage <- function(

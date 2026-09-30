@@ -2045,7 +2045,7 @@
   },
   "files": {
     "app.R": {
-      "checksum": "46396f8fc331cef11904d8b0ea6ec9eb"
+      "checksum": "f80a06d4253c9912e13a78906a02ab64"
     },
     "data/building_control_overrides.csv": {
       "checksum": "b83716255e39facc6afca47ad1581227"
@@ -2059,6 +2059,9 @@
     "data/scenarios/base/spatial.gpkg": {
       "checksum": "010ff972ba469b2653fbc7404c9a2923"
     },
+    "data/scenarios/scenario_01/exports/umep/ombrage_arbres/trees_thies_mature_seed20260930.gpkg": {
+      "checksum": "837a5d7a8d72a2e8d76a911ba4b1197e"
+    },
     "data/scenarios/scenario_01/model.rds": {
       "checksum": "ff5a6d720112b364ed95b71b8b0eb463"
     },
@@ -2067,6 +2070,9 @@
     },
     "data/scenarios/scenario_01/spatial.gpkg": {
       "checksum": "fda19b6292b35f8bcf8ec9d0c92bd566"
+    },
+    "data/sig/arbres.gpkg": {
+      "checksum": "9f817558bcebc03c65fbb3a1c48644b8"
     },
     "data/sig/bassins_cuvettes_ret50.gpkg": {
       "checksum": "e68b8f370efcb377c70112022860536a"
@@ -2117,10 +2123,13 @@
       "checksum": "ef36ff8ed3247ebc229deb4285e578d5"
     },
     "R/scenario_data.R": {
-      "checksum": "336f190674f357ce3396c83f18139060"
+      "checksum": "5431c1bab4055a0bdfb28498aa4aa143"
     },
     "R/spatial_data.R": {
-      "checksum": "f2ffa8f8444c1e89884f69a91fe283d6"
+      "checksum": "daa0694c23cb786ef330f854f0dd50d2"
+    },
+    "R/umep_results.R": {
+      "checksum": "7845e762d4270d37d068f18db959bbf2"
     }
   },
   "users": null

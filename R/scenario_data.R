@@ -144,9 +144,10 @@ read_scenario_spatial_geopackage <- function(path) {
   if (length(missing)) {
     stop("Couches manquantes dans le GeoPackage spatial : ", paste(missing, collapse = ", "), ".")
   }
+  layers <- c(expected, intersect("trees", available))
   stats::setNames(
-    lapply(expected, function(layer) sf::st_read(path, layer = layer, quiet = TRUE)),
-    expected
+    lapply(layers, function(layer) sf::st_read(path, layer = layer, quiet = TRUE)),
+    layers
   )
 }
 

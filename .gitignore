@@ -7,3 +7,39 @@ rsconnect/
 *.orig
 *.rej
 *.zip
+
+# Rasters de référence volumineux et fichiers annexes non versionnés
+data/sig/MNT_THIES_*.tif
+data/sig/*.aux.xml
+SuPy.log
+
+# Études UMEP : seuls les produits légers sont versionnés (display/, tables,
+# métadonnées, couche d'arbres attribués). Les rasters et sorties brutes
+# restent sur le poste et se régénèrent avec scripts/umep_trees/.
+data/scenarios/*/exports/umep/*/rasters*/
+data/scenarios/*/exports/umep/*/svf*/
+data/scenarios/*/exports/umep/*/solweig*/
+data/scenarios/*/exports/umep/*/vector/
+data/scenarios/*/exports/umep/*/logs/
+data/scenarios/*/exports/umep/*/superseded/
+data/scenarios/*/exports/umep/*/met/superseded/
+data/scenarios/*/exports/umep/*/met/era5_*/
+data/scenarios/*/exports/umep/*/dem/*.tif
+data/scenarios/*/exports/umep/*/umep_inputs.gpkg
+data/scenarios/*/exports/umep/*/*_saison_pluies.gpkg
+
+# Caches Python
+__pycache__/
+*.pyc
+
+# Études vent/confort et climat urbain : sorties brutes non versionnées
+data/scenarios/*/exports/umep/*/urock/
+data/scenarios/*/exports/umep/*/tc/
+data/scenarios/*/exports/umep/*/inputs/
+data/scenarios/*/exports/umep/*/test_clip*/
+data/scenarios/*/exports/umep/*/met/era5_*m/
+data/scenarios/*/exports/umep/*/landcover/
+data/scenarios/*/exports/umep/*/morphometry/
+data/scenarios/*/exports/umep/*/lc_fractions/
+data/scenarios/*/exports/umep/*/target/
+data/scenarios/*/exports/umep/**/*.aux.xml

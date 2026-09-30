@@ -66,11 +66,19 @@ test_that("les couches contextuelles du projet sont normalisées", {
 
   expect_equal(nrow(context$quartiers), 9)
   expect_equal(nrow(context$land_use), 199)
+  expect_equal(nrow(context$trees), 22100)
   expect_equal(nrow(context$road_footprints), 35)
   expect_equal(nrow(context$flood_areas), 24)
   expect_equal(nrow(context$project_boundary), 5)
   expect_equal(nrow(context$title_boundary), 1)
   expect_true(all(vapply(context, function(x) sf::st_crs(x)$epsg == 4326, logical(1))))
+  expect_equal(length(unique(context$trees$tree_id)), 22100)
+  expect_equal(unique(context$trees$tree_category), "Végétation")
+  expect_true(all(is.na(context$trees$umep_tree_type)))
+  expect_true(all(is.na(context$trees$total_height_m)))
+  expect_true(all(is.na(context$trees$trunk_height_m)))
+  expect_true(all(is.na(context$trees$crown_diameter_m)))
+  expect_false(any(context$trees$shadow_ready))
 })
 
 
@@ -506,4 +514,77 @@ test_that("les bâtiments héritent du quartier spatial et PHARD compte 53 RM1",
 test_that("les identifiants de scénario sont sûrs pour les chemins", {
   expect_equal(normalize_scenario_id("base_2026-09"), "base_2026-09")
   expect_error(normalize_scenario_id("../base"), "identifiant du scénario")
+})
+
+test_that("la préparation UMEP des arbres exige les quatre paramètres", {
+  trees <- sf::st_sf(
+    umep_tree_type = c(2L, 2L, 3L, 1L, NA_integer_),
+    total_height_m = c(12, 12, 12, 5, 12),
+    trunk_height_m = c(3, 12, 3, 1, 3),
+    crown_diameter_m = c(8, 8, 8, 4, 8),
+    geometry = sf::st_sfc(lapply(1:5, function(i) sf::st_point(c(i, i))), crs = 32628)
+  )
+  expect_identical(tree_shadow_ready(trees), c(TRUE, FALSE, FALSE, TRUE, FALSE))
+  expect_identical(tree_shadow_ready(trees[, "umep_tree_type"]), rep(FALSE, 5))
+})
+
+test_that("la charge utile 3D des arbres ne contient que les coordonnées", {
+  trees <- sf::st_sf(
+    tree_id = c("tree_1", "tree_2"),
+    geometry = sf::st_sfc(
+      sf::st_point(c(-17.0129000055, 14.7742781733)),
+      sf::st_point(c(-17.01, 14.77)),
+      crs = 4326
+    )
+  )
+  payload <- jsonlite::fromJSON(tree_display_payload_json(trees))
+  expect_identical(sort(names(payload)), c("lat", "lon"))
+  expect_equal(payload$lon, c(-17.0129, -17.01))
+  expect_equal(payload$lat, c(14.7742782, 14.77))
+  expect_identical(
+    jsonlite::fromJSON(tree_display_payload_json(empty_project_trees()))$lon,
+    list()
+  )
+})
+
+test_that("les arbres UMEP attribués sont trouvés et colorés par essence", {
+  scenario <- tempfile("scenario-umep-")
+  study <- file.path(scenario, "exports", "umep", "etude")
+  dir.create(file.path(study, "superseded"), recursive = TRUE)
+  on.exit(unlink(scenario, recursive = TRUE), add = TRUE)
+  expect_null(find_umep_tree_layer(scenario))
+
+  trees <- sf::st_sf(
+    tree_id = c("tree_1", "tree_2", "tree_3"),
+    species = c("Mangifera indica", "Khaya senegalensis", "Mangifera indica"),
+    context = c("block", "road", "block"),
+    geometry = sf::st_sfc(
+      sf::st_point(c(283500, 1633500)), sf::st_point(c(283510, 1633500)),
+      sf::st_point(c(283520, 1633500)), crs = 32628
+    )
+  )
+  old <- file.path(study, "superseded", "trees_thies_mature_seed1.gpkg")
+  current <- file.path(study, "trees_thies_mature_seed2.gpkg")
+  sf::st_write(trees, old, layer = "trees_umep", quiet = TRUE)
+  sf::st_write(trees, current, layer = "trees_umep", quiet = TRUE)
+  expect_identical(normalizePath(find_umep_tree_layer(scenario)), normalizePath(current))
+
+  loaded <- load_umep_trees(current)
+  expect_equal(sf::st_crs(loaded)$epsg, 4326L)
+  payload <- jsonlite::fromJSON(tree_display_payload_json(loaded))
+  expect_identical(payload$species_levels, c("Khaya senegalensis", "Mangifera indica"))
+  expect_identical(payload$species, c(1L, 0L, 1L))
+  expect_identical(payload$species_colors, unname(tree_species_colors[payload$species_levels]))
+
+  legend <- tree_species_legend(loaded)
+  expect_identical(legend$species, c("Mangifera indica", "Khaya senegalensis"))
+  expect_identical(legend$count, c(2L, 1L))
+  expect_null(tree_species_legend(empty_project_trees()))
+  expect_match(umep_tree_source_label(current), "« etude »")
+
+  incomplete <- trees
+  incomplete$species[2] <- NA
+  bad <- file.path(study, "trees_thies_bad.gpkg")
+  sf::st_write(incomplete, bad, layer = "trees_umep", quiet = TRUE)
+  expect_error(load_umep_trees(bad), "sans essence")
 })

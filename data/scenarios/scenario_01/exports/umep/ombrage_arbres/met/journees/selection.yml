@@ -1,0 +1,84 @@
+source: ERA5 série ponctuelle (CDS) via supy.util.gen_forcing_era5, diagnostic 2 m
+site:
+  lat: 14.769988
+  lon: -17.009024
+  utc_offset_h: 0
+periode:
+- '2015-01-01'
+- '2024-12-30'
+journees:
+  chaud_saison_seche:
+    date: '2017-04-14'
+    doy: 104
+    met_file: met_chaud_saison_seche_20170414.txt
+    criteres:
+      kt_min: 0.706
+      kt_centile: 75
+      tri: Tmax décroissante
+      mois:
+      - 4
+      - 5
+      - 6
+      jours_fenetre: 910
+      jours_eligibles: 232
+    rang_selon_critere: 2
+    premier_selon_critere: '2017-04-01'
+    choix: utilisateur
+    tmax_c: 42.22
+    tmin_c: 23.5
+    hr_moy_pct: 27.095
+    kt: 0.726
+    rayonnement_mj_m2: 27.547
+    pluie_jour_mm: 0.0
+    pluie_72h_prec_mm: 0.0
+    vent_moy_m_s: 2.937
+  saison_pluies:
+    date: '2017-09-21'
+    doy: 264
+    met_file: met_saison_pluies_20170921.txt
+    criteres:
+      pluie_72h_min_mm: 1.0
+      pluie_6h_19h_mm: 0
+      tri: Kt décroissant
+      mois:
+      - 8
+      - 9
+      jours_fenetre: 610
+      jours_eligibles: 91
+    rang_selon_critere: 1
+    premier_selon_critere: '2017-09-21'
+    choix: règle
+    tmax_c: 35.04
+    tmin_c: 25.97
+    hr_moy_pct: 79.689
+    kt: 0.711
+    rayonnement_mj_m2: 25.852
+    pluie_jour_mm: 0.0
+    pluie_72h_prec_mm: 39.54
+    vent_moy_m_s: 1.64
+  frais_saison_seche:
+    date: '2018-01-17'
+    doy: 17
+    met_file: met_frais_saison_seche_20180117.txt
+    criteres:
+      kt_min: 0.697
+      kt_centile: 75
+      tri: Tmax croissante
+      mois:
+      - 12
+      - 1
+      jours_fenetre: 619
+      jours_eligibles: 156
+    rang_selon_critere: 1
+    premier_selon_critere: '2018-01-17'
+    choix: règle
+    tmax_c: 27.05
+    tmin_c: 14.71
+    hr_moy_pct: 43.04
+    kt: 0.715
+    rayonnement_mj_m2: 21.148
+    pluie_jour_mm: 0.0
+    pluie_72h_prec_mm: 0.0
+    vent_moy_m_s: 3.952
+limites: 'ERA5 ~31 km : climat régional, pas le microclimat du site ; Kt calculé sur
+  l''éclairement extraterrestre horizontal.'
