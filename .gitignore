@@ -1,0 +1,9 @@
+data/ref/
+data/scenarios/*/archive/
+.Rhistory
+.RData
+.Rproj.user/
+rsconnect/
+*.orig
+*.rej
+*.zip

@@ -1,0 +1,7 @@
+"building_id","building_function","levels","district_id","land_use_zone","product_id","included_in_simulation"
+"bat_bc_1","residential",1,"q5","TVB",,FALSE
+"bat_ff_1","residential",1,"q5",,,FALSE
+"bat_1544_1","residential",1,"q2",,,FALSE
+"bat_154f_1","non renseigné",,"qa",,,FALSE
+"bat_1550_1","non renseigné",,"qa",,,FALSE
+"bat_1551_1","non renseigné",,"qa",,,FALSE

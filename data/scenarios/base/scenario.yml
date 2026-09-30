@@ -1,0 +1,9 @@
+scenario_id: base
+schema_version: 2
+updated_at_utc: 2026-09-29 21:43:41 UTC
+spatial_file: spatial.gpkg
+model_file: model.rds
+exports_directory: exports
+building_count: 528
+reference_building_count: 534
+removed_building_count: 6

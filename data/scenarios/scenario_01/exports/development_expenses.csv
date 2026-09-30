@@ -1,0 +1,34 @@
+"line_id","section_id","line_label","amount_ht"
+"programming","1A","A.1-Programmation",0
+"urban_project","1A","A.2-Projet urbain",15000000
+"surveyor_preop","1A","A.3-Géomètre",8500000
+"soil_studies","1A","A.4-Études de sol - sondages",12000000
+"diagnostics","1A","A.5-Diagnostics divers",0
+"property_purchases","1B","B.1-Achats immobiliers",0
+"deed_costs","1B","B.2-Frais d’acte",0
+"relocation","1B","B.3-Indemnisation-relogement",0
+"land_negotiation","1B","B.4-Négociations foncières",0
+"demolition","1C","C.1-Démolition",0
+"network_relocation","1C","C.2-Déplacement de réseaux",0
+"site_clearance","1C","C.3-Débroussaillage-terrassements généraux",658510000
+"decontamination","1C","C.4-Dépollution",0
+"sanitation","2A","A.1-Assainissement",3169850000
+"drinking_water","2A","A.2-Eau potable",650000000
+"electricity","2A","A.3-Électricité",576600000
+"public_lighting","2A","A.4-Éclairage public",882000000
+"telecom","2A","A.5-Téléphone-Fibre",108530000
+"roads","2A","A.6-Aménagement de voirie",6155880000
+"parks","2B","B.1-Parcs, squares et jardins publics",0
+"roadside_planting","2B","B.2-Plantations voiries",37500000
+"agriculture","2B","B.3-Agriculture",0
+"family_gardens","2B","B.4-Jardins familiaux",0
+"urban_forest","2B","B.5-Forêt urbaine",126067500
+"secondary_servicing","2C","C. Viabilisation secondaire-tertiaire des parcelles équipements",0
+"public_facilities_construction","2D","D. Construction équipements publics",
+"vrd_fees","2E","E. Honoraires de conception et de suivi (VRD)",0
+"other_participations","3A","A. Participations diverses",0
+"sales_surveyor","3B","B.1-Géomètre",0
+"notary","3B","B.2-Notaire",0
+"marketing","3B","B.3-Publicité-marketing-communication",0
+"management_costs","3C","C. Frais de gestion",0
+"taxes","3E","E. Impôts et taxes",0

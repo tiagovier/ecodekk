@@ -1,0 +1,71 @@
+"type","label","rate","amount_ht","vat_rate","vat","amount_ttc"
+"main_header","DÉPENSES",,,,,
+"section","1. FONCIER - LIBÉRATION DES SOLS",,,,,
+"subsection","A. Études préopérationnelles",,,,,
+"detail","A.1-Programmation",,0,0.2,0,0
+"detail","A.2-Projet urbain",,15000000,0.2,3000000,18000000
+"detail","A.3-Géomètre",,8500000,0.2,1700000,10200000
+"detail","A.4-Études de sol - sondages",,12000000,0.2,2400000,14400000
+"detail","A.5-Diagnostics divers",,0,0.2,0,0
+"subsection","B. Acquisitions foncières",,,,,
+"detail","B.1-Achats immobiliers",,0,0.2,0,0
+"detail","B.2-Frais d’acte",,0,0.2,0,0
+"detail","B.3-Indemnisation-relogement",,0,0.2,0,0
+"detail","B.4-Négociations foncières",,0,0.2,0,0
+"subsection","C. Travaux de mise en état",,,,,
+"detail","C.1-Démolition",,0,0.2,0,0
+"detail","C.2-Déplacement de réseaux",,0,0.2,0,0
+"detail","C.3-Débroussaillage-terrassements généraux",,658510000,0.2,131702000,790212000
+"detail","C.4-Dépollution",,0,0.2,0,0
+"subtotal","SOUS-TOTAL 1",,694010000,,138802000,832812000
+"section","2. TRAVAUX ET HONORAIRES",,,,,
+"subsection","A. Voiries et réseaux primaires",,,,,
+"detail","A.1-Assainissement",,3169850000,0.2,633970000,3803820000
+"detail","A.2-Eau potable",,650000000,0.2,130000000,780000000
+"detail","A.3-Électricité",,576600000,0.2,115320000,691920000
+"detail","A.4-Éclairage public",,882000000,0.2,176400000,1058400000
+"detail","A.5-Téléphone-Fibre",,108530000,0.2,21706000,130236000
+"detail","A.6-Aménagement de voirie",,6155880000,0.2,1231176000,7387056000
+"subsection","B. Espaces verts et plantations",,,,,
+"detail","B.1-Parcs, squares et jardins publics",,0,0.2,0,0
+"detail","B.2-Plantations voiries",,37500000,0.2,7500000,45000000
+"detail","B.3-Agriculture",,0,0.2,0,0
+"detail","B.4-Jardins familiaux",,0,0.2,0,0
+"detail","B.5-Forêt urbaine",,126067500,0.2,25213500,151281000
+"detail","C. Viabilisation secondaire-tertiaire des parcelles équipements",,0,0.2,0,0
+"detail","D. Construction équipements publics",,,0.2,,
+"detail","E. Honoraires de conception et de suivi (VRD)",,0,0.2,0,0
+"subtotal","SOUS-TOTAL 2",,11706427500,,2341285500,14047713000
+"section","3. FRAIS DIVERS",,,,,
+"detail","A. Participations diverses",,0,0.2,0,0
+"calculated","B. Frais sur ventes",0.03,290707111.45021,0.2,58141422.290042,348848533.740252
+"detail","B.1-Géomètre",,0,0.2,0,0
+"detail","B.2-Notaire",,0,0.2,0,0
+"detail","B.3-Publicité-marketing-communication",,0,0.2,0,0
+"detail","C. Frais de gestion",,0,0.2,0,0
+"calculated","D. Frais financiers",0.05,776004032.259523,,,776004032.259523
+"detail","E. Impôts et taxes",,0,0.2,0,0
+"calculated","F. Rémunération SAFRU",0.03,242255926.208508,0.2,48451185.2417016,290707111.45021
+"subtotal","SOUS-TOTAL 3",,1308967069.91824,,106592607.531744,1415559677.44998
+"grand_total","TOTAL DÉPENSES",,13709404569.9182,,2586680107.53174,16296084677.45
+"main_header","RECETTES",,,,,
+"section","1. CESSIONS",,,,,
+"detail","Q1 - Quartier PHARD",,1012858017.24138,0.2,202571603.448276,1215429620.68966
+"detail","Q2 - Quartier Sowou",,1758446206.89655,0.2,351689241.379311,2110135448.27586
+"detail","Q3 - Quartier de la Forêt",,1956983448.27587,0.2,391396689.655173,2348380137.93104
+"detail","Q4 - Quartier du Petit Corridor",,1694134005.80084,0.2,338826801.160168,2032960806.96101
+"detail","Q5 - Quartier des Villas",,2019403965.51724,0.2,403880793.103448,2423284758.62069
+"detail","Q6 - Quartier de l’Agora",,10040517.2413793,0.2,2008103.44827586,12048620.6896552
+"detail","QA - Quartier de l’Attractivité",,-376668620.689654,0.2,-75333724.1379307,-452002344.827584
+"subtotal","SOUS-TOTAL 1",,8075197540.2836,,1615039508.05672,9690237048.34032
+"section","2. PARTICIPATIONS - SUBVENTIONS",,,,,
+"detail","A. Participation collectivités",,0,0.2,0,0
+"detail","B. Participation promoteurs",,0,0.2,0,0
+"detail","C. Subventions",,0,0.2,0,0
+"subtotal","SOUS-TOTAL 2",,0,,0,0
+"section","3. PRODUITS DIVERS",,,,,
+"detail","A. Produits financiers",,0,0.2,0,0
+"detail","B. Produits de gestion",,0,0.2,0,0
+"subtotal","SOUS-TOTAL 3",,0,,0,0
+"grand_total","TOTAL RECETTES",,8075197540.2836,,1615039508.05672,9690237048.34032
+"result","RÉSULTAT D’OPÉRATION",-0.697717548273966,-5634207029.63464,,,-5634207029.63464
