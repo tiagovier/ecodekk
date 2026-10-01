@@ -358,6 +358,42 @@ tree_species_legend <- function(trees) {
   legend[order(-legend$count, legend$species), , drop = FALSE]
 }
 
+# Parties d'une même entité CAO qui remplissent le trou (cour intérieure)
+# d'une autre partie : artefacts de la polygonisation, pas des bâtiments.
+identify_courtyard_parts <- function(buildings, tolerance = 0.98) {
+  out <- rep(FALSE, nrow(buildings))
+  if (!nrow(buildings) || !"source_handle" %in% names(buildings)) return(out)
+  if (!is.na(sf::st_crs(buildings)) && sf::st_is_longlat(buildings)) {
+    buildings <- sf::st_transform(buildings, 32628)
+  }
+  geometry <- sf::st_geometry(buildings)
+  handles <- as.character(buildings$source_handle)
+  shared <- unique(handles[!is.na(handles) & duplicated(handles)])
+  for (handle in shared) {
+    parts <- which(handles == handle)
+    holes <- list()
+    for (index in parts) {
+      shape <- geometry[[index]]
+      polygons <- if (inherits(shape, "MULTIPOLYGON")) unclass(shape) else list(unclass(shape))
+      for (polygon in polygons) {
+        if (length(polygon) > 1) {
+          for (ring in polygon[-1]) holes[[length(holes) + 1L]] <- sf::st_polygon(list(ring))
+        }
+      }
+    }
+    if (!length(holes)) next
+    hole_union <- sf::st_union(sf::st_sfc(holes, crs = sf::st_crs(geometry)))
+    for (index in parts) {
+      area <- as.numeric(sf::st_area(geometry[index]))
+      if (!is.finite(area) || area <= 0) next
+      overlap <- suppressWarnings(sf::st_intersection(geometry[index], hole_union))
+      covered <- if (length(overlap)) sum(as.numeric(sf::st_area(overlap))) else 0
+      out[index] <- covered / area >= tolerance
+    }
+  }
+  out
+}
+
 load_corrected_buildings <- function(gpkg_path) {
   raw <- read_project_spatial_layer(
     gpkg_path,
@@ -398,6 +434,7 @@ load_corrected_buildings <- function(gpkg_path) {
     do.call(rbind, records),
     geometry = sf::st_sfc(geometries, crs = 32628)
   )
+  buildings <- buildings[!identify_courtyard_parts(buildings), , drop = FALSE]
   sf::st_transform(buildings, 4326)
 }
 
@@ -652,6 +689,10 @@ normalize_scenario_buildings <- function(buildings, products, scenario_id) {
   if (!"control_edited" %in% names(buildings)) buildings$control_edited <- FALSE
   buildings$control_edited <- as.logical(buildings$control_edited)
   buildings$control_edited[is.na(buildings$control_edited)] <- FALSE
+  # Les cours intérieures issues de la polygonisation ne sont pas des bâtiments,
+  # sauf décision manuelle enregistrée dans le contrôle.
+  courtyard <- identify_courtyard_parts(buildings)
+  buildings$included_in_simulation[courtyard & !buildings$control_edited] <- FALSE
 
   original_product <- buildings$product_id
   aliases <- c(rc_2 = "rc_2_log")

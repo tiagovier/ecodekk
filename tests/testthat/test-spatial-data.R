@@ -35,10 +35,10 @@ test_that("les empreintes corrigées sont polygonisées et identifiées", {
   )
 
   expect_s3_class(corrected, "sf")
-  expect_equal(nrow(corrected), 424)
+  expect_equal(nrow(corrected), 413)  # 11 cours intérieures exclues
   expect_equal(sf::st_crs(corrected)$epsg, 4326)
   expect_true(all(sf::st_geometry_type(corrected) == "POLYGON"))
-  expect_equal(length(unique(corrected$building_id)), 424)
+  expect_equal(length(unique(corrected$building_id)), 413)
 })
 
 test_that("les attributs OSM sont transférés avec une qualité explicite", {
@@ -50,13 +50,13 @@ test_that("les attributs OSM sont transférés avec une qualité explicite", {
   )
   consolidated <- consolidate_buildings(corrected, urban$buildings)
 
-  expect_equal(nrow(consolidated), 534)
-  expect_equal(sum(consolidated$geometry_source == "Empreinte corrigée"), 424)
+  expect_equal(nrow(consolidated), 523)
+  expect_equal(sum(consolidated$geometry_source == "Empreinte corrigée"), 413)
   expect_equal(sum(consolidated$geometry_source == "OSM conservé"), 110)
-  expect_equal(sum(consolidated$attribute_match_quality %in% c("forte", "moyenne", "faible")), 369)
+  expect_equal(sum(consolidated$attribute_match_quality %in% c("forte", "moyenne", "faible")), 358)
   expect_equal(sum(consolidated$attribute_match_quality == "non apparié"), 55)
   expect_equal(sum(is.na(consolidated$levels)), 60)
-  expect_equal(length(unique(consolidated$building_id)), 534)
+  expect_equal(length(unique(consolidated$building_id)), 523)
   expect_true(all(is.na(consolidated$osm_id[consolidated$attribute_match_quality == "non apparié"])))
   expect_false(any(consolidated$osm_id %in% c("-38433", "-38434"), na.rm = TRUE))
 })
@@ -96,9 +96,9 @@ test_that("les bâtiments sont liés aux quartiers, usages et produits sans masq
     context$land_use
   )
 
-  expect_equal(sum(!is.na(buildings$district_id)), 533)
-  expect_equal(sum(!is.na(buildings$land_use_zone)), 522)
-  expect_equal(sum(!is.na(buildings$product_id)), 406)
+  expect_equal(sum(!is.na(buildings$district_id)), 522)
+  expect_equal(sum(!is.na(buildings$land_use_zone)), 511)
+  expect_equal(sum(!is.na(buildings$product_id)), 395)
   expect_equal(sum(buildings$classification_is_ambiguous), 110)
   expect_equal(sum(buildings$control_required), 131)
   expect_equal(sum(buildings$needs_classification), 128)
@@ -389,8 +389,8 @@ test_that("les surfaces cartographiques sont comparées au programme", {
     initial_districts()
   )
 
-  expect_equal(round(sum(comparison$footprint_area_sqm), 1), 145799)
-  expect_equal(round(sum(comparison$estimated_sdp_sqm), 1), 417967.4)
+  expect_equal(round(sum(comparison$footprint_area_sqm), 1), 143712.3)
+  expect_equal(round(sum(comparison$estimated_sdp_sqm), 1), 407533.9)
   expect_equal(districts$model_sdp_sqm[districts$district_id == "q1"], 40856)
   expect_equal(districts$building_count[districts$district_id == "q6"], 1)
 })
@@ -587,4 +587,31 @@ test_that("les arbres UMEP attribués sont trouvés et colorés par essence", {
   bad <- file.path(study, "trees_thies_bad.gpkg")
   sf::st_write(incomplete, bad, layer = "trees_umep", quiet = TRUE)
   expect_error(load_umep_trees(bad), "sans essence")
+})
+
+test_that("les cours intérieures issues de la polygonisation ne sont pas des bâtiments", {
+  outer <- sf::st_polygon(list(
+    rbind(c(0, 0), c(40, 0), c(40, 40), c(0, 40), c(0, 0)),
+    rbind(c(15, 15), c(25, 15), c(25, 25), c(15, 25), c(15, 15))
+  ))
+  court <- sf::st_polygon(list(rbind(c(15, 15), c(25, 15), c(25, 25), c(15, 25), c(15, 15))))
+  other <- sf::st_polygon(list(rbind(c(100, 0), c(110, 0), c(110, 10), c(100, 10), c(100, 0))))
+  buildings <- sf::st_sf(
+    building_id = c("bat_a_1", "bat_a_2", "bat_b_1", "bat_b_2"),
+    source_handle = c("A", "A", "B", "B"),
+    product_id = "ec",
+    included_in_simulation = TRUE,
+    control_edited = c(FALSE, FALSE, FALSE, FALSE),
+    geometry = sf::st_sfc(outer, court, other, sf::st_polygon(list(rbind(c(120, 0), c(130, 0), c(130, 10), c(120, 10), c(120, 0))))),
+    crs = 32628
+  )
+  expect_identical(identify_courtyard_parts(buildings), c(FALSE, TRUE, FALSE, FALSE))
+  # Une décision manuelle de contrôle prime sur l'exclusion automatique.
+  buildings$control_edited[2] <- TRUE
+  normalized <- normalize_scenario_buildings(sf::st_transform(buildings, 4326), initial_products(), "test")
+  expect_true(normalized$included_in_simulation[normalized$building_id == "bat_a_2"])
+  buildings$control_edited[2] <- FALSE
+  normalized <- normalize_scenario_buildings(sf::st_transform(buildings, 4326), initial_products(), "test")
+  expect_false(normalized$included_in_simulation[normalized$building_id == "bat_a_2"])
+  expect_true(all(normalized$included_in_simulation[normalized$building_id != "bat_a_2"]))
 })

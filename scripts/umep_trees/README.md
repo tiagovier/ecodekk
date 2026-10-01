@@ -127,3 +127,6 @@ Remarques techniques :
   le script au fil de l'eau et reprendrait à un décalage erroné. Pour les
   enchaînements longs, exécuter une copie figée
   (`ECODEKK_ROOT=<racine> bash logs/umep_preprocess.snapshot.sh …`).
+- SOLWEIG décompresse les SVF dans un dossier temporaire **partagé** du greffon
+  (`processing_umep/temp`) : ne jamais lancer deux runs SOLWEIG en même temps
+  (échec et SVF mélangés constatés). Les SVF, eux, peuvent tourner en parallèle.
