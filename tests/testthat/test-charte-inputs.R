@@ -20,8 +20,9 @@ make_charte_layers <- function() {
       ),
       zone = NA_character_,
       CU = c(rep(NA, 5), "Superficie foncière de Habitat et ses annexes", NA, NA, NA),
-      charte_classes = c(NA, NA, NA, NA, NA, NA, "reserve_fonciere", NA, "aucune"),
-      coef_biotope = c(NA, NA, NA, NA, NA, NA, 0.5, NA, NA),
+      ch_reserve = c(NA, NA, NA, NA, NA, NA, 1L, NA, NA),
+      ch_alea_compatible = c(NA, NA, NA, NA, NA, NA, NA, NA, 0L),
+      ch_coef_biotope = c(NA, NA, NA, NA, NA, NA, 0.5, NA, NA),
       stringsAsFactors = FALSE
     ),
     list(
@@ -43,7 +44,7 @@ make_charte_layers <- function() {
   road_footprints <- charte_sf(
     data.frame(
       Class = c(5, 0, 1), Descr = c("Rue piétonne partagée", "RN", "Boulevard urbain"),
-      modes_doux = c(NA, NA, 1)
+      ch_modes_doux = c(NA, NA, 1L)
     ),
     list(
       charte_box(500, 0, 520, 1000),
@@ -79,7 +80,10 @@ make_charte_layers <- function() {
     quartiers = quartiers,
     land_use = land_use,
     road_footprints = road_footprints,
-    flood_areas = NULL,
+    flood_areas = charte_sf(
+      data.frame(flood_type = c("Lit mineur", "Cuvette de rétention", "Zone hors aléa")),
+      list(charte_box(0, 0, 150, 200), charte_box(150, 0, 300, 200), charte_box(700, 0, 800, 100))
+    ),
     project_boundary = NULL,
     title_boundary = charte_sf(data.frame(name = "titre"), list(ring))
   )
@@ -89,31 +93,65 @@ charte_value <- function(result, input_id) {
   result$inputs$value[result$inputs$input_id == input_id]
 }
 
-test_that("le classement de l'occupation du sol applique les règles puis les saisies QGIS", {
+test_that("le classement lit les colonnes ch_* et applique la règle par défaut aux cellules vides", {
   land_use <- classify_charte_land_use(make_charte_layers()$land_use)
 
   expect_equal(
     land_use$charte_classes_resolved[[1]],
-    "espace_vert_public;espace_public_pieton;usage_compatible_alea"
+    "espace_vert_public;usage_compatible_alea;espace_public_pieton"
   )
   expect_equal(land_use$coef_biotope_resolved[[1]], 1)
+  expect_equal(land_use$charte_rule_source[[1]], "Règle par défaut")
   expect_equal(land_use$charte_classes_resolved[[6]], "habitat")
-  expect_equal(land_use$charte_rule_source[[6]], "Règle par défaut")
   expect_equal(land_use$charte_classes_resolved[[7]], "reserve_fonciere")
   expect_equal(land_use$coef_biotope_resolved[[7]], 0.5)
-  expect_equal(land_use$charte_rule_source[[7]], "QGIS")
-  expect_equal(land_use$charte_rule_source[[8]], "Non classé")
+  expect_equal(land_use$charte_rule_source[[7]], "spatial.gpkg incomplet")
+  expect_equal(land_use$charte_classes_resolved[[8]], "")
+  # TVBP : ch_alea_compatible = 0 saisi, coefficient par défaut conservé.
   expect_equal(land_use$charte_classes_resolved[[9]], "")
-  expect_equal(land_use$charte_rule_source[[9]], "QGIS")
+  expect_equal(land_use$coef_biotope_resolved[[9]], 1)
+  expect_match(charte_land_use_code_label(land_use)[[1]], "ch_ev_public, ch_alea_compatible, ch_pieton")
 })
 
-test_that("une classe inconnue saisie dans QGIS est signalée", {
+test_that("les colonnes vides et les entités sans classe sont signalées", {
   layers <- make_charte_layers()
-  layers$land_use$charte_classes[[8]] <- "espace_vert_public;parc_inconnu"
   land_use <- classify_charte_land_use(layers$land_use)
-  expect_equal(land_use$charte_unknown_classes[[8]], "parc_inconnu")
   controls <- charte_spatial_controls(layers, land_use)
-  expect_true("Classe charte inconnue saisie dans QGIS" %in% controls$control)
+  empty <- controls[grepl("^Colonnes charte vides", controls$control), ]
+  expect_equal(nrow(empty), nrow(layers$land_use))
+  unclassified <- controls[grepl("^Occupation du sol sans classe", controls$control), ]
+  expect_equal(unclassified$fid, 8L)
+})
+
+test_that("write_charte_columns crée les colonnes et ne remplit que les cellules vides", {
+  layers <- make_charte_layers()
+  path <- tempfile(fileext = ".gpkg")
+  on.exit(unlink(path), add = TRUE)
+  for (name in c("land_use", "road_footprints")) {
+    layer <- layers[[name]]
+    layer$fid <- NULL
+    sf::st_write(sf::st_transform(layer, 4326), path, layer = name, quiet = TRUE)
+  }
+
+  summary <- write_charte_columns(path)
+  expect_true(all(c(charte_land_use_columns$column, charte_coef_column) %in%
+                    summary$column[summary$table == "land_use"]))
+  expect_false(summary$created[summary$column == "ch_reserve"])
+  expect_true(summary$created[summary$column == "ch_ev_public"])
+
+  read <- read_charte_spatial_layers(path)
+  expect_equal(read$land_use$fid, seq_len(nrow(layers$land_use)))
+  expect_equal(read$land_use$ch_ev_public[[1]], 1)
+  expect_equal(read$land_use$ch_reserve[[7]], 1)
+  expect_equal(read$land_use$ch_coef_biotope[[7]], 0.5)
+  expect_equal(read$land_use$ch_alea_compatible[[9]], 0)
+  expect_equal(read$land_use$ch_reserve[[1]], 0)
+  expect_equal(read$road_footprints$ch_modes_doux, c(1, 0, 1))
+  expect_false(anyNA(sf::st_drop_geometry(read$land_use)[charte_land_use_columns$column]))
+
+  again <- write_charte_columns(path)
+  expect_equal(sum(again$filled), 0)
+  expect_false(any(again$created))
 })
 
 test_that("la surface de référence est polygonisée depuis le contour du titre foncier", {
@@ -125,17 +163,47 @@ test_that("les intrants de trame bleue croisent l'aléa fort et les usages compa
   result <- compute_charte_spatial_inputs(make_charte_layers())
 
   expect_equal(charte_value(result, "alea_fort"), 300 * 200)
+  expect_equal(result$features$alea_fort$fid, 1:2)
   # square (100 × 100) et parcelles agricoles (200 × 100) dans SC1.
   expect_equal(charte_value(result, "alea_fort_valorise"), 30000)
   preview <- result$indicators
   expect_equal(preview$value[preview$code == "TB-1"], 50)
 })
 
+test_that("un type de zone inondable absent, comme le lit moyen, est signalé", {
+  layers <- make_charte_layers()
+  result <- compute_charte_spatial_inputs(layers)
+  row <- result$inputs[result$inputs$input_id == "alea_fort", ]
+  expect_equal(row$status, "Incomplet")
+  expect_match(row$note, "Lit moyen")
+  expect_match(row$note, "Rétention 50 cm")
+
+  layers$flood_areas <- rbind(
+    layers$flood_areas,
+    charte_sf(
+      data.frame(flood_type = c("Lit moyen", "Rétention 50 cm")),
+      list(charte_box(0, 200, 300, 250), charte_box(300, 0, 350, 50))
+    )[, names(layers$flood_areas)]
+  )
+  layers$flood_areas$fid <- seq_len(nrow(layers$flood_areas))
+  complete <- compute_charte_spatial_inputs(layers)
+  row <- complete$inputs[complete$inputs$input_id == "alea_fort", ]
+  expect_equal(row$status, "Calculé")
+  expect_equal(row$value, 300 * 200 + 300 * 50 + 50 * 50)
+})
+
+test_that("les intrants sont typés spatiaux ou attributaires", {
+  result <- compute_charte_spatial_inputs(make_charte_layers())
+  kinds <- stats::setNames(result$inputs$kind, result$inputs$input_id)
+  expect_equal(unname(kinds[c("population", "batiments_habitat")]), c("attribut", "attribut"))
+  expect_true(all(kinds[setdiff(names(kinds), c("population", "batiments_habitat"))] == "spatial"))
+})
+
 test_that("les surfaces sont découpées par la référence et pondérées par le biotope", {
   result <- compute_charte_spatial_inputs(make_charte_layers())
 
-  # square 10 000 + agriculture 20 000 + réserve 0,5 × 10 000 (TVBP saisie « aucune »
-  # garde son coefficient par défaut) + TVBP 10 000.
+  # square 10 000 + agriculture 20 000 + réserve 0,5 × 10 000 + TVBP 10 000
+  # (ch_alea_compatible = 0 saisi, coefficient par défaut conservé).
   expect_equal(charte_value(result, "surface_ecoamenagee"), 10000 + 20000 + 5000 + 10000)
   expect_equal(charte_value(result, "espaces_verts_publics"), 10000)
   expect_equal(charte_value(result, "agriculture"), 20000)
@@ -170,7 +238,7 @@ test_that("les cheminements doux suivent les emprises et l'attribut QGIS modes_d
   # + traversée de la rue piétonne par la RN (20 m dans l'emprise).
   expect_equal(charte_value(result, "lineaire_modes_doux"), 2020, tolerance = 1e-6)
   footprints <- result$road_footprints
-  expect_equal(footprints$charte_rule_source, c("Règle par défaut", "Règle par défaut", "QGIS"))
+  expect_equal(footprints$charte_rule_source, c("Règle par défaut", "Règle par défaut", "spatial.gpkg"))
 })
 
 test_that("le panier de services exige les trois catégories à moins de 500 m", {
@@ -222,7 +290,8 @@ test_that("la lecture du GeoPackage conserve les fid et projette en EPSG:32628",
     sf::st_write(sf::st_transform(layer, 4326), path, layer = name, quiet = TRUE)
   }
   read <- read_charte_spatial_layers(path)
-  expect_null(read$flood_areas)
+  expect_null(read$project_boundary)
+  expect_equal(read$flood_areas$fid, 1:3)
   expect_equal(sf::st_crs(read$land_use)$epsg, 32628L)
   expect_equal(read$land_use$fid, seq_len(nrow(layers$land_use)))
   table <- charte_input_feature_table(
@@ -230,4 +299,18 @@ test_that("la lecture du GeoPackage conserve les fid et projette en EPSG:32628",
   )
   expect_equal(table$fid, 1L)
   expect_equal(table$area_sqm, 10000, tolerance = 1)
+})
+
+test_that("la population de la charte provient du programme, l'attribut des quartiers servant de contrôle", {
+  population <- list(total = 1234, complete = FALSE, missing_products = "rc_1")
+  result <- compute_charte_spatial_inputs(make_charte_layers(), population = population)
+  row <- result$inputs[result$inputs$input_id == "population", ]
+
+  expect_equal(row$value, 1234)
+  expect_equal(row$kind, "programme")
+  expect_equal(row$status, "Incomplet")
+  expect_match(row$note, "rc_1")
+  expect_match(row$note, "1 000 hab")
+  preview <- result$indicators
+  expect_equal(preview$value[preview$code == "TV-1"], 10000 / 1234)
 })

@@ -84,6 +84,11 @@ initial_products <- function() {
       rep(NA_character_, 4), "rc_2_com", rep(NA_character_, 6),
       "rt_1_com", rep(NA_character_, 5)
     ),
+    # Personnes par unité : à renseigner pour les logements ; zéro pour les
+    # locaux commerciaux, équipements et l'économie verte, sans habitants.
+    persons_per_unit = c(
+      rep(NA_real_, 5), 0, rep(NA_real_, 6), 0, 0, 0, 0, 0
+    ),
     stringsAsFactors = FALSE
   )
 }

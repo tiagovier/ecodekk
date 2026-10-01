@@ -137,6 +137,72 @@ corriger les couches dans QGIS puis recharger.
   (EPSG:32628), jamais lues dans des colonnes persistées.
 - Nouvelles couches ponctuelles éditables : `transit_stops`, `waste_points`.
 
+### Codage des colonnes charte de `spatial.gpkg` (implémenté)
+
+Les colonnes ont été ajoutées à `data/scenarios/scenario_01/spatial.gpkg`
+le 1er octobre 2026, initialisées par la règle par défaut (copie préalable :
+`archive/spatial_avant_colonnes_charte_20261001.gpkg`). Elles sont éditables
+dans QGIS ; une cellule vide reprend la règle par défaut et est signalée dans
+les contrôles. La fonction `write_charte_columns()` ajoute les colonnes
+manquantes et ne remplit que les cellules vides.
+
+Couche `land_use` — 1 = l'entité appartient à la classe, 0 = non :
+
+| Colonne | Signification | Indicateurs |
+|---|---|---|
+| `ch_ev_public` | Espace vert public accessible | TV-1 |
+| `ch_agriculture` | Agriculture nourricière (maraîchage, vergers, jardins) | TV-3 |
+| `ch_alea_compatible` | Usage compatible avec l'aléa fort (non bâti : parc inondable, agriculture, loisirs, bassins) | TB-1 |
+| `ch_habitat` | Surface urbanisée d'habitat (parcelles résidentielles) | VC-1a, VC-1b |
+| `ch_ecole` | Équipement scolaire du panier de services | VC-2 |
+| `ch_sante` | Équipement de santé du panier de services | VC-2 |
+| `ch_commerce` | Commerce ou marché du panier de services | VC-2 |
+| `ch_pieton` | Espace public piéton (place, square, mail) | CV-1 |
+| `ch_sensible` | Équipement sensible au bruit et à l'aléa (école, santé) | CV-4, RES-3 |
+| `ch_reserve` | Réserve foncière pour des besoins futurs | RES-1a |
+| `ch_coef_biotope` | Coefficient de biotope de 0 à 1 (1 pleine terre, 0,15–0,5 perméable, 0 imperméable) | TB-2 |
+
+Couche `road_footprints` : `ch_modes_doux` (0/1), cheminement doux sûr et
+continu (VC-4, CV-1).
+
+Règle par défaut d'initialisation (par valeur de `Layer`, ou `CU` pour
+l'habitat) :
+
+| Layer / CU | Colonnes à 1 | ch_coef_biotope |
+|---|---|---|
+| square, Maille | ch_ev_public, ch_pieton, ch_alea_compatible | 1 |
+| Parc, Foret | ch_ev_public, ch_alea_compatible | 1 |
+| TVB Hydraulique, TVBP, Buffer | ch_alea_compatible | 1 |
+| Jardins familiaux | ch_ev_public, ch_agriculture, ch_alea_compatible | 1 |
+| Parcelles Agricoles | ch_agriculture, ch_alea_compatible | 1 |
+| Equipement Sportif | ch_alea_compatible | 0 |
+| Equipement Scolaire | ch_ecole, ch_sensible | 0 |
+| Equipement de Santé | ch_sante, ch_sensible | 0 |
+| Parcelles Tertiaire Commerce, Parcelles Mixte | ch_commerce | 0 |
+| CU « Superficie foncière de Habitat et ses annexes » | ch_habitat | 0 |
+| Autres (Parking, Voirie, Servitude RN1, Hotel, Administration, Equipement Culturel, Gare et CBD, Station Service) | aucune | 0 |
+
+`ch_modes_doux` = 1 par défaut pour « Rue piétonne partagée » et « Le mail
+planté ».
+
+Références fixées : surface de référence = titre foncier (110 ha) ; zone
+d'aléa fort = `flood_areas` de types Lit mineur, Lit moyen (à saisir dans
+QGIS), Rétention 50 cm et Cuvette de rétention.
+
+### Population (implémentée)
+
+- Hypothèse produit `persons_per_unit` (« Personnes par unité ») dans
+  l'onglet Hypothèses. Vide = non renseigné ; 0 pour les produits sans
+  habitants (rc_2_com, rt_1_com, ec, ep, el, ev).
+- Calcul par ligne de programmation (quartier × produit) : quantité ×
+  personnes par unité, puis totaux par produit, par quartier et total.
+- Un produit programmé sans ratio rend la population « incomplète » ; il
+  n'est jamais remplacé par une valeur plausible.
+- Affichage : tableau des produits (colonne « Population (hab) »), tableau
+  de bord (« Population totale » et colonne par quartier), intrant
+  « Population du programme » de la charte. L'attribut `population` des
+  quartiers ne sert plus que de contrôle.
+
 ## 4. Architecture
 
 - `data/charte/referentiel_ecodekk.yml` + `R/charte_referentiel.R` :
@@ -181,10 +247,11 @@ bord) avec trois entrées, reprises dans trois `navbarMenu` :
 
 ## 6. Décisions en attente
 
-1. Zone d'aléa fort : SC1 + SC2 (≈ 28 ha, cohérent avec 27,5 ha du classeur)
-   ou `flood_areas` ? Proposition : SC1 + SC2.
-2. Population : logements × taille de ménage (5,9 implicite, 8 `récap` ou 9
-   national ?) avec le total `quartiers.population` (15 650) en contrôle.
+1. ~~Zone d'aléa fort~~ — décidé : zones inondables de `flood_areas` (lit
+   mineur, lit moyen, rétention 50 cm, cuvettes de rétention) ; le lit moyen
+   reste à saisir dans QGIS. Surface de référence : titre foncier (110 ha).
+2. ~~Population~~ — décidé : personnes par unité par produit (valeurs à
+   saisir dans les hypothèses).
 3. Cibles contradictoires : TB-1 (20 / 80 %), RES-2 (−20 / −50 %), définition
    d'ECO-1.
 4. Produits sociaux/abordables (GOV-2) et évolutifs (RES-1b) : candidats

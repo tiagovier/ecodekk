@@ -123,3 +123,57 @@ test_that("le bilan initial applique les formules corrigées sans calage", {
   expect_equal(round(unname(model$balance$metrics["result_ht"])), -5634207030)
   expect_lt(actual_districts["qa"], 0)
 })
+
+test_that("la population est calculée par unité puis totalisée par produit et par quartier", {
+  products <- data.frame(
+    product_id = c("log_a", "log_b", "com"),
+    persons_per_unit = c(6, 4.5, 0),
+    stringsAsFactors = FALSE
+  )
+  program <- data.frame(
+    district_id = c("q1", "q1", "q2", "q2"),
+    product_id = c("log_a", "com", "log_a", "log_b"),
+    quantity = c(10, 3, 5, 2),
+    stringsAsFactors = FALSE
+  )
+  population <- calculate_program_population(program, products)
+
+  expect_equal(population$lines$population, c(60, 0, 30, 9))
+  expect_equal(population$by_product$population[population$by_product$product_id == "log_a"], 90)
+  expect_equal(population$by_district$population, c(60, 39))
+  expect_equal(population$total, 99)
+  expect_true(population$complete)
+})
+
+test_that("un produit programmé sans personnes par unité rend la population incomplète", {
+  products <- data.frame(
+    product_id = c("log_a", "log_b"), persons_per_unit = c(6, NA), stringsAsFactors = FALSE
+  )
+  program <- data.frame(
+    district_id = c("q1", "q2", "q2"), product_id = c("log_a", "log_b", "log_a"),
+    quantity = c(10, 4, 0), stringsAsFactors = FALSE
+  )
+  population <- calculate_program_population(program, products)
+
+  expect_false(population$complete)
+  expect_equal(population$missing_products, "log_b")
+  expect_equal(population$total, 60)
+  expect_equal(population$by_district$complete, c(TRUE, FALSE))
+  expect_true(is.na(population$by_product$population[population$by_product$product_id == "log_b"]))
+
+  # Une quantité nulle n'exige pas de ratio.
+  program$quantity[2] <- 0
+  expect_true(calculate_program_population(program, products)$complete)
+})
+
+test_that("les produits sans habitants valent zéro et les logements restent à renseigner", {
+  products <- initial_products()
+  no_residents <- c("rc_2_com", "rt_1_com", "ec", "ep", "el", "ev")
+  expect_equal(products$persons_per_unit[products$product_id %in% no_residents], rep(0, 6))
+  expect_true(all(is.na(products$persons_per_unit[!products$product_id %in% no_residents])))
+
+  legacy <- products
+  legacy$persons_per_unit <- NULL
+  migrated <- ensure_product_building_assumptions(legacy)
+  expect_identical(migrated$persons_per_unit, products$persons_per_unit)
+})

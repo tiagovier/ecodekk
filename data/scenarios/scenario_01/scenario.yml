@@ -1,6 +1,6 @@
 scenario_id: scenario_01
 schema_version: 2
-updated_at_utc: 2026-09-30 12:36:29 UTC
+updated_at_utc: 2026-10-01 20:07:21 UTC
 spatial_file: spatial.gpkg
 model_file: model.rds
 exports_directory: exports

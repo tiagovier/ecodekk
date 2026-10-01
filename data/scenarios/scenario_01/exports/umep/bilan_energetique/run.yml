@@ -1,0 +1,367 @@
+generated_at: '2026-10-01T21:35:47+00:00'
+study: bilan_energetique
+scenario: scenario_01
+versions:
+  supy: 2026.4.3rc1
+  python: 3.12.3
+outil:
+- scripts/umep_suews/housing_units.R
+- scripts/umep_suews/prepare_suews.py
+- scripts/umep_suews/run_suews.py
+- scripts/umep_suews/suews_display.py
+modele_de_reference:
+  fichier: /home/tiago/.local/lib/python3.12/site-packages/supy/sample_data/sample_config.yml
+  sha256: 4f14683465e22c79c9b8f4c6663970b73a138e0e225395f6421aae0f7b5d5dce
+  description: 'exemple supy « benchmark 1a » (KCL, Londres ; Ward et al. 2016) :
+    source de toutes les valeurs par défaut SUEWS'
+periode:
+  mise_en_route: 2016-01-01 → 2016-12-31
+  analyse: 2017-01-01 → 2018-01-31
+  pas_de_temps_s: 300
+  sorties: moyennes horaires (heure de fin de pas)
+forcage:
+  source: ERA5 série ponctuelle re-dérivée à 50 m (climat_urbain/met/era5_50m)
+  hauteur_m: 50.0
+  qf: calculé par maille et ajouté au forçage (emissionsmethod 0)
+  wuh: 0.0
+physique:
+  netradiationmethod:
+    value: 1
+  emissionsmethod:
+    value: 0
+  storageheatmethod:
+    value: 1
+  ohmincqf:
+    value: 0
+  roughlenmommethod:
+    value: 2
+  roughlenheatmethod:
+    value: 2
+  stabilitymethod:
+    value: 3
+  smdmethod:
+    value: 0
+  waterusemethod:
+    value: 1
+  rslmethod:
+    value: 2
+  faimethod:
+    value: 1
+  rsllevel:
+    value: 1
+  gsmodel:
+    value: 2
+  snowuse:
+    value: 0
+  stebbsmethod:
+    value: 0
+physique_justification:
+  netradiationmethod: '1 : NARP avec L↓ du forçage (ERA5 fournit L↓) — choix lié aux
+    données'
+  emissionsmethod: '0 : QF explicite (métabolisme + domestique) fourni dans le forçage'
+  roughlenmommethod: '2 : longueurs de rugosité calculées par SUEWS depuis hauteurs
+    et fractions (règle empirique), sans valeur inventée pour le sol nu'
+  waterusemethod: '1 avec Wuh = 0 : aucun arrosage (approuvé)'
+  faimethod: '1 : indice de surface frontale par schéma simple (fractions et hauteurs)'
+  autres: valeurs de l'exemple SUEWS
+site:
+  surfacearea_m2: 10000.0
+  z_m: 50.0
+  timezone: 0
+  lat_lng: centroïde de la maille
+  alt: moyenne du MNT 1 m dans la maille
+  fractions: climat_urbain/lc_fractions/<variante>_umep7 (étape 0)
+  hauteur_batiments: zH de la morphométrie (étape 0) ; si aucune surface bâtie, moyenne
+    de l'étude (sans effet)
+  hauteur_arbres: moyenne du CDSM 1 m sur les pixels sempervirents / caducifoliés
+    de la maille ; si fraction nulle, moyenne de l'étude (sans effet)
+  revetement: pavés autoblocants documentés comme surface revêtue ; propriétés = valeurs
+    par défaut SUEWS du revêtement (albédo 0,10 de l'exemple, plutôt asphalte)
+  temperatures_initiales: température de l'air ERA5 au premier pas (toutes surfaces
+    et couches)
+  humidite_initiale_sol: valeurs de l'exemple SUEWS, absorbées par l'année de mise
+    en route
+population:
+  regle: logements du programme (fonctions de l'application) × 6,4 personnes par ménage
+    (donnée utilisateur)
+  logements: 1674.0
+  population: 10713.6
+  mailles_habitees: 68
+  controle_attribut_quartiers_population: 15650
+  presence: résidents présents jour et nuit (pas de navettes)
+chaleur_anthropique:
+  metabolisme: '75 à 175 W/hab (minqfmetab, maxqfmetab : valeurs par défaut SUEWS),
+    profil horaire d''activité par défaut SUEWS ramené de 0 à 1'
+  domestique: '30 W/hab en moyenne journalière, profil ahprof_24hr par défaut SUEWS
+    — HYPOTHÈSE À CONFIRMER : ordre de grandeur de la consommation d''électricité
+    par habitant au Sénégal (~250–300 kWh/an, tous usages) ; pas de climatisation'
+  trafic: 0.0
+  profil: inputs/qf_profile.csv
+saisons:
+  methode: deux runs complets par maille (fractions saison sèche / saison des pluies),
+    composés par mois
+  mois_saison_pluies:
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  raison: SUEWS ne permet pas de faire varier les fractions de surface dans un même
+    run
+calibration_v2:
+  date: '2026-10-01'
+  decision: 'approuvée par l''utilisateur après constat que les défauts de Londres
+    faisaient réchauffer l''air par les arbres (saison sèche, mailles > 60 % d''arbres
+    : QE −7 W/m², QH +113 W/m², T2 +1,8 K)'
+  version_precedente: superseded/v1_defauts_londres/
+  parametres:
+    bsoil.alb:
+      avant: 0.18
+      apres: 0.3
+      justification: sol nu latéritique sahélien, plus clair que le sol de l'exemple
+        londonien
+      source: ordre de grandeur de la littérature (sols sableux à latéritiques sahéliens,
+        albédo ~0,25–0,35) — À CONFIRMER par mesure ou référence locale ; aucune source
+        vérifiable consultée dans la documentation disponible
+    evetr.soilstorecap, dectr.soilstorecap:
+      avant: 150.0
+      apres: 1000.0
+      unite: mm
+      justification: accès des arbres à l'eau profonde (racines profondes de Faidherbia,
+        manguier, Khaya) représenté par une réserve racinaire profonde
+    evetr.soildepth, dectr.soildepth:
+      avant: 350.0
+      apres: 3000.0
+      unite: mm
+      justification: profondeur cohérente avec la réserve racinaire profonde (la capacité
+        ne peut dépasser la profondeur)
+    initial_states.evetr/dectr.soilstore:
+      avant: 120.0
+      apres: 1000.0
+      unite: mm
+      justification: réserve profonde pleine à l'initialisation (nappe), puis bilan
+        hydrique modélisé pendant l'année de mise en route
+    conductance.g_sm:
+      avant: 0.05
+      apres: 0.00751
+      justification: 'seuil de fermeture stomatique s1/g_sm reporté proportionnellement
+        : 111 mm pour 150 mm de réserve dans l''exemple (74 %), soit 74 % de la réserve
+        profonde ; s1 inchangé. Paramètre de site, n''affecte que la végétation (pas
+        d''herbe dans l''étude)'
+  mecanisme: 'le moins invasif : aucune eau ajoutée (pas d''arrosage), seule la capacité
+    de la réserve accessible aux arbres et la sensibilité stomatique au déficit changent'
+  affichage: T2 exclue des produits d'affichage (diagnostic à 2 m non fiable sous
+    couvert haut)
+valeurs_par_defaut_suews:
+  paved:
+    alb: 0.1
+    emis: 0.95
+    soildepth: 350.0
+    soilstorecap: 150.0
+    sathydraulicconduct: 0.0005
+    ohm_coef:
+      summer_dry:
+        a1: 0.722
+        a2: 0.3
+        a3: -36.14
+      summer_wet:
+        a1: 0.722
+        a2: 0.3
+        a3: -36.14
+      winter_dry:
+        a1: 0.848
+        a2: 0.3
+        a3: 14.16
+      winter_wet:
+        a1: 0.848
+        a2: 0.3
+        a3: 14.16
+  bldgs:
+    alb: 0.12
+    emis: 0.91
+    soildepth: 350.0
+    soilstorecap: 150.0
+    sathydraulicconduct: 0.0005
+    ohm_coef:
+      summer_dry:
+        a1: 0.51
+        a2: 0.337
+        a3: -28.85
+      summer_wet:
+        a1: 0.51
+        a2: 0.337
+        a3: -28.85
+      winter_dry:
+        a1: 0.598
+        a2: 0.337
+        a3: 11.3
+      winter_wet:
+        a1: 0.598
+        a2: 0.337
+        a3: 11.3
+  dectr:
+    alb_min: 0.12
+    alb_max: 0.18
+    emis: 0.98
+    soildepth: 350.0
+    soilstorecap: 150.0
+    sathydraulicconduct: 0.0005
+    ohm_coef:
+      summer_dry:
+        a1: 0.23
+        a2: 0.325
+        a3: -16.91
+      summer_wet:
+        a1: 0.23
+        a2: 0.325
+        a3: -16.91
+      winter_dry:
+        a1: 0.27
+        a2: 0.325
+        a3: 6.62
+      winter_wet:
+        a1: 0.27
+        a2: 0.325
+        a3: 6.62
+    lai:
+      baset: 6.0
+      gddfull: 300.0
+      basete: 11.0
+      sddfull: -450.0
+      laimin: 1.0
+      laimax: 5.5
+      laitype: 1
+    maxconductance: 11.7
+  evetr:
+    alb_min: 0.1
+    alb_max: 0.1
+    emis: 0.98
+    soildepth: 350.0
+    soilstorecap: 150.0
+    sathydraulicconduct: 0.0005
+    ohm_coef:
+      summer_dry:
+        a1: 0.23
+        a2: 0.325
+        a3: -16.91
+      summer_wet:
+        a1: 0.23
+        a2: 0.325
+        a3: -16.91
+      winter_dry:
+        a1: 0.27
+        a2: 0.325
+        a3: 6.62
+      winter_wet:
+        a1: 0.27
+        a2: 0.325
+        a3: 6.62
+    lai:
+      baset: 6.0
+      gddfull: 300.0
+      basete: 11.0
+      sddfull: -450.0
+      laimin: 4.0
+      laimax: 5.1
+      laitype: 1
+    maxconductance: 7.4
+  grass:
+    alb_min: 0.18
+    alb_max: 0.21
+    emis: 0.93
+    soildepth: 350.0
+    soilstorecap: 150.0
+    sathydraulicconduct: 0.0005
+    ohm_coef:
+      summer_dry:
+        a1: 0.23
+        a2: 0.325
+        a3: -16.91
+      summer_wet:
+        a1: 0.23
+        a2: 0.325
+        a3: -16.91
+      winter_dry:
+        a1: 0.27
+        a2: 0.325
+        a3: 6.62
+      winter_wet:
+        a1: 0.27
+        a2: 0.325
+        a3: 6.62
+    lai:
+      baset: 6.0
+      gddfull: 300.0
+      basete: 11.0
+      sddfull: -450.0
+      laimin: 1.6
+      laimax: 5.9
+      laitype: 1
+    maxconductance: 33.1
+  bsoil:
+    alb: 0.18
+    emis: 0.94
+    soildepth: 350.0
+    soilstorecap: 150.0
+    sathydraulicconduct: 0.0005
+    ohm_coef:
+      summer_dry:
+        a1: 0.379
+        a2: 0.335
+        a3: -30.05
+      summer_wet:
+        a1: 0.379
+        a2: 0.335
+        a3: -30.05
+      winter_dry:
+        a1: 0.445
+        a2: 0.335
+        a3: 11.77
+      winter_wet:
+        a1: 0.445
+        a2: 0.335
+        a3: 11.77
+  water:
+    alb: 0.1
+    emis: 0.95
+    soildepth: 0.0
+    soilstorecap: 0.0
+    sathydraulicconduct: 0.0
+    ohm_coef:
+      summer_dry:
+        a1: 0.534
+        a2: 0.21
+        a3: -33.31
+      summer_wet:
+        a1: 0.534
+        a2: 0.21
+        a3: -33.31
+      winter_dry:
+        a1: 0.627
+        a2: 0.21
+        a3: 13.05
+      winter_wet:
+        a1: 0.627
+        a2: 0.21
+        a3: 13.05
+contournements:
+- Interpolation « polynomial » d'ordre 0 de supy (exige scipy ≥ 1.14.1, non installé)
+  remplacée dans le processus par ffill(), équivalent (maintien de la valeur précédente).
+- 'Exécution par tranches mensuelles avec transmission de l''état JSON (mécanisme
+  interne de supy, run_suews_rust_with_state) pour limiter la mémoire ; écart maximal
+  avec un calcul continu : 0,16 W/m² (QH, ΔQS), 0,006 K (T2).'
+- Valeur nulle (NaN) de l'état hydrique des surfaces végétalisées remplacée par 0
+  à chaque transmission, uniquement dans les mailles sans végétation (diagnostic indéfini,
+  sans effet vérifié sur les flux).
+runs:
+  total: 512
+  ok: 512
+  echecs: 0
+entrees:
+  cells.csv: 9fe7ab93ce0be41a6b5a732b76814554e16020319fab2b2074373ee4f943becd
+  qf_profile.csv: b87c499f8a8cf8dfc0283c13e7654d7dc5da312858440ba1137c4ed08279d008
+  logements_batiments.csv: 717353f95012eea2f7e204a61f0b2fae4a2cefd88eca48c7ce335d5e7cef5efb
+  forcing_2016_2018.pkl: 5f45842c0ef3f59c83a30e5d7a5ddcdfd84c73d2d6fdf07ca112d60dc00770e8
+  grid: 3fabc5fa31affdf9d68cee0b9d28a1d5bac61b4d9b07e11cad8fa105966945ce
+  dem: be6df248a0b13f605f62f110b8879743a289bb7e34407c618d73acf76423f8be
+  logements: 717353f95012eea2f7e204a61f0b2fae4a2cefd88eca48c7ce335d5e7cef5efb

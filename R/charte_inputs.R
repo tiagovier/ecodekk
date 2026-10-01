@@ -3,9 +3,10 @@
 # Les intrants sont mesurés sur un instantané en lecture seule de spatial.gpkg
 # (identifiants fid conservés pour les retrouver dans QGIS). Les surfaces et
 # longueurs sont toujours recalculées depuis les géométries en EPSG:32628.
-# Le classement charte des occupations du sol et des emprises de voirie
-# provient de règles par défaut, remplacées entité par entité par les
-# attributs saisis dans QGIS (`charte_classes`, `coef_biotope`, `modes_doux`).
+# Le classement charte est porté par des colonnes de spatial.gpkg, éditables
+# dans QGIS : sur land_use, une colonne 0/1 par classe (`ch_*`) et
+# `ch_coef_biotope` ; sur road_footprints, `ch_modes_doux`. Une colonne absente
+# ou une valeur vide prend la règle par défaut.
 
 charte_metric_crs <- 32628L
 
@@ -27,22 +28,56 @@ charte_class_labels <- c(
   reserve_fonciere = "Réserve foncière"
 )
 
-charte_reference_area_choices <- c(
-  "Titre foncier" = "title_boundary",
-  "Emprise du projet" = "project_boundary",
-  "Union des quartiers" = "quartiers"
+# Codage des colonnes charte de land_use : une colonne 0/1 par classe.
+charte_land_use_columns <- data.frame(
+  column = c(
+    "ch_ev_public", "ch_agriculture", "ch_alea_compatible", "ch_habitat",
+    "ch_ecole", "ch_sante", "ch_commerce", "ch_pieton", "ch_sensible", "ch_reserve"
+  ),
+  class_id = c(
+    "espace_vert_public", "agriculture", "usage_compatible_alea", "habitat",
+    "service_ecole", "service_sante", "service_commerce", "espace_public_pieton",
+    "equipement_sensible", "reserve_fonciere"
+  ),
+  meaning = c(
+    "Espace vert public accessible",
+    "Agriculture nourricière (maraîchage, vergers, jardins)",
+    "Usage compatible avec l'aléa fort (non bâti : parc inondable, agriculture, loisirs, bassins)",
+    "Surface urbanisée d'habitat (parcelles résidentielles)",
+    "Équipement scolaire du panier de services",
+    "Équipement de santé du panier de services",
+    "Commerce ou marché du panier de services",
+    "Espace public piéton (place, square, mail)",
+    "Équipement sensible au bruit et à l'aléa (école, santé)",
+    "Réserve foncière pour des besoins futurs"
+  ),
+  used_by = c(
+    "TV-1", "TV-3", "TB-1", "VC-1a, VC-1b", "VC-2", "VC-2", "VC-2", "CV-1",
+    "CV-4, RES-3", "RES-1a"
+  ),
+  stringsAsFactors = FALSE
 )
 
-charte_hazard_choices <- c(
-  "Servitudes climatiques (quartiers SC)" = "servitude_climatique",
-  "Zones inondables (lit mineur, rétention, cuvettes)" = "flood_areas"
+charte_coef_column <- "ch_coef_biotope"
+charte_soft_mobility_column <- "ch_modes_doux"
+
+charte_reference_area_labels <- c(
+  title_boundary = "Titre foncier",
+  project_boundary = "Emprise du projet",
+  quartiers = "Union des quartiers"
+)
+
+# Types de zones inondables composant l'aléa fort. Un type absent de
+# flood_areas est signalé, sans être remplacé par une autre couche.
+charte_hazard_flood_types <- c(
+  "Lit mineur", "Lit moyen", "Rétention 50 cm", "Cuvette de rétention"
 )
 
 # Hypothèses par défaut, éditables ultérieurement dans le modèle du scénario.
 charte_default_parameters <- function() {
   list(
     reference_area = "title_boundary",
-    hazard_source = "servitude_climatique",
+    hazard_flood_types = charte_hazard_flood_types,
     service_distance_m = 500,
     canopy_quad_segments = 6L,
     noise_buffer_m = c(
@@ -137,72 +172,142 @@ charte_split_classes <- function(value) {
   parts[nzchar(parts)]
 }
 
-charte_text_column <- function(data, field) {
-  if (!field %in% names(data)) return(rep(NA_character_, nrow(data)))
-  value <- as.character(sf::st_drop_geometry(data)[[field]])
-  value[!is.na(value) & !nzchar(trimws(value))] <- NA_character_
-  value
-}
-
 charte_number_column <- function(data, field) {
   if (!field %in% names(data)) return(rep(NA_real_, nrow(data)))
   suppressWarnings(as.numeric(sf::st_drop_geometry(data)[[field]]))
 }
 
-charte_logical_column <- function(data, field) {
-  if (!field %in% names(data)) return(rep(NA, nrow(data)))
-  value <- tolower(trimws(as.character(sf::st_drop_geometry(data)[[field]])))
-  out <- rep(NA, length(value))
-  out[value %in% c("1", "true", "oui", "vrai", "t")] <- TRUE
-  out[value %in% c("0", "false", "non", "faux", "f")] <- FALSE
-  out
-}
-
-# Classement charte de chaque entité d'occupation du sol. La valeur saisie
-# dans QGIS remplace la règle par défaut ; « aucune » vide la liste.
-classify_charte_land_use <- function(land_use, rules = charte_default_land_use_rules()) {
+# Valeurs par défaut des colonnes charte de land_use (0/1 et coefficient).
+charte_default_land_use_values <- function(land_use, rules = charte_default_land_use_rules()) {
   attributes <- sf::st_drop_geometry(land_use)
-  default_classes <- character(nrow(land_use))
-  default_coef <- rep(0, nrow(land_use))
-  default_matched <- rep(FALSE, nrow(land_use))
+  values <- as.data.frame(
+    matrix(0L, nrow(land_use), nrow(charte_land_use_columns),
+           dimnames = list(NULL, charte_land_use_columns$column))
+  )
+  coef <- rep(0, nrow(land_use))
+  matched <- rep(FALSE, nrow(land_use))
   for (index in seq_len(nrow(rules))) {
     field <- rules$match_field[[index]]
     if (!field %in% names(attributes)) next
     hit <- !is.na(attributes[[field]]) & attributes[[field]] == rules$match_value[[index]]
     if (!any(hit)) next
-    default_matched[hit] <- TRUE
-    default_classes[hit] <- paste(default_classes[hit], rules$classes[[index]], sep = ";")
-    default_coef[hit] <- pmax(default_coef[hit], rules$coef_biotope[[index]])
+    matched[hit] <- TRUE
+    for (class_id in charte_split_classes(rules$classes[[index]])) {
+      column <- charte_land_use_columns$column[charte_land_use_columns$class_id == class_id]
+      values[[column]][hit] <- 1L
+    }
+    coef[hit] <- pmax(coef[hit], rules$coef_biotope[[index]])
   }
-  default_classes <- vapply(default_classes, function(value) {
-    paste(unique(charte_split_classes(value)), collapse = ";")
-  }, character(1), USE.NAMES = FALSE)
+  values[[charte_coef_column]] <- coef
+  list(values = values, matched = matched)
+}
 
-  qgis_classes <- charte_text_column(land_use, "charte_classes")
-  qgis_coef <- charte_number_column(land_use, "coef_biotope")
-  has_qgis_classes <- !is.na(qgis_classes)
-  qgis_classes[has_qgis_classes & tolower(qgis_classes) == "aucune"] <- ""
-  classes <- ifelse(has_qgis_classes, qgis_classes, default_classes)
-  coef <- ifelse(is.na(qgis_coef), default_coef, qgis_coef)
-  unknown <- vapply(classes, function(value) {
-    paste(setdiff(charte_split_classes(value), names(charte_class_labels)), collapse = ";")
-  }, character(1), USE.NAMES = FALSE)
-
-  land_use$charte_classes_resolved <- classes
-  land_use$coef_biotope_resolved <- coef
+# Classement charte de chaque entité : la valeur des colonnes ch_* de
+# spatial.gpkg, ou la règle par défaut lorsque la cellule est vide.
+classify_charte_land_use <- function(land_use, rules = charte_default_land_use_rules()) {
+  defaults <- charte_default_land_use_values(land_use, rules)
+  columns <- c(charte_land_use_columns$column, charte_coef_column)
+  empty <- rep(0L, nrow(land_use))
+  for (column in columns) {
+    stored <- charte_number_column(land_use, column)
+    empty <- empty + is.na(stored)
+    land_use[[paste0(column, "_resolved")]] <- ifelse(
+      is.na(stored), defaults$values[[column]], stored
+    )
+  }
+  flags <- sf::st_drop_geometry(land_use)[paste0(charte_land_use_columns$column, "_resolved")]
+  land_use$charte_classes_resolved <- apply(flags == 1, 1, function(row) {
+    paste(charte_land_use_columns$class_id[row], collapse = ";")
+  })
+  if (!nrow(land_use)) land_use$charte_classes_resolved <- character()
+  land_use$coef_biotope_resolved <- land_use[[paste0(charte_coef_column, "_resolved")]]
+  land_use$charte_empty_values <- empty
+  land_use$charte_default_matched <- defaults$matched
   land_use$charte_rule_source <- ifelse(
-    has_qgis_classes | !is.na(qgis_coef), "QGIS",
-    ifelse(default_matched, "Règle par défaut", "Non classé")
+    empty == 0L, "spatial.gpkg",
+    ifelse(empty == length(columns), "Règle par défaut", "spatial.gpkg incomplet")
   )
-  land_use$charte_unknown_classes <- unknown
   land_use$area_sqm <- as.numeric(sf::st_area(land_use))
   land_use
 }
 
+charte_class_column <- function(class_id) {
+  charte_land_use_columns$column[charte_land_use_columns$class_id == class_id]
+}
+
 charte_has_class <- function(land_use, class_id) {
-  vapply(land_use$charte_classes_resolved, function(value) {
-    class_id %in% charte_split_classes(value)
-  }, logical(1), USE.NAMES = FALSE)
+  land_use[[paste0(charte_class_column(class_id), "_resolved")]] == 1
+}
+
+# Libellé court des colonnes à 1 d'une entité, pour la carte et les listes.
+charte_land_use_code_label <- function(land_use) {
+  flags <- sf::st_drop_geometry(land_use)[paste0(charte_land_use_columns$column, "_resolved")]
+  codes <- apply(flags == 1, 1, function(row) {
+    if (!any(row)) "aucune classe" else paste(charte_land_use_columns$column[row], collapse = ", ")
+  })
+  paste0(codes, " ; ", charte_coef_column, " = ", format_number_fr(land_use$coef_biotope_resolved, 2))
+}
+
+# Ajoute les colonnes charte à spatial.gpkg (land_use, road_footprints) et
+# remplit uniquement les cellules vides avec la règle par défaut. Les autres
+# colonnes, les fid et les géométries ne sont pas modifiés.
+write_charte_columns <- function(path, rules = charte_default_land_use_rules(),
+                                 profiles = charte_default_soft_mobility_profiles()) {
+  layers <- read_charte_spatial_layers(path)
+  defaults <- charte_default_land_use_values(layers$land_use, rules)$values
+  footprints <- layers$road_footprints
+  soft <- as.integer(!is.na(footprints$Descr) & footprints$Descr %in% profiles)
+  plan <- list(
+    land_use = list(fid = layers$land_use$fid, values = defaults),
+    road_footprints = list(
+      fid = footprints$fid,
+      values = stats::setNames(data.frame(soft), charte_soft_mobility_column)
+    )
+  )
+  # Les écritures passent par GDAL (ogrinfo -sql) : les déclencheurs de l'index
+  # spatial du GeoPackage appellent des fonctions SQL fournies par GDAL.
+  run_sql <- function(sql) {
+    output <- suppressWarnings(system2(
+      "ogrinfo", c("-q", shQuote(path), "-sql", shQuote(sql)), stdout = TRUE, stderr = TRUE
+    ))
+    status <- attr(output, "status")
+    if ((!is.null(status) && status != 0) || any(grepl("ERROR", output))) {
+      stop("Écriture impossible dans spatial.gpkg : ", paste(output, collapse = " "))
+    }
+  }
+  quote <- function(name) paste0('"', gsub('"', '""', name), '"')
+  connection <- DBI::dbConnect(RSQLite::SQLite(), path, flags = RSQLite::SQLITE_RO)
+  on.exit(DBI::dbDisconnect(connection), add = TRUE)
+  summary <- list()
+  for (table in names(plan)) {
+    info <- DBI::dbGetQuery(connection, paste0("PRAGMA table_info(", quote(table), ")"))
+    fid_column <- info$name[info$pk == 1]
+    if (length(fid_column) != 1) stop("Identifiant fid introuvable dans la table ", table, ".")
+    for (column in names(plan[[table]]$values)) {
+      created <- !column %in% info$name
+      if (created) {
+        type <- if (column == charte_coef_column) "REAL" else "INTEGER"
+        run_sql(paste0("ALTER TABLE ", quote(table), " ADD COLUMN ", quote(column), " ", type))
+      }
+      filled <- DBI::dbGetQuery(connection, paste0(
+        "SELECT count(*) AS n FROM ", quote(table), " WHERE ", quote(column), " IS NULL"
+      ))$n
+      if (filled > 0) {
+        values <- plan[[table]]$values[[column]]
+        cases <- paste0("WHEN ", plan[[table]]$fid, " THEN ", format(values, scientific = FALSE, trim = TRUE),
+                        collapse = " ")
+        run_sql(paste0(
+          "UPDATE ", quote(table), " SET ", quote(column), " = CASE ", quote(fid_column), " ",
+          cases, " END WHERE ", quote(column), " IS NULL"
+        ))
+      }
+      summary[[length(summary) + 1L]] <- data.frame(
+        table = table, column = column, created = created, filled = filled,
+        stringsAsFactors = FALSE
+      )
+    }
+  }
+  do.call(rbind, summary)
 }
 
 charte_polygonize_lines <- function(layer) {
@@ -272,17 +377,17 @@ charte_reference_geometry <- function(layers, reference_area) {
   )
 }
 
-charte_hazard_features <- function(layers, hazard_source) {
-  switch(
-    hazard_source,
-    servitude_climatique = {
-      quartiers <- layers$quartiers
-      if (is.null(quartiers)) return(list(layer = "quartiers", data = NULL))
-      code <- as.character(quartiers$code)
-      list(layer = "quartiers", data = quartiers[!is.na(code) & grepl("^SC", code), ])
-    },
-    flood_areas = list(layer = "flood_areas", data = layers$flood_areas),
-    stop("Source d'aléa inconnue : ", hazard_source, ".")
+charte_hazard_features <- function(layers, flood_types = charte_hazard_flood_types) {
+  flood_areas <- layers$flood_areas
+  if (is.null(flood_areas)) {
+    return(list(layer = "flood_areas", data = NULL, missing_types = flood_types))
+  }
+  type <- as.character(flood_areas$flood_type)
+  keep <- !is.na(type) & type %in% flood_types
+  list(
+    layer = "flood_areas",
+    data = flood_areas[keep, ],
+    missing_types = setdiff(flood_types, unique(type[keep]))
   )
 }
 
@@ -297,16 +402,17 @@ charte_soft_road_footprints <- function(road_footprints,
                                         profiles = charte_default_soft_mobility_profiles()) {
   description <- as.character(road_footprints$Descr)
   default <- !is.na(description) & description %in% profiles
-  qgis <- charte_logical_column(road_footprints, "modes_doux")
-  road_footprints$modes_doux_resolved <- ifelse(is.na(qgis), default, qgis)
-  road_footprints$charte_rule_source <- ifelse(is.na(qgis), "Règle par défaut", "QGIS")
+  stored <- charte_number_column(road_footprints, charte_soft_mobility_column)
+  road_footprints$modes_doux_resolved <- ifelse(is.na(stored), default, stored == 1)
+  road_footprints$charte_rule_source <- ifelse(is.na(stored), "Règle par défaut", "spatial.gpkg")
   road_footprints
 }
 
 charte_input_row <- function(input_id, label, indicators, layer, rule, n_features,
-                             value, unit, status = "Calculé", note = "") {
+                             value, unit, status = "Calculé", note = "",
+                             kind = "spatial") {
   data.frame(
-    input_id = input_id, label = label, indicators = indicators, layer = layer,
+    input_id = input_id, label = label, kind = kind, indicators = indicators, layer = layer,
     rule = rule, n_features = as.integer(n_features), value = as.numeric(value),
     unit = unit, status = status, note = note, stringsAsFactors = FALSE
   )
@@ -323,6 +429,7 @@ charte_feature_ids <- function(layer_name, layer, keep = rep(TRUE, nrow(layer)))
 # read_charte_spatial_layers() ; `canopy` de charte_canopy_geometry().
 compute_charte_spatial_inputs <- function(layers,
                                           canopy = sf::st_sfc(crs = charte_metric_crs),
+                                          population = NULL,
                                           parameters = charte_default_parameters(),
                                           land_use_rules = charte_default_land_use_rules()) {
   inputs <- list()
@@ -334,9 +441,7 @@ compute_charte_spatial_inputs <- function(layers,
     geometries[[row$input_id]] <<- geometry
   }
 
-  reference_label <- names(charte_reference_area_choices)[
-    charte_reference_area_choices == parameters$reference_area
-  ]
+  reference_label <- charte_reference_area_labels[[parameters$reference_area]]
   reference <- charte_reference_geometry(layers, parameters$reference_area)
   reference_area <- charte_area(reference)
   reference_layer <- layers[[parameters$reference_area]]
@@ -364,7 +469,7 @@ compute_charte_spatial_inputs <- function(layers,
     add(
       charte_input_row(
         input_id, label, indicators, "land_use",
-        paste0("Classe charte « ", charte_class_labels[[class_id]], " »"),
+        paste0(charte_class_column(class_id), " = 1"),
         sum(keep), charte_area(geometry), "m²",
         if (any(keep)) "Calculé" else "Aucune entité classée", note
       ),
@@ -375,7 +480,7 @@ compute_charte_spatial_inputs <- function(layers,
   }
 
   # Trame bleue : aléa fort et usages compatibles.
-  hazard <- charte_hazard_features(layers, parameters$hazard_source)
+  hazard <- charte_hazard_features(layers, parameters$hazard_flood_types)
   hazard_geometry <- if (is.null(hazard$data)) {
     sf::st_sfc(crs = charte_metric_crs)
   } else {
@@ -384,11 +489,22 @@ compute_charte_spatial_inputs <- function(layers,
   add(
     charte_input_row(
       "alea_fort", "Zone d'aléa fort", "TB-1, RES-3", hazard$layer,
-      names(charte_hazard_choices)[charte_hazard_choices == parameters$hazard_source],
+      paste0("flood_type ∈ {", paste(parameters$hazard_flood_types, collapse = ", "), "}"),
       if (is.null(hazard$data)) 0 else nrow(hazard$data),
       charte_area(hazard_geometry), "m²",
-      if (length(hazard_geometry)) "À vérifier" else "Aucune entité",
-      "Source de l'aléa fort en attente de décision (servitudes ou zones inondables)."
+      if (!length(hazard_geometry)) "Aucune entité" else if (length(hazard$missing_types)) {
+        "Incomplet"
+      } else {
+        "Calculé"
+      },
+      if (length(hazard$missing_types)) {
+        paste0(
+          "Type(s) absent(s) de flood_areas : ", paste(hazard$missing_types, collapse = ", "),
+          ". Les ajouter dans QGIS (attribut flood_type) puis relire spatial.gpkg."
+        )
+      } else {
+        ""
+      }
     ),
     charte_feature_ids(hazard$layer, hazard$data),
     hazard_geometry
@@ -400,7 +516,7 @@ compute_charte_spatial_inputs <- function(layers,
   add(
     charte_input_row(
       "alea_fort_valorise", "Aléa fort en usage compatible", "TB-1", "land_use",
-      "Classe « Usage compatible en aléa fort » ∩ zone d'aléa fort",
+      "ch_alea_compatible = 1, découpé par la zone d'aléa fort",
       sum(compatible), charte_area(hazard_valorised), "m²"
     ),
     charte_feature_ids("land_use", land_use, compatible),
@@ -411,7 +527,7 @@ compute_charte_spatial_inputs <- function(layers,
   add(
     charte_input_row(
       "surface_ecoamenagee", "Surface éco-aménagée pondérée", "TB-2", "land_use",
-      "Σ surface dans la référence × coefficient de biotope",
+      "Σ surface dans le titre foncier × ch_coef_biotope (entités où ch_coef_biotope > 0)",
       sum(biotope),
       sum(land_use$area_in_reference_sqm * land_use$coef_biotope_resolved), "m²",
       note = "Les parcelles bâties ont un coefficient nul par défaut (pleine terre non renseignée)."
@@ -443,19 +559,42 @@ compute_charte_spatial_inputs <- function(layers,
     "surface_habitat", "Surface urbanisée d'habitat", "VC-1a, VC-1b", "habitat"
   )
   quartiers <- layers$quartiers
-  population <- if (is.null(quartiers)) NA_real_ else {
+  quartier_population <- if (is.null(quartiers)) NA_real_ else {
     sum(suppressWarnings(as.numeric(quartiers$population)), na.rm = TRUE)
   }
-  add(
-    charte_input_row(
-      "population", "Population des quartiers", "TV-1, TV-3, VC-1b", "quartiers",
-      "Σ attribut population", if (is.null(quartiers)) 0 else nrow(quartiers),
-      population, "hab", "À vérifier",
-      "Provisoire : la population du modèle (logements × taille de ménage) reste à arbitrer."
-    ),
-    charte_feature_ids("quartiers", quartiers),
-    NULL
+  control_note <- paste0(
+    "Contrôle : attribut population des quartiers = ",
+    format_number_fr(quartier_population, 0), " hab."
   )
+  if (is.null(population)) {
+    add(
+      charte_input_row(
+        "population", "Population des quartiers", "TV-1, TV-3, VC-1b", "quartiers",
+        "Σ attribut population", if (is.null(quartiers)) 0 else nrow(quartiers),
+        quartier_population, "hab", "À vérifier",
+        "Population du programme non disponible : attribut des quartiers utilisé.",
+        kind = "attribut"
+      ),
+      charte_feature_ids("quartiers", quartiers),
+      NULL
+    )
+  } else {
+    add(
+      charte_input_row(
+        "population", "Population du programme", "TV-1, TV-3, VC-1b", "programme",
+        "Σ quantité × personnes par unité (hypothèses produits)",
+        NA_integer_, population$total, "hab",
+        if (population$complete) "Calculé" else "Incomplet",
+        if (population$complete) control_note else paste0(
+          "Personnes par unité non renseignées pour : ",
+          paste(population$missing_products, collapse = ", "), ". ", control_note
+        ),
+        kind = "programme"
+      ),
+      NULL,
+      NULL
+    )
+  }
 
   distance <- parameters$service_distance_m
   service_classes <- c("service_ecole", "service_sante", "service_commerce")
@@ -536,7 +675,7 @@ compute_charte_spatial_inputs <- function(layers,
       sum(soft_footprints) + sum(soft_highway),
       if (length(soft_axes)) sum(as.numeric(sf::st_length(soft_axes))) else 0, "m",
       "À vérifier",
-      "Attribut QGIS `modes_doux` (0/1) sur road_footprints pour corriger un profil."
+      "Colonne ch_modes_doux (0/1) de road_footprints, éditable dans QGIS."
     ),
     rbind(
       charte_feature_ids("road_footprints", road_footprints, soft_footprints),
@@ -558,7 +697,7 @@ compute_charte_spatial_inputs <- function(layers,
     charte_input_row(
       "espaces_publics_pietons", "Espaces publics piétons", "CV-1",
       "land_use, road_footprints",
-      "Classe « Espace public piéton » + emprises de voirie modes doux",
+      "ch_pieton = 1 (land_use) + ch_modes_doux = 1 (road_footprints)",
       sum(pedestrian_land_use) + sum(soft_footprints), charte_area(pedestrian), "m²"
     ),
     rbind(
@@ -610,7 +749,7 @@ compute_charte_spatial_inputs <- function(layers,
   add(
     charte_input_row(
       "equipements_sensibles_bruit", "Équipements sensibles en zone de bruit", "CV-4",
-      "land_use", "Classe « Équipement sensible » touchant la zone de bruit",
+      "land_use", "ch_sensible = 1, touchant la zone de bruit",
       sum(sensitive_noise), sum(sensitive_noise), "entités",
       note = paste0(sum(sensitive), " équipements sensibles au total.")
     ),
@@ -634,7 +773,7 @@ compute_charte_spatial_inputs <- function(layers,
   # Résilience : réserve foncière, exposition du bâti à l'aléa fort.
   land_use_input(
     "reserve_fonciere", "Réserve foncière", "RES-1a", "reserve_fonciere",
-    "Aucune règle par défaut : renseigner `charte_classes` = reserve_fonciere dans QGIS."
+    "Aucune réserve par défaut : mettre ch_reserve = 1 dans QGIS sur les entités concernées."
   )
   residential <- if (is.null(buildings)) logical() else charte_residential_building(buildings)
   exposed <- if (is.null(buildings) || !length(hazard_geometry)) {
@@ -646,7 +785,7 @@ compute_charte_spatial_inputs <- function(layers,
     charte_input_row(
       "batiments_habitat", "Bâtiments d'habitation", "RES-3", "buildings",
       "Produits RM, RC, RV, RT (hors RDC commercial)", sum(residential),
-      sum(residential), "bâtiments"
+      sum(residential), "bâtiments", kind = "attribut"
     ),
     charte_feature_ids("buildings", buildings, residential),
     NULL
@@ -664,7 +803,7 @@ compute_charte_spatial_inputs <- function(layers,
   add(
     charte_input_row(
       "equipements_sensibles_alea", "Équipements sensibles en aléa fort", "RES-3",
-      "land_use", "Classe « Équipement sensible » touchant la zone d'aléa fort",
+      "land_use", "ch_sensible = 1, touchant la zone d'aléa fort",
       sum(sensitive_hazard), sum(sensitive_hazard), "entités"
     ),
     charte_feature_ids("land_use", land_use, sensitive_hazard),
@@ -739,20 +878,21 @@ charte_spatial_controls <- function(layers, land_use) {
       )
     }
   }
-  unclassified <- land_use$charte_rule_source == "Non classé"
-  if (any(unclassified)) {
+  empty <- land_use$charte_empty_values > 0
+  if (any(empty)) {
     rows[[length(rows) + 1L]] <- data.frame(
-      control = "Occupation du sol sans classe charte", layer = "land_use",
-      fid = as.integer(land_use$fid[unclassified]),
-      detail = paste0("Layer : ", land_use$Layer[unclassified]), stringsAsFactors = FALSE
+      control = "Colonnes charte vides (règle par défaut appliquée)", layer = "land_use",
+      fid = as.integer(land_use$fid[empty]),
+      detail = paste0("Layer : ", land_use$Layer[empty], " — ", land_use$charte_empty_values[empty], " valeur(s) vide(s)"),
+      stringsAsFactors = FALSE
     )
   }
-  unknown <- nzchar(land_use$charte_unknown_classes)
-  if (any(unknown)) {
+  unclassified <- land_use$charte_classes_resolved == "" & land_use$coef_biotope_resolved == 0
+  if (any(unclassified)) {
     rows[[length(rows) + 1L]] <- data.frame(
-      control = "Classe charte inconnue saisie dans QGIS", layer = "land_use",
-      fid = as.integer(land_use$fid[unknown]),
-      detail = land_use$charte_unknown_classes[unknown], stringsAsFactors = FALSE
+      control = "Occupation du sol sans classe charte (toutes les colonnes ch_* à 0)",
+      layer = "land_use", fid = as.integer(land_use$fid[unclassified]),
+      detail = paste0("Layer : ", land_use$Layer[unclassified]), stringsAsFactors = FALSE
     )
   }
   overlaps <- sf::st_overlaps(land_use)
@@ -790,8 +930,9 @@ charte_land_use_rule_summary <- function(land_use) {
     data.frame(
       Layer = attributes$Layer[[first]],
       classes = paste(
-        charte_class_labels[charte_split_classes(attributes$charte_classes_resolved[[first]])],
-        collapse = " ; "
+        vapply(charte_split_classes(attributes$charte_classes_resolved[[first]]),
+               charte_class_column, character(1)),
+        collapse = ", "
       ),
       coef_biotope = attributes$coef_biotope_resolved[[first]],
       source = attributes$charte_rule_source[[first]],
@@ -822,8 +963,11 @@ charte_input_feature_table <- function(result, layers, input_id) {
     attributes <- sf::st_drop_geometry(layer)
     description <- switch(
       name,
-      land_use = paste0(attributes$Layer, " — ", attributes$zone),
-      road_footprints = as.character(attributes$Descr),
+      land_use = paste0(attributes$Layer, " — ", charte_land_use_code_label(layer)),
+      road_footprints = paste0(
+        attributes$Descr, " — ", charte_soft_mobility_column, " = ",
+        as.integer(attributes$modes_doux_resolved)
+      ),
       roads = paste0(attributes$highway, ifelse(is.na(attributes$name), "", paste0(" — ", attributes$name))),
       buildings = paste0(attributes$building_id, " — ", attributes$product_id),
       quartiers = paste0(attributes$code, " — population ", attributes$population),

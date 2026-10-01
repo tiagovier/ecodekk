@@ -33,7 +33,7 @@ ROOT = Path(os.environ.get("ECODEKK_ROOT", HERE.parents[1]))
 UMEP = ROOT / "data/scenarios/scenario_01/exports/umep"
 SRC = UMEP / "ombrage_arbres"
 OUT = UMEP / "vent_confort"
-DAYS = ("chaud_saison_seche", "saison_pluies", "frais_saison_seche")
+DAYS = ("chaud_saison_seche", "chaud_typique", "saison_pluies", "frais_saison_seche")
 VEGETATION = ("trans3", "sans_arbres")
 PERSON = {"AGE": 35, "ACTIVITY": 80, "CLO": 0.9, "WEIGHT": 75, "HEIGHT": 180, "SEX": 0}
 INDICES = {"UTCI": 1, "PET": 0}
@@ -80,12 +80,12 @@ def main() -> int:
               "resolution_m": int(args.res), "personne": PERSON, "indices": list(INDICES), "runs": {}}
     for day in DAYS:
         wind = OUT / "urock" / day / "z1_5" / f"{day}WS.tif"
-        if not wind.exists():
-            raise SystemExit(f"Vent URock absent : {wind}")
         for veg in VEGETATION:
             name = f"{day}_{veg}"
             if args.only and name != args.only:
                 continue
+            if not wind.exists():
+                raise SystemExit(f"Vent URock absent : {wind}")
             solweig = SRC / f"solweig{tag}" / name
             tmrt = sorted(solweig.glob("Tmrt_*_1400D.tif"))
             if len(tmrt) != 1 or not (solweig / "metforcing.txt").exists():

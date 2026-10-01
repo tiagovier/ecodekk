@@ -21,7 +21,8 @@ import yaml
 HERE = Path(__file__).resolve().parent
 UMEP = HERE.parents[1] / "data/scenarios/scenario_01/exports/umep"
 CSV = UMEP / "ombrage_arbres/met/era5_2015_2024/14.769988N17.009024W-2015-sfc.csv"
-DAYS = {"chaud_saison_seche": "2017-04-14", "saison_pluies": "2017-09-21", "frais_saison_seche": "2018-01-17"}
+DAYS = {"chaud_saison_seche": "2017-04-14", "chaud_typique": "2022-05-11", "saison_pluies": "2017-09-21",
+        "frais_saison_seche": "2018-01-17"}
 SEASONS = {"dominant_saison_seche": [11, 12, 1, 2, 3, 4, 5], "dominant_saison_pluies": [6, 7, 8, 9, 10]}
 SECTORS = 16
 

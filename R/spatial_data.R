@@ -629,6 +629,13 @@ ensure_product_building_assumptions <- function(products) {
   if (!"units_per_level" %in% names(products)) {
     products$units_per_level <- defaults$units_per_level[index]
   }
+  if (!"persons_per_unit" %in% names(products)) {
+    products$persons_per_unit <- initial_products()$persons_per_unit[index]
+  }
+  products$persons_per_unit <- suppressWarnings(as.numeric(products$persons_per_unit))
+  if (any(!is.na(products$persons_per_unit) & products$persons_per_unit < 0)) {
+    stop("Le nombre de personnes par unité ne peut pas être négatif.")
+  }
   products$default_building_levels <- suppressWarnings(
     as.numeric(products$default_building_levels)
   )

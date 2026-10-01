@@ -31,7 +31,9 @@ import solweig_display as sd  # noqa: E402  (lecture seule : fonctions utilitair
 ROOT = Path(os.environ.get("ECODEKK_ROOT", HERE.parents[1]))
 UMEP = ROOT / "data/scenarios/scenario_01/exports/umep"
 SRC, V = UMEP / "ombrage_arbres", UMEP / "vent_confort"
-DAYS = {"chaud_saison_seche": "Journée chaude de saison sèche", "saison_pluies": "Journée de saison des pluies",
+DAYS = {"chaud_saison_seche": "Journée chaude extrême de saison sèche",
+        "chaud_typique": "Journée chaude typique de saison sèche",
+        "saison_pluies": "Journée de saison des pluies",
         "frais_saison_seche": "Journée fraîche de saison sèche"}
 DOMINANT = {"dominant_saison_seche": "Vent dominant de saison sèche (nov.–mai)",
             "dominant_saison_pluies": "Vent dominant de saison des pluies (juin–oct.)"}

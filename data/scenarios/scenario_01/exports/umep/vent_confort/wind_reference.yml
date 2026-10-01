@@ -14,6 +14,15 @@ runs:
     vitesse_10m_m_s: 4.94
     direction_deg: 62.6
     vegetation: saison_seche
+  chaud_typique:
+    type: journee
+    date: '2022-05-11'
+    heure_utc: '14:00'
+    vitesse_10m_m_s: 3.43
+    direction_deg: 322.7
+    vegetation: saison_seche
+    ajoute: 2026-10-01, journée chaude typique approuvée par l'utilisateur ; même
+      méthode (u10, v10 ERA5 à 14 h)
   saison_pluies:
     type: journee
     date: '2017-09-21'

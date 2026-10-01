@@ -33,45 +33,55 @@ charte_inputs_tab <- function() {
       ),
       p(
         class = "help-text",
-        "Pour corriger un classement dans QGIS : attribut texte charte_classes (classes séparées par « ; », ou « aucune ») et attribut numérique coef_biotope sur land_use ; attribut modes_doux (0/1) sur road_footprints. Enregistrer dans QGIS puis utiliser « Relire spatial.gpkg »."
+        "Le classement est porté par des colonnes de spatial.gpkg (onglet « Codage des colonnes ») : sur land_use, une colonne 0/1 par classe (ch_*) et ch_coef_biotope ; sur road_footprints, ch_modes_doux. Les modifier dans la table attributaire de QGIS, enregistrer, puis utiliser « Relire spatial.gpkg »."
       ),
-      fluidRow(
-        column(
-          3,
-          selectInput(
-            "charte_reference_area", "Surface de référence",
-            choices = charte_reference_area_choices
-          )
-        ),
-        column(
-          4,
-          selectInput(
-            "charte_hazard_source", "Zone d'aléa fort",
-            choices = charte_hazard_choices
-          )
-        ),
-        column(
-          5,
-          div(
-            style = "margin-top: 25px;",
-            actionButton("charte_reload", "Relire spatial.gpkg"),
-            downloadButton("charte_download_inputs", "Intrants (CSV)")
-          )
-        )
+      p(
+        class = "help-text",
+        "Surface de référence : titre foncier. Zone d'aléa fort : zones inondables de flood_areas (lit mineur, lit moyen, rétention 50 cm, cuvettes de rétention)."
+      ),
+      div(
+        style = "margin-bottom: 10px;",
+        actionButton("charte_reload", "Relire spatial.gpkg"),
+        downloadButton("charte_download_inputs", "Intrants (CSV)")
       ),
       uiOutput("charte_status"),
       tabsetPanel(
         id = "charte_inputs_view",
         tabPanel(
           "Intrants et carte",
-          DTOutput("charte_inputs_table"),
-          h3(textOutput("charte_selected_title")),
-          uiOutput("charte_selected_note"),
-          leafletOutput("charte_inputs_map", height = "560px"),
+          fluidRow(
+            column(
+              4,
+              radioButtons(
+                "charte_inputs_kind", "Afficher",
+                choices = c(
+                  "Tous les intrants" = "tous",
+                  "Intrants spatiaux" = "spatial",
+                  "Programme et attributs" = "non_spatial"
+                ),
+                inline = TRUE
+              ),
+              DTOutput("charte_inputs_table")
+            ),
+            column(
+              8,
+              h3(textOutput("charte_selected_title")),
+              uiOutput("charte_selected_note"),
+              leafletOutput("charte_inputs_map", height = "600px")
+            )
+          ),
           h3("Entités de l'intrant sélectionné"),
           p(class = "help-text", "Cliquer sur une ligne pour centrer la carte sur l'entité."),
           downloadButton("charte_download_features", "Entités (CSV)"),
           DTOutput("charte_features_table")
+        ),
+        tabPanel(
+          "Codage des colonnes",
+          p(
+            class = "help-text",
+            "Colonnes à éditer dans QGIS. 1 = l'entité appartient à la classe, 0 = non. Une cellule vide prend la règle par défaut et est signalée dans les contrôles."
+          ),
+          DTOutput("charte_coding_table")
         ),
         tabPanel(
           "Aperçu des indicateurs",
@@ -102,7 +112,7 @@ charte_inputs_tab <- function() {
   )
 }
 
-charte_inputs_server <- function(input, output, session, scenario) {
+charte_inputs_server <- function(input, output, session, scenario, population = NULL) {
   reload_count <- reactiveVal(0L)
   observeEvent(input$charte_reload, reload_count(reload_count() + 1L))
 
@@ -130,10 +140,9 @@ charte_inputs_server <- function(input, output, session, scenario) {
   result <- reactive({
     data <- snapshot()
     parameters <- charte_default_parameters()
-    parameters$reference_area <- input$charte_reference_area
-    parameters$hazard_source <- input$charte_hazard_source
+    program_population <- if (is.null(population)) NULL else population()
     withProgress(message = "Calcul des intrants de la charte", value = 0.5, {
-      compute_charte_spatial_inputs(data$layers, data$canopy, parameters)
+      compute_charte_spatial_inputs(data$layers, data$canopy, program_population, parameters)
     })
   })
 
@@ -159,35 +168,37 @@ charte_inputs_server <- function(input, output, session, scenario) {
     )
   })
 
-  inputs_display <- reactive({
+  visible_inputs <- reactive({
     inputs <- result()$inputs
-    data.frame(
-      Intrant = inputs$label,
-      Indicateurs = inputs$indicators,
-      Couche = inputs$layer,
-      `Règle de sélection` = inputs$rule,
-      Entités = ifelse(is.na(inputs$n_features), "", as.character(inputs$n_features)),
-      Valeur = charte_format_value(inputs$value, inputs$unit),
-      Unité = inputs$unit,
-      ha = ifelse(inputs$unit == "m²", format_number_fr(inputs$value / 1e4, 2), ""),
-      Statut = inputs$status,
-      check.names = FALSE
-    )
+    kind <- input$charte_inputs_kind
+    if (is.null(kind) || kind == "tous") return(inputs)
+    keep <- if (kind == "spatial") inputs$kind == "spatial" else inputs$kind != "spatial"
+    inputs[keep, , drop = FALSE]
   })
 
   output$charte_inputs_table <- renderDT({
+    inputs <- visible_inputs()
+    value <- paste(charte_format_value(inputs$value, inputs$unit), inputs$unit)
+    hectares <- inputs$unit == "m²" & !is.na(inputs$value)
+    value[hectares] <- paste0(
+      value[hectares], " (", format_number_fr(inputs$value[hectares] / 1e4, 2), " ha)"
+    )
     datatable(
-      inputs_display(),
+      data.frame(Intrant = inputs$label, Valeur = value, check.names = FALSE),
       rownames = FALSE,
-      selection = list(mode = "single", selected = 1L),
-      options = list(dom = "t", paging = FALSE, scrollX = TRUE)
+      selection = list(mode = "single", selected = if (nrow(inputs)) 1L else NULL),
+      options = list(
+        dom = "ft", paging = FALSE, scrollY = "560px", scrollCollapse = TRUE,
+        language = list(search = "Rechercher :", zeroRecords = "Aucun intrant")
+      )
     )
   })
 
   selected_input <- reactive({
-    inputs <- result()$inputs
+    inputs <- visible_inputs()
+    req(nrow(inputs) > 0)
     row <- input$charte_inputs_table_rows_selected
-    if (!length(row)) row <- 1L
+    if (!length(row) || row[[1]] > nrow(inputs)) row <- 1L
     inputs[row[[1]], ]
   })
 
@@ -195,8 +206,23 @@ charte_inputs_server <- function(input, output, session, scenario) {
 
   output$charte_selected_note <- renderUI({
     row <- selected_input()
-    if (!nzchar(row$note)) return(NULL)
-    p(class = "help-text", row$note)
+    entities <- if (is.na(row$n_features)) "" else paste0(" · Entités : ", row$n_features)
+    tagList(
+      p(
+        class = "help-text",
+        paste0("Couche : ", row$layer, " · Règle : ", row$rule, entities, " · Statut : ", row$status)
+      ),
+      if (nzchar(row$note)) {
+        div(
+          class = if (row$status %in% c("Incomplet", "Aucune entité", "Aucune entité classée")) {
+            "alert alert-warning"
+          } else {
+            "help-text"
+          },
+          row$note
+        )
+      }
+    )
   })
 
   feature_table <- reactive({
@@ -240,9 +266,12 @@ charte_inputs_server <- function(input, output, session, scenario) {
       selected <- layer$fid %in% ids$fid[ids$layer == name]
       label <- paste0(style$label, " — fid ", layer$fid)
       if (name == "land_use") {
-        label <- paste0(label, " — ", layer$Layer, " — ", layer$charte_rule_source)
+        label <- paste0(label, " — ", layer$Layer, " — ", charte_land_use_code_label(layer))
       } else if (name == "road_footprints") {
-        label <- paste0(label, " — ", layer$Descr)
+        label <- paste0(
+          label, " — ", layer$Descr, " — ", charte_soft_mobility_column, " = ",
+          as.integer(layer$modes_doux_resolved)
+        )
       } else if (name == "roads") {
         label <- paste0(label, " — ", layer$highway)
       } else if (name == "buildings") {
@@ -361,13 +390,49 @@ charte_inputs_server <- function(input, output, session, scenario) {
     )
   })
 
+  output$charte_coding_table <- renderDT({
+    current <- result()
+    land_use <- current$land_use
+    footprints <- current$road_footprints
+    count <- function(column) sum(land_use[[paste0(column, "_resolved")]] == 1)
+    columns <- charte_land_use_columns
+    datatable(
+      data.frame(
+        Colonne = c(columns$column, charte_coef_column, charte_soft_mobility_column),
+        Couche = c(rep("land_use", nrow(columns) + 1L), "road_footprints"),
+        Signification = c(
+          columns$meaning,
+          "Coefficient de biotope : 1 = pleine terre, 0,15 à 0,5 = perméable, 0 = imperméable",
+          "Cheminement doux sûr et continu (piéton ou cyclable)"
+        ),
+        Valeurs = c(rep("0 ou 1", nrow(columns)), "de 0 à 1", "0 ou 1"),
+        Indicateurs = c(columns$used_by, "TB-2", "VC-4, CV-1"),
+        `Entités à 1 (ou > 0)` = c(
+          vapply(columns$column, count, numeric(1)),
+          sum(land_use$coef_biotope_resolved > 0),
+          sum(footprints$modes_doux_resolved)
+        ),
+        `Dans spatial.gpkg` = ifelse(
+          c(
+            c(columns$column, charte_coef_column) %in% names(land_use),
+            charte_soft_mobility_column %in% names(footprints)
+          ),
+          "Oui", "Non (règle par défaut)"
+        ),
+        check.names = FALSE
+      ),
+      rownames = FALSE,
+      options = list(dom = "t", paging = FALSE, scrollX = TRUE)
+    )
+  })
+
   output$charte_land_use_rules_table <- renderDT({
     summary <- charte_land_use_rule_summary(result()$land_use)
     datatable(
       data.frame(
         Layer = summary$Layer,
-        `Classes charte` = summary$classes,
-        `Coef. biotope` = format_number_fr(summary$coef_biotope, 2),
+        `Colonnes à 1` = summary$classes,
+        ch_coef_biotope = format_number_fr(summary$coef_biotope, 2),
         Origine = summary$source,
         Entités = summary$n_features,
         `Surface (m²)` = format_number_fr(summary$area_sqm, 0),

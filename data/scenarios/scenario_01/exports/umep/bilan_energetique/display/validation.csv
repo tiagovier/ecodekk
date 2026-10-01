@@ -1,0 +1,5 @@
+scenario,periode,residu_moyen_w_m2,residu_abs_max_w_m2,bowen_median_jour,qe_moyen_jour_w_m2,qh_moyen_jour_w_m2,lai_moyen
+arbres,saison_seche,0.0,0.002,4.0,55.1,210.2,3.51
+arbres,saison_pluies,0.0,0.002,4.13,70.2,217.3,4.0
+sans_arbres,saison_seche,0.0,0.002,19.57,10.6,203.1,
+sans_arbres,saison_pluies,0.0,0.002,13.62,38.1,194.8,

@@ -255,6 +255,51 @@ calculate_development_balance <- function(
   )
 }
 
+# Population : chaque ligne de programmation (quartier × produit) porte
+# quantité × personnes par unité, puis les totaux sont agrégés par produit et
+# par quartier. Une ligne programmée sans ratio renseigné reste non calculée et
+# rend le total incomplet ; elle n'est jamais remplacée par une valeur plausible.
+calculate_program_population <- function(program_financials, products) {
+  ratio <- if ("persons_per_unit" %in% names(products)) {
+    suppressWarnings(as.numeric(products$persons_per_unit))
+  } else {
+    rep(NA_real_, nrow(products))
+  }
+  lines <- data.frame(
+    district_id = program_financials$district_id,
+    product_id = program_financials$product_id,
+    quantity = program_financials$quantity,
+    persons_per_unit = ratio[match(program_financials$product_id, products$product_id)],
+    stringsAsFactors = FALSE
+  )
+  lines$population <- ifelse(lines$quantity == 0, 0, lines$quantity * lines$persons_per_unit)
+  aggregate_population <- function(group_column) {
+    groups <- split(lines, lines[[group_column]])
+    result <- data.frame(
+      group = names(groups),
+      quantity = vapply(groups, function(rows) sum(rows$quantity), numeric(1)),
+      population = vapply(groups, function(rows) sum(rows$population, na.rm = TRUE), numeric(1)),
+      complete = vapply(groups, function(rows) !anyNA(rows$population), logical(1)),
+      stringsAsFactors = FALSE
+    )
+    names(result)[1] <- group_column
+    rownames(result) <- NULL
+    result
+  }
+  by_product <- aggregate_population("product_id")
+  by_product$persons_per_unit <- ratio[match(by_product$product_id, products$product_id)]
+  by_product$population[!by_product$complete] <- NA_real_
+  missing <- unique(lines$product_id[is.na(lines$population)])
+  list(
+    lines = lines,
+    by_product = by_product,
+    by_district = aggregate_population("district_id"),
+    total = sum(lines$population, na.rm = TRUE),
+    complete = !length(missing),
+    missing_products = missing
+  )
+}
+
 run_financial_model <- function(
     categories,
     products,
@@ -266,6 +311,7 @@ run_financial_model <- function(
   list(
     program = program_financials,
     products = calculate_product_summary(program_financials),
+    population = calculate_program_population(program_financials, products),
     districts = calculate_district_summary(program_financials),
     balance = calculate_development_balance(
       program_financials, districts, fixed_expenses, assumptions

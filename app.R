@@ -432,6 +432,10 @@ ui <- navbarPage(
         column(3, div(class = "kpi", "Coûts de construction HT", div(class = "kpi-value", textOutput("kpi_construction")))),
         column(3, div(class = "kpi", "Résultat d’opération HT", div(class = "kpi-value", textOutput("kpi_result"))))
       ),
+      fluidRow(
+        column(3, div(class = "kpi", "Population totale", div(class = "kpi-value", textOutput("kpi_population")))),
+        column(9, uiOutput("population_warning"))
+      ),
       h3("Inventaire cartographique recalculé"),
       fluidRow(
         column(3, div(class = "kpi", "Bâtiments inclus", div(class = "kpi-value", textOutput("kpi_map_buildings")))),
@@ -501,6 +505,7 @@ ui <- navbarPage(
           numericInput("product_default_levels", "Nombre de niveaux par défaut", 1, min = 1, step = 1),
           checkboxInput("product_uses_units_per_level", "Compter les logements par niveau", FALSE),
           numericInput("product_units_per_level", "Logements par niveau", 1, min = 1, step = 1),
+          numericInput("product_persons_per_unit", "Personnes par unité (vide = non renseigné)", NA, min = 0, step = 0.1),
           checkboxInput("product_ground_floor_commercial", "RDC commercial ou de services", FALSE),
           selectInput(
             "product_ground_floor_product", "Produit affecté au RDC",
@@ -510,6 +515,7 @@ ui <- navbarPage(
           actionButton("save_product", "Appliquer au produit", class = "btn-primary")
         )
       ),
+      uiOutput("product_population_warning"),
       fluidRow(
         column(12, DTOutput("products_table"))
       )
@@ -1100,6 +1106,7 @@ server <- function(input, output, session) {
     updateNumericInput(session, "product_default_levels", value = product$default_building_levels)
     updateCheckboxInput(session, "product_uses_units_per_level", value = product$uses_units_per_level)
     updateNumericInput(session, "product_units_per_level", value = product$units_per_level)
+    updateNumericInput(session, "product_persons_per_unit", value = product$persons_per_unit)
     updateCheckboxInput(
       session, "product_ground_floor_commercial",
       value = isTRUE(product$ground_floor_commercial)
@@ -1143,6 +1150,13 @@ server <- function(input, output, session) {
     products$default_building_levels[row] <- as.integer(round(levels))
     products$uses_units_per_level[row] <- input$product_uses_units_per_level
     products$units_per_level[row] <- as.integer(round(units_per_level))
+    persons_per_unit <- suppressWarnings(as.numeric(input$product_persons_per_unit))
+    if (length(persons_per_unit) != 1L) persons_per_unit <- NA_real_
+    if (!is.na(persons_per_unit) && persons_per_unit < 0) {
+      showNotification("Le nombre de personnes par unité ne peut pas être négatif.", type = "error")
+      return()
+    }
+    products$persons_per_unit[row] <- persons_per_unit
     products$ground_floor_commercial[row] <- input$product_ground_floor_commercial
     products$ground_floor_product_id[row] <- if (
       isTRUE(input$product_ground_floor_commercial) &&
@@ -1288,6 +1302,27 @@ server <- function(input, output, session) {
   output$kpi_land <- renderText({ format_cfa(model()$balance$metrics["total_revenue_ht"]) })
   output$kpi_construction <- renderText({ format_cfa(sum(model()$program$construction_cost_ht)) })
   output$kpi_result <- renderText({ format_cfa(model()$balance$metrics["result_ht"]) })
+  output$kpi_population <- renderText({
+    population <- model()$population
+    paste0(
+      format_number_fr(population$total, 0), " hab",
+      if (population$complete) "" else " (incomplet)"
+    )
+  })
+  population_warning_ui <- function() {
+    population <- model()$population
+    if (population$complete) return(NULL)
+    labels <- state$products$product_label[match(population$missing_products, state$products$product_id)]
+    div(
+      class = "alert alert-warning",
+      paste0(
+        "Population incomplète : renseigner « Personnes par unité » dans les hypothèses pour ",
+        paste0(labels, " (", population$missing_products, ")", collapse = ", "), "."
+      )
+    )
+  }
+  output$population_warning <- renderUI(population_warning_ui())
+  output$product_population_warning <- renderUI(population_warning_ui())
 
   cartographic_kpis <- reactive({
     calculate_cartographic_kpis(all_buildings(), state$products)
@@ -1311,8 +1346,17 @@ server <- function(input, output, session) {
     data$land_revenue_ht <- reference_cessions$amount_ht[
       match(data$district_id, reference_cessions$district_id)
     ]
-    data <- data[, c("district_label", "quantity", "total_sdp", "land_revenue_ht")]
-    names(data) <- c("Quartier", "Unités", "SDP totale", "Cessions HT")
+    district_population <- model()$population$by_district
+    population_index <- match(data$district_id, district_population$district_id)
+    population <- district_population$population[population_index]
+    population[is.na(population)] <- 0
+    complete <- district_population$complete[population_index]
+    data$population <- paste0(
+      format_number_fr(population, 0),
+      ifelse(!is.na(complete) & !complete, " (incomplet)", "")
+    )
+    data <- data[, c("district_label", "quantity", "population", "total_sdp", "land_revenue_ht")]
+    names(data) <- c("Quartier", "Unités", "Population (hab)", "SDP totale", "Cessions HT")
     datatable(data, rownames = FALSE, options = list(dom = "t", pageLength = 10)) |>
       formatRound("Unités", digits = 0, mark = " ", dec.mark = ",") |>
       formatRound("SDP totale", digits = 1, mark = " ", dec.mark = ",") |>
@@ -1357,17 +1401,21 @@ server <- function(input, output, session) {
       `Niveaux par défaut` = products$default_building_levels,
       `RDC commercial` = ifelse(products$ground_floor_commercial, "Oui", "Non"),
       `Produit du RDC` = products$ground_floor_product_id,
+      `Personnes par unité` = products$persons_per_unit,
       `SDP moyenne par bâtiment (m²)` = sdp_per_building,
       `SDP totale du programme (m²)` = summary_value("total_sdp"),
       `Ventes immobilières HT (CFA)` = summary_value("sales_revenue_ht"),
       `Coût de construction HT (CFA)` = summary_value("construction_cost_ht"),
       `Cessions foncières HT (CFA)` = summary_value("land_revenue_ht"),
+      `Population (hab)` = model()$population$by_product$population[
+        match(products$product_id, model()$population$by_product$product_id)
+      ],
       check.names = FALSE
     )
     datatable(
       data,
       rownames = FALSE,
-      editable = list(target = "cell", disable = list(columns = c(0, 1, 6, 10, 19:23))),
+      editable = list(target = "cell", disable = list(columns = c(0, 1, 6, 10, 20:25))),
       options = list(scrollX = TRUE, pageLength = 8)
     ) |>
       formatCurrency(
@@ -1379,9 +1427,13 @@ server <- function(input, output, session) {
         currency = " CFA/m²", before = FALSE, digits = 0, mark = " ", dec.mark = ","
       ) |>
       formatRound(
-        c("Facteur de charge foncière", "SDP/unité de référence (m²)", "Logements/niveau", "Terrain/unité (m²)"),
+        c(
+          "Facteur de charge foncière", "SDP/unité de référence (m²)", "Logements/niveau",
+          "Terrain/unité (m²)", "Personnes par unité"
+        ),
         digits = 2, mark = " ", dec.mark = ","
       ) |>
+      formatRound("Population (hab)", digits = 0, mark = " ", dec.mark = ",") |>
       formatRound(
         "SDP moyenne par bâtiment (m²)", digits = 1, mark = " ", dec.mark = ","
       ) |>
@@ -1417,7 +1469,8 @@ server <- function(input, output, session) {
       `15` = "is_cessible",
       `16` = "default_building_levels",
       `17` = "ground_floor_commercial",
-      `18` = "ground_floor_product_id"
+      `18` = "ground_floor_product_id",
+      `19` = "persons_per_unit"
     )
     field <- unname(field_by_column[as.character(info$col)])
     if (length(field) == 0 || is.na(field)) return()
@@ -1468,7 +1521,7 @@ server <- function(input, output, session) {
       value <- suppressWarnings(as.numeric(normalized))
       optional <- field %in% c(
         "construction_cost_override_cfa_sqm", "land_charge_factor",
-        "manual_land_charge_cfa_sqm"
+        "manual_land_charge_cfa_sqm", "persons_per_unit"
       )
       if (!nzchar(raw_value) && optional) {
         value <- NA_real_
@@ -2914,9 +2967,7 @@ server <- function(input, output, session) {
     display <- energy_ready()
     req(display, input$energy_day, input$energy_scenario, input$energy_variable)
     values <- energy_cell_values(display, input$energy_variable, input$energy_day, input$energy_scenario)
-    unit <- if (identical(input$energy_scenario, "difference_arbres_moins_sans") && identical(input$energy_variable, "T2")) {
-      "K"
-    } else energy_variable(input$energy_variable)$unit
+    unit <- energy_variable(input$energy_variable)$unit
     geojson <- energy_grid_geojson(display, values, energy_scale(input$energy_variable, input$energy_scenario), unit)
     session$sendCustomMessage("grid-data", list(map = "energy_map_canvas", data = geojson))
   })
@@ -2926,7 +2977,7 @@ server <- function(input, output, session) {
     info <- energy_variable(input$energy_variable)
     scale <- energy_scale(input$energy_variable, input$energy_scenario)
     effect <- identical(input$energy_scenario, "difference_arbres_moins_sans")
-    unit <- if (effect && identical(input$energy_variable, "T2")) "K" else info$unit
+    unit <- info$unit
     div(
       tags$strong(paste0(if (effect) "Effet des arbres : " else "", info$label, " à 14 h (", unit, ")")),
       div(class = "thermal-legend-bar", style = paste0("background:", target_gradient(scale), ";")),
@@ -3045,7 +3096,10 @@ server <- function(input, output, session) {
     )
   })
 
-  charte_inputs_server(input, output, session, scenario)
+  charte_inputs_server(
+    input, output, session, scenario,
+    population = reactive(model()$population)
+  )
 }
 
 shinyApp(ui, server)

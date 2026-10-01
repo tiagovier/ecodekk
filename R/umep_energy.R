@@ -1,14 +1,16 @@
 # Résultats SUEWS (bilan d'énergie, maille de 100 m) préparés par
 # scripts/umep_suews/suews_display.py. Lecture seule.
 
+# La température à 2 m de SUEWS n'est pas affichée : ce diagnostic n'est pas
+# fiable sous un couvert arboré haut (voir le manifeste de l'étude).
 energy_variables <- data.frame(
-  id = c("QN", "QH", "QE", "QS", "QF", "T2"),
+  id = c("QN", "QH", "QE", "QS", "QF"),
   label = c(
     "Rayonnement net Q*", "Chaleur sensible QH", "Chaleur latente QE (évaporation)",
-    "Stockage de chaleur ΔQS", "Chaleur anthropique QF", "Température de l'air à 2 m"
+    "Stockage de chaleur ΔQS", "Chaleur anthropique QF"
   ),
-  unit = c("W/m²", "W/m²", "W/m²", "W/m²", "W/m²", "°C"),
-  color = c("#d7301f", "#fc8d59", "#2b8cbe", "#8c510a", "#6a51a3", "#000000"),
+  unit = c("W/m²", "W/m²", "W/m²", "W/m²", "W/m²"),
+  color = c("#d7301f", "#fc8d59", "#2b8cbe", "#8c510a", "#6a51a3"),
   stringsAsFactors = FALSE
 )
 
@@ -25,12 +27,10 @@ energy_color_scales <- list(
   QH = list(stops = c(200, 275, 350, 425, 500), colors = c("#ffffcc", "#fed976", "#fd8d3c", "#e31a1c", "#800026")),
   QE = list(stops = c(0, 50, 100, 175, 250), colors = c("#f7fbff", "#c6dbef", "#6baed6", "#2171b5", "#08306b")),
   QS = list(stops = c(100, 150, 200, 250, 300), colors = c("#f7f4f9", "#d4b9da", "#c994c7", "#dd1c77", "#67001f")),
-  QF = list(stops = c(0, 2, 4, 6, 8), colors = c("#fcfbfd", "#dadaeb", "#9e9ac8", "#6a51a3", "#3f007d")),
-  T2 = list(stops = c(25, 30, 35, 40, 45), colors = c("#74add1", "#e0f3f8", "#fee090", "#f46d43", "#a50026"))
+  QF = list(stops = c(0, 2, 4, 6, 8), colors = c("#fcfbfd", "#dadaeb", "#9e9ac8", "#6a51a3", "#3f007d"))
 )
 energy_effect_scales <- list(
-  flux = list(stops = c(-150, -75, 0, 75, 150), colors = c("#2166ac", "#92c5de", "#f7f7f7", "#f4a582", "#b2182b")),
-  T2 = list(stops = c(-5, -2.5, 0, 2.5, 5), colors = c("#1a9850", "#a6d96a", "#f7f7f7", "#fdae61", "#d73027"))
+  flux = list(stops = c(-150, -75, 0, 75, 150), colors = c("#2166ac", "#92c5de", "#f7f7f7", "#f4a582", "#b2182b"))
 )
 
 find_energy_display_directory <- function(scenario_directory, study = "bilan_energetique") {
@@ -63,11 +63,8 @@ energy_variable <- function(variable) {
 }
 
 energy_scale <- function(variable, scenario) {
-  if (identical(scenario, "difference_arbres_moins_sans")) {
-    if (identical(variable, "T2")) energy_effect_scales$T2 else energy_effect_scales$flux
-  } else {
-    energy_color_scales[[variable]]
-  }
+  energy_variable(variable)
+  if (identical(scenario, "difference_arbres_moins_sans")) energy_effect_scales$flux else energy_color_scales[[variable]]
 }
 
 energy_cell_values <- function(display, variable, day, scenario, hour = 14L) {
@@ -113,7 +110,6 @@ energy_variable_guidance <- function(variable) {
     QE = "Chaleur latente : énergie consommée par l'évaporation et la transpiration des arbres. Elle rafraîchit sans élever la température de l'air ; elle dépend de l'eau disponible.",
     QS = "Stockage : chaleur accumulée le jour dans les bâtiments, les pavés et le sol, puis restituée la nuit (valeurs négatives), ce qui entretient la chaleur nocturne.",
     QF = "Chaleur anthropique : chaleur dégagée par les habitants et les usages domestiques (sans climatisation ni trafic dans cette étude).",
-    T2 = "Température de l'air à 2 m estimée par SUEWS dans la maille.",
     stop("Variable SUEWS inconnue : ", variable)
   )
 }
@@ -131,10 +127,22 @@ energy_reading_guide <- function(display) {
     ),
     htmltools::tags$h4("Comment interpréter"),
     htmltools::tags$ul(
-      htmltools::tags$li("En saison sèche, presque toute l'énergie part en chaleur sensible (sol nu sec) : l'air chauffe fortement."),
-      htmltools::tags$li("Les arbres déplacent une partie de l'énergie vers l'évaporation (QE) : c'est leur effet rafraîchissant, plus net en saison des pluies quand l'eau est disponible."),
+      htmltools::tags$li("Sur sol nu sec, presque toute l'énergie part en chaleur sensible (QH) : c'est elle qui réchauffe l'air."),
+      htmltools::tags$li("Les arbres transpirent toute l'année grâce à l'eau profonde : ils convertissent une partie de l'énergie en évaporation (QE), surtout dans les mailles très boisées."),
       htmltools::tags$li("Un stockage élevé le jour annonce une restitution de chaleur la nuit : c'est le mécanisme de l'îlot de chaleur nocturne."),
-      htmltools::tags$li("En mode « effet des arbres », une valeur négative de QH ou de T2 est un gain ; une valeur positive de QE signale plus d'évaporation.")
+      htmltools::tags$li("En mode « effet des arbres », une valeur négative de QH est un gain ; une valeur positive de QE signale plus d'évaporation.")
+    ),
+    htmltools::tags$h4("Pourquoi les arbres n'abaissent pas ici la chaleur sensible"),
+    htmltools::tags$p(
+      "À l'échelle d'une maille de 100 m, SUEWS trouve que les arbres ajoutent un peu de chaleur sensible (environ +10 à +55 W/m² l'après-midi),",
+      "malgré une évaporation nettement plus forte. La raison est leur couleur : un houppier sombre (albédo 0,10 dans le modèle) absorbe",
+      "bien plus de soleil que le sol latéritique clair qu'il recouvre (albédo 0,30), soit 80 à 100 W/m² de plus, ce qui dépasse le gain",
+      "d'évaporation. Cet effet est en partie réel au-dessus d'un sol très clair, et probablement exagéré par l'albédo des arbres retenu,",
+      "faible pour des feuillus tropicaux (souvent 0,15 à 0,20)."
+    ),
+    htmltools::tags$p(
+      "Ce bilan ne mesure pas le confort du piéton : sous les arbres, l'ombre réduit la température moyenne radiante de 15 à 20 °C",
+      "(onglet Confort thermique). Les deux résultats sont compatibles : l'ombre protège les personnes, tandis que la maille absorbe plus d'énergie."
     ),
     htmltools::tags$h4("Limites"),
     htmltools::tags$ul(lapply(warnings, htmltools::tags$li))

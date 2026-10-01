@@ -39,7 +39,7 @@ test_that("les résultats SUEWS sont lus et cartographiés à 14 h", {
   expect_equal(values$value, c(310, 260))
   geojson <- jsonlite::fromJSON(energy_grid_geojson(display, values, energy_scale("QH", "arbres"), "W/m²"))
   expect_match(geojson$features$properties$label[1], "310,0 W/m²")
-  expect_identical(energy_scale("T2", "difference_arbres_moins_sans"), energy_effect_scales$T2)
+  expect_error(energy_scale("T2", "arbres"), "inconnue")
   expect_identical(energy_scale("QE", "difference_arbres_moins_sans"), energy_effect_scales$flux)
 
   expect_identical(energy_daily_cycle(display, "Quartier 1", "chaud", "arbres")$hour, c(1L, 2L))

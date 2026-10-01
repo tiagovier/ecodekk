@@ -7,6 +7,8 @@ R/spatial_data.R
 R/umep_results.R
 R/umep_climate.R
 R/umep_energy.R
+R/charte_inputs.R
+R/charte_inputs_page.R
 img/logo_phard_600x250.png
 img/Safru.png
 data/building_control_overrides.csv
@@ -70,3 +72,9 @@ data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/tmrt_frais_saison
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/tmrt_saison_pluies_sans_arbres.png
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/tmrt_saison_pluies_trans15.png
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/tmrt_saison_pluies_trans3.png
+data/scenarios/scenario_01/exports/umep/bilan_energetique/display/manifest.json
+data/scenarios/scenario_01/exports/umep/bilan_energetique/display/grille_100m.geojson
+data/scenarios/scenario_01/exports/umep/bilan_energetique/display/days_cells.csv
+data/scenarios/scenario_01/exports/umep/bilan_energetique/display/days_quartiers.csv
+data/scenarios/scenario_01/exports/umep/bilan_energetique/display/monthly_quartiers.csv
+data/scenarios/scenario_01/exports/umep/bilan_energetique/display/validation.csv

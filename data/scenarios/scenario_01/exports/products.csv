@@ -1,18 +1,18 @@
-"product_id","product_label","construction_category_id","sale_price_cfa_sqm","construction_cost_mode","construction_cost_override_cfa_sqm","land_charge_method","land_charge_factor","manual_land_charge_cfa_sqm","sdp_per_unit","land_area_per_unit","area_basis","is_cessible","default_building_levels","ground_floor_commercial","ground_floor_product_id","uses_units_per_level","units_per_level"
-"rm_1a","Lotissement de maisons en bande PHARD","ECO",225000,"inherit",,"simplified",1.25,,182,0,"sdp",TRUE,1,FALSE,,FALSE,1
-"rm_1b","Lotissement de maisons en condominium PHARD","ECO",225000,"inherit",,"simplified",1.25,,167,0,"sdp",TRUE,1,FALSE,,FALSE,1
-"rm_2","Maison de ville en bande","STD",400000,"inherit",,"simplified",1.45,,266,0,"sdp",TRUE,2,FALSE,,FALSE,1
-"rc_1","Logement économique en condominium Fann Hock","STD",400000,"inherit",,"simplified",1.25,,43,0,"sdp",TRUE,2,FALSE,,TRUE,3
-"rc_2_log","Logement en immeuble-barres mixte","MID",400000,"inherit",,"simplified",1.45,,85,0,"sdp",TRUE,4,TRUE,"rc_2_com",TRUE,7
-"rc_2_com","RDC commercial","STD",350000,"inherit",,"simplified",1.45,,0,0,"sdp",TRUE,1,FALSE,,FALSE,1
-"rc_3","Logements moyen standing en immeuble-plot","MID",400000,"inherit",,"simplified",1.45,,85,0,"sdp",TRUE,5,FALSE,,TRUE,4
-"rc_4","Logements haut standing en immeuble-plot","HIGH",500000,"inherit",,"simplified",1.45,,133,0,"sdp",TRUE,5,FALSE,,TRUE,4
-"rv_1","Villa moyen standing","MID",400000,"inherit",,"simplified",1.07,,133,0,"sdp",TRUE,1,FALSE,,FALSE,1
-"rv_2","Villa haut standing","HIGH",500000,"inherit",,"simplified",1.45,,184,0,"sdp",TRUE,1,FALSE,,FALSE,1
-"rv_3","Villa très haut standing","VHIGH",625000,"inherit",,"simplified",1.45,,347,0,"sdp",TRUE,1,FALSE,,FALSE,1
-"rt_1_log","Immeuble mixte - résidentiel","HIGH",400000,"inherit",,"simplified",1.45,,115,0,"sdp",TRUE,4,TRUE,"rt_1_com",TRUE,10
-"rt_1_com","RDC commercial/tertiaire","STD",350000,"inherit",,"simplified",1.45,,0,0,"sdp",TRUE,1,FALSE,,FALSE,1
-"ec","Immeubles bureaux/administration","STD",350000,"inherit",,"simplified",1.45,,1216.75,0,"sdp",TRUE,1,FALSE,,FALSE,1
-"ep","Équipements publics","STD",,"inherit",,"manual",,0,2535.66666666667,0,"sdp",FALSE,1,FALSE,,FALSE,1
-"el","Équipements de loisirs","STD",,"inherit",,"manual",,0,13798,0,"sdp",FALSE,1,FALSE,,FALSE,1
-"ev","Économie verte","STD",5000,"override",0,"manual",,5000,0,0,"land",TRUE,1,FALSE,,FALSE,1
+"product_id","product_label","construction_category_id","sale_price_cfa_sqm","construction_cost_mode","construction_cost_override_cfa_sqm","land_charge_method","land_charge_factor","manual_land_charge_cfa_sqm","sdp_per_unit","land_area_per_unit","area_basis","is_cessible","default_building_levels","ground_floor_commercial","ground_floor_product_id","uses_units_per_level","units_per_level","persons_per_unit"
+"rm_1a","Lotissement de maisons en bande PHARD","ECO",225000,"inherit",,"simplified",1.25,,182,0,"sdp",TRUE,1,FALSE,,FALSE,1,6.4
+"rm_1b","Lotissement de maisons en condominium PHARD","ECO",225000,"inherit",,"simplified",1.25,,167,0,"sdp",TRUE,1,FALSE,,FALSE,1,6.4
+"rm_2","Maison de ville en bande","STD",400000,"inherit",,"simplified",1.45,,266,0,"sdp",TRUE,2,FALSE,,FALSE,1,6.4
+"rc_1","Logement économique en condominium Fann Hock","STD",400000,"inherit",,"simplified",1.25,,43,0,"sdp",TRUE,2,FALSE,,TRUE,5,6.4
+"rc_2_log","Logement en immeuble-barres mixte","MID",400000,"inherit",,"simplified",1.45,,85,0,"sdp",TRUE,4,TRUE,"rc_2_com",TRUE,7,6.4
+"rc_2_com","RDC commercial","STD",350000,"inherit",,"simplified",1.45,,0,0,"sdp",TRUE,1,FALSE,,FALSE,1,0
+"rc_3","Logements moyen standing en immeuble-plot","MID",400000,"inherit",,"simplified",1.45,,85,0,"sdp",TRUE,5,FALSE,,TRUE,4,6.4
+"rc_4","Logements haut standing en immeuble-plot","HIGH",500000,"inherit",,"simplified",1.45,,133,0,"sdp",TRUE,5,FALSE,,TRUE,4,6.4
+"rv_1","Villa moyen standing","MID",400000,"inherit",,"simplified",1.07,,133,0,"sdp",TRUE,1,FALSE,,FALSE,1,5
+"rv_2","Villa haut standing","HIGH",500000,"inherit",,"simplified",1.45,,184,0,"sdp",TRUE,1,FALSE,,FALSE,1,5
+"rv_3","Villa très haut standing","VHIGH",625000,"inherit",,"simplified",1.45,,347,0,"sdp",TRUE,1,FALSE,,FALSE,1,5
+"rt_1_log","Immeuble mixte - résidentiel","HIGH",400000,"inherit",,"simplified",1.45,,115,0,"sdp",TRUE,4,TRUE,"rt_1_com",TRUE,10,6.4
+"rt_1_com","RDC commercial/tertiaire","STD",350000,"inherit",,"simplified",1.45,,0,0,"sdp",TRUE,1,FALSE,,FALSE,1,0
+"ec","Immeubles bureaux/administration","STD",350000,"inherit",,"simplified",1.45,,1216.75,0,"sdp",TRUE,1,FALSE,,FALSE,1,0
+"ep","Équipements publics","STD",,"inherit",,"manual",,0,2535.66666666667,0,"sdp",FALSE,1,FALSE,,FALSE,1,0
+"el","Équipements de loisirs","STD",,"inherit",,"manual",,0,13798,0,"sdp",FALSE,1,FALSE,,FALSE,1,0
+"ev","Économie verte","STD",5000,"override",0,"manual",,5000,0,0,"land",TRUE,1,FALSE,,FALSE,1,0

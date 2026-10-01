@@ -49,3 +49,11 @@ data/scenarios_supprimes/
 # Données brutes de stations (NOAA) : seul le tableau de comparaison est versionné
 data/scenarios/*/exports/umep/*/met/station_*/*
 !data/scenarios/*/exports/umep/*/met/station_*/comparaison_era5_stations.csv
+data/scenarios/*/exports/umep/*/raw/
+data/scenarios/*/exports/umep/*/work/
+data/scenarios/*/exports/umep/*/test*/
+data/scenarios/*/exports/umep/*/tc_*/
+# Documents de référence de la charte (comme data/ref/) et fichiers techniques
+data/charte/
+hs_err_pid*.log
+restart.txt

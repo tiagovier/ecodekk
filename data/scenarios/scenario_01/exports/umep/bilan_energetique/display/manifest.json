@@ -1,0 +1,61 @@
+{
+ "generated_at": "2026-10-01T21:35:47+00:00",
+ "scenario": "scenario_01",
+ "study": "bilan_energetique",
+ "model": "SUEWS (supy 2026.4.3rc1, moteur Rust), pas de temps 300 s, sorties moyennées à l'heure",
+ "periode_analyse": [
+  "2017-01-01",
+  "2018-01-31"
+ ],
+ "periode_mise_en_route": "2016",
+ "days": [
+  {
+   "id": "chaud_saison_seche",
+   "date": "2017-04-14"
+  },
+  {
+   "id": "saison_pluies",
+   "date": "2017-09-21"
+  },
+  {
+   "id": "frais_saison_seche",
+   "date": "2018-01-17"
+  }
+ ],
+ "scenarios": {
+  "arbres": "occupation du sol avec arbres attribués",
+  "sans_arbres": "arbres remplacés par la surface sous-jacente",
+  "difference_arbres_moins_sans": "avec arbres moins sans arbres"
+ },
+ "variables": {
+  "QN": "Rayonnement net Q* (W/m²)",
+  "QH": "Flux de chaleur sensible QH (W/m²)",
+  "QE": "Flux de chaleur latente QE (W/m²)",
+  "QS": "Stockage de chaleur ΔQS (W/m²)",
+  "QF": "Chaleur anthropique QF (W/m²)",
+  "RH2": "Humidité relative à 2 m (%)",
+  "U10": "Vent à 10 m (m/s)",
+  "Kdown": "Rayonnement solaire incident (W/m²)",
+  "LAI": "Indice foliaire (m²/m²)",
+  "SMD": "Déficit d'humidité du sol (mm)"
+ },
+ "heure": "heure de fin de pas, UTC = heure locale (1 à 24)",
+ "composition_saisonniere": "juin–octobre : run saison des pluies ; autres mois : run saison sèche",
+ "files": [
+  "days_cells.csv",
+  "days_quartiers.csv",
+  "grille_100m.geojson",
+  "monthly_cells.csv",
+  "monthly_quartiers.csv",
+  "validation.csv"
+ ],
+ "avertissements": [
+  "Calibration v2 (2026-10-01) : albédo du sol nu latéritique 0,30 (ordre de grandeur de la littérature, à confirmer) ; arbres alimentés par l'eau profonde (réserve racinaire de 1 000 mm sur 3 m, pleine à l'initialisation, fermeture stomatique reportée à 74 % de cette réserve). Les autres paramètres physiques (coefficients de stockage OHM, albédo des arbres, phénologie) restent ceux de l'exemple SUEWS (Londres, Ward et al. 2016).",
+  "La température de l'air à 2 m n'est pas affichée : le diagnostic à 2 m de SUEWS n'est pas fiable sous un couvert arboré haut (hausse non physique observée même quand l'évaporation augmente).",
+  "Les arbres (albédo 0,10) absorbent plus de rayonnement que le sol nu clair (0,30) : la chaleur sensible d'une maille boisée peut rester supérieure à celle du sol nu malgré l'évaporation. L'effet rafraîchissant ressenti au sol (ombre) relève de l'onglet Confort thermique.",
+  "Chaleur anthropique : métabolisme (75 à 175 W/hab, défauts SUEWS) + usage domestique de 30 W/hab (hypothèse à confirmer), sans climatisation ni trafic.",
+  "Population : logements du programme × 6,4 personnes par ménage.",
+  "Forçage ERA5 (maille ~31 km) à 50 m : climat régional, pas de mesure locale ; aucune validation par observation.",
+  "Résultats à lire surtout en comparaison (avec / sans arbres, entre mailles et quartiers)."
+ ]
+}

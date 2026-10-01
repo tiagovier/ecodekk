@@ -2045,7 +2045,7 @@
   },
   "files": {
     "app.R": {
-      "checksum": "65241b6b2020e81d771648eb42685025"
+      "checksum": "5470e5763d79db71a4d3aefee80d45fa"
     },
     "data/building_control_overrides.csv": {
       "checksum": "b83716255e39facc6afca47ad1581227"
@@ -2058,6 +2058,24 @@
     },
     "data/scenarios/base/spatial.gpkg": {
       "checksum": "010ff972ba469b2653fbc7404c9a2923"
+    },
+    "data/scenarios/scenario_01/exports/umep/bilan_energetique/display/days_cells.csv": {
+      "checksum": "2d244f78313cb7cfb27762d58327b304"
+    },
+    "data/scenarios/scenario_01/exports/umep/bilan_energetique/display/days_quartiers.csv": {
+      "checksum": "816526dc7be94d8c567306becd894af6"
+    },
+    "data/scenarios/scenario_01/exports/umep/bilan_energetique/display/grille_100m.geojson": {
+      "checksum": "f94ac01100abf9212154fe9a32a10c87"
+    },
+    "data/scenarios/scenario_01/exports/umep/bilan_energetique/display/manifest.json": {
+      "checksum": "fa098c36f187bdd956555364603bd558"
+    },
+    "data/scenarios/scenario_01/exports/umep/bilan_energetique/display/monthly_quartiers.csv": {
+      "checksum": "11da822415acb36a083f41cd8c59d5a7"
+    },
+    "data/scenarios/scenario_01/exports/umep/bilan_energetique/display/validation.csv": {
+      "checksum": "f43e3e1149037b0db7101561ccb94e7f"
     },
     "data/scenarios/scenario_01/exports/umep/climat_urbain/display_target/grille_100m.geojson": {
       "checksum": "9c4262a0d73dde98ec8aa15703971a19"
@@ -2186,13 +2204,13 @@
       "checksum": "837a5d7a8d72a2e8d76a911ba4b1197e"
     },
     "data/scenarios/scenario_01/model.rds": {
-      "checksum": "ff5a6d720112b364ed95b71b8b0eb463"
+      "checksum": "137d091347aed697feb70f0868c68970"
     },
     "data/scenarios/scenario_01/scenario.yml": {
-      "checksum": "e858e4de4bb292cc2874ef279104c2d4"
+      "checksum": "4c3a373dbe1a0e506170f3729fc0567c"
     },
     "data/scenarios/scenario_01/spatial.gpkg": {
-      "checksum": "fda19b6292b35f8bcf8ec9d0c92bd566"
+      "checksum": "a8ac50de03ae9f3d2567e857fac128b1"
     },
     "data/sig/arbres.gpkg": {
       "checksum": "9f817558bcebc03c65fbb3a1c48644b8"
@@ -2237,10 +2255,16 @@
       "checksum": "3a407a1755000789588eadbf81677b31"
     },
     "R/calculations.R": {
-      "checksum": "faadbd01c279770251a65ca0b4622572"
+      "checksum": "39a52d1852955e662a267642dca5afcd"
+    },
+    "R/charte_inputs_page.R": {
+      "checksum": "135089f06813eef999679cbd4551314c"
+    },
+    "R/charte_inputs.R": {
+      "checksum": "b90b94b319395953f15c0504b036fcb8"
     },
     "R/initial_data.R": {
-      "checksum": "74c14cd3a8b3b47f95fda995fe1bacff"
+      "checksum": "60de119171cb8826087a6099c07e4424"
     },
     "R/presentation.R": {
       "checksum": "ef36ff8ed3247ebc229deb4285e578d5"
@@ -2249,13 +2273,13 @@
       "checksum": "7c4473a84ef2278d2027d34a977097ed"
     },
     "R/spatial_data.R": {
-      "checksum": "52d8b9aac50046bca275ea49bc32412c"
+      "checksum": "b95e5363a09a9d08dee79a954b30f8a4"
     },
     "R/umep_climate.R": {
       "checksum": "59fba26cffb42d10f0e339b89834c019"
     },
     "R/umep_energy.R": {
-      "checksum": "807de586c456895327d68ac80e6b8b03"
+      "checksum": "3fb67b79fb7fe4e4351486042d46c4ad"
     },
     "R/umep_results.R": {
       "checksum": "7ce9452c06b932613090d0be5b49e18f"
