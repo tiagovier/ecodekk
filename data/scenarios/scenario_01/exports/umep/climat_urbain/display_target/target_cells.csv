@@ -1,769 +1,769 @@
-grid_id,day,vegetation,ta_14h_c,utci_14h_c,tmrt_14h_c,uhi_14h_k,ta_max_c,utci_max_c,uhi_max_k,tb_rur_14h_c,ws_14h_m_s,cell_id,quartier_majoritaire
-1,chaud_saison_seche,arbres,42.01,44.52,57.5,3.43,42.01,44.52,3.43,38.58,4.78,c_01_00,Quartier 4
-1,chaud_saison_seche,sans_arbres,42.01,44.52,57.5,3.43,42.01,44.52,3.43,38.58,4.78,c_01_00,Quartier 4
-1,frais_saison_seche,arbres,27.77,24.96,40.7,4.58,27.77,24.96,7.35,23.2,6.46,c_01_00,Quartier 4
-1,frais_saison_seche,sans_arbres,27.77,24.96,40.7,4.58,27.77,24.96,7.35,23.2,6.46,c_01_00,Quartier 4
-1,saison_pluies,arbres,34.32,43.08,63.1,4.26,34.32,43.08,4.26,30.06,0.55,c_01_00,Quartier 4
-1,saison_pluies,sans_arbres,34.32,43.08,63.1,4.26,34.32,43.08,4.26,30.06,0.55,c_01_00,Quartier 4
-2,chaud_saison_seche,arbres,41.99,44.5,57.49,3.41,41.99,44.5,3.41,38.58,4.78,c_02_00,Quartier 4
-2,chaud_saison_seche,sans_arbres,41.99,44.5,57.49,3.41,41.99,44.5,3.41,38.58,4.78,c_02_00,Quartier 4
-2,frais_saison_seche,arbres,27.7,24.86,40.64,4.5,27.7,24.86,7.28,23.2,6.46,c_02_00,Quartier 4
-2,frais_saison_seche,sans_arbres,27.7,24.86,40.64,4.5,27.7,24.86,7.28,23.2,6.46,c_02_00,Quartier 4
-2,saison_pluies,arbres,34.23,42.98,63.05,4.17,34.23,42.98,4.17,30.06,0.55,c_02_00,Quartier 4
-2,saison_pluies,sans_arbres,34.23,42.98,63.05,4.17,34.23,42.98,4.17,30.06,0.55,c_02_00,Quartier 4
-3,chaud_saison_seche,arbres,41.99,44.5,57.49,3.41,41.99,44.5,3.41,38.58,4.78,c_03_00,Quartier 4
-3,chaud_saison_seche,sans_arbres,41.99,44.5,57.49,3.41,41.99,44.5,3.41,38.58,4.78,c_03_00,Quartier 4
-3,frais_saison_seche,arbres,27.7,24.86,40.64,4.5,27.7,24.86,7.29,23.2,6.46,c_03_00,Quartier 4
-3,frais_saison_seche,sans_arbres,27.7,24.86,40.64,4.5,27.7,24.86,7.29,23.2,6.46,c_03_00,Quartier 4
-3,saison_pluies,arbres,34.22,42.97,63.04,4.16,34.22,42.97,4.16,30.06,0.55,c_03_00,Quartier 4
-3,saison_pluies,sans_arbres,34.22,42.97,63.04,4.16,34.22,42.97,4.16,30.06,0.55,c_03_00,Quartier 4
-4,chaud_saison_seche,arbres,41.98,44.48,57.48,3.4,41.98,44.48,3.4,38.58,4.78,c_04_00,Quartier 4
-4,chaud_saison_seche,sans_arbres,41.98,44.49,57.48,3.4,41.98,44.49,3.4,38.58,4.78,c_04_00,Quartier 4
-4,frais_saison_seche,arbres,27.65,24.8,40.61,4.45,27.65,24.8,7.2,23.2,6.46,c_04_00,Quartier 4
-4,frais_saison_seche,sans_arbres,27.65,24.8,40.61,4.45,27.65,24.8,7.22,23.2,6.46,c_04_00,Quartier 4
-4,saison_pluies,arbres,34.18,42.93,63.02,4.12,34.2,42.93,4.12,30.06,0.55,c_04_00,Quartier 4
-4,saison_pluies,sans_arbres,34.18,42.93,63.02,4.12,34.2,42.93,4.12,30.06,0.55,c_04_00,Quartier 4
-5,chaud_saison_seche,arbres,41.98,44.49,57.48,3.4,41.98,44.49,3.4,38.58,4.78,c_05_00,Quartier 4
-5,chaud_saison_seche,sans_arbres,41.98,44.49,57.48,3.4,41.98,44.49,3.4,38.58,4.78,c_05_00,Quartier 4
-5,frais_saison_seche,arbres,27.64,24.78,40.6,4.44,27.64,24.78,7.2,23.2,6.46,c_05_00,Quartier 4
-5,frais_saison_seche,sans_arbres,27.64,24.78,40.6,4.44,27.64,24.78,7.21,23.2,6.46,c_05_00,Quartier 4
-5,saison_pluies,arbres,34.16,42.9,63.01,4.1,34.19,42.9,4.1,30.06,0.55,c_05_00,Quartier 4
-5,saison_pluies,sans_arbres,34.16,42.9,63.01,4.1,34.19,42.9,4.1,30.06,0.55,c_05_00,Quartier 4
-6,chaud_saison_seche,arbres,41.92,44.41,57.44,3.34,41.92,44.41,3.34,38.58,4.78,c_06_00,Quartier 4
-6,chaud_saison_seche,sans_arbres,41.92,44.41,57.44,3.34,41.92,44.41,3.34,38.58,4.78,c_06_00,Quartier 4
-6,frais_saison_seche,arbres,27.56,24.68,40.53,4.36,27.56,24.68,6.98,23.2,6.46,c_06_00,Quartier 4
-6,frais_saison_seche,sans_arbres,27.56,24.68,40.53,4.36,27.56,24.68,6.99,23.2,6.46,c_06_00,Quartier 4
-6,saison_pluies,arbres,34.18,42.92,63.02,4.12,34.21,42.92,4.12,30.06,0.55,c_06_00,Quartier 4
-6,saison_pluies,sans_arbres,34.18,42.92,63.02,4.12,34.21,42.92,4.12,30.06,0.55,c_06_00,Quartier 4
-7,chaud_saison_seche,arbres,41.81,44.27,57.35,3.22,41.81,44.27,3.22,38.58,4.78,c_07_00,Quartier 4
-7,chaud_saison_seche,sans_arbres,41.81,44.27,57.35,3.22,41.81,44.27,3.22,38.58,4.78,c_07_00,Quartier 4
-7,frais_saison_seche,arbres,27.41,24.47,40.41,4.21,27.41,24.47,6.57,23.2,6.46,c_07_00,Quartier 4
-7,frais_saison_seche,sans_arbres,27.41,24.47,40.41,4.21,27.41,24.47,6.57,23.2,6.46,c_07_00,Quartier 4
-7,saison_pluies,arbres,34.21,42.96,63.03,4.15,34.24,42.96,4.15,30.06,0.55,c_07_00,Quartier 4
-7,saison_pluies,sans_arbres,34.21,42.96,63.03,4.15,34.24,42.96,4.15,30.06,0.55,c_07_00,Quartier 4
-8,chaud_saison_seche,arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_08_00,Quartier 4
-8,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_08_00,Quartier 4
-8,frais_saison_seche,arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_08_00,Quartier 4
-8,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_08_00,Quartier 4
-8,saison_pluies,arbres,34.4,43.18,63.14,4.34,34.4,43.18,5.04,30.06,0.55,c_08_00,Quartier 4
-8,saison_pluies,sans_arbres,34.4,43.18,63.14,4.34,34.4,43.18,5.04,30.06,0.55,c_08_00,Quartier 4
-9,chaud_saison_seche,arbres,42.14,44.69,57.63,3.56,42.14,44.69,3.64,38.58,4.75,c_09_00,Quartier SC2
-9,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_09_00,Quartier SC2
-9,frais_saison_seche,arbres,28.01,25.31,40.91,4.81,28.01,25.31,6.58,23.2,6.41,c_09_00,Quartier SC2
-9,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_09_00,Quartier SC2
-9,saison_pluies,arbres,34.36,43.15,63.17,4.3,34.36,43.15,4.96,30.06,0.55,c_09_00,Quartier SC2
-9,saison_pluies,sans_arbres,34.4,43.18,63.14,4.34,34.4,43.18,5.04,30.06,0.55,c_09_00,Quartier SC2
-10,chaud_saison_seche,arbres,41.95,44.46,57.5,3.37,41.95,44.46,3.37,38.58,4.74,c_10_00,Quartier 5
-10,chaud_saison_seche,sans_arbres,42.01,44.52,57.5,3.42,42.01,44.52,3.42,38.58,4.78,c_10_00,Quartier 5
-10,frais_saison_seche,arbres,27.65,24.83,40.63,4.45,27.65,24.83,6.03,23.2,6.4,c_10_00,Quartier 5
-10,frais_saison_seche,sans_arbres,27.76,24.95,40.7,4.57,27.76,24.95,7.34,23.2,6.46,c_10_00,Quartier 5
-10,saison_pluies,arbres,34.29,43.06,63.13,4.23,34.29,43.06,4.45,30.06,0.55,c_10_00,Quartier 5
-10,saison_pluies,sans_arbres,34.31,43.07,63.09,4.25,34.31,43.07,4.25,30.06,0.55,c_10_00,Quartier 5
-11,chaud_saison_seche,arbres,41.97,44.47,57.48,3.38,41.97,44.47,3.38,38.58,4.78,c_11_00,Quartier 5
-11,chaud_saison_seche,sans_arbres,41.97,44.48,57.48,3.39,41.97,44.48,3.39,38.58,4.78,c_11_00,Quartier 5
-11,frais_saison_seche,arbres,27.6,24.73,40.57,4.4,27.6,24.73,6.91,23.2,6.45,c_11_00,Quartier 5
-11,frais_saison_seche,sans_arbres,27.61,24.75,40.58,4.42,27.61,24.75,7.16,23.2,6.46,c_11_00,Quartier 5
-11,saison_pluies,arbres,34.13,42.87,63.0,4.07,34.17,42.87,4.07,30.06,0.55,c_11_00,Quartier 5
-11,saison_pluies,sans_arbres,34.13,42.86,62.99,4.07,34.17,42.86,4.07,30.06,0.55,c_11_00,Quartier 5
-12,chaud_saison_seche,arbres,40.88,43.37,57.54,2.3,40.98,43.44,2.3,38.58,3.88,c_01_01,Quartier 4
-12,chaud_saison_seche,sans_arbres,41.53,43.99,57.44,2.95,41.53,43.99,2.95,38.58,4.45,c_01_01,Quartier 4
-12,frais_saison_seche,arbres,26.39,24.12,40.32,3.19,26.39,24.12,3.26,23.2,5.24,c_01_01,Quartier 4
-12,frais_saison_seche,sans_arbres,27.11,24.37,40.42,3.91,27.11,24.37,5.7,23.2,6.01,c_01_01,Quartier 4
-12,saison_pluies,arbres,33.3,42.09,63.07,3.24,33.58,42.09,3.31,30.06,0.45,c_01_01,Quartier 4
-12,saison_pluies,sans_arbres,33.57,42.36,63.15,3.51,33.77,42.36,3.58,30.06,0.51,c_01_01,Quartier 4
-13,chaud_saison_seche,arbres,40.39,43.19,58.22,1.8,40.56,43.33,1.82,38.58,3.07,c_02_01,Quartier 4
-13,chaud_saison_seche,sans_arbres,41.56,44.07,57.65,2.98,41.56,44.07,2.98,38.58,4.24,c_02_01,Quartier 4
-13,frais_saison_seche,arbres,25.88,24.83,40.78,2.68,25.88,24.83,2.82,23.2,4.15,c_02_01,Quartier 4
-13,frais_saison_seche,sans_arbres,27.15,24.65,40.63,3.95,27.15,24.65,5.0,23.2,5.72,c_02_01,Quartier 4
-13,saison_pluies,arbres,32.98,41.7,62.72,2.92,33.32,41.7,2.95,30.06,0.38,c_02_01,Quartier 4
-13,saison_pluies,sans_arbres,33.55,42.39,63.3,3.49,33.8,42.39,3.61,30.06,0.49,c_02_01,Quartier 4
-14,chaud_saison_seche,arbres,40.01,42.95,58.46,1.43,40.21,43.1,1.47,38.58,2.77,c_03_01,Quartier 4
-14,chaud_saison_seche,sans_arbres,41.6,44.15,57.79,3.02,41.6,44.15,3.05,38.58,4.14,c_03_01,Quartier 4
-14,frais_saison_seche,arbres,25.56,25.07,40.93,2.36,25.56,25.07,2.54,23.2,3.74,c_03_01,Quartier 4
-14,frais_saison_seche,sans_arbres,27.2,24.82,40.75,4.0,27.2,24.82,4.29,23.2,5.58,c_03_01,Quartier 4
-14,saison_pluies,arbres,32.68,41.34,62.44,2.62,33.05,41.34,2.65,30.06,0.34,c_03_01,Quartier 4
-14,saison_pluies,sans_arbres,33.57,42.4,63.29,3.51,33.82,42.4,3.66,30.06,0.48,c_03_01,Quartier 4
-15,chaud_saison_seche,arbres,40.44,43.21,58.16,1.85,40.59,43.32,1.87,38.58,3.15,c_04_01,Quartier 4
-15,chaud_saison_seche,sans_arbres,41.57,44.12,57.79,2.99,41.57,44.12,3.02,38.58,4.11,c_04_01,Quartier 4
-15,frais_saison_seche,arbres,25.98,24.79,40.75,2.78,25.98,24.79,2.91,23.2,4.26,c_04_01,Quartier 4
-15,frais_saison_seche,sans_arbres,27.15,24.78,40.73,3.95,27.15,24.78,5.13,23.2,5.55,c_04_01,Quartier 4
-15,saison_pluies,arbres,33.02,41.72,62.7,2.96,33.35,41.72,2.97,30.06,0.37,c_04_01,Quartier 4
-15,saison_pluies,sans_arbres,33.61,42.44,63.3,3.55,33.82,42.44,3.67,30.06,0.47,c_04_01,Quartier 4
-16,chaud_saison_seche,arbres,40.41,43.23,58.28,1.83,40.58,43.37,1.84,38.58,3.05,c_05_01,Quartier 4
-16,chaud_saison_seche,sans_arbres,41.53,44.08,57.78,2.95,41.53,44.08,2.95,38.58,4.1,c_05_01,Quartier 4
-16,frais_saison_seche,arbres,25.94,24.95,40.86,2.74,25.94,24.95,2.87,23.2,4.12,c_05_01,Quartier 4
-16,frais_saison_seche,sans_arbres,27.14,24.79,40.74,3.94,27.14,24.79,5.05,23.2,5.53,c_05_01,Quartier 4
-16,saison_pluies,arbres,33.01,41.71,62.66,2.95,33.36,41.71,2.95,30.06,0.35,c_05_01,Quartier 4
-16,saison_pluies,sans_arbres,33.59,42.41,63.28,3.53,33.83,42.41,3.63,30.06,0.47,c_05_01,Quartier 4
-17,chaud_saison_seche,arbres,40.46,42.99,57.55,1.88,40.62,43.14,1.89,38.58,3.61,c_06_01,Quartier 4
-17,chaud_saison_seche,sans_arbres,41.52,44.01,57.57,2.94,41.52,44.01,2.94,38.58,4.29,c_06_01,Quartier 4
-17,frais_saison_seche,arbres,26.08,24.15,40.35,2.88,26.08,24.15,3.01,23.2,4.87,c_06_01,Quartier 4
-17,frais_saison_seche,sans_arbres,27.13,24.56,40.56,3.93,27.13,24.56,5.15,23.2,5.8,c_06_01,Quartier 4
-17,saison_pluies,arbres,33.04,41.79,62.85,2.98,33.38,41.79,3.0,30.06,0.42,c_06_01,Quartier 4
-17,saison_pluies,sans_arbres,33.61,42.45,63.35,3.55,33.85,42.45,3.65,30.06,0.5,c_06_01,Quartier 4
-18,chaud_saison_seche,arbres,40.48,42.83,57.06,1.9,40.64,42.97,1.9,38.58,4.04,c_07_01,Quartier 4
-18,chaud_saison_seche,sans_arbres,41.43,43.87,57.42,2.84,41.45,43.87,2.84,38.58,4.4,c_07_01,Quartier 4
-18,frais_saison_seche,arbres,26.15,23.62,40.02,2.96,26.15,23.62,3.14,23.2,5.46,c_07_01,Quartier 4
-18,frais_saison_seche,sans_arbres,27.02,24.31,40.4,3.83,27.02,24.31,4.87,23.2,5.94,c_07_01,Quartier 4
-18,saison_pluies,arbres,33.38,42.18,63.16,3.32,33.68,42.18,3.34,30.06,0.47,c_07_01,Quartier 4
-18,saison_pluies,sans_arbres,33.64,42.46,63.28,3.58,33.89,42.46,3.63,30.06,0.51,c_07_01,Quartier 4
-19,chaud_saison_seche,arbres,42.03,44.57,57.66,3.45,42.03,44.57,4.23,38.58,4.62,c_08_01,Quartier SC2
-19,chaud_saison_seche,sans_arbres,42.17,44.72,57.62,3.59,42.17,44.72,3.59,38.58,4.78,c_08_01,Quartier SC2
-19,frais_saison_seche,arbres,27.75,25.07,40.8,4.56,27.75,25.07,4.65,23.2,6.24,c_08_01,Quartier SC2
-19,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_08_01,Quartier SC2
-19,saison_pluies,arbres,34.3,43.12,63.3,4.24,34.3,43.12,4.24,30.06,0.53,c_08_01,Quartier SC2
-19,saison_pluies,sans_arbres,34.39,43.17,63.14,4.33,34.39,43.17,4.5,30.06,0.55,c_08_01,Quartier SC2
-20,chaud_saison_seche,arbres,30.49,34.15,54.18,-8.1,30.49,34.15,-1.69,38.58,1.8,c_09_01,Quartier SC2
-20,chaud_saison_seche,sans_arbres,40.98,43.25,55.95,2.4,40.99,43.25,2.4,38.58,5.84,c_09_01,Quartier SC2
-20,frais_saison_seche,arbres,23.05,24.95,40.95,-0.14,23.29,24.95,0.6,23.2,2.43,c_09_01,Quartier SC2
-20,frais_saison_seche,sans_arbres,27.34,23.73,39.76,4.14,27.34,23.73,5.05,23.2,7.89,c_09_01,Quartier SC2
-20,saison_pluies,arbres,31.96,40.56,61.97,1.9,31.96,40.56,1.9,30.06,0.32,c_09_01,Quartier SC2
-20,saison_pluies,sans_arbres,33.78,42.11,61.45,3.72,34.19,42.11,4.48,30.06,0.67,c_09_01,Quartier SC2
-21,chaud_saison_seche,arbres,39.93,42.98,58.73,1.35,40.17,43.16,1.39,38.58,2.59,c_10_01,Quartier 5
-21,chaud_saison_seche,sans_arbres,41.64,44.14,57.62,3.05,41.64,44.14,3.08,38.58,4.35,c_10_01,Quartier 5
-21,frais_saison_seche,arbres,25.42,25.32,41.11,2.22,25.42,25.32,2.41,23.2,3.5,c_10_01,Quartier 5
-21,frais_saison_seche,sans_arbres,27.24,24.64,40.6,4.04,27.24,24.64,4.2,23.2,5.88,c_10_01,Quartier 5
-21,saison_pluies,arbres,32.61,41.23,62.29,2.54,33.02,41.23,2.55,30.06,0.3,c_10_01,Quartier 5
-21,saison_pluies,sans_arbres,33.53,42.36,63.29,3.47,33.79,42.36,3.63,30.06,0.5,c_10_01,Quartier 5
-22,chaud_saison_seche,arbres,41.04,43.6,57.76,2.46,41.12,43.64,2.51,38.58,3.8,c_11_01,Quartier 5
-22,chaud_saison_seche,sans_arbres,41.64,44.15,57.66,3.05,41.64,44.15,3.08,38.58,4.29,c_11_01,Quartier 5
-22,frais_saison_seche,arbres,26.54,24.42,40.51,3.34,26.54,24.42,3.5,23.2,5.12,c_11_01,Quartier 5
-22,frais_saison_seche,sans_arbres,27.23,24.69,40.64,4.03,27.23,24.69,4.08,23.2,5.8,c_11_01,Quartier 5
-22,saison_pluies,arbres,33.27,42.04,63.02,3.21,33.56,42.04,3.32,30.06,0.44,c_11_01,Quartier 5
-22,saison_pluies,sans_arbres,33.54,42.37,63.31,3.48,33.79,42.37,3.64,30.06,0.5,c_11_01,Quartier 5
-23,chaud_saison_seche,arbres,41.22,43.61,57.23,2.64,41.3,43.62,2.64,38.58,4.43,c_01_02,Quartier SC2
-23,chaud_saison_seche,sans_arbres,41.82,44.29,57.36,3.24,41.82,44.29,3.24,38.58,4.78,c_01_02,Quartier SC2
-23,frais_saison_seche,arbres,26.68,23.84,40.11,3.49,26.68,23.84,3.49,23.2,5.99,c_01_02,Quartier SC2
-23,frais_saison_seche,sans_arbres,27.36,24.41,40.38,4.16,27.36,24.41,6.46,23.2,6.46,c_01_02,Quartier SC2
-23,saison_pluies,arbres,33.76,42.56,63.23,3.7,33.96,42.56,4.05,30.06,0.52,c_01_02,Quartier SC2
-23,saison_pluies,sans_arbres,33.99,42.71,62.91,3.93,34.1,42.71,3.93,30.06,0.55,c_01_02,Quartier SC2
-24,chaud_saison_seche,arbres,40.76,43.17,57.27,2.18,40.93,43.31,2.18,38.58,4.05,c_02_02,Quartier SC2
-24,chaud_saison_seche,sans_arbres,41.84,44.33,57.48,3.26,41.84,44.33,3.26,38.58,4.67,c_02_02,Quartier SC2
-24,frais_saison_seche,arbres,26.3,23.8,40.13,3.1,26.3,23.8,3.15,23.2,5.46,c_02_02,Quartier SC2
-24,frais_saison_seche,sans_arbres,27.37,24.51,40.46,4.17,27.37,24.51,6.32,23.2,6.31,c_02_02,Quartier SC2
-24,saison_pluies,arbres,33.32,42.12,63.13,3.26,33.63,42.12,3.3,30.06,0.47,c_02_02,Quartier SC2
-24,saison_pluies,sans_arbres,33.83,42.57,62.98,3.77,35.88,42.57,6.17,30.06,0.54,c_02_02,Quartier SC2
-25,chaud_saison_seche,arbres,41.75,44.35,57.95,3.17,41.82,44.35,3.17,38.58,4.1,c_03_02,Quartier SC2
-25,chaud_saison_seche,sans_arbres,42.15,44.69,57.61,3.57,42.15,44.69,3.57,38.58,4.78,c_03_02,Quartier SC2
-25,frais_saison_seche,arbres,27.4,25.12,40.94,4.2,27.4,25.12,4.2,23.2,5.53,c_03_02,Quartier SC2
-25,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_03_02,Quartier SC2
-25,saison_pluies,arbres,34.03,42.91,63.54,3.97,34.36,42.91,4.65,30.06,0.48,c_03_02,Quartier SC2
-25,saison_pluies,sans_arbres,34.26,43.02,63.06,4.2,36.71,43.2,7.0,30.06,0.55,c_03_02,Quartier SC2
-26,chaud_saison_seche,arbres,42.0,44.53,57.67,3.42,42.0,44.53,3.88,38.58,4.58,c_04_02,Quartier SC2
-26,chaud_saison_seche,sans_arbres,42.16,44.71,57.62,3.58,42.16,44.71,3.58,38.58,4.78,c_04_02,Quartier SC2
-26,frais_saison_seche,arbres,27.71,25.04,40.79,4.51,27.71,25.04,4.51,23.2,6.19,c_04_02,Quartier SC2
-26,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_04_02,Quartier SC2
-26,saison_pluies,arbres,33.23,41.94,62.77,3.17,33.44,41.94,3.17,30.06,0.53,c_04_02,Quartier SC2
-26,saison_pluies,sans_arbres,33.89,42.59,62.85,3.83,37.38,44.68,7.67,30.06,0.55,c_04_02,Quartier SC2
-27,chaud_saison_seche,arbres,39.53,41.4,55.45,0.95,39.78,41.57,0.95,38.58,5.04,c_05_02,Quartier SC2
-27,chaud_saison_seche,sans_arbres,40.94,43.2,55.89,2.36,41.0,43.2,2.36,38.58,5.88,c_05_02,Quartier SC2
-27,frais_saison_seche,arbres,26.07,22.46,39.23,2.87,26.07,22.46,2.87,23.2,6.8,c_05_02,Quartier SC2
-27,frais_saison_seche,sans_arbres,26.6,22.65,39.15,3.4,26.6,22.65,4.94,23.2,7.94,c_05_02,Quartier SC2
-27,saison_pluies,arbres,32.51,40.96,61.66,2.45,32.83,40.96,2.45,30.06,0.59,c_05_02,Quartier SC2
-27,saison_pluies,sans_arbres,33.43,41.71,61.2,3.37,34.98,41.71,5.27,30.06,0.68,c_05_02,Quartier SC2
-28,chaud_saison_seche,arbres,39.55,41.51,55.78,0.97,39.85,41.79,0.97,38.58,4.65,c_06_02,Quartier SC2
-28,chaud_saison_seche,sans_arbres,41.0,43.25,56.17,2.42,41.08,43.25,2.42,38.58,5.55,c_06_02,Quartier SC2
-28,frais_saison_seche,arbres,25.23,21.71,38.81,2.03,25.23,21.71,2.1,23.2,6.28,c_06_02,Quartier SC2
-28,frais_saison_seche,sans_arbres,26.53,22.74,39.28,3.33,26.53,22.74,4.66,23.2,7.49,c_06_02,Quartier SC2
-28,saison_pluies,arbres,32.46,41.06,62.2,2.4,32.86,41.06,2.4,30.06,0.54,c_06_02,Quartier SC2
-28,saison_pluies,sans_arbres,33.31,41.68,61.53,3.25,35.08,41.68,5.37,30.06,0.64,c_06_02,Quartier SC2
-29,chaud_saison_seche,arbres,33.79,38.88,64.63,-4.79,33.79,38.88,-0.34,38.58,0.37,c_07_02,Quartier 3
-29,chaud_saison_seche,sans_arbres,41.0,43.28,55.97,2.42,41.07,43.28,2.42,38.58,5.83,c_07_02,Quartier 3
-29,frais_saison_seche,arbres,23.21,29.72,49.96,0.02,23.22,29.72,0.51,23.2,0.51,c_07_02,Quartier 3
-29,frais_saison_seche,sans_arbres,26.51,22.53,39.1,3.31,26.51,22.53,4.52,23.2,7.88,c_07_02,Quartier 3
-29,saison_pluies,arbres,26.1,34.83,57.78,-3.96,26.83,34.83,-0.52,30.06,0.1,c_07_02,Quartier 3
-29,saison_pluies,sans_arbres,33.21,41.47,61.13,3.15,34.57,41.59,4.86,30.06,0.67,c_07_02,Quartier 3
-30,chaud_saison_seche,arbres,32.91,36.59,56.56,-5.67,32.91,36.59,-1.49,38.58,1.6,c_08_02,Quartier 3
-30,chaud_saison_seche,sans_arbres,40.99,43.26,55.95,2.41,41.03,43.26,2.41,38.58,5.84,c_08_02,Quartier 3
-30,frais_saison_seche,arbres,23.49,25.9,41.83,0.29,23.49,25.9,0.59,23.2,2.16,c_08_02,Quartier 3
-30,frais_saison_seche,sans_arbres,26.51,22.53,39.1,3.31,26.51,22.53,4.74,23.2,7.89,c_08_02,Quartier 3
-30,saison_pluies,arbres,29.39,37.94,60.32,-0.67,30.12,37.94,0.23,30.06,0.25,c_08_02,Quartier 3
-30,saison_pluies,sans_arbres,33.36,41.64,61.21,3.3,33.56,41.68,3.56,30.06,0.67,c_08_02,Quartier 3
-31,chaud_saison_seche,arbres,39.5,41.51,55.96,0.92,39.75,41.76,0.97,38.58,4.43,c_09_02,Quartier 3
-31,chaud_saison_seche,sans_arbres,41.25,43.57,56.34,2.67,41.29,43.57,2.67,38.58,5.57,c_09_02,Quartier 3
-31,frais_saison_seche,arbres,25.21,21.95,38.96,2.01,25.21,21.95,2.26,23.2,5.98,c_09_02,Quartier 3
-31,frais_saison_seche,sans_arbres,26.84,23.17,39.52,3.65,26.84,23.17,3.86,23.2,7.52,c_09_02,Quartier 3
-31,saison_pluies,arbres,32.26,40.95,62.46,2.2,32.68,40.95,2.22,30.06,0.51,c_09_02,Quartier 3
-31,saison_pluies,sans_arbres,33.38,41.75,61.55,3.32,33.64,41.76,3.44,30.06,0.64,c_09_02,Quartier 3
-32,chaud_saison_seche,arbres,39.89,42.77,58.26,1.31,40.12,42.96,1.34,38.58,2.84,c_10_02,Quartier 5
-32,chaud_saison_seche,sans_arbres,41.56,44.03,57.47,2.98,41.57,44.03,2.98,38.58,4.45,c_10_02,Quartier 5
-32,frais_saison_seche,arbres,25.43,24.8,40.76,2.23,25.43,24.8,2.41,23.2,3.83,c_10_02,Quartier 5
-32,frais_saison_seche,sans_arbres,27.18,24.47,40.48,3.98,27.18,24.47,4.82,23.2,6.0,c_10_02,Quartier 5
-32,saison_pluies,arbres,32.62,41.28,62.41,2.56,33.01,41.28,2.56,30.06,0.34,c_10_02,Quartier 5
-32,saison_pluies,sans_arbres,33.53,42.32,63.15,3.47,33.8,42.32,3.59,30.06,0.51,c_10_02,Quartier 5
-33,chaud_saison_seche,arbres,41.16,43.69,57.71,2.57,41.22,43.7,2.62,38.58,3.91,c_11_02,Quartier 5
-33,chaud_saison_seche,sans_arbres,41.7,44.24,57.74,3.12,41.7,44.24,3.16,38.58,4.25,c_11_02,Quartier 5
-33,frais_saison_seche,arbres,26.74,24.51,40.55,3.54,26.74,24.51,3.74,23.2,5.28,c_11_02,Quartier 5
-33,frais_saison_seche,sans_arbres,27.34,24.87,40.76,4.14,27.34,24.87,4.21,23.2,5.74,c_11_02,Quartier 5
-33,saison_pluies,arbres,33.34,42.13,63.09,3.28,33.62,42.13,3.41,30.06,0.45,c_11_02,Quartier 5
-33,saison_pluies,sans_arbres,33.62,42.45,63.34,3.55,33.86,42.45,3.73,30.06,0.49,c_11_02,Quartier 5
-34,chaud_saison_seche,arbres,41.31,43.95,58.02,2.73,41.32,43.95,2.82,38.58,3.74,c_01_03,Quartier 2
-34,chaud_saison_seche,sans_arbres,41.49,44.03,57.78,2.9,41.49,44.03,2.97,38.58,4.07,c_01_03,Quartier 2
-34,frais_saison_seche,arbres,26.92,24.96,40.86,3.72,26.92,24.96,3.92,23.2,5.05,c_01_03,Quartier 2
-34,frais_saison_seche,sans_arbres,27.26,24.97,40.82,4.06,27.26,24.97,4.21,23.2,5.49,c_01_03,Quartier 2
-34,saison_pluies,arbres,33.51,42.31,63.15,3.45,33.77,42.31,3.63,30.06,0.43,c_01_03,Quartier 2
-34,saison_pluies,sans_arbres,33.57,42.39,63.27,3.51,33.82,42.39,3.71,30.06,0.47,c_01_03,Quartier 2
-35,chaud_saison_seche,arbres,40.71,43.1,57.2,2.13,40.83,43.19,2.17,38.58,4.07,c_02_03,Quartier 2
-35,chaud_saison_seche,sans_arbres,41.23,43.63,57.25,2.65,41.31,43.63,2.65,38.58,4.43,c_02_03,Quartier 2
-35,frais_saison_seche,arbres,26.4,23.91,40.2,3.21,26.4,23.91,3.41,23.2,5.49,c_02_03,Quartier 2
-35,frais_saison_seche,sans_arbres,27.03,24.29,40.38,3.83,27.03,24.29,3.93,23.2,5.98,c_02_03,Quartier 2
-35,saison_pluies,arbres,33.3,42.1,63.12,3.24,33.61,42.1,3.32,30.06,0.47,c_02_03,Quartier 2
-35,saison_pluies,sans_arbres,33.59,42.4,63.21,3.53,33.88,42.4,3.64,30.06,0.51,c_02_03,Quartier 2
-36,chaud_saison_seche,arbres,38.13,42.85,67.01,-0.45,38.77,42.85,0.21,38.58,0.36,c_03_03,Quartier 3
-36,chaud_saison_seche,sans_arbres,41.07,43.36,56.02,2.49,41.12,43.36,2.49,38.58,5.84,c_03_03,Quartier 3
-36,frais_saison_seche,arbres,23.68,30.04,50.27,0.48,23.68,30.04,0.95,23.2,0.48,c_03_03,Quartier 3
-36,frais_saison_seche,sans_arbres,26.55,22.6,39.14,3.36,26.55,22.6,4.26,23.2,7.88,c_03_03,Quartier 3
-36,saison_pluies,arbres,30.87,39.25,60.74,0.81,31.45,39.25,0.81,30.06,0.13,c_03_03,Quartier 3
-36,saison_pluies,sans_arbres,33.2,41.46,61.12,3.14,33.47,41.58,3.57,30.06,0.67,c_03_03,Quartier 3
-37,chaud_saison_seche,arbres,38.42,43.14,67.17,-0.16,38.96,43.14,0.12,38.58,0.36,c_04_03,Quartier 3
-37,chaud_saison_seche,sans_arbres,40.98,43.21,56.16,2.4,41.03,43.21,2.42,38.58,5.54,c_04_03,Quartier 3
-37,frais_saison_seche,arbres,23.76,30.09,50.31,0.56,23.76,30.09,1.28,23.2,0.48,c_04_03,Quartier 3
-37,frais_saison_seche,sans_arbres,26.66,22.93,39.39,3.46,26.66,22.93,3.57,23.2,7.47,c_04_03,Quartier 3
-37,saison_pluies,arbres,31.05,39.36,60.63,0.99,31.57,39.36,1.0,30.06,0.09,c_04_03,Quartier 3
-37,saison_pluies,sans_arbres,33.1,41.46,61.42,3.04,33.39,41.49,3.18,30.06,0.64,c_04_03,Quartier 3
-38,chaud_saison_seche,arbres,38.38,42.71,63.7,-0.2,38.87,42.75,0.01,38.58,0.9,c_05_03,Quartier 3
-38,chaud_saison_seche,sans_arbres,41.04,43.29,56.26,2.46,41.09,43.29,2.49,38.58,5.46,c_05_03,Quartier 3
-38,frais_saison_seche,arbres,23.86,28.23,45.11,0.66,23.86,28.23,1.22,23.2,1.21,c_05_03,Quartier 3
-38,frais_saison_seche,sans_arbres,26.75,23.1,39.5,3.55,26.75,23.1,3.68,23.2,7.37,c_05_03,Quartier 3
-38,saison_pluies,arbres,31.4,39.84,61.19,1.34,31.91,39.84,1.34,30.06,0.17,c_05_03,Quartier 3
-38,saison_pluies,sans_arbres,33.21,41.6,61.57,3.15,33.48,41.6,3.31,30.06,0.63,c_05_03,Quartier 3
-39,chaud_saison_seche,arbres,40.63,42.89,56.81,2.05,40.84,43.08,2.05,38.58,4.41,c_06_03,Quartier 3
-39,chaud_saison_seche,sans_arbres,41.2,43.53,56.89,2.62,41.27,43.53,2.62,38.58,4.79,c_06_03,Quartier 3
-39,frais_saison_seche,arbres,26.13,23.15,39.69,2.94,26.13,23.15,3.04,23.2,5.96,c_06_03,Quartier 3
-39,frais_saison_seche,sans_arbres,26.75,23.59,39.9,3.55,26.75,23.59,4.4,23.2,6.47,c_06_03,Quartier 3
-39,saison_pluies,arbres,33.4,42.19,63.1,3.34,33.75,42.19,3.34,30.06,0.51,c_06_03,Quartier 3
-39,saison_pluies,sans_arbres,33.62,42.29,62.69,3.56,33.89,42.29,4.02,30.06,0.55,c_06_03,Quartier 3
-40,chaud_saison_seche,arbres,36.09,38.94,56.54,-2.49,36.93,39.76,-0.11,38.58,2.35,c_07_03,Quartier 3
-40,chaud_saison_seche,sans_arbres,41.07,43.33,56.16,2.48,41.12,43.33,2.48,38.58,5.63,c_07_03,Quartier 3
-40,frais_saison_seche,arbres,23.82,24.24,40.34,0.62,23.82,24.24,0.84,23.2,3.17,c_07_03,Quartier 3
-40,frais_saison_seche,sans_arbres,26.55,22.71,39.25,3.35,26.55,22.71,4.31,23.2,7.6,c_07_03,Quartier 3
-40,saison_pluies,arbres,31.21,39.8,61.6,1.15,31.75,39.8,1.15,30.06,0.34,c_07_03,Quartier 3
-40,saison_pluies,sans_arbres,33.26,41.59,61.4,3.19,33.52,41.63,3.81,30.06,0.65,c_07_03,Quartier 3
-41,chaud_saison_seche,arbres,38.13,40.96,57.47,-0.45,38.92,41.53,0.18,38.58,2.58,c_08_03,Quartier 3
-41,chaud_saison_seche,sans_arbres,41.03,43.31,56.0,2.45,41.09,43.31,2.45,38.58,5.82,c_08_03,Quartier 3
-41,frais_saison_seche,arbres,24.22,24.07,40.22,1.02,24.22,24.07,1.06,23.2,3.49,c_08_03,Quartier 3
-41,frais_saison_seche,sans_arbres,26.52,22.57,39.12,3.33,26.52,22.57,4.41,23.2,7.86,c_08_03,Quartier 3
-41,saison_pluies,arbres,31.21,39.82,61.68,1.15,31.75,39.82,1.15,30.06,0.37,c_08_03,Quartier 3
-41,saison_pluies,sans_arbres,33.22,41.5,61.15,3.16,34.08,41.6,4.37,30.06,0.67,c_08_03,Quartier 3
-42,chaud_saison_seche,arbres,38.74,41.51,57.57,0.15,39.23,41.84,0.2,38.58,2.76,c_09_03,Quartier 3
-42,chaud_saison_seche,sans_arbres,40.88,43.08,56.08,2.29,40.96,43.08,2.29,38.58,5.53,c_09_03,Quartier 3
-42,frais_saison_seche,arbres,24.45,23.91,40.14,1.26,24.45,23.91,1.66,23.2,3.73,c_09_03,Quartier 3
-42,frais_saison_seche,sans_arbres,26.55,22.78,39.31,3.35,26.55,22.78,3.67,23.2,7.47,c_09_03,Quartier 3
-42,saison_pluies,arbres,31.62,40.22,61.87,1.55,32.13,40.22,1.55,30.06,0.35,c_09_03,Quartier 3
-42,saison_pluies,sans_arbres,33.12,41.47,61.44,3.06,33.42,41.52,3.14,30.06,0.64,c_09_03,Quartier 3
-43,chaud_saison_seche,arbres,40.21,42.82,57.68,1.63,40.37,42.96,1.68,38.58,3.37,c_10_03,Quartier 5
-43,chaud_saison_seche,sans_arbres,41.3,43.76,57.47,2.72,41.31,43.76,2.75,38.58,4.23,c_10_03,Quartier 5
-43,frais_saison_seche,arbres,25.89,24.33,40.47,2.7,25.89,24.33,2.92,23.2,4.54,c_10_03,Quartier 5
-43,frais_saison_seche,sans_arbres,27.05,24.53,40.56,3.86,27.05,24.53,3.96,23.2,5.71,c_10_03,Quartier 5
-43,saison_pluies,arbres,32.85,41.57,62.69,2.79,33.2,41.57,2.86,30.06,0.4,c_10_03,Quartier 5
-43,saison_pluies,sans_arbres,33.48,42.3,63.26,3.42,33.73,42.3,3.56,30.06,0.49,c_10_03,Quartier 5
-44,chaud_saison_seche,arbres,41.32,43.85,57.7,2.74,41.4,43.87,2.75,38.58,4.03,c_11_03,Quartier 5
-44,chaud_saison_seche,sans_arbres,41.94,44.47,57.68,3.36,41.94,44.47,3.36,38.58,4.53,c_11_03,Quartier 5
-44,frais_saison_seche,arbres,26.76,24.39,40.47,3.56,26.76,24.39,3.68,23.2,5.44,c_11_03,Quartier 5
-44,frais_saison_seche,sans_arbres,27.45,24.75,40.63,4.25,27.45,24.75,5.94,23.2,6.11,c_11_03,Quartier 5
-44,saison_pluies,arbres,33.56,42.39,63.26,3.5,33.83,42.39,3.56,30.06,0.47,c_11_03,Quartier 5
-44,saison_pluies,sans_arbres,33.79,42.58,63.17,3.73,33.99,42.58,3.85,30.06,0.52,c_11_03,Quartier 5
-45,chaud_saison_seche,arbres,42.39,45.0,57.9,3.8,42.39,45.0,3.96,38.58,4.64,c_01_04,Quartier 2
-45,chaud_saison_seche,sans_arbres,42.39,45.0,57.9,3.8,42.39,45.0,3.96,38.58,4.64,c_01_04,Quartier 2
-45,frais_saison_seche,arbres,27.92,25.27,40.91,4.72,27.92,25.27,4.89,23.2,6.27,c_01_04,Quartier 2
-45,frais_saison_seche,sans_arbres,27.92,25.27,40.91,4.72,27.92,25.27,4.89,23.2,6.27,c_01_04,Quartier 2
-45,saison_pluies,arbres,33.94,42.7,63.08,3.87,34.08,42.7,4.25,30.06,0.54,c_01_04,Quartier 2
-45,saison_pluies,sans_arbres,33.94,42.7,63.08,3.87,34.08,42.7,4.25,30.06,0.54,c_01_04,Quartier 2
-46,chaud_saison_seche,arbres,41.74,44.19,57.35,3.15,41.74,44.19,3.15,38.58,4.73,c_02_04,Quartier 2
-46,chaud_saison_seche,sans_arbres,41.76,44.21,57.31,3.18,41.76,44.21,3.18,38.58,4.78,c_02_04,Quartier 2
-46,frais_saison_seche,arbres,27.23,24.29,40.32,4.04,27.23,24.29,5.13,23.2,6.38,c_02_04,Quartier 2
-46,frais_saison_seche,sans_arbres,27.34,24.38,40.36,4.14,27.34,24.38,6.41,23.2,6.46,c_02_04,Quartier 2
-46,saison_pluies,arbres,34.14,42.9,63.07,4.08,34.24,42.9,4.08,30.06,0.55,c_02_04,Quartier 2
-46,saison_pluies,sans_arbres,34.12,42.86,62.99,4.06,36.22,42.86,6.51,30.06,0.55,c_02_04,Quartier 2
-47,chaud_saison_seche,arbres,38.1,42.03,65.71,-0.48,38.64,42.03,-0.19,38.58,0.01,c_03_04,Quartier 3
-47,chaud_saison_seche,sans_arbres,40.92,43.15,56.02,2.34,40.96,43.15,2.35,38.58,5.67,c_03_04,Quartier 3
-47,frais_saison_seche,arbres,23.45,29.4,48.52,0.25,23.45,29.4,0.42,23.2,0.02,c_03_04,Quartier 3
-47,frais_saison_seche,sans_arbres,26.57,22.72,39.24,3.37,26.57,22.72,3.65,23.2,7.66,c_03_04,Quartier 3
-47,saison_pluies,arbres,30.52,38.72,59.95,0.46,31.03,38.72,0.53,30.06,0.02,c_03_04,Quartier 3
-47,saison_pluies,sans_arbres,33.12,41.42,61.27,3.06,33.38,41.48,3.18,30.06,0.65,c_03_04,Quartier 3
-48,chaud_saison_seche,arbres,38.33,42.25,65.84,-0.26,38.93,42.25,0.22,38.58,0.01,c_04_04,Quartier 3
-48,chaud_saison_seche,sans_arbres,41.2,43.52,56.16,2.62,41.21,43.52,2.63,38.58,5.77,c_04_04,Quartier 3
-48,frais_saison_seche,arbres,23.69,29.55,48.67,0.49,23.69,29.55,1.2,23.2,0.02,c_04_04,Quartier 3
-48,frais_saison_seche,sans_arbres,26.75,22.92,39.33,3.55,26.75,22.92,4.25,23.2,7.8,c_04_04,Quartier 3
-48,saison_pluies,arbres,30.32,38.44,59.57,0.26,30.83,38.44,0.33,30.06,0.0,c_04_04,Quartier 3
-48,saison_pluies,sans_arbres,33.34,41.63,61.27,3.28,33.57,41.69,3.38,30.06,0.67,c_04_04,Quartier 3
-49,chaud_saison_seche,arbres,38.02,41.96,65.71,-0.57,38.59,41.96,-0.2,38.58,0.02,c_05_04,Quartier 3
-49,chaud_saison_seche,sans_arbres,40.89,43.1,56.14,2.31,40.94,43.1,2.32,38.58,5.47,c_05_04,Quartier 3
-49,frais_saison_seche,arbres,23.43,29.4,48.56,0.23,23.43,29.4,0.43,23.2,0.02,c_05_04,Quartier 3
-49,frais_saison_seche,sans_arbres,26.52,22.78,39.32,3.33,26.52,22.78,3.7,23.2,7.39,c_05_04,Quartier 3
-49,saison_pluies,arbres,30.46,38.64,59.87,0.4,30.96,38.64,0.48,30.06,0.02,c_05_04,Quartier 3
-49,saison_pluies,sans_arbres,33.14,41.52,61.52,3.08,33.41,41.52,3.18,30.06,0.63,c_05_04,Quartier 3
-50,chaud_saison_seche,arbres,38.78,43.02,63.39,0.2,39.27,43.09,0.28,38.58,0.98,c_06_04,Quartier 3
-50,chaud_saison_seche,sans_arbres,41.13,43.4,56.53,2.54,41.17,43.4,2.58,38.58,5.19,c_06_04,Quartier 3
-50,frais_saison_seche,arbres,24.17,28.23,44.84,0.98,24.17,28.23,1.72,23.2,1.33,c_06_04,Quartier 3
-50,frais_saison_seche,sans_arbres,26.85,23.42,39.75,3.65,26.85,23.42,3.8,23.2,7.01,c_06_04,Quartier 3
-50,saison_pluies,arbres,31.58,40.06,61.39,1.52,32.09,40.06,1.52,30.06,0.2,c_06_04,Quartier 3
-50,saison_pluies,sans_arbres,33.32,41.81,61.97,3.26,33.59,41.81,3.42,30.06,0.6,c_06_04,Quartier 3
-51,chaud_saison_seche,arbres,39.62,41.56,55.74,1.04,39.96,41.86,1.04,38.58,4.75,c_07_04,Quartier 3
-51,chaud_saison_seche,sans_arbres,41.03,43.29,56.17,2.45,41.11,43.29,2.45,38.58,5.57,c_07_04,Quartier 3
-51,frais_saison_seche,arbres,25.27,21.66,38.76,2.07,25.27,21.66,2.2,23.2,6.42,c_07_04,Quartier 3
-51,frais_saison_seche,sans_arbres,26.54,22.74,39.27,3.34,26.54,22.74,4.47,23.2,7.53,c_07_04,Quartier 3
-51,saison_pluies,arbres,32.43,40.99,62.02,2.37,32.87,40.99,2.37,30.06,0.55,c_07_04,Quartier 3
-51,saison_pluies,sans_arbres,33.27,41.63,61.47,3.21,34.41,41.66,4.7,30.06,0.64,c_07_04,Quartier 3
-52,chaud_saison_seche,arbres,40.5,42.6,55.82,1.91,40.69,42.65,1.91,38.58,5.5,c_08_04,Quartier 3
-52,chaud_saison_seche,sans_arbres,40.99,43.26,55.95,2.41,41.08,43.26,2.41,38.58,5.84,c_08_04,Quartier 3
-52,frais_saison_seche,arbres,25.99,22.01,38.88,2.79,25.99,22.01,2.83,23.2,7.43,c_08_04,Quartier 3
-52,frais_saison_seche,sans_arbres,26.5,22.53,39.1,3.31,26.5,22.53,4.49,23.2,7.89,c_08_04,Quartier 3
-52,saison_pluies,arbres,33.0,41.35,61.38,2.94,33.34,41.43,2.94,30.06,0.64,c_08_04,Quartier 3
-52,saison_pluies,sans_arbres,33.23,41.49,61.12,3.17,34.59,41.62,4.89,30.06,0.67,c_08_04,Quartier 3
-53,chaud_saison_seche,arbres,40.43,42.51,55.84,1.84,40.61,42.56,1.84,38.58,5.4,c_09_04,Quartier 3
-53,chaud_saison_seche,sans_arbres,40.95,43.21,55.93,2.37,41.02,43.21,2.37,38.58,5.84,c_09_04,Quartier 3
-53,frais_saison_seche,arbres,26.0,22.09,38.95,2.8,26.0,22.09,2.8,23.2,7.29,c_09_04,Quartier 3
-53,frais_saison_seche,sans_arbres,26.54,22.58,39.13,3.34,26.54,22.58,4.86,23.2,7.88,c_09_04,Quartier 3
-53,saison_pluies,arbres,33.15,41.55,61.59,3.09,33.42,41.55,3.25,30.06,0.63,c_09_04,Quartier 3
-53,saison_pluies,sans_arbres,33.43,41.72,61.26,3.37,34.63,41.74,4.92,30.06,0.67,c_09_04,Quartier 3
-54,chaud_saison_seche,arbres,38.89,42.29,59.49,0.3,39.24,42.5,0.3,38.58,1.94,c_10_04,Quartier 5
-54,chaud_saison_seche,sans_arbres,41.58,44.04,57.48,2.99,41.58,44.04,3.0,38.58,4.45,c_10_04,Quartier 5
-54,frais_saison_seche,arbres,24.56,25.98,41.7,1.36,24.56,25.98,1.59,23.2,2.62,c_10_04,Quartier 5
-54,frais_saison_seche,sans_arbres,27.18,24.47,40.48,3.98,27.18,24.47,4.86,23.2,6.01,c_10_04,Quartier 5
-54,saison_pluies,arbres,31.83,40.35,61.66,1.77,32.29,40.35,1.77,30.06,0.24,c_10_04,Quartier 5
-54,saison_pluies,sans_arbres,33.56,42.35,63.16,3.5,33.8,42.35,3.62,30.06,0.51,c_10_04,Quartier 5
-55,chaud_saison_seche,arbres,41.74,44.41,58.18,3.16,41.75,44.41,3.16,38.58,3.87,c_11_04,Servitude climatique 1
-55,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_11_04,Servitude climatique 1
-55,frais_saison_seche,arbres,27.32,25.28,41.04,4.12,27.32,25.28,4.12,23.2,5.23,c_11_04,Servitude climatique 1
-55,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_11_04,Servitude climatique 1
-55,saison_pluies,arbres,34.13,43.02,63.55,4.07,34.95,43.02,5.24,30.06,0.46,c_11_04,Servitude climatique 1
-55,saison_pluies,sans_arbres,34.3,43.06,63.09,4.24,34.3,43.06,4.63,30.06,0.55,c_11_04,Servitude climatique 1
-56,chaud_saison_seche,arbres,41.29,43.87,57.85,2.71,41.31,43.87,2.79,38.58,3.87,c_01_05,Quartier 2
-56,chaud_saison_seche,sans_arbres,41.83,44.4,57.9,3.24,41.83,44.4,3.32,38.58,4.19,c_01_05,Quartier 2
-56,frais_saison_seche,arbres,26.91,24.77,40.72,3.71,26.91,24.77,3.9,23.2,5.23,c_01_05,Quartier 2
-56,frais_saison_seche,sans_arbres,27.51,25.15,40.94,4.31,27.51,25.15,4.44,23.2,5.66,c_01_05,Quartier 2
-56,saison_pluies,arbres,33.44,42.23,63.14,3.37,33.7,42.23,3.54,30.06,0.45,c_01_05,Quartier 2
-56,saison_pluies,sans_arbres,33.73,42.58,63.39,3.67,33.96,42.58,3.88,30.06,0.48,c_01_05,Quartier 2
-57,chaud_saison_seche,arbres,41.32,43.7,57.16,2.74,41.4,43.7,2.74,38.58,4.59,c_02_05,Quartier 2
-57,chaud_saison_seche,sans_arbres,41.79,44.26,57.37,3.21,41.79,44.26,3.21,38.58,4.75,c_02_05,Quartier 2
-57,frais_saison_seche,arbres,26.88,23.94,40.14,3.68,26.88,23.94,3.92,23.2,6.2,c_02_05,Quartier 2
-57,frais_saison_seche,sans_arbres,27.38,24.46,40.42,4.18,27.38,24.46,6.38,23.2,6.41,c_02_05,Quartier 2
-57,saison_pluies,arbres,33.73,42.49,63.04,3.67,33.95,42.49,3.67,30.06,0.53,c_02_05,Quartier 2
-57,saison_pluies,sans_arbres,33.96,42.69,62.94,3.9,37.04,43.95,7.34,30.06,0.55,c_02_05,Quartier 2
-58,chaud_saison_seche,arbres,38.28,42.21,65.82,-0.3,38.83,42.21,-0.02,38.58,0.01,c_03_05,Quartier 3
-58,chaud_saison_seche,sans_arbres,40.94,43.17,56.04,2.36,40.98,43.17,2.38,38.58,5.66,c_03_05,Quartier 3
-58,frais_saison_seche,arbres,23.57,29.47,48.6,0.37,23.57,29.47,0.72,23.2,0.02,c_03_05,Quartier 3
-58,frais_saison_seche,sans_arbres,26.6,22.77,39.27,3.41,26.6,22.77,3.56,23.2,7.64,c_03_05,Quartier 3
-58,saison_pluies,arbres,30.69,38.89,60.07,0.63,31.2,38.89,0.67,30.06,0.03,c_03_05,Quartier 3
-58,saison_pluies,sans_arbres,33.13,41.44,61.28,3.07,33.4,41.5,3.2,30.06,0.65,c_03_05,Quartier 3
-59,chaud_saison_seche,arbres,38.84,40.93,56.03,0.26,39.37,41.36,0.27,38.58,3.89,c_04_05,Quartier 3
-59,chaud_saison_seche,sans_arbres,41.06,43.35,56.01,2.48,41.14,43.35,2.48,38.58,5.83,c_04_05,Quartier 3
-59,frais_saison_seche,arbres,24.59,21.92,38.92,1.4,24.59,21.92,1.61,23.2,5.25,c_04_05,Quartier 3
-59,frais_saison_seche,sans_arbres,26.56,22.61,39.15,3.36,26.56,22.61,4.19,23.2,7.88,c_04_05,Quartier 3
-59,saison_pluies,arbres,31.69,40.36,62.2,1.63,32.21,40.36,1.63,30.06,0.46,c_04_05,Quartier 3
-59,saison_pluies,sans_arbres,33.18,41.44,61.11,3.12,33.46,41.58,3.36,30.06,0.67,c_04_05,Quartier 3
-60,chaud_saison_seche,arbres,40.84,43.29,57.41,2.26,40.96,43.38,2.33,38.58,3.97,c_05_05,Quartier 3
-60,chaud_saison_seche,sans_arbres,41.87,44.38,57.61,3.28,41.87,44.38,3.35,38.58,4.55,c_05_05,Quartier 3
-60,frais_saison_seche,arbres,26.46,24.09,40.29,3.26,26.46,24.09,3.53,23.2,5.36,c_05_05,Quartier 3
-60,frais_saison_seche,sans_arbres,27.57,24.88,40.71,4.37,27.57,24.88,4.54,23.2,6.14,c_05_05,Quartier 3
-60,saison_pluies,arbres,33.33,42.12,63.11,3.27,33.64,42.12,3.4,30.06,0.46,c_05_05,Quartier 3
-60,saison_pluies,sans_arbres,33.97,42.78,63.24,3.91,34.18,42.78,4.13,30.06,0.52,c_05_05,Quartier 3
-61,chaud_saison_seche,arbres,41.24,43.6,57.09,2.66,41.32,43.6,2.66,38.58,4.6,c_06_05,Quartier 6
-61,chaud_saison_seche,sans_arbres,41.71,44.15,57.28,3.13,41.72,44.15,3.13,38.58,4.78,c_06_05,Quartier 6
-61,frais_saison_seche,arbres,26.86,23.9,40.11,3.66,26.86,23.9,3.66,23.2,6.22,c_06_05,Quartier 6
-61,frais_saison_seche,sans_arbres,27.41,24.48,40.42,4.21,27.41,24.48,6.53,23.2,6.46,c_06_05,Quartier 6
-61,saison_pluies,arbres,33.9,42.67,63.11,3.84,34.06,42.67,3.91,30.06,0.53,c_06_05,Quartier 6
-61,saison_pluies,sans_arbres,34.2,42.95,63.03,4.14,38.17,46.57,8.46,30.06,0.55,c_06_05,Quartier 6
-62,chaud_saison_seche,arbres,42.02,44.56,57.68,3.44,42.02,44.56,4.06,38.58,4.59,c_07_05,Quartier 6
-62,chaud_saison_seche,sans_arbres,42.17,44.72,57.62,3.58,42.17,44.72,3.58,38.58,4.78,c_07_05,Quartier 6
-62,frais_saison_seche,arbres,27.71,25.04,40.79,4.52,27.71,25.04,4.52,23.2,6.19,c_07_05,Quartier 6
-62,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_07_05,Quartier 6
-62,saison_pluies,arbres,34.29,43.12,63.35,4.23,34.3,43.12,4.23,30.06,0.53,c_07_05,Quartier 6
-62,saison_pluies,sans_arbres,34.39,43.16,63.14,4.33,34.39,43.16,4.39,30.06,0.55,c_07_05,Quartier 6
-63,chaud_saison_seche,arbres,41.92,44.44,57.65,3.33,41.93,44.44,3.33,38.58,4.54,c_08_05,Quartier 6
-63,chaud_saison_seche,sans_arbres,42.14,44.69,57.6,3.56,42.14,44.69,3.56,38.58,4.78,c_08_05,Quartier 6
-63,frais_saison_seche,arbres,27.65,25.0,40.78,4.46,27.65,25.0,4.46,23.2,6.13,c_08_05,Quartier 6
-63,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_08_05,Quartier 6
-63,saison_pluies,arbres,34.24,43.09,63.39,4.18,34.32,43.09,4.18,30.06,0.53,c_08_05,Quartier 6
-63,saison_pluies,sans_arbres,34.35,43.12,63.11,4.29,34.35,43.12,4.29,30.06,0.55,c_08_05,Quartier 6
-64,chaud_saison_seche,arbres,41.9,44.46,57.83,3.32,41.9,44.46,3.32,38.58,4.32,c_09_05,Servitude climatique 1
-64,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_09_05,Servitude climatique 1
-64,frais_saison_seche,arbres,27.51,25.03,40.84,4.31,27.51,25.03,4.31,23.2,5.83,c_09_05,Servitude climatique 1
-64,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_09_05,Servitude climatique 1
-64,saison_pluies,arbres,34.22,43.13,63.64,4.16,34.93,43.13,5.22,30.06,0.5,c_09_05,Servitude climatique 1
-64,saison_pluies,sans_arbres,34.31,43.07,63.09,4.25,34.31,43.07,4.66,30.06,0.55,c_09_05,Servitude climatique 1
-65,chaud_saison_seche,arbres,40.96,44.18,59.57,2.38,41.06,44.18,2.82,38.58,2.53,c_10_05,Servitude climatique 1
-65,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_10_05,Servitude climatique 1
-65,frais_saison_seche,arbres,28.01,28.21,43.14,4.81,28.01,28.21,4.81,23.2,3.42,c_10_05,Servitude climatique 1
-65,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_10_05,Servitude climatique 1
-65,saison_pluies,arbres,33.87,42.66,63.16,3.81,34.01,42.66,4.07,30.06,0.36,c_10_05,Servitude climatique 1
-65,saison_pluies,sans_arbres,34.32,43.08,63.1,4.26,34.32,43.08,4.7,30.06,0.55,c_10_05,Servitude climatique 1
-66,chaud_saison_seche,arbres,41.73,44.41,58.22,3.15,41.74,44.41,3.15,38.58,3.83,c_11_05,Servitude climatique 1
-66,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_11_05,Servitude climatique 1
-66,frais_saison_seche,arbres,27.3,25.32,41.07,4.11,27.3,25.32,4.11,23.2,5.17,c_11_05,Servitude climatique 1
-66,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_11_05,Servitude climatique 1
-66,saison_pluies,arbres,34.18,43.07,63.57,4.12,35.06,43.07,5.35,30.06,0.46,c_11_05,Servitude climatique 1
-66,saison_pluies,sans_arbres,34.37,43.14,63.13,4.31,34.37,43.14,4.93,30.06,0.55,c_11_05,Servitude climatique 1
-67,chaud_saison_seche,arbres,42.13,44.67,57.63,3.55,42.13,44.67,4.02,38.58,4.74,c_01_06,Servitude climatique 1
-67,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_01_06,Servitude climatique 1
-67,frais_saison_seche,arbres,27.98,25.27,40.89,4.78,27.98,25.27,6.29,23.2,6.4,c_01_06,Servitude climatique 1
-67,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_01_06,Servitude climatique 1
-67,saison_pluies,arbres,33.72,42.42,62.82,3.66,34.74,42.42,5.03,30.06,0.55,c_01_06,Servitude climatique 1
-67,saison_pluies,sans_arbres,33.79,42.49,62.8,3.73,37.02,43.88,7.31,30.06,0.55,c_01_06,Servitude climatique 1
-68,chaud_saison_seche,arbres,41.79,44.28,57.52,3.21,41.81,44.28,3.45,38.58,4.58,c_02_06,Servitude climatique 1
-68,chaud_saison_seche,sans_arbres,41.93,44.43,57.45,3.35,41.93,44.43,3.35,38.58,4.78,c_02_06,Servitude climatique 1
-68,frais_saison_seche,arbres,27.22,24.4,40.41,4.02,27.22,24.4,4.13,23.2,6.18,c_02_06,Servitude climatique 1
-68,frais_saison_seche,sans_arbres,27.49,24.59,40.48,4.3,27.49,24.59,6.8,23.2,6.46,c_02_06,Servitude climatique 1
-68,saison_pluies,arbres,33.95,42.74,63.16,3.89,34.13,42.74,3.9,30.06,0.53,c_02_06,Servitude climatique 1
-68,saison_pluies,sans_arbres,33.82,42.52,62.82,3.76,36.58,42.92,6.87,30.06,0.55,c_02_06,Servitude climatique 1
-69,chaud_saison_seche,arbres,40.5,43.2,58.0,1.92,40.75,43.43,1.92,38.58,3.29,c_03_06,Quartier 2
-69,chaud_saison_seche,sans_arbres,41.72,44.22,57.59,3.14,41.73,44.22,3.16,38.58,4.45,c_03_06,Quartier 2
-69,frais_saison_seche,arbres,26.06,24.64,40.65,2.86,26.06,24.64,3.04,23.2,4.44,c_03_06,Quartier 2
-69,frais_saison_seche,sans_arbres,27.38,24.72,40.63,4.18,27.38,24.72,4.24,23.2,6.01,c_03_06,Quartier 2
-69,saison_pluies,arbres,32.95,41.67,62.71,2.89,33.37,41.67,2.93,30.06,0.38,c_03_06,Quartier 2
-69,saison_pluies,sans_arbres,33.5,42.28,63.12,3.44,33.78,42.28,3.61,30.06,0.51,c_03_06,Quartier 2
-70,chaud_saison_seche,arbres,41.39,43.85,57.45,2.81,41.5,43.89,2.81,38.58,4.32,c_04_06,Quartier 2
-70,chaud_saison_seche,sans_arbres,41.92,44.44,57.61,3.34,41.93,44.44,3.34,38.58,4.59,c_04_06,Quartier 2
-70,frais_saison_seche,arbres,26.89,24.22,40.35,3.69,26.89,24.22,4.0,23.2,5.84,c_04_06,Quartier 2
-70,frais_saison_seche,sans_arbres,27.46,24.7,40.59,4.26,27.46,24.7,5.15,23.2,6.2,c_04_06,Quartier 2
-70,saison_pluies,arbres,33.48,42.3,63.28,3.41,33.78,42.3,3.5,30.06,0.5,c_04_06,Quartier 2
-70,saison_pluies,sans_arbres,33.68,42.43,63.01,3.62,33.94,42.43,3.75,30.06,0.53,c_04_06,Quartier 2
-71,chaud_saison_seche,arbres,41.26,43.61,57.02,2.68,41.28,43.61,2.68,38.58,4.69,c_05_06,Quartier 6
-71,chaud_saison_seche,sans_arbres,41.76,44.21,57.32,3.18,41.76,44.21,3.18,38.58,4.78,c_05_06,Quartier 6
-71,frais_saison_seche,arbres,27.03,24.04,40.18,3.83,27.03,24.04,3.97,23.2,6.34,c_05_06,Quartier 6
-71,frais_saison_seche,sans_arbres,27.5,24.59,40.49,4.3,27.5,24.59,6.51,23.2,6.46,c_05_06,Quartier 6
-71,saison_pluies,arbres,34.08,42.85,63.08,4.02,34.12,42.85,4.02,30.06,0.54,c_05_06,Quartier 6
-71,saison_pluies,sans_arbres,34.44,43.22,63.17,4.38,34.44,43.22,4.38,30.06,0.55,c_05_06,Quartier 6
-72,chaud_saison_seche,arbres,41.79,44.42,58.06,3.21,41.79,44.42,3.21,38.58,4.02,c_06_06,Servitude climatique 1
-72,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_06_06,Servitude climatique 1
-72,frais_saison_seche,arbres,27.37,25.17,40.95,4.17,27.37,25.17,4.17,23.2,5.43,c_06_06,Servitude climatique 1
-72,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_06_06,Servitude climatique 1
-72,saison_pluies,arbres,34.11,43.01,63.61,4.05,34.89,43.01,5.18,30.06,0.49,c_06_06,Servitude climatique 1
-72,saison_pluies,sans_arbres,34.27,43.02,63.07,4.21,34.27,43.02,4.47,30.06,0.55,c_06_06,Servitude climatique 1
-73,chaud_saison_seche,arbres,39.0,43.18,66.71,0.42,39.71,43.18,0.6,38.58,0.1,c_07_06,Servitude climatique 1
-73,chaud_saison_seche,sans_arbres,42.14,44.68,57.6,3.56,42.14,44.68,3.56,38.58,4.78,c_07_06,Servitude climatique 1
-73,frais_saison_seche,arbres,26.79,31.85,51.15,3.59,26.79,31.85,3.59,23.2,0.13,c_07_06,Servitude climatique 1
-73,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_07_06,Servitude climatique 1
-73,saison_pluies,arbres,33.01,41.48,61.92,2.95,33.31,41.48,2.95,30.06,0.12,c_07_06,Servitude climatique 1
-73,saison_pluies,sans_arbres,34.34,43.1,63.11,4.28,35.41,43.1,5.7,30.06,0.55,c_07_06,Servitude climatique 1
-74,chaud_saison_seche,arbres,36.01,40.36,62.33,-2.57,36.01,40.36,0.27,38.58,0.89,c_08_06,Quartier 1
-74,chaud_saison_seche,sans_arbres,40.95,43.21,55.93,2.37,41.03,43.21,2.37,38.58,5.83,c_08_06,Quartier 1
-74,frais_saison_seche,arbres,23.74,28.18,45.11,0.55,23.74,28.18,0.86,23.2,1.2,c_08_06,Quartier 1
-74,frais_saison_seche,sans_arbres,26.51,22.54,39.11,3.31,26.51,22.54,4.77,23.2,7.87,c_08_06,Quartier 1
-74,saison_pluies,arbres,30.72,39.14,60.76,0.66,31.29,39.14,0.66,30.06,0.16,c_08_06,Quartier 1
-74,saison_pluies,sans_arbres,33.3,41.58,61.18,3.24,35.07,41.66,5.36,30.06,0.67,c_08_06,Quartier 1
-75,chaud_saison_seche,arbres,39.36,41.58,56.49,0.78,39.63,41.88,0.8,38.58,3.82,c_09_06,Quartier 1
-75,chaud_saison_seche,sans_arbres,41.25,43.59,56.94,2.67,41.29,43.59,2.67,38.58,4.77,c_09_06,Quartier 1
-75,frais_saison_seche,arbres,25.08,22.6,39.36,1.88,25.08,22.6,2.12,23.2,5.16,c_09_06,Quartier 1
-75,frais_saison_seche,sans_arbres,26.78,23.64,39.93,3.58,26.78,23.64,4.12,23.2,6.45,c_09_06,Quartier 1
-75,saison_pluies,arbres,32.7,41.43,62.72,2.64,33.09,41.43,2.64,30.06,0.45,c_09_06,Quartier 1
-75,saison_pluies,sans_arbres,33.63,42.3,62.71,3.56,33.87,42.3,3.6,30.06,0.55,c_09_06,Quartier 1
-76,chaud_saison_seche,arbres,40.91,43.45,57.7,2.32,41.03,43.54,2.34,38.58,3.77,c_10_06,Quartier 1
-76,chaud_saison_seche,sans_arbres,41.56,44.04,57.53,2.98,41.56,44.04,2.98,38.58,4.39,c_10_06,Quartier 1
-76,frais_saison_seche,arbres,26.4,24.29,40.43,3.2,26.4,24.29,3.31,23.2,5.08,c_10_06,Quartier 1
-76,frais_saison_seche,sans_arbres,27.14,24.48,40.5,3.95,27.14,24.48,5.03,23.2,5.93,c_10_06,Quartier 1
-76,saison_pluies,arbres,33.27,42.05,63.02,3.21,33.58,42.05,3.26,30.06,0.44,c_10_06,Quartier 1
-76,saison_pluies,sans_arbres,33.54,42.35,63.23,3.48,33.78,42.35,3.6,30.06,0.51,c_10_06,Quartier 1
-77,chaud_saison_seche,arbres,41.46,43.98,57.69,2.88,41.48,43.98,2.92,38.58,4.13,c_11_06,Quartier 1
-77,chaud_saison_seche,sans_arbres,41.59,44.08,57.58,3.0,41.59,44.08,3.02,38.58,4.36,c_11_06,Quartier 1
-77,frais_saison_seche,arbres,26.94,24.5,40.55,3.74,26.94,24.5,4.39,23.2,5.58,c_11_06,Quartier 1
-77,frais_saison_seche,sans_arbres,27.16,24.53,40.53,3.96,27.16,24.53,4.92,23.2,5.89,c_11_06,Quartier 1
-77,saison_pluies,arbres,33.54,42.36,63.27,3.48,33.78,42.36,3.59,30.06,0.48,c_11_06,Quartier 1
-77,saison_pluies,sans_arbres,33.53,42.35,63.27,3.47,33.76,42.35,3.6,30.06,0.5,c_11_06,Quartier 1
-78,chaud_saison_seche,arbres,42.07,44.61,57.65,3.49,42.07,44.61,4.53,38.58,4.67,c_01_07,Servitude climatique 1
-78,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_01_07,Servitude climatique 1
-78,frais_saison_seche,arbres,27.84,25.13,40.83,4.64,27.84,25.13,5.16,23.2,6.31,c_01_07,Servitude climatique 1
-78,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_01_07,Servitude climatique 1
-78,saison_pluies,arbres,34.22,43.01,63.19,4.15,34.22,43.01,4.15,30.06,0.54,c_01_07,Servitude climatique 1
-78,saison_pluies,sans_arbres,34.05,42.78,62.95,3.99,34.05,42.78,3.99,30.06,0.55,c_01_07,Servitude climatique 1
-79,chaud_saison_seche,arbres,41.1,43.43,56.97,2.52,41.21,43.45,2.52,38.58,4.63,c_02_07,Servitude climatique 1
-79,chaud_saison_seche,sans_arbres,41.59,44.0,57.19,3.0,41.59,44.0,3.0,38.58,4.78,c_02_07,Servitude climatique 1
-79,frais_saison_seche,arbres,26.51,23.42,39.83,3.31,26.51,23.42,3.34,23.2,6.25,c_02_07,Servitude climatique 1
-79,frais_saison_seche,sans_arbres,27.01,23.94,40.1,3.81,27.01,23.94,5.19,23.2,6.46,c_02_07,Servitude climatique 1
-79,saison_pluies,arbres,33.73,42.47,62.97,3.67,33.97,42.47,3.67,30.06,0.53,c_02_07,Servitude climatique 1
-79,saison_pluies,sans_arbres,33.83,42.52,62.82,3.77,35.29,42.52,5.59,30.06,0.55,c_02_07,Servitude climatique 1
-80,chaud_saison_seche,arbres,40.98,43.33,57.09,2.4,41.09,43.38,2.4,38.58,4.4,c_03_07,Quartier 2
-80,chaud_saison_seche,sans_arbres,41.49,43.91,57.29,2.9,41.49,43.91,2.91,38.58,4.58,c_03_07,Quartier 2
-80,frais_saison_seche,arbres,26.55,23.71,40.03,3.36,26.55,23.71,3.49,23.2,5.94,c_03_07,Quartier 2
-80,frais_saison_seche,sans_arbres,27.05,24.18,40.28,3.85,27.05,24.18,3.92,23.2,6.18,c_03_07,Quartier 2
-80,saison_pluies,arbres,33.41,42.2,63.13,3.34,33.71,42.2,3.41,30.06,0.51,c_03_07,Quartier 2
-80,saison_pluies,sans_arbres,33.69,42.44,63.03,3.63,33.93,42.44,3.74,30.06,0.53,c_03_07,Quartier 2
-81,chaud_saison_seche,arbres,40.78,43.03,56.73,2.2,40.92,43.11,2.2,38.58,4.62,c_04_07,Quartier 2
-81,chaud_saison_seche,sans_arbres,41.26,43.6,56.94,2.68,41.3,43.6,2.68,38.58,4.79,c_04_07,Quartier 2
-81,frais_saison_seche,arbres,26.33,23.19,39.69,3.13,26.33,23.19,3.26,23.2,6.23,c_04_07,Quartier 2
-81,frais_saison_seche,sans_arbres,26.79,23.64,39.93,3.59,26.79,23.64,4.11,23.2,6.46,c_04_07,Quartier 2
-81,saison_pluies,arbres,33.36,42.06,62.78,3.3,33.67,42.06,3.3,30.06,0.53,c_04_07,Quartier 2
-81,saison_pluies,sans_arbres,33.63,42.3,62.7,3.57,33.88,42.3,3.61,30.06,0.55,c_04_07,Quartier 2
-82,chaud_saison_seche,arbres,41.68,44.28,57.97,3.1,41.8,44.34,3.1,38.58,4.02,c_05_07,Servitude climatique 1
-82,chaud_saison_seche,sans_arbres,42.16,44.7,57.61,3.57,42.16,44.7,3.57,38.58,4.78,c_05_07,Servitude climatique 1
-82,frais_saison_seche,arbres,27.36,25.15,40.94,4.17,27.36,25.15,4.17,23.2,5.43,c_05_07,Servitude climatique 1
-82,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_05_07,Servitude climatique 1
-82,saison_pluies,arbres,34.13,43.03,63.6,4.07,34.35,43.03,4.64,30.06,0.48,c_05_07,Servitude climatique 1
-82,saison_pluies,sans_arbres,34.27,43.02,63.07,4.21,34.27,43.02,4.21,30.06,0.55,c_05_07,Servitude climatique 1
-83,chaud_saison_seche,arbres,40.93,44.21,59.74,2.35,41.03,44.21,2.8,38.58,2.44,c_06_07,Servitude climatique 1
-83,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_06_07,Servitude climatique 1
-83,frais_saison_seche,arbres,28.1,28.48,43.36,4.9,28.1,28.48,4.9,23.2,3.29,c_06_07,Servitude climatique 1
-83,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_06_07,Servitude climatique 1
-83,saison_pluies,arbres,33.86,42.63,63.08,3.8,34.0,42.63,4.02,30.06,0.33,c_06_07,Servitude climatique 1
-83,saison_pluies,sans_arbres,34.38,43.15,63.13,4.32,34.38,43.15,4.96,30.06,0.55,c_06_07,Servitude climatique 1
-84,chaud_saison_seche,arbres,40.63,42.93,56.93,2.04,40.88,43.17,2.04,38.58,4.27,c_07_07,Quartier 1
-84,chaud_saison_seche,sans_arbres,41.73,44.17,57.29,3.15,41.73,44.17,3.15,38.58,4.78,c_07_07,Quartier 1
-84,frais_saison_seche,arbres,26.3,23.53,39.94,3.11,26.3,23.53,3.11,23.2,5.76,c_07_07,Quartier 1
-84,frais_saison_seche,sans_arbres,27.34,24.39,40.36,4.14,27.34,24.39,6.41,23.2,6.46,c_07_07,Quartier 1
-84,saison_pluies,arbres,33.46,42.28,63.26,3.4,33.78,42.28,3.4,30.06,0.5,c_07_07,Quartier 1
-84,saison_pluies,sans_arbres,34.11,42.84,62.98,4.05,37.83,45.74,8.12,30.06,0.55,c_07_07,Quartier 1
-85,chaud_saison_seche,arbres,40.48,42.79,56.94,1.89,40.65,42.94,1.9,38.58,4.15,c_08_07,Quartier 1
-85,chaud_saison_seche,sans_arbres,41.42,43.84,57.3,2.84,41.45,43.84,2.84,38.58,4.52,c_08_07,Quartier 1
-85,frais_saison_seche,arbres,26.09,23.41,39.88,2.89,26.09,23.41,3.06,23.2,5.61,c_08_07,Quartier 1
-85,frais_saison_seche,sans_arbres,26.98,24.14,40.27,3.78,26.98,24.14,4.0,23.2,6.11,c_08_07,Quartier 1
-85,saison_pluies,arbres,33.08,41.86,63.02,3.02,33.43,41.86,3.05,30.06,0.48,c_08_07,Quartier 1
-85,saison_pluies,sans_arbres,33.66,42.43,63.1,3.6,33.91,42.43,3.68,30.06,0.52,c_08_07,Quartier 1
-86,chaud_saison_seche,arbres,41.54,43.98,57.38,2.95,41.55,43.98,2.95,38.58,4.52,c_09_07,Quartier 1
-86,chaud_saison_seche,sans_arbres,41.93,44.45,57.64,3.34,41.93,44.45,3.34,38.58,4.56,c_09_07,Quartier 1
-86,frais_saison_seche,arbres,27.1,24.29,40.36,3.9,27.1,24.29,4.81,23.2,6.11,c_09_07,Quartier 1
-86,frais_saison_seche,sans_arbres,27.43,24.7,40.59,4.24,27.43,24.7,5.25,23.2,6.15,c_09_07,Quartier 1
-86,saison_pluies,arbres,33.5,42.26,63.01,3.44,33.76,42.26,3.56,30.06,0.52,c_09_07,Quartier 1
-86,saison_pluies,sans_arbres,33.74,42.51,63.09,3.68,33.97,42.51,3.81,30.06,0.53,c_09_07,Quartier 1
-87,chaud_saison_seche,arbres,41.05,43.45,57.26,2.47,41.15,43.49,2.5,38.58,4.25,c_10_07,Quartier 1
-87,chaud_saison_seche,sans_arbres,41.59,44.05,57.42,3.01,41.59,44.05,3.03,38.58,4.53,c_10_07,Quartier 1
-87,frais_saison_seche,arbres,26.6,23.93,40.19,3.4,26.6,23.93,3.55,23.2,5.74,c_10_07,Quartier 1
-87,frais_saison_seche,sans_arbres,27.18,24.4,40.42,3.99,27.18,24.4,4.04,23.2,6.11,c_10_07,Quartier 1
-87,saison_pluies,arbres,33.33,42.14,63.19,3.27,33.63,42.14,3.38,30.06,0.49,c_10_07,Quartier 1
-87,saison_pluies,sans_arbres,33.6,42.37,63.06,3.54,33.85,42.37,3.69,30.06,0.52,c_10_07,Quartier 1
-88,chaud_saison_seche,arbres,40.37,42.65,56.86,1.78,40.55,42.82,1.79,38.58,4.15,c_11_07,Quartier 1
-88,chaud_saison_seche,sans_arbres,41.4,43.79,57.17,2.82,41.4,43.79,2.82,38.58,4.64,c_11_07,Quartier 1
-88,frais_saison_seche,arbres,25.96,23.24,39.78,2.76,25.96,23.24,2.91,23.2,5.61,c_11_07,Quartier 1
-88,frais_saison_seche,sans_arbres,26.95,23.99,40.16,3.75,26.95,23.99,4.79,23.2,6.27,c_11_07,Quartier 1
-88,saison_pluies,arbres,33.38,42.19,63.19,3.32,33.68,42.19,3.32,30.06,0.48,c_11_07,Quartier 1
-88,saison_pluies,sans_arbres,33.64,42.37,62.92,3.58,33.87,42.37,3.63,30.06,0.54,c_11_07,Quartier 1
-89,chaud_saison_seche,arbres,42.14,44.69,57.63,3.56,42.14,44.69,3.63,38.58,4.75,c_01_08,Servitude climatique 1
-89,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_01_08,Servitude climatique 1
-89,frais_saison_seche,arbres,28.01,25.31,40.91,4.81,28.01,25.31,6.58,23.2,6.41,c_01_08,Servitude climatique 1
-89,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_01_08,Servitude climatique 1
-89,saison_pluies,arbres,32.58,41.16,62.16,2.52,32.58,41.16,2.52,30.06,0.55,c_01_08,Servitude climatique 1
-89,saison_pluies,sans_arbres,32.78,41.36,62.22,2.72,32.78,41.36,2.72,30.06,0.55,c_01_08,Servitude climatique 1
-90,chaud_saison_seche,arbres,41.98,44.53,57.72,3.4,41.98,44.53,3.7,38.58,4.52,c_02_08,Servitude climatique 1
-90,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_02_08,Servitude climatique 1
-90,frais_saison_seche,arbres,27.65,25.01,40.79,4.45,27.65,25.01,4.45,23.2,6.1,c_02_08,Servitude climatique 1
-90,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_02_08,Servitude climatique 1
-90,saison_pluies,arbres,32.26,40.9,62.3,2.19,32.47,40.9,2.19,30.06,0.52,c_02_08,Servitude climatique 1
-90,saison_pluies,sans_arbres,32.81,41.4,62.24,2.75,32.81,41.4,2.75,30.06,0.55,c_02_08,Servitude climatique 1
-91,chaud_saison_seche,arbres,40.37,44.2,61.67,1.78,40.49,44.2,2.03,38.58,1.57,c_03_08,Servitude climatique 1
-91,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_03_08,Servitude climatique 1
-91,frais_saison_seche,arbres,28.51,30.65,45.53,5.31,28.51,30.65,5.31,23.2,2.12,c_03_08,Servitude climatique 1
-91,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_03_08,Servitude climatique 1
-91,saison_pluies,arbres,33.28,41.96,62.67,3.22,33.28,41.96,3.22,30.06,0.3,c_03_08,Servitude climatique 1
-91,saison_pluies,sans_arbres,32.84,41.43,62.25,2.78,32.84,41.43,2.78,30.06,0.55,c_03_08,Servitude climatique 1
-92,chaud_saison_seche,arbres,38.57,42.75,66.46,-0.01,39.18,42.89,0.21,38.58,0.1,c_04_08,Servitude climatique 1
-92,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_04_08,Servitude climatique 1
-92,frais_saison_seche,arbres,26.17,31.41,50.77,2.97,26.17,31.41,2.97,23.2,0.13,c_04_08,Servitude climatique 1
-92,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_04_08,Servitude climatique 1
-92,saison_pluies,arbres,32.1,40.51,61.43,2.04,32.26,40.51,2.04,30.06,0.13,c_04_08,Servitude climatique 1
-92,saison_pluies,sans_arbres,33.8,42.49,62.8,3.74,37.03,43.9,7.32,30.06,0.55,c_04_08,Servitude climatique 1
-93,chaud_saison_seche,arbres,40.84,43.97,59.27,2.26,41.16,44.18,2.36,38.58,2.64,c_05_08,Servitude climatique 1
-93,chaud_saison_seche,sans_arbres,42.17,44.72,57.62,3.59,42.17,44.72,3.59,38.58,4.78,c_05_08,Servitude climatique 1
-93,frais_saison_seche,arbres,28.21,28.22,43.12,5.01,28.21,28.22,5.01,23.2,3.57,c_05_08,Servitude climatique 1
-93,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_05_08,Servitude climatique 1
-93,saison_pluies,arbres,33.75,42.52,63.03,3.69,34.02,42.52,3.69,30.06,0.33,c_05_08,Servitude climatique 1
-93,saison_pluies,sans_arbres,34.26,43.02,63.07,4.2,34.26,43.02,4.2,30.06,0.55,c_05_08,Servitude climatique 1
-94,chaud_saison_seche,arbres,42.05,44.59,57.63,3.47,42.05,44.59,4.4,38.58,4.67,c_06_08,Quartier A
-94,chaud_saison_seche,sans_arbres,42.19,44.74,57.64,3.61,42.19,44.74,3.61,38.58,4.78,c_06_08,Quartier A
-94,frais_saison_seche,arbres,27.82,25.12,40.82,4.63,27.82,25.12,5.1,23.2,6.3,c_06_08,Quartier A
-94,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.94,23.2,6.46,c_06_08,Quartier A
-94,saison_pluies,arbres,34.31,43.11,63.25,4.25,34.31,43.11,4.25,30.06,0.54,c_06_08,Quartier A
-94,saison_pluies,sans_arbres,34.38,43.16,63.13,4.32,34.38,43.16,4.8,30.06,0.55,c_06_08,Quartier A
-95,chaud_saison_seche,arbres,41.21,43.5,56.65,2.63,41.29,43.5,2.63,38.58,5.08,c_07_08,Quartier A
-95,chaud_saison_seche,sans_arbres,41.21,43.51,56.65,2.63,41.29,43.51,2.63,38.58,5.08,c_07_08,Quartier A
-95,frais_saison_seche,arbres,26.78,23.4,39.76,3.58,26.78,23.4,4.15,23.2,6.86,c_07_08,Quartier A
-95,frais_saison_seche,sans_arbres,26.78,23.41,39.76,3.58,26.78,23.41,4.16,23.2,6.86,c_07_08,Quartier A
-95,saison_pluies,arbres,33.52,42.07,62.24,3.46,33.8,42.07,3.49,30.06,0.59,c_07_08,Quartier A
-95,saison_pluies,sans_arbres,33.52,42.07,62.24,3.46,33.8,42.07,3.49,30.06,0.59,c_07_08,Quartier A
-96,chaud_saison_seche,arbres,41.04,43.37,57.01,2.46,41.04,43.37,2.59,38.58,4.52,c_08_08,Quartier A
-96,chaud_saison_seche,sans_arbres,41.04,43.37,57.01,2.46,41.04,43.37,2.59,38.58,4.52,c_08_08,Quartier A
-96,frais_saison_seche,arbres,27.43,24.72,40.62,4.23,27.43,24.72,4.6,23.2,6.11,c_08_08,Quartier A
-96,frais_saison_seche,sans_arbres,27.43,24.72,40.62,4.23,27.43,24.72,4.6,23.2,6.11,c_08_08,Quartier A
-96,saison_pluies,arbres,33.71,42.49,63.13,3.65,33.92,42.49,3.92,30.06,0.52,c_08_08,Quartier A
-96,saison_pluies,sans_arbres,33.71,42.49,63.13,3.65,33.92,42.49,3.92,30.06,0.52,c_08_08,Quartier A
-97,chaud_saison_seche,arbres,40.48,42.74,56.77,1.9,40.63,42.84,1.95,38.58,4.35,c_09_08,Quartier A
-97,chaud_saison_seche,sans_arbres,41.31,43.68,57.06,2.73,41.36,43.68,2.76,38.58,4.69,c_09_08,Quartier A
-97,frais_saison_seche,arbres,26.37,23.53,39.93,3.18,26.37,23.53,3.42,23.2,5.87,c_09_08,Quartier A
-97,frais_saison_seche,sans_arbres,27.18,24.24,40.3,3.98,27.18,24.24,4.15,23.2,6.34,c_09_08,Quartier A
-97,saison_pluies,arbres,33.14,41.92,63.06,3.08,33.48,41.92,3.18,30.06,0.5,c_09_08,Quartier A
-97,saison_pluies,sans_arbres,33.7,42.41,62.87,3.64,33.96,42.41,3.79,30.06,0.54,c_09_08,Quartier A
-98,chaud_saison_seche,arbres,40.74,43.07,57.02,2.16,40.93,43.23,2.16,38.58,4.26,c_10_08,Quartier A
-98,chaud_saison_seche,sans_arbres,41.85,44.33,57.39,3.27,41.85,44.33,3.27,38.58,4.78,c_10_08,Quartier A
-98,frais_saison_seche,arbres,26.31,23.55,39.95,3.11,26.31,23.55,3.14,23.2,5.76,c_10_08,Quartier A
-98,frais_saison_seche,sans_arbres,27.38,24.44,40.39,4.18,27.38,24.44,6.45,23.2,6.46,c_10_08,Quartier A
-98,saison_pluies,arbres,33.6,42.44,63.34,3.54,33.87,42.44,3.65,30.06,0.5,c_10_08,Quartier A
-98,saison_pluies,sans_arbres,33.46,42.11,62.61,3.4,36.19,42.12,6.48,30.06,0.55,c_10_08,Quartier A
-99,chaud_saison_seche,arbres,41.97,44.52,57.74,3.39,41.97,44.52,3.54,38.58,4.49,c_11_08,Quartier A
-99,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_11_08,Quartier A
-99,frais_saison_seche,arbres,27.62,25.01,40.8,4.42,27.62,25.01,4.42,23.2,6.06,c_11_08,Quartier A
-99,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_11_08,Quartier A
-99,saison_pluies,arbres,32.95,41.66,62.75,2.89,33.22,41.66,2.89,30.06,0.52,c_11_08,Quartier A
-99,saison_pluies,sans_arbres,33.31,41.94,62.52,3.25,34.81,41.94,5.1,30.06,0.55,c_11_08,Quartier A
-100,chaud_saison_seche,arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_01_09,Servitude climatique 1
-100,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_01_09,Servitude climatique 1
-100,frais_saison_seche,arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_01_09,Servitude climatique 1
-100,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_01_09,Servitude climatique 1
-100,saison_pluies,arbres,32.78,41.36,62.22,2.72,32.78,41.36,2.72,30.06,0.55,c_01_09,Servitude climatique 1
-100,saison_pluies,sans_arbres,32.78,41.36,62.22,2.72,32.78,41.36,2.72,30.06,0.55,c_01_09,Servitude climatique 1
-101,chaud_saison_seche,arbres,42.04,44.58,57.66,3.46,42.04,44.58,4.33,38.58,4.63,c_02_09,Servitude climatique 1
-101,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_02_09,Servitude climatique 1
-101,frais_saison_seche,arbres,27.77,25.08,40.81,4.57,27.77,25.08,4.75,23.2,6.25,c_02_09,Servitude climatique 1
-101,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_02_09,Servitude climatique 1
-101,saison_pluies,arbres,32.3,40.91,62.16,2.24,32.33,40.91,2.24,30.06,0.54,c_02_09,Servitude climatique 1
-101,saison_pluies,sans_arbres,32.67,41.25,62.16,2.61,32.67,41.25,2.61,30.06,0.55,c_02_09,Servitude climatique 1
-102,chaud_saison_seche,arbres,24.34,32.12,58.21,-14.24,24.34,32.12,-3.98,38.58,0.1,c_03_09,Servitude climatique 1
-102,chaud_saison_seche,sans_arbres,41.82,44.29,57.36,3.24,41.82,44.29,3.24,38.58,4.78,c_03_09,Servitude climatique 1
-102,frais_saison_seche,arbres,21.73,28.56,48.09,-1.47,22.76,28.56,0.51,23.2,0.13,c_03_09,Servitude climatique 1
-102,frais_saison_seche,sans_arbres,27.58,24.7,40.55,4.38,27.58,24.7,6.74,23.2,6.46,c_03_09,Servitude climatique 1
-102,saison_pluies,arbres,27.41,36.01,58.76,-2.65,27.95,36.15,0.49,30.06,0.14,c_03_09,Servitude climatique 1
-102,saison_pluies,sans_arbres,32.96,41.56,62.33,2.9,33.11,41.56,3.4,30.06,0.55,c_03_09,Servitude climatique 1
-103,chaud_saison_seche,arbres,37.65,40.35,56.94,-0.93,38.88,41.46,-0.27,38.58,2.68,c_04_09,Servitude climatique 1
-103,chaud_saison_seche,sans_arbres,41.78,44.25,57.35,3.2,41.78,44.25,3.2,38.58,4.77,c_04_09,Servitude climatique 1
-103,frais_saison_seche,arbres,24.53,24.16,40.29,1.33,24.53,24.16,1.43,23.2,3.62,c_04_09,Servitude climatique 1
-103,frais_saison_seche,sans_arbres,27.26,24.29,40.31,4.07,27.26,24.29,5.85,23.2,6.44,c_04_09,Servitude climatique 1
-103,saison_pluies,arbres,31.64,40.23,61.79,1.58,32.12,40.23,1.58,30.06,0.32,c_04_09,Servitude climatique 1
-103,saison_pluies,sans_arbres,33.44,42.09,62.62,3.38,35.11,42.09,5.4,30.06,0.55,c_04_09,Servitude climatique 1
-104,chaud_saison_seche,arbres,41.25,43.6,57.03,2.66,41.35,43.61,2.66,38.58,4.67,c_05_09,Quartier A
-104,chaud_saison_seche,sans_arbres,41.73,44.18,57.29,3.15,41.73,44.18,3.15,38.58,4.78,c_05_09,Quartier A
-104,frais_saison_seche,arbres,26.82,23.78,40.03,3.62,26.82,23.78,3.92,23.2,6.3,c_05_09,Quartier A
-104,frais_saison_seche,sans_arbres,27.29,24.32,40.33,4.1,27.29,24.32,6.23,23.2,6.46,c_05_09,Quartier A
-104,saison_pluies,arbres,33.75,42.48,62.92,3.69,33.98,42.48,3.69,30.06,0.54,c_05_09,Quartier A
-104,saison_pluies,sans_arbres,34.01,42.73,62.92,3.95,37.25,44.4,7.55,30.06,0.55,c_05_09,Quartier A
-105,chaud_saison_seche,arbres,41.85,44.34,57.47,3.27,41.85,44.34,3.27,38.58,4.68,c_06_09,Quartier A
-105,chaud_saison_seche,sans_arbres,41.86,44.34,57.46,3.27,41.86,44.34,3.27,38.58,4.7,c_06_09,Quartier A
-105,frais_saison_seche,arbres,27.36,24.49,40.45,4.16,27.36,24.49,5.36,23.2,6.32,c_06_09,Quartier A
-105,frais_saison_seche,sans_arbres,27.39,24.52,40.46,4.2,27.39,24.52,5.48,23.2,6.35,c_06_09,Quartier A
-105,saison_pluies,arbres,33.81,42.54,62.95,3.75,34.04,42.54,3.83,30.06,0.54,c_06_09,Quartier A
-105,saison_pluies,sans_arbres,33.8,42.52,62.92,3.74,34.03,42.52,3.82,30.06,0.54,c_06_09,Quartier A
-106,chaud_saison_seche,arbres,41.02,43.26,56.34,2.44,41.14,43.26,2.44,38.58,5.33,c_07_09,Quartier A
-106,chaud_saison_seche,sans_arbres,41.03,43.28,56.32,2.45,41.16,43.28,2.45,38.58,5.37,c_07_09,Quartier A
-106,frais_saison_seche,arbres,26.51,22.85,39.39,3.31,26.51,22.85,4.05,23.2,7.2,c_07_09,Quartier A
-106,frais_saison_seche,sans_arbres,26.57,22.9,39.41,3.37,26.57,22.9,4.38,23.2,7.26,c_07_09,Quartier A
-106,saison_pluies,arbres,33.37,41.81,61.82,3.3,34.09,41.81,4.38,30.06,0.61,c_07_09,Quartier A
-106,saison_pluies,sans_arbres,33.34,41.76,61.75,3.27,34.07,41.76,4.36,30.06,0.62,c_07_09,Quartier A
-107,chaud_saison_seche,arbres,40.84,43.04,56.07,2.26,40.96,43.04,2.26,38.58,5.52,c_08_09,Quartier A
-107,chaud_saison_seche,sans_arbres,40.87,43.08,56.04,2.29,40.99,43.08,2.29,38.58,5.58,c_08_09,Quartier A
-107,frais_saison_seche,arbres,26.51,22.73,39.28,3.31,26.51,22.73,3.58,23.2,7.45,c_08_09,Quartier A
-107,frais_saison_seche,sans_arbres,26.59,22.79,39.3,3.39,26.59,22.79,3.59,23.2,7.54,c_08_09,Quartier A
-107,saison_pluies,arbres,33.12,41.47,61.45,3.05,33.44,41.54,3.13,30.06,0.64,c_08_09,Quartier A
-107,saison_pluies,sans_arbres,33.1,41.44,61.36,3.04,33.43,41.53,3.12,30.06,0.64,c_08_09,Quartier A
-108,chaud_saison_seche,arbres,40.8,43.13,55.47,2.22,40.91,43.13,2.23,38.58,6.43,c_09_09,Quartier A
-108,chaud_saison_seche,sans_arbres,41.16,43.63,55.7,2.58,41.23,43.63,2.58,38.58,6.51,c_09_09,Quartier A
-108,frais_saison_seche,arbres,26.39,22.06,38.76,3.2,26.39,22.06,3.3,23.2,8.68,c_09_09,Quartier A
-108,frais_saison_seche,sans_arbres,26.72,22.51,38.98,3.52,26.72,22.51,3.58,23.2,8.79,c_09_09,Quartier A
-108,saison_pluies,arbres,32.82,40.86,60.24,2.76,33.14,41.25,2.9,30.06,0.74,c_09_09,Quartier A
-108,saison_pluies,sans_arbres,33.02,41.07,60.29,2.96,33.32,41.45,3.13,30.06,0.75,c_09_09,Quartier A
-109,chaud_saison_seche,arbres,40.27,42.52,54.85,1.69,40.43,42.52,1.73,38.58,6.79,c_10_09,Quartier A
-109,chaud_saison_seche,sans_arbres,40.79,43.46,54.97,2.21,40.84,43.46,2.24,38.58,7.42,c_10_09,Quartier A
-109,frais_saison_seche,arbres,25.81,20.98,38.13,2.61,25.81,20.98,2.79,23.2,9.17,c_10_09,Quartier A
-109,frais_saison_seche,sans_arbres,26.39,21.53,38.39,3.19,26.39,21.53,3.33,23.2,10.02,c_10_09,Quartier A
-109,saison_pluies,arbres,32.46,40.37,59.65,2.4,32.81,40.91,2.52,30.06,0.78,c_10_09,Quartier A
-109,saison_pluies,sans_arbres,32.64,40.38,59.18,2.58,32.94,41.06,2.76,30.06,0.86,c_10_09,Quartier A
-110,chaud_saison_seche,arbres,42.04,44.58,57.67,3.46,42.04,44.58,4.28,38.58,4.62,c_11_09,Quartier A
-110,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_11_09,Quartier A
-110,frais_saison_seche,arbres,27.76,25.07,40.8,4.56,27.76,25.07,4.67,23.2,6.24,c_11_09,Quartier A
-110,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_11_09,Quartier A
-110,saison_pluies,arbres,33.48,42.19,62.84,3.42,33.86,42.19,4.15,30.06,0.53,c_11_09,Quartier A
-110,saison_pluies,sans_arbres,33.53,42.19,62.65,3.47,35.91,42.19,6.2,30.06,0.55,c_11_09,Quartier A
-111,chaud_saison_seche,arbres,42.01,44.55,57.69,3.43,42.01,44.55,4.02,38.58,4.58,c_01_10,Servitude climatique 1
-111,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_01_10,Servitude climatique 1
-111,frais_saison_seche,arbres,27.71,25.04,40.79,4.51,27.71,25.04,4.51,23.2,6.18,c_01_10,Servitude climatique 1
-111,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_01_10,Servitude climatique 1
-111,saison_pluies,arbres,32.49,41.13,62.34,2.43,32.76,41.13,2.43,30.06,0.53,c_01_10,Servitude climatique 1
-111,saison_pluies,sans_arbres,33.14,41.76,62.43,3.08,33.94,41.76,4.23,30.06,0.55,c_01_10,Servitude climatique 1
-112,chaud_saison_seche,arbres,41.55,44.4,58.68,2.97,41.61,44.4,2.97,38.58,3.35,c_02_10,Servitude climatique 1
-112,chaud_saison_seche,sans_arbres,42.16,44.71,57.62,3.58,42.16,44.71,3.58,38.58,4.78,c_02_10,Servitude climatique 1
-112,frais_saison_seche,arbres,27.17,25.84,41.43,3.97,27.17,25.84,3.97,23.2,4.52,c_02_10,Servitude climatique 1
-112,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_02_10,Servitude climatique 1
-112,saison_pluies,arbres,32.67,41.37,62.62,2.61,33.05,41.37,2.61,30.06,0.41,c_02_10,Servitude climatique 1
-112,saison_pluies,sans_arbres,33.93,42.65,62.88,3.87,37.59,45.17,7.88,30.06,0.55,c_02_10,Servitude climatique 1
-113,chaud_saison_seche,arbres,41.0,43.37,57.15,2.42,41.1,43.41,2.44,38.58,4.36,c_03_10,Quartier A
-113,chaud_saison_seche,sans_arbres,41.11,43.45,57.06,2.53,41.19,43.46,2.53,38.58,4.53,c_03_10,Quartier A
-113,frais_saison_seche,arbres,26.58,23.78,40.08,3.38,26.58,23.78,3.54,23.2,5.88,c_03_10,Quartier A
-113,frais_saison_seche,sans_arbres,26.79,23.89,40.12,3.6,26.79,23.89,3.7,23.2,6.11,c_03_10,Quartier A
-113,saison_pluies,arbres,33.49,42.31,63.25,3.43,33.79,42.31,3.51,30.06,0.5,c_03_10,Quartier A
-113,saison_pluies,sans_arbres,33.51,42.26,63.01,3.45,33.8,42.26,3.53,30.06,0.52,c_03_10,Quartier A
-114,chaud_saison_seche,arbres,41.08,43.37,56.8,2.5,41.15,43.37,2.52,38.58,4.79,c_04_10,Quartier A
-114,chaud_saison_seche,sans_arbres,41.12,43.41,56.77,2.54,41.18,43.41,2.55,38.58,4.86,c_04_10,Quartier A
-114,frais_saison_seche,arbres,26.74,23.57,39.88,3.54,26.74,23.57,3.69,23.2,6.47,c_04_10,Quartier A
-114,frais_saison_seche,sans_arbres,26.83,23.64,39.91,3.63,26.83,23.64,3.76,23.2,6.56,c_04_10,Quartier A
-114,saison_pluies,arbres,33.4,42.04,62.56,3.34,33.68,42.04,3.47,30.06,0.55,c_04_10,Quartier A
-114,saison_pluies,sans_arbres,33.41,42.03,62.47,3.35,33.69,42.03,3.48,30.06,0.56,c_04_10,Quartier A
-115,chaud_saison_seche,arbres,40.68,42.83,56.09,2.1,40.8,42.83,2.14,38.58,5.33,c_05_10,Quartier A
-115,chaud_saison_seche,sans_arbres,41.1,43.37,56.25,2.52,41.18,43.37,2.53,38.58,5.54,c_05_10,Quartier A
-115,frais_saison_seche,arbres,26.44,22.76,39.34,3.24,26.44,22.76,3.44,23.2,7.2,c_05_10,Quartier A
-115,frais_saison_seche,sans_arbres,26.89,23.25,39.57,3.69,26.89,23.25,3.82,23.2,7.48,c_05_10,Quartier A
-115,saison_pluies,arbres,33.0,41.41,61.61,2.94,33.33,41.41,3.08,30.06,0.62,c_05_10,Quartier A
-115,saison_pluies,sans_arbres,33.25,41.61,61.5,3.19,33.55,41.66,3.35,30.06,0.64,c_05_10,Quartier A
-116,chaud_saison_seche,arbres,40.98,43.22,56.19,2.4,41.09,43.22,2.4,38.58,5.49,c_06_10,Quartier A
-116,chaud_saison_seche,sans_arbres,41.04,43.29,56.17,2.45,41.13,43.29,2.45,38.58,5.58,c_06_10,Quartier A
-116,frais_saison_seche,arbres,26.71,23.02,39.45,3.51,26.71,23.02,3.64,23.2,7.42,c_06_10,Quartier A
-116,frais_saison_seche,sans_arbres,26.8,23.11,39.48,3.61,26.8,23.11,3.72,23.2,7.53,c_06_10,Quartier A
-116,saison_pluies,arbres,33.19,41.56,61.51,3.13,33.5,41.61,3.26,30.06,0.63,c_06_10,Quartier A
-116,saison_pluies,sans_arbres,33.2,41.55,61.43,3.14,33.51,41.61,3.28,30.06,0.64,c_06_10,Quartier A
-117,chaud_saison_seche,arbres,40.31,42.38,56.03,1.72,40.48,42.47,1.77,38.58,5.01,c_07_10,Quartier A
-117,chaud_saison_seche,sans_arbres,41.15,43.43,56.34,2.57,41.2,43.43,2.61,38.58,5.47,c_07_10,Quartier A
-117,frais_saison_seche,arbres,26.11,22.54,39.28,2.91,26.11,22.54,3.14,23.2,6.77,c_07_10,Quartier A
-117,frais_saison_seche,sans_arbres,26.92,23.34,39.64,3.72,26.92,23.34,3.88,23.2,7.38,c_07_10,Quartier A
-117,saison_pluies,arbres,32.77,41.26,61.86,2.71,33.13,41.26,2.82,30.06,0.58,c_07_10,Quartier A
-117,saison_pluies,sans_arbres,33.29,41.69,61.62,3.23,33.57,41.69,3.41,30.06,0.63,c_07_10,Quartier A
-118,chaud_saison_seche,arbres,40.58,42.71,55.86,2.0,40.79,42.77,2.0,38.58,5.53,c_08_10,Quartier A
-118,chaud_saison_seche,sans_arbres,41.09,43.38,56.04,2.51,41.17,43.38,2.51,38.58,5.83,c_08_10,Quartier A
-118,frais_saison_seche,arbres,26.09,22.13,38.94,2.9,26.09,22.13,3.01,23.2,7.47,c_08_10,Quartier A
-118,frais_saison_seche,sans_arbres,26.6,22.67,39.18,3.4,26.6,22.67,4.0,23.2,7.87,c_08_10,Quartier A
-118,saison_pluies,arbres,32.94,41.27,61.33,2.88,33.31,41.4,3.09,30.06,0.64,c_08_10,Quartier A
-118,saison_pluies,sans_arbres,33.17,41.43,61.1,3.11,33.46,41.58,3.18,30.06,0.67,c_08_10,Quartier A
-119,chaud_saison_seche,arbres,40.33,42.49,55.16,1.75,40.64,42.51,1.75,38.58,6.35,c_09_10,Quartier A
-119,chaud_saison_seche,sans_arbres,40.81,43.2,55.35,2.23,40.95,43.2,2.23,38.58,6.65,c_09_10,Quartier A
-119,frais_saison_seche,arbres,26.07,21.62,38.54,2.87,26.07,21.62,3.13,23.2,8.57,c_09_10,Quartier A
-119,frais_saison_seche,sans_arbres,26.46,22.05,38.71,3.26,26.46,22.05,4.77,23.2,8.97,c_09_10,Quartier A
-119,saison_pluies,arbres,32.96,41.04,60.39,2.9,33.29,41.39,3.58,30.06,0.73,c_09_10,Quartier A
-119,saison_pluies,sans_arbres,33.22,41.24,60.27,3.16,35.81,41.59,6.11,30.06,0.77,c_09_10,Quartier A
-120,chaud_saison_seche,arbres,39.95,42.13,54.53,1.37,40.16,42.13,1.37,38.58,6.94,c_10_10,Quartier A
-120,chaud_saison_seche,sans_arbres,40.45,42.96,54.73,1.87,40.54,42.96,1.87,38.58,7.36,c_10_10,Quartier A
-120,frais_saison_seche,arbres,26.64,22.18,38.73,3.45,26.64,22.18,3.45,23.2,9.37,c_10_10,Quartier A
-120,frais_saison_seche,sans_arbres,26.74,22.11,38.64,3.54,26.74,22.11,4.14,23.2,9.94,c_10_10,Quartier A
-120,saison_pluies,arbres,32.74,40.62,59.67,2.68,32.93,41.04,2.68,30.06,0.8,c_10_10,Quartier A
-120,saison_pluies,sans_arbres,33.05,40.86,59.49,2.99,33.72,41.29,4.01,30.06,0.85,c_10_10,Quartier A
-121,chaud_saison_seche,arbres,41.72,44.18,57.4,3.14,41.72,44.18,3.25,38.58,4.65,c_01_11,Quartier A
-121,chaud_saison_seche,sans_arbres,42.26,44.84,57.7,3.68,42.26,44.84,3.79,38.58,4.77,c_01_11,Quartier A
-121,frais_saison_seche,arbres,27.18,24.28,40.33,3.98,27.18,24.28,4.2,23.2,6.27,c_01_11,Quartier A
-121,frais_saison_seche,sans_arbres,27.78,24.98,40.72,4.59,27.78,24.98,4.73,23.2,6.44,c_01_11,Quartier A
-121,saison_pluies,arbres,33.63,42.35,62.89,3.57,33.86,42.35,3.81,30.06,0.54,c_01_11,Quartier A
-121,saison_pluies,sans_arbres,33.94,42.66,62.89,3.88,34.12,42.66,4.17,30.06,0.55,c_01_11,Quartier A
-122,chaud_saison_seche,arbres,40.81,43.0,55.99,2.23,40.95,43.0,2.23,38.58,5.59,c_02_11,Quartier A
-122,chaud_saison_seche,sans_arbres,41.2,43.51,56.2,2.62,41.29,43.51,2.62,38.58,5.71,c_02_11,Quartier A
-122,frais_saison_seche,arbres,26.47,22.63,39.21,3.27,26.47,22.63,3.53,23.2,7.54,c_02_11,Quartier A
-122,frais_saison_seche,sans_arbres,26.84,23.08,39.43,3.64,26.84,23.08,3.79,23.2,7.71,c_02_11,Quartier A
-122,saison_pluies,arbres,33.09,41.42,61.33,3.03,33.43,41.53,3.1,30.06,0.65,c_02_11,Quartier A
-122,saison_pluies,sans_arbres,33.32,41.63,61.33,3.26,33.62,41.74,3.35,30.06,0.66,c_02_11,Quartier A
-123,chaud_saison_seche,arbres,40.5,42.61,56.06,1.92,40.67,42.67,1.95,38.58,5.19,c_03_11,Quartier A
-123,chaud_saison_seche,sans_arbres,41.02,43.27,56.14,2.44,41.08,43.27,2.46,38.58,5.6,c_03_11,Quartier A
-123,frais_saison_seche,arbres,26.19,22.51,39.22,2.99,26.19,22.51,3.17,23.2,7.01,c_03_11,Quartier A
-123,frais_saison_seche,sans_arbres,26.74,23.01,39.42,3.54,26.74,23.01,3.66,23.2,7.56,c_03_11,Quartier A
-123,saison_pluies,arbres,32.92,41.36,61.72,2.86,33.27,41.36,2.94,30.06,0.6,c_03_11,Quartier A
-123,saison_pluies,sans_arbres,33.18,41.52,61.39,3.12,33.47,41.57,3.27,30.06,0.65,c_03_11,Quartier A
-124,chaud_saison_seche,arbres,40.49,42.59,55.71,1.9,40.71,42.67,1.9,38.58,5.64,c_04_11,Quartier A
-124,chaud_saison_seche,sans_arbres,40.97,43.25,55.91,2.39,41.08,43.25,2.39,38.58,5.89,c_04_11,Quartier A
-124,frais_saison_seche,arbres,26.04,21.98,38.84,2.84,26.04,21.98,3.09,23.2,7.62,c_04_11,Quartier A
-124,frais_saison_seche,sans_arbres,26.5,22.49,39.07,3.3,26.5,22.49,4.48,23.2,7.96,c_04_11,Quartier A
-124,saison_pluies,arbres,32.97,41.26,61.19,2.91,33.33,41.42,3.36,30.06,0.65,c_04_11,Quartier A
-124,saison_pluies,sans_arbres,33.2,41.45,61.05,3.14,34.59,41.61,4.88,30.06,0.68,c_04_11,Quartier A
-125,chaud_saison_seche,arbres,40.41,42.49,55.61,1.82,40.63,42.55,1.82,38.58,5.7,c_05_11,Quartier A
-125,chaud_saison_seche,sans_arbres,40.91,43.17,55.84,2.33,40.99,43.17,2.33,38.58,5.93,c_05_11,Quartier A
-125,frais_saison_seche,arbres,26.77,22.99,39.39,3.58,26.77,22.99,3.58,23.2,7.69,c_05_11,Quartier A
-125,frais_saison_seche,sans_arbres,26.73,22.8,39.23,3.53,26.73,22.8,5.02,23.2,8.0,c_05_11,Quartier A
-125,saison_pluies,arbres,33.26,41.57,61.31,3.2,33.48,41.59,3.51,30.06,0.66,c_05_11,Quartier A
-125,saison_pluies,sans_arbres,33.6,41.89,61.25,3.54,35.67,41.89,5.97,30.06,0.68,c_05_11,Quartier A
-126,chaud_saison_seche,arbres,42.02,44.55,57.59,3.44,42.02,44.55,4.18,38.58,4.69,c_06_11,Quartier A
-126,chaud_saison_seche,sans_arbres,42.15,44.7,57.61,3.57,42.15,44.7,3.57,38.58,4.78,c_06_11,Quartier A
-126,frais_saison_seche,arbres,27.86,25.15,40.83,4.67,27.86,25.15,5.42,23.2,6.34,c_06_11,Quartier A
-126,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_06_11,Quartier A
-126,saison_pluies,arbres,34.3,43.09,63.21,4.24,34.31,43.09,4.24,30.06,0.54,c_06_11,Quartier A
-126,saison_pluies,sans_arbres,34.39,43.16,63.14,4.33,34.39,43.16,4.33,30.06,0.55,c_06_11,Quartier A
-127,chaud_saison_seche,arbres,41.71,44.15,57.28,3.12,41.71,44.15,3.12,38.58,4.78,c_01_12,Quartier A
-127,chaud_saison_seche,sans_arbres,41.71,44.15,57.28,3.12,41.71,44.15,3.12,38.58,4.78,c_01_12,Quartier A
-127,frais_saison_seche,arbres,27.23,24.24,40.28,4.03,27.23,24.24,6.02,23.2,6.46,c_01_12,Quartier A
-127,frais_saison_seche,sans_arbres,27.23,24.24,40.28,4.03,27.23,24.24,6.03,23.2,6.46,c_01_12,Quartier A
-127,saison_pluies,arbres,34.01,42.73,62.92,3.95,36.84,43.47,7.13,30.06,0.55,c_01_12,Quartier A
-127,saison_pluies,sans_arbres,34.01,42.73,62.92,3.95,36.84,43.49,7.14,30.06,0.55,c_01_12,Quartier A
-128,chaud_saison_seche,arbres,42.0,44.52,57.55,3.42,42.0,44.52,3.99,38.58,4.73,c_02_12,Quartier A
-128,chaud_saison_seche,sans_arbres,42.1,44.63,57.57,3.52,42.1,44.63,3.52,38.58,4.78,c_02_12,Quartier A
-128,frais_saison_seche,arbres,27.94,25.22,40.87,4.74,27.94,25.22,6.01,23.2,6.38,c_02_12,Quartier A
-128,frais_saison_seche,sans_arbres,28.14,25.45,40.99,4.94,28.14,25.45,7.92,23.2,6.46,c_02_12,Quartier A
-128,saison_pluies,arbres,34.31,43.09,63.17,4.25,34.31,43.09,4.25,30.06,0.55,c_02_12,Quartier A
-128,saison_pluies,sans_arbres,34.43,43.22,63.16,4.37,38.46,47.33,8.75,30.06,0.55,c_02_12,Quartier A
+grid_id,day,vegetation,ta_14h_c,utci_14h_c,tmrt_14h_c,uhi_14h_k,ta_max_c,utci_max_c,uhi_max_k,tb_rur_14h_c,ws_14h_m_s,cell_id,quartier_majoritaire,masque
+1,chaud_saison_seche,arbres,42.01,44.52,57.5,3.43,42.01,44.52,3.43,38.58,4.78,c_01_00,Quartier 4,False
+1,chaud_saison_seche,sans_arbres,42.01,44.52,57.5,3.43,42.01,44.52,3.43,38.58,4.78,c_01_00,Quartier 4,False
+1,frais_saison_seche,arbres,27.77,24.96,40.7,4.58,27.77,24.96,7.35,23.2,6.46,c_01_00,Quartier 4,False
+1,frais_saison_seche,sans_arbres,27.77,24.96,40.7,4.58,27.77,24.96,7.35,23.2,6.46,c_01_00,Quartier 4,False
+1,saison_pluies,arbres,34.32,43.08,63.1,4.26,34.32,43.08,4.26,30.06,0.55,c_01_00,Quartier 4,False
+1,saison_pluies,sans_arbres,34.32,43.08,63.1,4.26,34.32,43.08,4.26,30.06,0.55,c_01_00,Quartier 4,False
+2,chaud_saison_seche,arbres,41.99,44.5,57.49,3.41,41.99,44.5,3.41,38.58,4.78,c_02_00,Quartier 4,False
+2,chaud_saison_seche,sans_arbres,41.99,44.5,57.49,3.41,41.99,44.5,3.41,38.58,4.78,c_02_00,Quartier 4,False
+2,frais_saison_seche,arbres,27.7,24.86,40.64,4.5,27.7,24.86,7.28,23.2,6.46,c_02_00,Quartier 4,False
+2,frais_saison_seche,sans_arbres,27.7,24.86,40.64,4.5,27.7,24.86,7.28,23.2,6.46,c_02_00,Quartier 4,False
+2,saison_pluies,arbres,34.23,42.98,63.05,4.17,34.23,42.98,4.17,30.06,0.55,c_02_00,Quartier 4,False
+2,saison_pluies,sans_arbres,34.23,42.98,63.05,4.17,34.23,42.98,4.17,30.06,0.55,c_02_00,Quartier 4,False
+3,chaud_saison_seche,arbres,41.99,44.5,57.49,3.41,41.99,44.5,3.41,38.58,4.78,c_03_00,Quartier 4,False
+3,chaud_saison_seche,sans_arbres,41.99,44.5,57.49,3.41,41.99,44.5,3.41,38.58,4.78,c_03_00,Quartier 4,False
+3,frais_saison_seche,arbres,27.7,24.86,40.64,4.5,27.7,24.86,7.29,23.2,6.46,c_03_00,Quartier 4,False
+3,frais_saison_seche,sans_arbres,27.7,24.86,40.64,4.5,27.7,24.86,7.29,23.2,6.46,c_03_00,Quartier 4,False
+3,saison_pluies,arbres,34.22,42.97,63.04,4.16,34.22,42.97,4.16,30.06,0.55,c_03_00,Quartier 4,False
+3,saison_pluies,sans_arbres,34.22,42.97,63.04,4.16,34.22,42.97,4.16,30.06,0.55,c_03_00,Quartier 4,False
+4,chaud_saison_seche,arbres,41.98,44.48,57.48,3.4,41.98,44.48,3.4,38.58,4.78,c_04_00,Quartier 4,False
+4,chaud_saison_seche,sans_arbres,41.98,44.49,57.48,3.4,41.98,44.49,3.4,38.58,4.78,c_04_00,Quartier 4,False
+4,frais_saison_seche,arbres,27.65,24.8,40.61,4.45,27.65,24.8,7.2,23.2,6.46,c_04_00,Quartier 4,False
+4,frais_saison_seche,sans_arbres,27.65,24.8,40.61,4.45,27.65,24.8,7.22,23.2,6.46,c_04_00,Quartier 4,False
+4,saison_pluies,arbres,34.18,42.93,63.02,4.12,34.2,42.93,4.12,30.06,0.55,c_04_00,Quartier 4,False
+4,saison_pluies,sans_arbres,34.18,42.93,63.02,4.12,34.2,42.93,4.12,30.06,0.55,c_04_00,Quartier 4,False
+5,chaud_saison_seche,arbres,41.98,44.49,57.48,3.4,41.98,44.49,3.4,38.58,4.78,c_05_00,Quartier 4,False
+5,chaud_saison_seche,sans_arbres,41.98,44.49,57.48,3.4,41.98,44.49,3.4,38.58,4.78,c_05_00,Quartier 4,False
+5,frais_saison_seche,arbres,27.64,24.78,40.6,4.44,27.64,24.78,7.2,23.2,6.46,c_05_00,Quartier 4,False
+5,frais_saison_seche,sans_arbres,27.64,24.78,40.6,4.44,27.64,24.78,7.21,23.2,6.46,c_05_00,Quartier 4,False
+5,saison_pluies,arbres,34.16,42.9,63.01,4.1,34.19,42.9,4.1,30.06,0.55,c_05_00,Quartier 4,False
+5,saison_pluies,sans_arbres,34.16,42.9,63.01,4.1,34.19,42.9,4.1,30.06,0.55,c_05_00,Quartier 4,False
+6,chaud_saison_seche,arbres,41.92,44.41,57.44,3.34,41.92,44.41,3.34,38.58,4.78,c_06_00,Quartier 4,False
+6,chaud_saison_seche,sans_arbres,41.92,44.41,57.44,3.34,41.92,44.41,3.34,38.58,4.78,c_06_00,Quartier 4,False
+6,frais_saison_seche,arbres,27.56,24.68,40.53,4.36,27.56,24.68,6.98,23.2,6.46,c_06_00,Quartier 4,False
+6,frais_saison_seche,sans_arbres,27.56,24.68,40.53,4.36,27.56,24.68,6.99,23.2,6.46,c_06_00,Quartier 4,False
+6,saison_pluies,arbres,34.18,42.92,63.02,4.12,34.21,42.92,4.12,30.06,0.55,c_06_00,Quartier 4,False
+6,saison_pluies,sans_arbres,34.18,42.92,63.02,4.12,34.21,42.92,4.12,30.06,0.55,c_06_00,Quartier 4,False
+7,chaud_saison_seche,arbres,41.81,44.27,57.35,3.22,41.81,44.27,3.22,38.58,4.78,c_07_00,Quartier 4,False
+7,chaud_saison_seche,sans_arbres,41.81,44.27,57.35,3.22,41.81,44.27,3.22,38.58,4.78,c_07_00,Quartier 4,False
+7,frais_saison_seche,arbres,27.41,24.47,40.41,4.21,27.41,24.47,6.57,23.2,6.46,c_07_00,Quartier 4,False
+7,frais_saison_seche,sans_arbres,27.41,24.47,40.41,4.21,27.41,24.47,6.57,23.2,6.46,c_07_00,Quartier 4,False
+7,saison_pluies,arbres,34.21,42.96,63.03,4.15,34.24,42.96,4.15,30.06,0.55,c_07_00,Quartier 4,False
+7,saison_pluies,sans_arbres,34.21,42.96,63.03,4.15,34.24,42.96,4.15,30.06,0.55,c_07_00,Quartier 4,False
+8,chaud_saison_seche,arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_08_00,Quartier 4,False
+8,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_08_00,Quartier 4,False
+8,frais_saison_seche,arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_08_00,Quartier 4,False
+8,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_08_00,Quartier 4,False
+8,saison_pluies,arbres,34.4,43.18,63.14,4.34,34.4,43.18,5.04,30.06,0.55,c_08_00,Quartier 4,False
+8,saison_pluies,sans_arbres,34.4,43.18,63.14,4.34,34.4,43.18,5.04,30.06,0.55,c_08_00,Quartier 4,False
+9,chaud_saison_seche,arbres,42.14,44.69,57.63,3.56,42.14,44.69,3.64,38.58,4.75,c_09_00,Quartier SC2,False
+9,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_09_00,Quartier SC2,False
+9,frais_saison_seche,arbres,28.01,25.31,40.91,4.81,28.01,25.31,6.58,23.2,6.41,c_09_00,Quartier SC2,False
+9,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_09_00,Quartier SC2,False
+9,saison_pluies,arbres,34.36,43.15,63.17,4.3,34.36,43.15,4.96,30.06,0.55,c_09_00,Quartier SC2,False
+9,saison_pluies,sans_arbres,34.4,43.18,63.14,4.34,34.4,43.18,5.04,30.06,0.55,c_09_00,Quartier SC2,False
+10,chaud_saison_seche,arbres,41.95,44.46,57.5,3.37,41.95,44.46,3.37,38.58,4.74,c_10_00,Quartier 5,False
+10,chaud_saison_seche,sans_arbres,42.01,44.52,57.5,3.42,42.01,44.52,3.42,38.58,4.78,c_10_00,Quartier 5,False
+10,frais_saison_seche,arbres,27.65,24.83,40.63,4.45,27.65,24.83,6.03,23.2,6.4,c_10_00,Quartier 5,False
+10,frais_saison_seche,sans_arbres,27.76,24.95,40.7,4.57,27.76,24.95,7.34,23.2,6.46,c_10_00,Quartier 5,False
+10,saison_pluies,arbres,34.29,43.06,63.13,4.23,34.29,43.06,4.45,30.06,0.55,c_10_00,Quartier 5,False
+10,saison_pluies,sans_arbres,34.31,43.07,63.09,4.25,34.31,43.07,4.25,30.06,0.55,c_10_00,Quartier 5,False
+11,chaud_saison_seche,arbres,41.97,44.47,57.48,3.38,41.97,44.47,3.38,38.58,4.78,c_11_00,Quartier 5,False
+11,chaud_saison_seche,sans_arbres,41.97,44.48,57.48,3.39,41.97,44.48,3.39,38.58,4.78,c_11_00,Quartier 5,False
+11,frais_saison_seche,arbres,27.6,24.73,40.57,4.4,27.6,24.73,6.91,23.2,6.45,c_11_00,Quartier 5,False
+11,frais_saison_seche,sans_arbres,27.61,24.75,40.58,4.42,27.61,24.75,7.16,23.2,6.46,c_11_00,Quartier 5,False
+11,saison_pluies,arbres,34.13,42.87,63.0,4.07,34.17,42.87,4.07,30.06,0.55,c_11_00,Quartier 5,False
+11,saison_pluies,sans_arbres,34.13,42.86,62.99,4.07,34.17,42.86,4.07,30.06,0.55,c_11_00,Quartier 5,False
+12,chaud_saison_seche,arbres,40.88,43.37,57.54,2.3,40.98,43.44,2.3,38.58,3.88,c_01_01,Quartier 4,False
+12,chaud_saison_seche,sans_arbres,41.53,43.99,57.44,2.95,41.53,43.99,2.95,38.58,4.45,c_01_01,Quartier 4,False
+12,frais_saison_seche,arbres,26.39,24.12,40.32,3.19,26.39,24.12,3.26,23.2,5.24,c_01_01,Quartier 4,False
+12,frais_saison_seche,sans_arbres,27.11,24.37,40.42,3.91,27.11,24.37,5.7,23.2,6.01,c_01_01,Quartier 4,False
+12,saison_pluies,arbres,33.3,42.09,63.07,3.24,33.58,42.09,3.31,30.06,0.45,c_01_01,Quartier 4,False
+12,saison_pluies,sans_arbres,33.57,42.36,63.15,3.51,33.77,42.36,3.58,30.06,0.51,c_01_01,Quartier 4,False
+13,chaud_saison_seche,arbres,40.39,43.19,58.22,1.8,40.56,43.33,1.82,38.58,3.07,c_02_01,Quartier 4,False
+13,chaud_saison_seche,sans_arbres,41.56,44.07,57.65,2.98,41.56,44.07,2.98,38.58,4.24,c_02_01,Quartier 4,False
+13,frais_saison_seche,arbres,25.88,24.83,40.78,2.68,25.88,24.83,2.82,23.2,4.15,c_02_01,Quartier 4,False
+13,frais_saison_seche,sans_arbres,27.15,24.65,40.63,3.95,27.15,24.65,5.0,23.2,5.72,c_02_01,Quartier 4,False
+13,saison_pluies,arbres,32.98,41.7,62.72,2.92,33.32,41.7,2.95,30.06,0.38,c_02_01,Quartier 4,False
+13,saison_pluies,sans_arbres,33.55,42.39,63.3,3.49,33.8,42.39,3.61,30.06,0.49,c_02_01,Quartier 4,False
+14,chaud_saison_seche,arbres,40.01,42.95,58.46,1.43,40.21,43.1,1.47,38.58,2.77,c_03_01,Quartier 4,False
+14,chaud_saison_seche,sans_arbres,41.6,44.15,57.79,3.02,41.6,44.15,3.05,38.58,4.14,c_03_01,Quartier 4,False
+14,frais_saison_seche,arbres,25.56,25.07,40.93,2.36,25.56,25.07,2.54,23.2,3.74,c_03_01,Quartier 4,False
+14,frais_saison_seche,sans_arbres,27.2,24.82,40.75,4.0,27.2,24.82,4.29,23.2,5.58,c_03_01,Quartier 4,False
+14,saison_pluies,arbres,32.68,41.34,62.44,2.62,33.05,41.34,2.65,30.06,0.34,c_03_01,Quartier 4,False
+14,saison_pluies,sans_arbres,33.57,42.4,63.29,3.51,33.82,42.4,3.66,30.06,0.48,c_03_01,Quartier 4,False
+15,chaud_saison_seche,arbres,40.44,43.21,58.16,1.85,40.59,43.32,1.87,38.58,3.15,c_04_01,Quartier 4,False
+15,chaud_saison_seche,sans_arbres,41.57,44.12,57.79,2.99,41.57,44.12,3.02,38.58,4.11,c_04_01,Quartier 4,False
+15,frais_saison_seche,arbres,25.98,24.79,40.75,2.78,25.98,24.79,2.91,23.2,4.26,c_04_01,Quartier 4,False
+15,frais_saison_seche,sans_arbres,27.15,24.78,40.73,3.95,27.15,24.78,5.13,23.2,5.55,c_04_01,Quartier 4,False
+15,saison_pluies,arbres,33.02,41.72,62.7,2.96,33.35,41.72,2.97,30.06,0.37,c_04_01,Quartier 4,False
+15,saison_pluies,sans_arbres,33.61,42.44,63.3,3.55,33.82,42.44,3.67,30.06,0.47,c_04_01,Quartier 4,False
+16,chaud_saison_seche,arbres,40.41,43.23,58.28,1.83,40.58,43.37,1.84,38.58,3.05,c_05_01,Quartier 4,False
+16,chaud_saison_seche,sans_arbres,41.53,44.08,57.78,2.95,41.53,44.08,2.95,38.58,4.1,c_05_01,Quartier 4,False
+16,frais_saison_seche,arbres,25.94,24.95,40.86,2.74,25.94,24.95,2.87,23.2,4.12,c_05_01,Quartier 4,False
+16,frais_saison_seche,sans_arbres,27.14,24.79,40.74,3.94,27.14,24.79,5.05,23.2,5.53,c_05_01,Quartier 4,False
+16,saison_pluies,arbres,33.01,41.71,62.66,2.95,33.36,41.71,2.95,30.06,0.35,c_05_01,Quartier 4,False
+16,saison_pluies,sans_arbres,33.59,42.41,63.28,3.53,33.83,42.41,3.63,30.06,0.47,c_05_01,Quartier 4,False
+17,chaud_saison_seche,arbres,40.46,42.99,57.55,1.88,40.62,43.14,1.89,38.58,3.61,c_06_01,Quartier 4,False
+17,chaud_saison_seche,sans_arbres,41.52,44.01,57.57,2.94,41.52,44.01,2.94,38.58,4.29,c_06_01,Quartier 4,False
+17,frais_saison_seche,arbres,26.08,24.15,40.35,2.88,26.08,24.15,3.01,23.2,4.87,c_06_01,Quartier 4,False
+17,frais_saison_seche,sans_arbres,27.13,24.56,40.56,3.93,27.13,24.56,5.15,23.2,5.8,c_06_01,Quartier 4,False
+17,saison_pluies,arbres,33.04,41.79,62.85,2.98,33.38,41.79,3.0,30.06,0.42,c_06_01,Quartier 4,False
+17,saison_pluies,sans_arbres,33.61,42.45,63.35,3.55,33.85,42.45,3.65,30.06,0.5,c_06_01,Quartier 4,False
+18,chaud_saison_seche,arbres,40.48,42.83,57.06,1.9,40.64,42.97,1.9,38.58,4.04,c_07_01,Quartier 4,False
+18,chaud_saison_seche,sans_arbres,41.43,43.87,57.42,2.84,41.45,43.87,2.84,38.58,4.4,c_07_01,Quartier 4,False
+18,frais_saison_seche,arbres,26.15,23.62,40.02,2.96,26.15,23.62,3.14,23.2,5.46,c_07_01,Quartier 4,False
+18,frais_saison_seche,sans_arbres,27.02,24.31,40.4,3.83,27.02,24.31,4.87,23.2,5.94,c_07_01,Quartier 4,False
+18,saison_pluies,arbres,33.38,42.18,63.16,3.32,33.68,42.18,3.34,30.06,0.47,c_07_01,Quartier 4,False
+18,saison_pluies,sans_arbres,33.64,42.46,63.28,3.58,33.89,42.46,3.63,30.06,0.51,c_07_01,Quartier 4,False
+19,chaud_saison_seche,arbres,42.03,44.57,57.66,3.45,42.03,44.57,4.23,38.58,4.62,c_08_01,Quartier SC2,False
+19,chaud_saison_seche,sans_arbres,42.17,44.72,57.62,3.59,42.17,44.72,3.59,38.58,4.78,c_08_01,Quartier SC2,False
+19,frais_saison_seche,arbres,27.75,25.07,40.8,4.56,27.75,25.07,4.65,23.2,6.24,c_08_01,Quartier SC2,False
+19,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_08_01,Quartier SC2,False
+19,saison_pluies,arbres,34.3,43.12,63.3,4.24,34.3,43.12,4.24,30.06,0.53,c_08_01,Quartier SC2,False
+19,saison_pluies,sans_arbres,34.39,43.17,63.14,4.33,34.39,43.17,4.5,30.06,0.55,c_08_01,Quartier SC2,False
+20,chaud_saison_seche,arbres,30.49,34.15,54.18,-8.1,30.49,34.15,-1.69,38.58,1.8,c_09_01,Quartier SC2,True
+20,chaud_saison_seche,sans_arbres,40.98,43.25,55.95,2.4,40.99,43.25,2.4,38.58,5.84,c_09_01,Quartier SC2,True
+20,frais_saison_seche,arbres,23.05,24.95,40.95,-0.14,23.29,24.95,0.6,23.2,2.43,c_09_01,Quartier SC2,False
+20,frais_saison_seche,sans_arbres,27.34,23.73,39.76,4.14,27.34,23.73,5.05,23.2,7.89,c_09_01,Quartier SC2,False
+20,saison_pluies,arbres,31.96,40.56,61.97,1.9,31.96,40.56,1.9,30.06,0.32,c_09_01,Quartier SC2,False
+20,saison_pluies,sans_arbres,33.78,42.11,61.45,3.72,34.19,42.11,4.48,30.06,0.67,c_09_01,Quartier SC2,False
+21,chaud_saison_seche,arbres,39.93,42.98,58.73,1.35,40.17,43.16,1.39,38.58,2.59,c_10_01,Quartier 5,False
+21,chaud_saison_seche,sans_arbres,41.64,44.14,57.62,3.05,41.64,44.14,3.08,38.58,4.35,c_10_01,Quartier 5,False
+21,frais_saison_seche,arbres,25.42,25.32,41.11,2.22,25.42,25.32,2.41,23.2,3.5,c_10_01,Quartier 5,False
+21,frais_saison_seche,sans_arbres,27.24,24.64,40.6,4.04,27.24,24.64,4.2,23.2,5.88,c_10_01,Quartier 5,False
+21,saison_pluies,arbres,32.61,41.23,62.29,2.54,33.02,41.23,2.55,30.06,0.3,c_10_01,Quartier 5,False
+21,saison_pluies,sans_arbres,33.53,42.36,63.29,3.47,33.79,42.36,3.63,30.06,0.5,c_10_01,Quartier 5,False
+22,chaud_saison_seche,arbres,41.04,43.6,57.76,2.46,41.12,43.64,2.51,38.58,3.8,c_11_01,Quartier 5,False
+22,chaud_saison_seche,sans_arbres,41.64,44.15,57.66,3.05,41.64,44.15,3.08,38.58,4.29,c_11_01,Quartier 5,False
+22,frais_saison_seche,arbres,26.54,24.42,40.51,3.34,26.54,24.42,3.5,23.2,5.12,c_11_01,Quartier 5,False
+22,frais_saison_seche,sans_arbres,27.23,24.69,40.64,4.03,27.23,24.69,4.08,23.2,5.8,c_11_01,Quartier 5,False
+22,saison_pluies,arbres,33.27,42.04,63.02,3.21,33.56,42.04,3.32,30.06,0.44,c_11_01,Quartier 5,False
+22,saison_pluies,sans_arbres,33.54,42.37,63.31,3.48,33.79,42.37,3.64,30.06,0.5,c_11_01,Quartier 5,False
+23,chaud_saison_seche,arbres,41.22,43.61,57.23,2.64,41.3,43.62,2.64,38.58,4.43,c_01_02,Quartier SC2,False
+23,chaud_saison_seche,sans_arbres,41.82,44.29,57.36,3.24,41.82,44.29,3.24,38.58,4.78,c_01_02,Quartier SC2,False
+23,frais_saison_seche,arbres,26.68,23.84,40.11,3.49,26.68,23.84,3.49,23.2,5.99,c_01_02,Quartier SC2,False
+23,frais_saison_seche,sans_arbres,27.36,24.41,40.38,4.16,27.36,24.41,6.46,23.2,6.46,c_01_02,Quartier SC2,False
+23,saison_pluies,arbres,33.76,42.56,63.23,3.7,33.96,42.56,4.05,30.06,0.52,c_01_02,Quartier SC2,False
+23,saison_pluies,sans_arbres,33.99,42.71,62.91,3.93,34.1,42.71,3.93,30.06,0.55,c_01_02,Quartier SC2,False
+24,chaud_saison_seche,arbres,40.76,43.17,57.27,2.18,40.93,43.31,2.18,38.58,4.05,c_02_02,Quartier SC2,False
+24,chaud_saison_seche,sans_arbres,41.84,44.33,57.48,3.26,41.84,44.33,3.26,38.58,4.67,c_02_02,Quartier SC2,False
+24,frais_saison_seche,arbres,26.3,23.8,40.13,3.1,26.3,23.8,3.15,23.2,5.46,c_02_02,Quartier SC2,False
+24,frais_saison_seche,sans_arbres,27.37,24.51,40.46,4.17,27.37,24.51,6.32,23.2,6.31,c_02_02,Quartier SC2,False
+24,saison_pluies,arbres,33.32,42.12,63.13,3.26,33.63,42.12,3.3,30.06,0.47,c_02_02,Quartier SC2,False
+24,saison_pluies,sans_arbres,33.83,42.57,62.98,3.77,35.88,42.57,6.17,30.06,0.54,c_02_02,Quartier SC2,False
+25,chaud_saison_seche,arbres,41.75,44.35,57.95,3.17,41.82,44.35,3.17,38.58,4.1,c_03_02,Quartier SC2,False
+25,chaud_saison_seche,sans_arbres,42.15,44.69,57.61,3.57,42.15,44.69,3.57,38.58,4.78,c_03_02,Quartier SC2,False
+25,frais_saison_seche,arbres,27.4,25.12,40.94,4.2,27.4,25.12,4.2,23.2,5.53,c_03_02,Quartier SC2,False
+25,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_03_02,Quartier SC2,False
+25,saison_pluies,arbres,34.03,42.91,63.54,3.97,34.36,42.91,4.65,30.06,0.48,c_03_02,Quartier SC2,False
+25,saison_pluies,sans_arbres,34.26,43.02,63.06,4.2,36.71,43.2,7.0,30.06,0.55,c_03_02,Quartier SC2,False
+26,chaud_saison_seche,arbres,42.0,44.53,57.67,3.42,42.0,44.53,3.88,38.58,4.58,c_04_02,Quartier SC2,False
+26,chaud_saison_seche,sans_arbres,42.16,44.71,57.62,3.58,42.16,44.71,3.58,38.58,4.78,c_04_02,Quartier SC2,False
+26,frais_saison_seche,arbres,27.71,25.04,40.79,4.51,27.71,25.04,4.51,23.2,6.19,c_04_02,Quartier SC2,False
+26,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_04_02,Quartier SC2,False
+26,saison_pluies,arbres,33.23,41.94,62.77,3.17,33.44,41.94,3.17,30.06,0.53,c_04_02,Quartier SC2,False
+26,saison_pluies,sans_arbres,33.89,42.59,62.85,3.83,37.38,44.68,7.67,30.06,0.55,c_04_02,Quartier SC2,False
+27,chaud_saison_seche,arbres,39.53,41.4,55.45,0.95,39.78,41.57,0.95,38.58,5.04,c_05_02,Quartier SC2,False
+27,chaud_saison_seche,sans_arbres,40.94,43.2,55.89,2.36,41.0,43.2,2.36,38.58,5.88,c_05_02,Quartier SC2,False
+27,frais_saison_seche,arbres,26.07,22.46,39.23,2.87,26.07,22.46,2.87,23.2,6.8,c_05_02,Quartier SC2,False
+27,frais_saison_seche,sans_arbres,26.6,22.65,39.15,3.4,26.6,22.65,4.94,23.2,7.94,c_05_02,Quartier SC2,False
+27,saison_pluies,arbres,32.51,40.96,61.66,2.45,32.83,40.96,2.45,30.06,0.59,c_05_02,Quartier SC2,False
+27,saison_pluies,sans_arbres,33.43,41.71,61.2,3.37,34.98,41.71,5.27,30.06,0.68,c_05_02,Quartier SC2,False
+28,chaud_saison_seche,arbres,39.55,41.51,55.78,0.97,39.85,41.79,0.97,38.58,4.65,c_06_02,Quartier SC2,False
+28,chaud_saison_seche,sans_arbres,41.0,43.25,56.17,2.42,41.08,43.25,2.42,38.58,5.55,c_06_02,Quartier SC2,False
+28,frais_saison_seche,arbres,25.23,21.71,38.81,2.03,25.23,21.71,2.1,23.2,6.28,c_06_02,Quartier SC2,False
+28,frais_saison_seche,sans_arbres,26.53,22.74,39.28,3.33,26.53,22.74,4.66,23.2,7.49,c_06_02,Quartier SC2,False
+28,saison_pluies,arbres,32.46,41.06,62.2,2.4,32.86,41.06,2.4,30.06,0.54,c_06_02,Quartier SC2,False
+28,saison_pluies,sans_arbres,33.31,41.68,61.53,3.25,35.08,41.68,5.37,30.06,0.64,c_06_02,Quartier SC2,False
+29,chaud_saison_seche,arbres,33.79,38.88,64.63,-4.79,33.79,38.88,-0.34,38.58,0.37,c_07_02,Quartier 3,True
+29,chaud_saison_seche,sans_arbres,41.0,43.28,55.97,2.42,41.07,43.28,2.42,38.58,5.83,c_07_02,Quartier 3,True
+29,frais_saison_seche,arbres,23.21,29.72,49.96,0.02,23.22,29.72,0.51,23.2,0.51,c_07_02,Quartier 3,True
+29,frais_saison_seche,sans_arbres,26.51,22.53,39.1,3.31,26.51,22.53,4.52,23.2,7.88,c_07_02,Quartier 3,True
+29,saison_pluies,arbres,26.1,34.83,57.78,-3.96,26.83,34.83,-0.52,30.06,0.1,c_07_02,Quartier 3,True
+29,saison_pluies,sans_arbres,33.21,41.47,61.13,3.15,34.57,41.59,4.86,30.06,0.67,c_07_02,Quartier 3,True
+30,chaud_saison_seche,arbres,32.91,36.59,56.56,-5.67,32.91,36.59,-1.49,38.58,1.6,c_08_02,Quartier 3,True
+30,chaud_saison_seche,sans_arbres,40.99,43.26,55.95,2.41,41.03,43.26,2.41,38.58,5.84,c_08_02,Quartier 3,True
+30,frais_saison_seche,arbres,23.49,25.9,41.83,0.29,23.49,25.9,0.59,23.2,2.16,c_08_02,Quartier 3,True
+30,frais_saison_seche,sans_arbres,26.51,22.53,39.1,3.31,26.51,22.53,4.74,23.2,7.89,c_08_02,Quartier 3,True
+30,saison_pluies,arbres,29.39,37.94,60.32,-0.67,30.12,37.94,0.23,30.06,0.25,c_08_02,Quartier 3,True
+30,saison_pluies,sans_arbres,33.36,41.64,61.21,3.3,33.56,41.68,3.56,30.06,0.67,c_08_02,Quartier 3,True
+31,chaud_saison_seche,arbres,39.5,41.51,55.96,0.92,39.75,41.76,0.97,38.58,4.43,c_09_02,Quartier 3,False
+31,chaud_saison_seche,sans_arbres,41.25,43.57,56.34,2.67,41.29,43.57,2.67,38.58,5.57,c_09_02,Quartier 3,False
+31,frais_saison_seche,arbres,25.21,21.95,38.96,2.01,25.21,21.95,2.26,23.2,5.98,c_09_02,Quartier 3,False
+31,frais_saison_seche,sans_arbres,26.84,23.17,39.52,3.65,26.84,23.17,3.86,23.2,7.52,c_09_02,Quartier 3,False
+31,saison_pluies,arbres,32.26,40.95,62.46,2.2,32.68,40.95,2.22,30.06,0.51,c_09_02,Quartier 3,False
+31,saison_pluies,sans_arbres,33.38,41.75,61.55,3.32,33.64,41.76,3.44,30.06,0.64,c_09_02,Quartier 3,False
+32,chaud_saison_seche,arbres,39.89,42.77,58.26,1.31,40.12,42.96,1.34,38.58,2.84,c_10_02,Quartier 5,False
+32,chaud_saison_seche,sans_arbres,41.56,44.03,57.47,2.98,41.57,44.03,2.98,38.58,4.45,c_10_02,Quartier 5,False
+32,frais_saison_seche,arbres,25.43,24.8,40.76,2.23,25.43,24.8,2.41,23.2,3.83,c_10_02,Quartier 5,False
+32,frais_saison_seche,sans_arbres,27.18,24.47,40.48,3.98,27.18,24.47,4.82,23.2,6.0,c_10_02,Quartier 5,False
+32,saison_pluies,arbres,32.62,41.28,62.41,2.56,33.01,41.28,2.56,30.06,0.34,c_10_02,Quartier 5,False
+32,saison_pluies,sans_arbres,33.53,42.32,63.15,3.47,33.8,42.32,3.59,30.06,0.51,c_10_02,Quartier 5,False
+33,chaud_saison_seche,arbres,41.16,43.69,57.71,2.57,41.22,43.7,2.62,38.58,3.91,c_11_02,Quartier 5,False
+33,chaud_saison_seche,sans_arbres,41.7,44.24,57.74,3.12,41.7,44.24,3.16,38.58,4.25,c_11_02,Quartier 5,False
+33,frais_saison_seche,arbres,26.74,24.51,40.55,3.54,26.74,24.51,3.74,23.2,5.28,c_11_02,Quartier 5,False
+33,frais_saison_seche,sans_arbres,27.34,24.87,40.76,4.14,27.34,24.87,4.21,23.2,5.74,c_11_02,Quartier 5,False
+33,saison_pluies,arbres,33.34,42.13,63.09,3.28,33.62,42.13,3.41,30.06,0.45,c_11_02,Quartier 5,False
+33,saison_pluies,sans_arbres,33.62,42.45,63.34,3.55,33.86,42.45,3.73,30.06,0.49,c_11_02,Quartier 5,False
+34,chaud_saison_seche,arbres,41.31,43.95,58.02,2.73,41.32,43.95,2.82,38.58,3.74,c_01_03,Quartier 2,False
+34,chaud_saison_seche,sans_arbres,41.49,44.03,57.78,2.9,41.49,44.03,2.97,38.58,4.07,c_01_03,Quartier 2,False
+34,frais_saison_seche,arbres,26.92,24.96,40.86,3.72,26.92,24.96,3.92,23.2,5.05,c_01_03,Quartier 2,False
+34,frais_saison_seche,sans_arbres,27.26,24.97,40.82,4.06,27.26,24.97,4.21,23.2,5.49,c_01_03,Quartier 2,False
+34,saison_pluies,arbres,33.51,42.31,63.15,3.45,33.77,42.31,3.63,30.06,0.43,c_01_03,Quartier 2,False
+34,saison_pluies,sans_arbres,33.57,42.39,63.27,3.51,33.82,42.39,3.71,30.06,0.47,c_01_03,Quartier 2,False
+35,chaud_saison_seche,arbres,40.71,43.1,57.2,2.13,40.83,43.19,2.17,38.58,4.07,c_02_03,Quartier 2,False
+35,chaud_saison_seche,sans_arbres,41.23,43.63,57.25,2.65,41.31,43.63,2.65,38.58,4.43,c_02_03,Quartier 2,False
+35,frais_saison_seche,arbres,26.4,23.91,40.2,3.21,26.4,23.91,3.41,23.2,5.49,c_02_03,Quartier 2,False
+35,frais_saison_seche,sans_arbres,27.03,24.29,40.38,3.83,27.03,24.29,3.93,23.2,5.98,c_02_03,Quartier 2,False
+35,saison_pluies,arbres,33.3,42.1,63.12,3.24,33.61,42.1,3.32,30.06,0.47,c_02_03,Quartier 2,False
+35,saison_pluies,sans_arbres,33.59,42.4,63.21,3.53,33.88,42.4,3.64,30.06,0.51,c_02_03,Quartier 2,False
+36,chaud_saison_seche,arbres,38.13,42.85,67.01,-0.45,38.77,42.85,0.21,38.58,0.36,c_03_03,Quartier 3,False
+36,chaud_saison_seche,sans_arbres,41.07,43.36,56.02,2.49,41.12,43.36,2.49,38.58,5.84,c_03_03,Quartier 3,False
+36,frais_saison_seche,arbres,23.68,30.04,50.27,0.48,23.68,30.04,0.95,23.2,0.48,c_03_03,Quartier 3,True
+36,frais_saison_seche,sans_arbres,26.55,22.6,39.14,3.36,26.55,22.6,4.26,23.2,7.88,c_03_03,Quartier 3,True
+36,saison_pluies,arbres,30.87,39.25,60.74,0.81,31.45,39.25,0.81,30.06,0.13,c_03_03,Quartier 3,False
+36,saison_pluies,sans_arbres,33.2,41.46,61.12,3.14,33.47,41.58,3.57,30.06,0.67,c_03_03,Quartier 3,False
+37,chaud_saison_seche,arbres,38.42,43.14,67.17,-0.16,38.96,43.14,0.12,38.58,0.36,c_04_03,Quartier 3,False
+37,chaud_saison_seche,sans_arbres,40.98,43.21,56.16,2.4,41.03,43.21,2.42,38.58,5.54,c_04_03,Quartier 3,False
+37,frais_saison_seche,arbres,23.76,30.09,50.31,0.56,23.76,30.09,1.28,23.2,0.48,c_04_03,Quartier 3,True
+37,frais_saison_seche,sans_arbres,26.66,22.93,39.39,3.46,26.66,22.93,3.57,23.2,7.47,c_04_03,Quartier 3,True
+37,saison_pluies,arbres,31.05,39.36,60.63,0.99,31.57,39.36,1.0,30.06,0.09,c_04_03,Quartier 3,False
+37,saison_pluies,sans_arbres,33.1,41.46,61.42,3.04,33.39,41.49,3.18,30.06,0.64,c_04_03,Quartier 3,False
+38,chaud_saison_seche,arbres,38.38,42.71,63.7,-0.2,38.87,42.75,0.01,38.58,0.9,c_05_03,Quartier 3,False
+38,chaud_saison_seche,sans_arbres,41.04,43.29,56.26,2.46,41.09,43.29,2.49,38.58,5.46,c_05_03,Quartier 3,False
+38,frais_saison_seche,arbres,23.86,28.23,45.11,0.66,23.86,28.23,1.22,23.2,1.21,c_05_03,Quartier 3,True
+38,frais_saison_seche,sans_arbres,26.75,23.1,39.5,3.55,26.75,23.1,3.68,23.2,7.37,c_05_03,Quartier 3,True
+38,saison_pluies,arbres,31.4,39.84,61.19,1.34,31.91,39.84,1.34,30.06,0.17,c_05_03,Quartier 3,False
+38,saison_pluies,sans_arbres,33.21,41.6,61.57,3.15,33.48,41.6,3.31,30.06,0.63,c_05_03,Quartier 3,False
+39,chaud_saison_seche,arbres,40.63,42.89,56.81,2.05,40.84,43.08,2.05,38.58,4.41,c_06_03,Quartier 3,False
+39,chaud_saison_seche,sans_arbres,41.2,43.53,56.89,2.62,41.27,43.53,2.62,38.58,4.79,c_06_03,Quartier 3,False
+39,frais_saison_seche,arbres,26.13,23.15,39.69,2.94,26.13,23.15,3.04,23.2,5.96,c_06_03,Quartier 3,False
+39,frais_saison_seche,sans_arbres,26.75,23.59,39.9,3.55,26.75,23.59,4.4,23.2,6.47,c_06_03,Quartier 3,False
+39,saison_pluies,arbres,33.4,42.19,63.1,3.34,33.75,42.19,3.34,30.06,0.51,c_06_03,Quartier 3,False
+39,saison_pluies,sans_arbres,33.62,42.29,62.69,3.56,33.89,42.29,4.02,30.06,0.55,c_06_03,Quartier 3,False
+40,chaud_saison_seche,arbres,36.09,38.94,56.54,-2.49,36.93,39.76,-0.11,38.58,2.35,c_07_03,Quartier 3,True
+40,chaud_saison_seche,sans_arbres,41.07,43.33,56.16,2.48,41.12,43.33,2.48,38.58,5.63,c_07_03,Quartier 3,True
+40,frais_saison_seche,arbres,23.82,24.24,40.34,0.62,23.82,24.24,0.84,23.2,3.17,c_07_03,Quartier 3,False
+40,frais_saison_seche,sans_arbres,26.55,22.71,39.25,3.35,26.55,22.71,4.31,23.2,7.6,c_07_03,Quartier 3,False
+40,saison_pluies,arbres,31.21,39.8,61.6,1.15,31.75,39.8,1.15,30.06,0.34,c_07_03,Quartier 3,False
+40,saison_pluies,sans_arbres,33.26,41.59,61.4,3.19,33.52,41.63,3.81,30.06,0.65,c_07_03,Quartier 3,False
+41,chaud_saison_seche,arbres,38.13,40.96,57.47,-0.45,38.92,41.53,0.18,38.58,2.58,c_08_03,Quartier 3,False
+41,chaud_saison_seche,sans_arbres,41.03,43.31,56.0,2.45,41.09,43.31,2.45,38.58,5.82,c_08_03,Quartier 3,False
+41,frais_saison_seche,arbres,24.22,24.07,40.22,1.02,24.22,24.07,1.06,23.2,3.49,c_08_03,Quartier 3,False
+41,frais_saison_seche,sans_arbres,26.52,22.57,39.12,3.33,26.52,22.57,4.41,23.2,7.86,c_08_03,Quartier 3,False
+41,saison_pluies,arbres,31.21,39.82,61.68,1.15,31.75,39.82,1.15,30.06,0.37,c_08_03,Quartier 3,False
+41,saison_pluies,sans_arbres,33.22,41.5,61.15,3.16,34.08,41.6,4.37,30.06,0.67,c_08_03,Quartier 3,False
+42,chaud_saison_seche,arbres,38.74,41.51,57.57,0.15,39.23,41.84,0.2,38.58,2.76,c_09_03,Quartier 3,False
+42,chaud_saison_seche,sans_arbres,40.88,43.08,56.08,2.29,40.96,43.08,2.29,38.58,5.53,c_09_03,Quartier 3,False
+42,frais_saison_seche,arbres,24.45,23.91,40.14,1.26,24.45,23.91,1.66,23.2,3.73,c_09_03,Quartier 3,False
+42,frais_saison_seche,sans_arbres,26.55,22.78,39.31,3.35,26.55,22.78,3.67,23.2,7.47,c_09_03,Quartier 3,False
+42,saison_pluies,arbres,31.62,40.22,61.87,1.55,32.13,40.22,1.55,30.06,0.35,c_09_03,Quartier 3,False
+42,saison_pluies,sans_arbres,33.12,41.47,61.44,3.06,33.42,41.52,3.14,30.06,0.64,c_09_03,Quartier 3,False
+43,chaud_saison_seche,arbres,40.21,42.82,57.68,1.63,40.37,42.96,1.68,38.58,3.37,c_10_03,Quartier 5,False
+43,chaud_saison_seche,sans_arbres,41.3,43.76,57.47,2.72,41.31,43.76,2.75,38.58,4.23,c_10_03,Quartier 5,False
+43,frais_saison_seche,arbres,25.89,24.33,40.47,2.7,25.89,24.33,2.92,23.2,4.54,c_10_03,Quartier 5,False
+43,frais_saison_seche,sans_arbres,27.05,24.53,40.56,3.86,27.05,24.53,3.96,23.2,5.71,c_10_03,Quartier 5,False
+43,saison_pluies,arbres,32.85,41.57,62.69,2.79,33.2,41.57,2.86,30.06,0.4,c_10_03,Quartier 5,False
+43,saison_pluies,sans_arbres,33.48,42.3,63.26,3.42,33.73,42.3,3.56,30.06,0.49,c_10_03,Quartier 5,False
+44,chaud_saison_seche,arbres,41.32,43.85,57.7,2.74,41.4,43.87,2.75,38.58,4.03,c_11_03,Quartier 5,False
+44,chaud_saison_seche,sans_arbres,41.94,44.47,57.68,3.36,41.94,44.47,3.36,38.58,4.53,c_11_03,Quartier 5,False
+44,frais_saison_seche,arbres,26.76,24.39,40.47,3.56,26.76,24.39,3.68,23.2,5.44,c_11_03,Quartier 5,False
+44,frais_saison_seche,sans_arbres,27.45,24.75,40.63,4.25,27.45,24.75,5.94,23.2,6.11,c_11_03,Quartier 5,False
+44,saison_pluies,arbres,33.56,42.39,63.26,3.5,33.83,42.39,3.56,30.06,0.47,c_11_03,Quartier 5,False
+44,saison_pluies,sans_arbres,33.79,42.58,63.17,3.73,33.99,42.58,3.85,30.06,0.52,c_11_03,Quartier 5,False
+45,chaud_saison_seche,arbres,42.39,45.0,57.9,3.8,42.39,45.0,3.96,38.58,4.64,c_01_04,Quartier 2,False
+45,chaud_saison_seche,sans_arbres,42.39,45.0,57.9,3.8,42.39,45.0,3.96,38.58,4.64,c_01_04,Quartier 2,False
+45,frais_saison_seche,arbres,27.92,25.27,40.91,4.72,27.92,25.27,4.89,23.2,6.27,c_01_04,Quartier 2,False
+45,frais_saison_seche,sans_arbres,27.92,25.27,40.91,4.72,27.92,25.27,4.89,23.2,6.27,c_01_04,Quartier 2,False
+45,saison_pluies,arbres,33.94,42.7,63.08,3.87,34.08,42.7,4.25,30.06,0.54,c_01_04,Quartier 2,False
+45,saison_pluies,sans_arbres,33.94,42.7,63.08,3.87,34.08,42.7,4.25,30.06,0.54,c_01_04,Quartier 2,False
+46,chaud_saison_seche,arbres,41.74,44.19,57.35,3.15,41.74,44.19,3.15,38.58,4.73,c_02_04,Quartier 2,False
+46,chaud_saison_seche,sans_arbres,41.76,44.21,57.31,3.18,41.76,44.21,3.18,38.58,4.78,c_02_04,Quartier 2,False
+46,frais_saison_seche,arbres,27.23,24.29,40.32,4.04,27.23,24.29,5.13,23.2,6.38,c_02_04,Quartier 2,False
+46,frais_saison_seche,sans_arbres,27.34,24.38,40.36,4.14,27.34,24.38,6.41,23.2,6.46,c_02_04,Quartier 2,False
+46,saison_pluies,arbres,34.14,42.9,63.07,4.08,34.24,42.9,4.08,30.06,0.55,c_02_04,Quartier 2,False
+46,saison_pluies,sans_arbres,34.12,42.86,62.99,4.06,36.22,42.86,6.51,30.06,0.55,c_02_04,Quartier 2,False
+47,chaud_saison_seche,arbres,38.1,42.03,65.71,-0.48,38.64,42.03,-0.19,38.58,0.01,c_03_04,Quartier 3,False
+47,chaud_saison_seche,sans_arbres,40.92,43.15,56.02,2.34,40.96,43.15,2.35,38.58,5.67,c_03_04,Quartier 3,False
+47,frais_saison_seche,arbres,23.45,29.4,48.52,0.25,23.45,29.4,0.42,23.2,0.02,c_03_04,Quartier 3,True
+47,frais_saison_seche,sans_arbres,26.57,22.72,39.24,3.37,26.57,22.72,3.65,23.2,7.66,c_03_04,Quartier 3,True
+47,saison_pluies,arbres,30.52,38.72,59.95,0.46,31.03,38.72,0.53,30.06,0.02,c_03_04,Quartier 3,False
+47,saison_pluies,sans_arbres,33.12,41.42,61.27,3.06,33.38,41.48,3.18,30.06,0.65,c_03_04,Quartier 3,False
+48,chaud_saison_seche,arbres,38.33,42.25,65.84,-0.26,38.93,42.25,0.22,38.58,0.01,c_04_04,Quartier 3,False
+48,chaud_saison_seche,sans_arbres,41.2,43.52,56.16,2.62,41.21,43.52,2.63,38.58,5.77,c_04_04,Quartier 3,False
+48,frais_saison_seche,arbres,23.69,29.55,48.67,0.49,23.69,29.55,1.2,23.2,0.02,c_04_04,Quartier 3,True
+48,frais_saison_seche,sans_arbres,26.75,22.92,39.33,3.55,26.75,22.92,4.25,23.2,7.8,c_04_04,Quartier 3,True
+48,saison_pluies,arbres,30.32,38.44,59.57,0.26,30.83,38.44,0.33,30.06,0.0,c_04_04,Quartier 3,True
+48,saison_pluies,sans_arbres,33.34,41.63,61.27,3.28,33.57,41.69,3.38,30.06,0.67,c_04_04,Quartier 3,True
+49,chaud_saison_seche,arbres,38.02,41.96,65.71,-0.57,38.59,41.96,-0.2,38.58,0.02,c_05_04,Quartier 3,False
+49,chaud_saison_seche,sans_arbres,40.89,43.1,56.14,2.31,40.94,43.1,2.32,38.58,5.47,c_05_04,Quartier 3,False
+49,frais_saison_seche,arbres,23.43,29.4,48.56,0.23,23.43,29.4,0.43,23.2,0.02,c_05_04,Quartier 3,True
+49,frais_saison_seche,sans_arbres,26.52,22.78,39.32,3.33,26.52,22.78,3.7,23.2,7.39,c_05_04,Quartier 3,True
+49,saison_pluies,arbres,30.46,38.64,59.87,0.4,30.96,38.64,0.48,30.06,0.02,c_05_04,Quartier 3,False
+49,saison_pluies,sans_arbres,33.14,41.52,61.52,3.08,33.41,41.52,3.18,30.06,0.63,c_05_04,Quartier 3,False
+50,chaud_saison_seche,arbres,38.78,43.02,63.39,0.2,39.27,43.09,0.28,38.58,0.98,c_06_04,Quartier 3,False
+50,chaud_saison_seche,sans_arbres,41.13,43.4,56.53,2.54,41.17,43.4,2.58,38.58,5.19,c_06_04,Quartier 3,False
+50,frais_saison_seche,arbres,24.17,28.23,44.84,0.98,24.17,28.23,1.72,23.2,1.33,c_06_04,Quartier 3,True
+50,frais_saison_seche,sans_arbres,26.85,23.42,39.75,3.65,26.85,23.42,3.8,23.2,7.01,c_06_04,Quartier 3,True
+50,saison_pluies,arbres,31.58,40.06,61.39,1.52,32.09,40.06,1.52,30.06,0.2,c_06_04,Quartier 3,False
+50,saison_pluies,sans_arbres,33.32,41.81,61.97,3.26,33.59,41.81,3.42,30.06,0.6,c_06_04,Quartier 3,False
+51,chaud_saison_seche,arbres,39.62,41.56,55.74,1.04,39.96,41.86,1.04,38.58,4.75,c_07_04,Quartier 3,False
+51,chaud_saison_seche,sans_arbres,41.03,43.29,56.17,2.45,41.11,43.29,2.45,38.58,5.57,c_07_04,Quartier 3,False
+51,frais_saison_seche,arbres,25.27,21.66,38.76,2.07,25.27,21.66,2.2,23.2,6.42,c_07_04,Quartier 3,False
+51,frais_saison_seche,sans_arbres,26.54,22.74,39.27,3.34,26.54,22.74,4.47,23.2,7.53,c_07_04,Quartier 3,False
+51,saison_pluies,arbres,32.43,40.99,62.02,2.37,32.87,40.99,2.37,30.06,0.55,c_07_04,Quartier 3,False
+51,saison_pluies,sans_arbres,33.27,41.63,61.47,3.21,34.41,41.66,4.7,30.06,0.64,c_07_04,Quartier 3,False
+52,chaud_saison_seche,arbres,40.5,42.6,55.82,1.91,40.69,42.65,1.91,38.58,5.5,c_08_04,Quartier 3,False
+52,chaud_saison_seche,sans_arbres,40.99,43.26,55.95,2.41,41.08,43.26,2.41,38.58,5.84,c_08_04,Quartier 3,False
+52,frais_saison_seche,arbres,25.99,22.01,38.88,2.79,25.99,22.01,2.83,23.2,7.43,c_08_04,Quartier 3,False
+52,frais_saison_seche,sans_arbres,26.5,22.53,39.1,3.31,26.5,22.53,4.49,23.2,7.89,c_08_04,Quartier 3,False
+52,saison_pluies,arbres,33.0,41.35,61.38,2.94,33.34,41.43,2.94,30.06,0.64,c_08_04,Quartier 3,False
+52,saison_pluies,sans_arbres,33.23,41.49,61.12,3.17,34.59,41.62,4.89,30.06,0.67,c_08_04,Quartier 3,False
+53,chaud_saison_seche,arbres,40.43,42.51,55.84,1.84,40.61,42.56,1.84,38.58,5.4,c_09_04,Quartier 3,False
+53,chaud_saison_seche,sans_arbres,40.95,43.21,55.93,2.37,41.02,43.21,2.37,38.58,5.84,c_09_04,Quartier 3,False
+53,frais_saison_seche,arbres,26.0,22.09,38.95,2.8,26.0,22.09,2.8,23.2,7.29,c_09_04,Quartier 3,False
+53,frais_saison_seche,sans_arbres,26.54,22.58,39.13,3.34,26.54,22.58,4.86,23.2,7.88,c_09_04,Quartier 3,False
+53,saison_pluies,arbres,33.15,41.55,61.59,3.09,33.42,41.55,3.25,30.06,0.63,c_09_04,Quartier 3,False
+53,saison_pluies,sans_arbres,33.43,41.72,61.26,3.37,34.63,41.74,4.92,30.06,0.67,c_09_04,Quartier 3,False
+54,chaud_saison_seche,arbres,38.89,42.29,59.49,0.3,39.24,42.5,0.3,38.58,1.94,c_10_04,Quartier 5,False
+54,chaud_saison_seche,sans_arbres,41.58,44.04,57.48,2.99,41.58,44.04,3.0,38.58,4.45,c_10_04,Quartier 5,False
+54,frais_saison_seche,arbres,24.56,25.98,41.7,1.36,24.56,25.98,1.59,23.2,2.62,c_10_04,Quartier 5,False
+54,frais_saison_seche,sans_arbres,27.18,24.47,40.48,3.98,27.18,24.47,4.86,23.2,6.01,c_10_04,Quartier 5,False
+54,saison_pluies,arbres,31.83,40.35,61.66,1.77,32.29,40.35,1.77,30.06,0.24,c_10_04,Quartier 5,False
+54,saison_pluies,sans_arbres,33.56,42.35,63.16,3.5,33.8,42.35,3.62,30.06,0.51,c_10_04,Quartier 5,False
+55,chaud_saison_seche,arbres,41.74,44.41,58.18,3.16,41.75,44.41,3.16,38.58,3.87,c_11_04,Servitude climatique 1,False
+55,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_11_04,Servitude climatique 1,False
+55,frais_saison_seche,arbres,27.32,25.28,41.04,4.12,27.32,25.28,4.12,23.2,5.23,c_11_04,Servitude climatique 1,False
+55,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_11_04,Servitude climatique 1,False
+55,saison_pluies,arbres,34.13,43.02,63.55,4.07,34.95,43.02,5.24,30.06,0.46,c_11_04,Servitude climatique 1,False
+55,saison_pluies,sans_arbres,34.3,43.06,63.09,4.24,34.3,43.06,4.63,30.06,0.55,c_11_04,Servitude climatique 1,False
+56,chaud_saison_seche,arbres,41.29,43.87,57.85,2.71,41.31,43.87,2.79,38.58,3.87,c_01_05,Quartier 2,False
+56,chaud_saison_seche,sans_arbres,41.83,44.4,57.9,3.24,41.83,44.4,3.32,38.58,4.19,c_01_05,Quartier 2,False
+56,frais_saison_seche,arbres,26.91,24.77,40.72,3.71,26.91,24.77,3.9,23.2,5.23,c_01_05,Quartier 2,False
+56,frais_saison_seche,sans_arbres,27.51,25.15,40.94,4.31,27.51,25.15,4.44,23.2,5.66,c_01_05,Quartier 2,False
+56,saison_pluies,arbres,33.44,42.23,63.14,3.37,33.7,42.23,3.54,30.06,0.45,c_01_05,Quartier 2,False
+56,saison_pluies,sans_arbres,33.73,42.58,63.39,3.67,33.96,42.58,3.88,30.06,0.48,c_01_05,Quartier 2,False
+57,chaud_saison_seche,arbres,41.32,43.7,57.16,2.74,41.4,43.7,2.74,38.58,4.59,c_02_05,Quartier 2,False
+57,chaud_saison_seche,sans_arbres,41.79,44.26,57.37,3.21,41.79,44.26,3.21,38.58,4.75,c_02_05,Quartier 2,False
+57,frais_saison_seche,arbres,26.88,23.94,40.14,3.68,26.88,23.94,3.92,23.2,6.2,c_02_05,Quartier 2,False
+57,frais_saison_seche,sans_arbres,27.38,24.46,40.42,4.18,27.38,24.46,6.38,23.2,6.41,c_02_05,Quartier 2,False
+57,saison_pluies,arbres,33.73,42.49,63.04,3.67,33.95,42.49,3.67,30.06,0.53,c_02_05,Quartier 2,False
+57,saison_pluies,sans_arbres,33.96,42.69,62.94,3.9,37.04,43.95,7.34,30.06,0.55,c_02_05,Quartier 2,False
+58,chaud_saison_seche,arbres,38.28,42.21,65.82,-0.3,38.83,42.21,-0.02,38.58,0.01,c_03_05,Quartier 3,False
+58,chaud_saison_seche,sans_arbres,40.94,43.17,56.04,2.36,40.98,43.17,2.38,38.58,5.66,c_03_05,Quartier 3,False
+58,frais_saison_seche,arbres,23.57,29.47,48.6,0.37,23.57,29.47,0.72,23.2,0.02,c_03_05,Quartier 3,True
+58,frais_saison_seche,sans_arbres,26.6,22.77,39.27,3.41,26.6,22.77,3.56,23.2,7.64,c_03_05,Quartier 3,True
+58,saison_pluies,arbres,30.69,38.89,60.07,0.63,31.2,38.89,0.67,30.06,0.03,c_03_05,Quartier 3,False
+58,saison_pluies,sans_arbres,33.13,41.44,61.28,3.07,33.4,41.5,3.2,30.06,0.65,c_03_05,Quartier 3,False
+59,chaud_saison_seche,arbres,38.84,40.93,56.03,0.26,39.37,41.36,0.27,38.58,3.89,c_04_05,Quartier 3,False
+59,chaud_saison_seche,sans_arbres,41.06,43.35,56.01,2.48,41.14,43.35,2.48,38.58,5.83,c_04_05,Quartier 3,False
+59,frais_saison_seche,arbres,24.59,21.92,38.92,1.4,24.59,21.92,1.61,23.2,5.25,c_04_05,Quartier 3,False
+59,frais_saison_seche,sans_arbres,26.56,22.61,39.15,3.36,26.56,22.61,4.19,23.2,7.88,c_04_05,Quartier 3,False
+59,saison_pluies,arbres,31.69,40.36,62.2,1.63,32.21,40.36,1.63,30.06,0.46,c_04_05,Quartier 3,False
+59,saison_pluies,sans_arbres,33.18,41.44,61.11,3.12,33.46,41.58,3.36,30.06,0.67,c_04_05,Quartier 3,False
+60,chaud_saison_seche,arbres,40.84,43.29,57.41,2.26,40.96,43.38,2.33,38.58,3.97,c_05_05,Quartier 3,False
+60,chaud_saison_seche,sans_arbres,41.87,44.38,57.61,3.28,41.87,44.38,3.35,38.58,4.55,c_05_05,Quartier 3,False
+60,frais_saison_seche,arbres,26.46,24.09,40.29,3.26,26.46,24.09,3.53,23.2,5.36,c_05_05,Quartier 3,False
+60,frais_saison_seche,sans_arbres,27.57,24.88,40.71,4.37,27.57,24.88,4.54,23.2,6.14,c_05_05,Quartier 3,False
+60,saison_pluies,arbres,33.33,42.12,63.11,3.27,33.64,42.12,3.4,30.06,0.46,c_05_05,Quartier 3,False
+60,saison_pluies,sans_arbres,33.97,42.78,63.24,3.91,34.18,42.78,4.13,30.06,0.52,c_05_05,Quartier 3,False
+61,chaud_saison_seche,arbres,41.24,43.6,57.09,2.66,41.32,43.6,2.66,38.58,4.6,c_06_05,Quartier 6,False
+61,chaud_saison_seche,sans_arbres,41.71,44.15,57.28,3.13,41.72,44.15,3.13,38.58,4.78,c_06_05,Quartier 6,False
+61,frais_saison_seche,arbres,26.86,23.9,40.11,3.66,26.86,23.9,3.66,23.2,6.22,c_06_05,Quartier 6,False
+61,frais_saison_seche,sans_arbres,27.41,24.48,40.42,4.21,27.41,24.48,6.53,23.2,6.46,c_06_05,Quartier 6,False
+61,saison_pluies,arbres,33.9,42.67,63.11,3.84,34.06,42.67,3.91,30.06,0.53,c_06_05,Quartier 6,True
+61,saison_pluies,sans_arbres,34.2,42.95,63.03,4.14,38.17,46.57,8.46,30.06,0.55,c_06_05,Quartier 6,True
+62,chaud_saison_seche,arbres,42.02,44.56,57.68,3.44,42.02,44.56,4.06,38.58,4.59,c_07_05,Quartier 6,False
+62,chaud_saison_seche,sans_arbres,42.17,44.72,57.62,3.58,42.17,44.72,3.58,38.58,4.78,c_07_05,Quartier 6,False
+62,frais_saison_seche,arbres,27.71,25.04,40.79,4.52,27.71,25.04,4.52,23.2,6.19,c_07_05,Quartier 6,False
+62,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_07_05,Quartier 6,False
+62,saison_pluies,arbres,34.29,43.12,63.35,4.23,34.3,43.12,4.23,30.06,0.53,c_07_05,Quartier 6,False
+62,saison_pluies,sans_arbres,34.39,43.16,63.14,4.33,34.39,43.16,4.39,30.06,0.55,c_07_05,Quartier 6,False
+63,chaud_saison_seche,arbres,41.92,44.44,57.65,3.33,41.93,44.44,3.33,38.58,4.54,c_08_05,Quartier 6,False
+63,chaud_saison_seche,sans_arbres,42.14,44.69,57.6,3.56,42.14,44.69,3.56,38.58,4.78,c_08_05,Quartier 6,False
+63,frais_saison_seche,arbres,27.65,25.0,40.78,4.46,27.65,25.0,4.46,23.2,6.13,c_08_05,Quartier 6,False
+63,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_08_05,Quartier 6,False
+63,saison_pluies,arbres,34.24,43.09,63.39,4.18,34.32,43.09,4.18,30.06,0.53,c_08_05,Quartier 6,False
+63,saison_pluies,sans_arbres,34.35,43.12,63.11,4.29,34.35,43.12,4.29,30.06,0.55,c_08_05,Quartier 6,False
+64,chaud_saison_seche,arbres,41.9,44.46,57.83,3.32,41.9,44.46,3.32,38.58,4.32,c_09_05,Servitude climatique 1,False
+64,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_09_05,Servitude climatique 1,False
+64,frais_saison_seche,arbres,27.51,25.03,40.84,4.31,27.51,25.03,4.31,23.2,5.83,c_09_05,Servitude climatique 1,False
+64,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_09_05,Servitude climatique 1,False
+64,saison_pluies,arbres,34.22,43.13,63.64,4.16,34.93,43.13,5.22,30.06,0.5,c_09_05,Servitude climatique 1,False
+64,saison_pluies,sans_arbres,34.31,43.07,63.09,4.25,34.31,43.07,4.66,30.06,0.55,c_09_05,Servitude climatique 1,False
+65,chaud_saison_seche,arbres,40.96,44.18,59.57,2.38,41.06,44.18,2.82,38.58,2.53,c_10_05,Servitude climatique 1,False
+65,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_10_05,Servitude climatique 1,False
+65,frais_saison_seche,arbres,28.01,28.21,43.14,4.81,28.01,28.21,4.81,23.2,3.42,c_10_05,Servitude climatique 1,False
+65,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_10_05,Servitude climatique 1,False
+65,saison_pluies,arbres,33.87,42.66,63.16,3.81,34.01,42.66,4.07,30.06,0.36,c_10_05,Servitude climatique 1,False
+65,saison_pluies,sans_arbres,34.32,43.08,63.1,4.26,34.32,43.08,4.7,30.06,0.55,c_10_05,Servitude climatique 1,False
+66,chaud_saison_seche,arbres,41.73,44.41,58.22,3.15,41.74,44.41,3.15,38.58,3.83,c_11_05,Servitude climatique 1,False
+66,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_11_05,Servitude climatique 1,False
+66,frais_saison_seche,arbres,27.3,25.32,41.07,4.11,27.3,25.32,4.11,23.2,5.17,c_11_05,Servitude climatique 1,False
+66,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_11_05,Servitude climatique 1,False
+66,saison_pluies,arbres,34.18,43.07,63.57,4.12,35.06,43.07,5.35,30.06,0.46,c_11_05,Servitude climatique 1,False
+66,saison_pluies,sans_arbres,34.37,43.14,63.13,4.31,34.37,43.14,4.93,30.06,0.55,c_11_05,Servitude climatique 1,False
+67,chaud_saison_seche,arbres,42.13,44.67,57.63,3.55,42.13,44.67,4.02,38.58,4.74,c_01_06,Servitude climatique 1,False
+67,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_01_06,Servitude climatique 1,False
+67,frais_saison_seche,arbres,27.98,25.27,40.89,4.78,27.98,25.27,6.29,23.2,6.4,c_01_06,Servitude climatique 1,False
+67,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_01_06,Servitude climatique 1,False
+67,saison_pluies,arbres,33.72,42.42,62.82,3.66,34.74,42.42,5.03,30.06,0.55,c_01_06,Servitude climatique 1,False
+67,saison_pluies,sans_arbres,33.79,42.49,62.8,3.73,37.02,43.88,7.31,30.06,0.55,c_01_06,Servitude climatique 1,False
+68,chaud_saison_seche,arbres,41.79,44.28,57.52,3.21,41.81,44.28,3.45,38.58,4.58,c_02_06,Servitude climatique 1,False
+68,chaud_saison_seche,sans_arbres,41.93,44.43,57.45,3.35,41.93,44.43,3.35,38.58,4.78,c_02_06,Servitude climatique 1,False
+68,frais_saison_seche,arbres,27.22,24.4,40.41,4.02,27.22,24.4,4.13,23.2,6.18,c_02_06,Servitude climatique 1,False
+68,frais_saison_seche,sans_arbres,27.49,24.59,40.48,4.3,27.49,24.59,6.8,23.2,6.46,c_02_06,Servitude climatique 1,False
+68,saison_pluies,arbres,33.95,42.74,63.16,3.89,34.13,42.74,3.9,30.06,0.53,c_02_06,Servitude climatique 1,False
+68,saison_pluies,sans_arbres,33.82,42.52,62.82,3.76,36.58,42.92,6.87,30.06,0.55,c_02_06,Servitude climatique 1,False
+69,chaud_saison_seche,arbres,40.5,43.2,58.0,1.92,40.75,43.43,1.92,38.58,3.29,c_03_06,Quartier 2,False
+69,chaud_saison_seche,sans_arbres,41.72,44.22,57.59,3.14,41.73,44.22,3.16,38.58,4.45,c_03_06,Quartier 2,False
+69,frais_saison_seche,arbres,26.06,24.64,40.65,2.86,26.06,24.64,3.04,23.2,4.44,c_03_06,Quartier 2,False
+69,frais_saison_seche,sans_arbres,27.38,24.72,40.63,4.18,27.38,24.72,4.24,23.2,6.01,c_03_06,Quartier 2,False
+69,saison_pluies,arbres,32.95,41.67,62.71,2.89,33.37,41.67,2.93,30.06,0.38,c_03_06,Quartier 2,False
+69,saison_pluies,sans_arbres,33.5,42.28,63.12,3.44,33.78,42.28,3.61,30.06,0.51,c_03_06,Quartier 2,False
+70,chaud_saison_seche,arbres,41.39,43.85,57.45,2.81,41.5,43.89,2.81,38.58,4.32,c_04_06,Quartier 2,False
+70,chaud_saison_seche,sans_arbres,41.92,44.44,57.61,3.34,41.93,44.44,3.34,38.58,4.59,c_04_06,Quartier 2,False
+70,frais_saison_seche,arbres,26.89,24.22,40.35,3.69,26.89,24.22,4.0,23.2,5.84,c_04_06,Quartier 2,False
+70,frais_saison_seche,sans_arbres,27.46,24.7,40.59,4.26,27.46,24.7,5.15,23.2,6.2,c_04_06,Quartier 2,False
+70,saison_pluies,arbres,33.48,42.3,63.28,3.41,33.78,42.3,3.5,30.06,0.5,c_04_06,Quartier 2,False
+70,saison_pluies,sans_arbres,33.68,42.43,63.01,3.62,33.94,42.43,3.75,30.06,0.53,c_04_06,Quartier 2,False
+71,chaud_saison_seche,arbres,41.26,43.61,57.02,2.68,41.28,43.61,2.68,38.58,4.69,c_05_06,Quartier 6,False
+71,chaud_saison_seche,sans_arbres,41.76,44.21,57.32,3.18,41.76,44.21,3.18,38.58,4.78,c_05_06,Quartier 6,False
+71,frais_saison_seche,arbres,27.03,24.04,40.18,3.83,27.03,24.04,3.97,23.2,6.34,c_05_06,Quartier 6,False
+71,frais_saison_seche,sans_arbres,27.5,24.59,40.49,4.3,27.5,24.59,6.51,23.2,6.46,c_05_06,Quartier 6,False
+71,saison_pluies,arbres,34.08,42.85,63.08,4.02,34.12,42.85,4.02,30.06,0.54,c_05_06,Quartier 6,False
+71,saison_pluies,sans_arbres,34.44,43.22,63.17,4.38,34.44,43.22,4.38,30.06,0.55,c_05_06,Quartier 6,False
+72,chaud_saison_seche,arbres,41.79,44.42,58.06,3.21,41.79,44.42,3.21,38.58,4.02,c_06_06,Servitude climatique 1,False
+72,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_06_06,Servitude climatique 1,False
+72,frais_saison_seche,arbres,27.37,25.17,40.95,4.17,27.37,25.17,4.17,23.2,5.43,c_06_06,Servitude climatique 1,False
+72,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_06_06,Servitude climatique 1,False
+72,saison_pluies,arbres,34.11,43.01,63.61,4.05,34.89,43.01,5.18,30.06,0.49,c_06_06,Servitude climatique 1,False
+72,saison_pluies,sans_arbres,34.27,43.02,63.07,4.21,34.27,43.02,4.47,30.06,0.55,c_06_06,Servitude climatique 1,False
+73,chaud_saison_seche,arbres,39.0,43.18,66.71,0.42,39.71,43.18,0.6,38.58,0.1,c_07_06,Servitude climatique 1,False
+73,chaud_saison_seche,sans_arbres,42.14,44.68,57.6,3.56,42.14,44.68,3.56,38.58,4.78,c_07_06,Servitude climatique 1,False
+73,frais_saison_seche,arbres,26.79,31.85,51.15,3.59,26.79,31.85,3.59,23.2,0.13,c_07_06,Servitude climatique 1,True
+73,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_07_06,Servitude climatique 1,True
+73,saison_pluies,arbres,33.01,41.48,61.92,2.95,33.31,41.48,2.95,30.06,0.12,c_07_06,Servitude climatique 1,False
+73,saison_pluies,sans_arbres,34.34,43.1,63.11,4.28,35.41,43.1,5.7,30.06,0.55,c_07_06,Servitude climatique 1,False
+74,chaud_saison_seche,arbres,36.01,40.36,62.33,-2.57,36.01,40.36,0.27,38.58,0.89,c_08_06,Quartier 1,True
+74,chaud_saison_seche,sans_arbres,40.95,43.21,55.93,2.37,41.03,43.21,2.37,38.58,5.83,c_08_06,Quartier 1,True
+74,frais_saison_seche,arbres,23.74,28.18,45.11,0.55,23.74,28.18,0.86,23.2,1.2,c_08_06,Quartier 1,True
+74,frais_saison_seche,sans_arbres,26.51,22.54,39.11,3.31,26.51,22.54,4.77,23.2,7.87,c_08_06,Quartier 1,True
+74,saison_pluies,arbres,30.72,39.14,60.76,0.66,31.29,39.14,0.66,30.06,0.16,c_08_06,Quartier 1,False
+74,saison_pluies,sans_arbres,33.3,41.58,61.18,3.24,35.07,41.66,5.36,30.06,0.67,c_08_06,Quartier 1,False
+75,chaud_saison_seche,arbres,39.36,41.58,56.49,0.78,39.63,41.88,0.8,38.58,3.82,c_09_06,Quartier 1,False
+75,chaud_saison_seche,sans_arbres,41.25,43.59,56.94,2.67,41.29,43.59,2.67,38.58,4.77,c_09_06,Quartier 1,False
+75,frais_saison_seche,arbres,25.08,22.6,39.36,1.88,25.08,22.6,2.12,23.2,5.16,c_09_06,Quartier 1,False
+75,frais_saison_seche,sans_arbres,26.78,23.64,39.93,3.58,26.78,23.64,4.12,23.2,6.45,c_09_06,Quartier 1,False
+75,saison_pluies,arbres,32.7,41.43,62.72,2.64,33.09,41.43,2.64,30.06,0.45,c_09_06,Quartier 1,False
+75,saison_pluies,sans_arbres,33.63,42.3,62.71,3.56,33.87,42.3,3.6,30.06,0.55,c_09_06,Quartier 1,False
+76,chaud_saison_seche,arbres,40.91,43.45,57.7,2.32,41.03,43.54,2.34,38.58,3.77,c_10_06,Quartier 1,False
+76,chaud_saison_seche,sans_arbres,41.56,44.04,57.53,2.98,41.56,44.04,2.98,38.58,4.39,c_10_06,Quartier 1,False
+76,frais_saison_seche,arbres,26.4,24.29,40.43,3.2,26.4,24.29,3.31,23.2,5.08,c_10_06,Quartier 1,False
+76,frais_saison_seche,sans_arbres,27.14,24.48,40.5,3.95,27.14,24.48,5.03,23.2,5.93,c_10_06,Quartier 1,False
+76,saison_pluies,arbres,33.27,42.05,63.02,3.21,33.58,42.05,3.26,30.06,0.44,c_10_06,Quartier 1,False
+76,saison_pluies,sans_arbres,33.54,42.35,63.23,3.48,33.78,42.35,3.6,30.06,0.51,c_10_06,Quartier 1,False
+77,chaud_saison_seche,arbres,41.46,43.98,57.69,2.88,41.48,43.98,2.92,38.58,4.13,c_11_06,Quartier 1,False
+77,chaud_saison_seche,sans_arbres,41.59,44.08,57.58,3.0,41.59,44.08,3.02,38.58,4.36,c_11_06,Quartier 1,False
+77,frais_saison_seche,arbres,26.94,24.5,40.55,3.74,26.94,24.5,4.39,23.2,5.58,c_11_06,Quartier 1,False
+77,frais_saison_seche,sans_arbres,27.16,24.53,40.53,3.96,27.16,24.53,4.92,23.2,5.89,c_11_06,Quartier 1,False
+77,saison_pluies,arbres,33.54,42.36,63.27,3.48,33.78,42.36,3.59,30.06,0.48,c_11_06,Quartier 1,False
+77,saison_pluies,sans_arbres,33.53,42.35,63.27,3.47,33.76,42.35,3.6,30.06,0.5,c_11_06,Quartier 1,False
+78,chaud_saison_seche,arbres,42.07,44.61,57.65,3.49,42.07,44.61,4.53,38.58,4.67,c_01_07,Servitude climatique 1,False
+78,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_01_07,Servitude climatique 1,False
+78,frais_saison_seche,arbres,27.84,25.13,40.83,4.64,27.84,25.13,5.16,23.2,6.31,c_01_07,Servitude climatique 1,False
+78,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_01_07,Servitude climatique 1,False
+78,saison_pluies,arbres,34.22,43.01,63.19,4.15,34.22,43.01,4.15,30.06,0.54,c_01_07,Servitude climatique 1,False
+78,saison_pluies,sans_arbres,34.05,42.78,62.95,3.99,34.05,42.78,3.99,30.06,0.55,c_01_07,Servitude climatique 1,False
+79,chaud_saison_seche,arbres,41.1,43.43,56.97,2.52,41.21,43.45,2.52,38.58,4.63,c_02_07,Servitude climatique 1,False
+79,chaud_saison_seche,sans_arbres,41.59,44.0,57.19,3.0,41.59,44.0,3.0,38.58,4.78,c_02_07,Servitude climatique 1,False
+79,frais_saison_seche,arbres,26.51,23.42,39.83,3.31,26.51,23.42,3.34,23.2,6.25,c_02_07,Servitude climatique 1,False
+79,frais_saison_seche,sans_arbres,27.01,23.94,40.1,3.81,27.01,23.94,5.19,23.2,6.46,c_02_07,Servitude climatique 1,False
+79,saison_pluies,arbres,33.73,42.47,62.97,3.67,33.97,42.47,3.67,30.06,0.53,c_02_07,Servitude climatique 1,False
+79,saison_pluies,sans_arbres,33.83,42.52,62.82,3.77,35.29,42.52,5.59,30.06,0.55,c_02_07,Servitude climatique 1,False
+80,chaud_saison_seche,arbres,40.98,43.33,57.09,2.4,41.09,43.38,2.4,38.58,4.4,c_03_07,Quartier 2,False
+80,chaud_saison_seche,sans_arbres,41.49,43.91,57.29,2.9,41.49,43.91,2.91,38.58,4.58,c_03_07,Quartier 2,False
+80,frais_saison_seche,arbres,26.55,23.71,40.03,3.36,26.55,23.71,3.49,23.2,5.94,c_03_07,Quartier 2,False
+80,frais_saison_seche,sans_arbres,27.05,24.18,40.28,3.85,27.05,24.18,3.92,23.2,6.18,c_03_07,Quartier 2,False
+80,saison_pluies,arbres,33.41,42.2,63.13,3.34,33.71,42.2,3.41,30.06,0.51,c_03_07,Quartier 2,False
+80,saison_pluies,sans_arbres,33.69,42.44,63.03,3.63,33.93,42.44,3.74,30.06,0.53,c_03_07,Quartier 2,False
+81,chaud_saison_seche,arbres,40.78,43.03,56.73,2.2,40.92,43.11,2.2,38.58,4.62,c_04_07,Quartier 2,False
+81,chaud_saison_seche,sans_arbres,41.26,43.6,56.94,2.68,41.3,43.6,2.68,38.58,4.79,c_04_07,Quartier 2,False
+81,frais_saison_seche,arbres,26.33,23.19,39.69,3.13,26.33,23.19,3.26,23.2,6.23,c_04_07,Quartier 2,False
+81,frais_saison_seche,sans_arbres,26.79,23.64,39.93,3.59,26.79,23.64,4.11,23.2,6.46,c_04_07,Quartier 2,False
+81,saison_pluies,arbres,33.36,42.06,62.78,3.3,33.67,42.06,3.3,30.06,0.53,c_04_07,Quartier 2,False
+81,saison_pluies,sans_arbres,33.63,42.3,62.7,3.57,33.88,42.3,3.61,30.06,0.55,c_04_07,Quartier 2,False
+82,chaud_saison_seche,arbres,41.68,44.28,57.97,3.1,41.8,44.34,3.1,38.58,4.02,c_05_07,Servitude climatique 1,False
+82,chaud_saison_seche,sans_arbres,42.16,44.7,57.61,3.57,42.16,44.7,3.57,38.58,4.78,c_05_07,Servitude climatique 1,False
+82,frais_saison_seche,arbres,27.36,25.15,40.94,4.17,27.36,25.15,4.17,23.2,5.43,c_05_07,Servitude climatique 1,False
+82,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_05_07,Servitude climatique 1,False
+82,saison_pluies,arbres,34.13,43.03,63.6,4.07,34.35,43.03,4.64,30.06,0.48,c_05_07,Servitude climatique 1,False
+82,saison_pluies,sans_arbres,34.27,43.02,63.07,4.21,34.27,43.02,4.21,30.06,0.55,c_05_07,Servitude climatique 1,False
+83,chaud_saison_seche,arbres,40.93,44.21,59.74,2.35,41.03,44.21,2.8,38.58,2.44,c_06_07,Servitude climatique 1,False
+83,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_06_07,Servitude climatique 1,False
+83,frais_saison_seche,arbres,28.1,28.48,43.36,4.9,28.1,28.48,4.9,23.2,3.29,c_06_07,Servitude climatique 1,True
+83,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_06_07,Servitude climatique 1,True
+83,saison_pluies,arbres,33.86,42.63,63.08,3.8,34.0,42.63,4.02,30.06,0.33,c_06_07,Servitude climatique 1,False
+83,saison_pluies,sans_arbres,34.38,43.15,63.13,4.32,34.38,43.15,4.96,30.06,0.55,c_06_07,Servitude climatique 1,False
+84,chaud_saison_seche,arbres,40.63,42.93,56.93,2.04,40.88,43.17,2.04,38.58,4.27,c_07_07,Quartier 1,False
+84,chaud_saison_seche,sans_arbres,41.73,44.17,57.29,3.15,41.73,44.17,3.15,38.58,4.78,c_07_07,Quartier 1,False
+84,frais_saison_seche,arbres,26.3,23.53,39.94,3.11,26.3,23.53,3.11,23.2,5.76,c_07_07,Quartier 1,False
+84,frais_saison_seche,sans_arbres,27.34,24.39,40.36,4.14,27.34,24.39,6.41,23.2,6.46,c_07_07,Quartier 1,False
+84,saison_pluies,arbres,33.46,42.28,63.26,3.4,33.78,42.28,3.4,30.06,0.5,c_07_07,Quartier 1,True
+84,saison_pluies,sans_arbres,34.11,42.84,62.98,4.05,37.83,45.74,8.12,30.06,0.55,c_07_07,Quartier 1,True
+85,chaud_saison_seche,arbres,40.48,42.79,56.94,1.89,40.65,42.94,1.9,38.58,4.15,c_08_07,Quartier 1,False
+85,chaud_saison_seche,sans_arbres,41.42,43.84,57.3,2.84,41.45,43.84,2.84,38.58,4.52,c_08_07,Quartier 1,False
+85,frais_saison_seche,arbres,26.09,23.41,39.88,2.89,26.09,23.41,3.06,23.2,5.61,c_08_07,Quartier 1,False
+85,frais_saison_seche,sans_arbres,26.98,24.14,40.27,3.78,26.98,24.14,4.0,23.2,6.11,c_08_07,Quartier 1,False
+85,saison_pluies,arbres,33.08,41.86,63.02,3.02,33.43,41.86,3.05,30.06,0.48,c_08_07,Quartier 1,False
+85,saison_pluies,sans_arbres,33.66,42.43,63.1,3.6,33.91,42.43,3.68,30.06,0.52,c_08_07,Quartier 1,False
+86,chaud_saison_seche,arbres,41.54,43.98,57.38,2.95,41.55,43.98,2.95,38.58,4.52,c_09_07,Quartier 1,False
+86,chaud_saison_seche,sans_arbres,41.93,44.45,57.64,3.34,41.93,44.45,3.34,38.58,4.56,c_09_07,Quartier 1,False
+86,frais_saison_seche,arbres,27.1,24.29,40.36,3.9,27.1,24.29,4.81,23.2,6.11,c_09_07,Quartier 1,False
+86,frais_saison_seche,sans_arbres,27.43,24.7,40.59,4.24,27.43,24.7,5.25,23.2,6.15,c_09_07,Quartier 1,False
+86,saison_pluies,arbres,33.5,42.26,63.01,3.44,33.76,42.26,3.56,30.06,0.52,c_09_07,Quartier 1,False
+86,saison_pluies,sans_arbres,33.74,42.51,63.09,3.68,33.97,42.51,3.81,30.06,0.53,c_09_07,Quartier 1,False
+87,chaud_saison_seche,arbres,41.05,43.45,57.26,2.47,41.15,43.49,2.5,38.58,4.25,c_10_07,Quartier 1,False
+87,chaud_saison_seche,sans_arbres,41.59,44.05,57.42,3.01,41.59,44.05,3.03,38.58,4.53,c_10_07,Quartier 1,False
+87,frais_saison_seche,arbres,26.6,23.93,40.19,3.4,26.6,23.93,3.55,23.2,5.74,c_10_07,Quartier 1,False
+87,frais_saison_seche,sans_arbres,27.18,24.4,40.42,3.99,27.18,24.4,4.04,23.2,6.11,c_10_07,Quartier 1,False
+87,saison_pluies,arbres,33.33,42.14,63.19,3.27,33.63,42.14,3.38,30.06,0.49,c_10_07,Quartier 1,False
+87,saison_pluies,sans_arbres,33.6,42.37,63.06,3.54,33.85,42.37,3.69,30.06,0.52,c_10_07,Quartier 1,False
+88,chaud_saison_seche,arbres,40.37,42.65,56.86,1.78,40.55,42.82,1.79,38.58,4.15,c_11_07,Quartier 1,False
+88,chaud_saison_seche,sans_arbres,41.4,43.79,57.17,2.82,41.4,43.79,2.82,38.58,4.64,c_11_07,Quartier 1,False
+88,frais_saison_seche,arbres,25.96,23.24,39.78,2.76,25.96,23.24,2.91,23.2,5.61,c_11_07,Quartier 1,False
+88,frais_saison_seche,sans_arbres,26.95,23.99,40.16,3.75,26.95,23.99,4.79,23.2,6.27,c_11_07,Quartier 1,False
+88,saison_pluies,arbres,33.38,42.19,63.19,3.32,33.68,42.19,3.32,30.06,0.48,c_11_07,Quartier 1,False
+88,saison_pluies,sans_arbres,33.64,42.37,62.92,3.58,33.87,42.37,3.63,30.06,0.54,c_11_07,Quartier 1,False
+89,chaud_saison_seche,arbres,42.14,44.69,57.63,3.56,42.14,44.69,3.63,38.58,4.75,c_01_08,Servitude climatique 1,False
+89,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_01_08,Servitude climatique 1,False
+89,frais_saison_seche,arbres,28.01,25.31,40.91,4.81,28.01,25.31,6.58,23.2,6.41,c_01_08,Servitude climatique 1,False
+89,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_01_08,Servitude climatique 1,False
+89,saison_pluies,arbres,32.58,41.16,62.16,2.52,32.58,41.16,2.52,30.06,0.55,c_01_08,Servitude climatique 1,False
+89,saison_pluies,sans_arbres,32.78,41.36,62.22,2.72,32.78,41.36,2.72,30.06,0.55,c_01_08,Servitude climatique 1,False
+90,chaud_saison_seche,arbres,41.98,44.53,57.72,3.4,41.98,44.53,3.7,38.58,4.52,c_02_08,Servitude climatique 1,False
+90,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_02_08,Servitude climatique 1,False
+90,frais_saison_seche,arbres,27.65,25.01,40.79,4.45,27.65,25.01,4.45,23.2,6.1,c_02_08,Servitude climatique 1,False
+90,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_02_08,Servitude climatique 1,False
+90,saison_pluies,arbres,32.26,40.9,62.3,2.19,32.47,40.9,2.19,30.06,0.52,c_02_08,Servitude climatique 1,False
+90,saison_pluies,sans_arbres,32.81,41.4,62.24,2.75,32.81,41.4,2.75,30.06,0.55,c_02_08,Servitude climatique 1,False
+91,chaud_saison_seche,arbres,40.37,44.2,61.67,1.78,40.49,44.2,2.03,38.58,1.57,c_03_08,Servitude climatique 1,False
+91,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_03_08,Servitude climatique 1,False
+91,frais_saison_seche,arbres,28.51,30.65,45.53,5.31,28.51,30.65,5.31,23.2,2.12,c_03_08,Servitude climatique 1,True
+91,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_03_08,Servitude climatique 1,True
+91,saison_pluies,arbres,33.28,41.96,62.67,3.22,33.28,41.96,3.22,30.06,0.3,c_03_08,Servitude climatique 1,False
+91,saison_pluies,sans_arbres,32.84,41.43,62.25,2.78,32.84,41.43,2.78,30.06,0.55,c_03_08,Servitude climatique 1,False
+92,chaud_saison_seche,arbres,38.57,42.75,66.46,-0.01,39.18,42.89,0.21,38.58,0.1,c_04_08,Servitude climatique 1,False
+92,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_04_08,Servitude climatique 1,False
+92,frais_saison_seche,arbres,26.17,31.41,50.77,2.97,26.17,31.41,2.97,23.2,0.13,c_04_08,Servitude climatique 1,True
+92,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_04_08,Servitude climatique 1,True
+92,saison_pluies,arbres,32.1,40.51,61.43,2.04,32.26,40.51,2.04,30.06,0.13,c_04_08,Servitude climatique 1,True
+92,saison_pluies,sans_arbres,33.8,42.49,62.8,3.74,37.03,43.9,7.32,30.06,0.55,c_04_08,Servitude climatique 1,True
+93,chaud_saison_seche,arbres,40.84,43.97,59.27,2.26,41.16,44.18,2.36,38.58,2.64,c_05_08,Servitude climatique 1,False
+93,chaud_saison_seche,sans_arbres,42.17,44.72,57.62,3.59,42.17,44.72,3.59,38.58,4.78,c_05_08,Servitude climatique 1,False
+93,frais_saison_seche,arbres,28.21,28.22,43.12,5.01,28.21,28.22,5.01,23.2,3.57,c_05_08,Servitude climatique 1,False
+93,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_05_08,Servitude climatique 1,False
+93,saison_pluies,arbres,33.75,42.52,63.03,3.69,34.02,42.52,3.69,30.06,0.33,c_05_08,Servitude climatique 1,False
+93,saison_pluies,sans_arbres,34.26,43.02,63.07,4.2,34.26,43.02,4.2,30.06,0.55,c_05_08,Servitude climatique 1,False
+94,chaud_saison_seche,arbres,42.05,44.59,57.63,3.47,42.05,44.59,4.4,38.58,4.67,c_06_08,Quartier A,False
+94,chaud_saison_seche,sans_arbres,42.19,44.74,57.64,3.61,42.19,44.74,3.61,38.58,4.78,c_06_08,Quartier A,False
+94,frais_saison_seche,arbres,27.82,25.12,40.82,4.63,27.82,25.12,5.1,23.2,6.3,c_06_08,Quartier A,False
+94,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.94,23.2,6.46,c_06_08,Quartier A,False
+94,saison_pluies,arbres,34.31,43.11,63.25,4.25,34.31,43.11,4.25,30.06,0.54,c_06_08,Quartier A,False
+94,saison_pluies,sans_arbres,34.38,43.16,63.13,4.32,34.38,43.16,4.8,30.06,0.55,c_06_08,Quartier A,False
+95,chaud_saison_seche,arbres,41.21,43.5,56.65,2.63,41.29,43.5,2.63,38.58,5.08,c_07_08,Quartier A,False
+95,chaud_saison_seche,sans_arbres,41.21,43.51,56.65,2.63,41.29,43.51,2.63,38.58,5.08,c_07_08,Quartier A,False
+95,frais_saison_seche,arbres,26.78,23.4,39.76,3.58,26.78,23.4,4.15,23.2,6.86,c_07_08,Quartier A,False
+95,frais_saison_seche,sans_arbres,26.78,23.41,39.76,3.58,26.78,23.41,4.16,23.2,6.86,c_07_08,Quartier A,False
+95,saison_pluies,arbres,33.52,42.07,62.24,3.46,33.8,42.07,3.49,30.06,0.59,c_07_08,Quartier A,False
+95,saison_pluies,sans_arbres,33.52,42.07,62.24,3.46,33.8,42.07,3.49,30.06,0.59,c_07_08,Quartier A,False
+96,chaud_saison_seche,arbres,41.04,43.37,57.01,2.46,41.04,43.37,2.59,38.58,4.52,c_08_08,Quartier A,False
+96,chaud_saison_seche,sans_arbres,41.04,43.37,57.01,2.46,41.04,43.37,2.59,38.58,4.52,c_08_08,Quartier A,False
+96,frais_saison_seche,arbres,27.43,24.72,40.62,4.23,27.43,24.72,4.6,23.2,6.11,c_08_08,Quartier A,False
+96,frais_saison_seche,sans_arbres,27.43,24.72,40.62,4.23,27.43,24.72,4.6,23.2,6.11,c_08_08,Quartier A,False
+96,saison_pluies,arbres,33.71,42.49,63.13,3.65,33.92,42.49,3.92,30.06,0.52,c_08_08,Quartier A,False
+96,saison_pluies,sans_arbres,33.71,42.49,63.13,3.65,33.92,42.49,3.92,30.06,0.52,c_08_08,Quartier A,False
+97,chaud_saison_seche,arbres,40.48,42.74,56.77,1.9,40.63,42.84,1.95,38.58,4.35,c_09_08,Quartier A,False
+97,chaud_saison_seche,sans_arbres,41.31,43.68,57.06,2.73,41.36,43.68,2.76,38.58,4.69,c_09_08,Quartier A,False
+97,frais_saison_seche,arbres,26.37,23.53,39.93,3.18,26.37,23.53,3.42,23.2,5.87,c_09_08,Quartier A,False
+97,frais_saison_seche,sans_arbres,27.18,24.24,40.3,3.98,27.18,24.24,4.15,23.2,6.34,c_09_08,Quartier A,False
+97,saison_pluies,arbres,33.14,41.92,63.06,3.08,33.48,41.92,3.18,30.06,0.5,c_09_08,Quartier A,False
+97,saison_pluies,sans_arbres,33.7,42.41,62.87,3.64,33.96,42.41,3.79,30.06,0.54,c_09_08,Quartier A,False
+98,chaud_saison_seche,arbres,40.74,43.07,57.02,2.16,40.93,43.23,2.16,38.58,4.26,c_10_08,Quartier A,False
+98,chaud_saison_seche,sans_arbres,41.85,44.33,57.39,3.27,41.85,44.33,3.27,38.58,4.78,c_10_08,Quartier A,False
+98,frais_saison_seche,arbres,26.31,23.55,39.95,3.11,26.31,23.55,3.14,23.2,5.76,c_10_08,Quartier A,False
+98,frais_saison_seche,sans_arbres,27.38,24.44,40.39,4.18,27.38,24.44,6.45,23.2,6.46,c_10_08,Quartier A,False
+98,saison_pluies,arbres,33.6,42.44,63.34,3.54,33.87,42.44,3.65,30.06,0.5,c_10_08,Quartier A,False
+98,saison_pluies,sans_arbres,33.46,42.11,62.61,3.4,36.19,42.12,6.48,30.06,0.55,c_10_08,Quartier A,False
+99,chaud_saison_seche,arbres,41.97,44.52,57.74,3.39,41.97,44.52,3.54,38.58,4.49,c_11_08,Quartier A,False
+99,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_11_08,Quartier A,False
+99,frais_saison_seche,arbres,27.62,25.01,40.8,4.42,27.62,25.01,4.42,23.2,6.06,c_11_08,Quartier A,False
+99,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_11_08,Quartier A,False
+99,saison_pluies,arbres,32.95,41.66,62.75,2.89,33.22,41.66,2.89,30.06,0.52,c_11_08,Quartier A,False
+99,saison_pluies,sans_arbres,33.31,41.94,62.52,3.25,34.81,41.94,5.1,30.06,0.55,c_11_08,Quartier A,False
+100,chaud_saison_seche,arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_01_09,Servitude climatique 1,False
+100,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_01_09,Servitude climatique 1,False
+100,frais_saison_seche,arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_01_09,Servitude climatique 1,False
+100,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_01_09,Servitude climatique 1,False
+100,saison_pluies,arbres,32.78,41.36,62.22,2.72,32.78,41.36,2.72,30.06,0.55,c_01_09,Servitude climatique 1,False
+100,saison_pluies,sans_arbres,32.78,41.36,62.22,2.72,32.78,41.36,2.72,30.06,0.55,c_01_09,Servitude climatique 1,False
+101,chaud_saison_seche,arbres,42.04,44.58,57.66,3.46,42.04,44.58,4.33,38.58,4.63,c_02_09,Servitude climatique 1,False
+101,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_02_09,Servitude climatique 1,False
+101,frais_saison_seche,arbres,27.77,25.08,40.81,4.57,27.77,25.08,4.75,23.2,6.25,c_02_09,Servitude climatique 1,False
+101,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_02_09,Servitude climatique 1,False
+101,saison_pluies,arbres,32.3,40.91,62.16,2.24,32.33,40.91,2.24,30.06,0.54,c_02_09,Servitude climatique 1,False
+101,saison_pluies,sans_arbres,32.67,41.25,62.16,2.61,32.67,41.25,2.61,30.06,0.55,c_02_09,Servitude climatique 1,False
+102,chaud_saison_seche,arbres,24.34,32.12,58.21,-14.24,24.34,32.12,-3.98,38.58,0.1,c_03_09,Servitude climatique 1,True
+102,chaud_saison_seche,sans_arbres,41.82,44.29,57.36,3.24,41.82,44.29,3.24,38.58,4.78,c_03_09,Servitude climatique 1,True
+102,frais_saison_seche,arbres,21.73,28.56,48.09,-1.47,22.76,28.56,0.51,23.2,0.13,c_03_09,Servitude climatique 1,True
+102,frais_saison_seche,sans_arbres,27.58,24.7,40.55,4.38,27.58,24.7,6.74,23.2,6.46,c_03_09,Servitude climatique 1,True
+102,saison_pluies,arbres,27.41,36.01,58.76,-2.65,27.95,36.15,0.49,30.06,0.14,c_03_09,Servitude climatique 1,True
+102,saison_pluies,sans_arbres,32.96,41.56,62.33,2.9,33.11,41.56,3.4,30.06,0.55,c_03_09,Servitude climatique 1,True
+103,chaud_saison_seche,arbres,37.65,40.35,56.94,-0.93,38.88,41.46,-0.27,38.58,2.68,c_04_09,Servitude climatique 1,True
+103,chaud_saison_seche,sans_arbres,41.78,44.25,57.35,3.2,41.78,44.25,3.2,38.58,4.77,c_04_09,Servitude climatique 1,True
+103,frais_saison_seche,arbres,24.53,24.16,40.29,1.33,24.53,24.16,1.43,23.2,3.62,c_04_09,Servitude climatique 1,False
+103,frais_saison_seche,sans_arbres,27.26,24.29,40.31,4.07,27.26,24.29,5.85,23.2,6.44,c_04_09,Servitude climatique 1,False
+103,saison_pluies,arbres,31.64,40.23,61.79,1.58,32.12,40.23,1.58,30.06,0.32,c_04_09,Servitude climatique 1,False
+103,saison_pluies,sans_arbres,33.44,42.09,62.62,3.38,35.11,42.09,5.4,30.06,0.55,c_04_09,Servitude climatique 1,False
+104,chaud_saison_seche,arbres,41.25,43.6,57.03,2.66,41.35,43.61,2.66,38.58,4.67,c_05_09,Quartier A,False
+104,chaud_saison_seche,sans_arbres,41.73,44.18,57.29,3.15,41.73,44.18,3.15,38.58,4.78,c_05_09,Quartier A,False
+104,frais_saison_seche,arbres,26.82,23.78,40.03,3.62,26.82,23.78,3.92,23.2,6.3,c_05_09,Quartier A,False
+104,frais_saison_seche,sans_arbres,27.29,24.32,40.33,4.1,27.29,24.32,6.23,23.2,6.46,c_05_09,Quartier A,False
+104,saison_pluies,arbres,33.75,42.48,62.92,3.69,33.98,42.48,3.69,30.06,0.54,c_05_09,Quartier A,False
+104,saison_pluies,sans_arbres,34.01,42.73,62.92,3.95,37.25,44.4,7.55,30.06,0.55,c_05_09,Quartier A,False
+105,chaud_saison_seche,arbres,41.85,44.34,57.47,3.27,41.85,44.34,3.27,38.58,4.68,c_06_09,Quartier A,False
+105,chaud_saison_seche,sans_arbres,41.86,44.34,57.46,3.27,41.86,44.34,3.27,38.58,4.7,c_06_09,Quartier A,False
+105,frais_saison_seche,arbres,27.36,24.49,40.45,4.16,27.36,24.49,5.36,23.2,6.32,c_06_09,Quartier A,False
+105,frais_saison_seche,sans_arbres,27.39,24.52,40.46,4.2,27.39,24.52,5.48,23.2,6.35,c_06_09,Quartier A,False
+105,saison_pluies,arbres,33.81,42.54,62.95,3.75,34.04,42.54,3.83,30.06,0.54,c_06_09,Quartier A,False
+105,saison_pluies,sans_arbres,33.8,42.52,62.92,3.74,34.03,42.52,3.82,30.06,0.54,c_06_09,Quartier A,False
+106,chaud_saison_seche,arbres,41.02,43.26,56.34,2.44,41.14,43.26,2.44,38.58,5.33,c_07_09,Quartier A,False
+106,chaud_saison_seche,sans_arbres,41.03,43.28,56.32,2.45,41.16,43.28,2.45,38.58,5.37,c_07_09,Quartier A,False
+106,frais_saison_seche,arbres,26.51,22.85,39.39,3.31,26.51,22.85,4.05,23.2,7.2,c_07_09,Quartier A,False
+106,frais_saison_seche,sans_arbres,26.57,22.9,39.41,3.37,26.57,22.9,4.38,23.2,7.26,c_07_09,Quartier A,False
+106,saison_pluies,arbres,33.37,41.81,61.82,3.3,34.09,41.81,4.38,30.06,0.61,c_07_09,Quartier A,False
+106,saison_pluies,sans_arbres,33.34,41.76,61.75,3.27,34.07,41.76,4.36,30.06,0.62,c_07_09,Quartier A,False
+107,chaud_saison_seche,arbres,40.84,43.04,56.07,2.26,40.96,43.04,2.26,38.58,5.52,c_08_09,Quartier A,False
+107,chaud_saison_seche,sans_arbres,40.87,43.08,56.04,2.29,40.99,43.08,2.29,38.58,5.58,c_08_09,Quartier A,False
+107,frais_saison_seche,arbres,26.51,22.73,39.28,3.31,26.51,22.73,3.58,23.2,7.45,c_08_09,Quartier A,False
+107,frais_saison_seche,sans_arbres,26.59,22.79,39.3,3.39,26.59,22.79,3.59,23.2,7.54,c_08_09,Quartier A,False
+107,saison_pluies,arbres,33.12,41.47,61.45,3.05,33.44,41.54,3.13,30.06,0.64,c_08_09,Quartier A,False
+107,saison_pluies,sans_arbres,33.1,41.44,61.36,3.04,33.43,41.53,3.12,30.06,0.64,c_08_09,Quartier A,False
+108,chaud_saison_seche,arbres,40.8,43.13,55.47,2.22,40.91,43.13,2.23,38.58,6.43,c_09_09,Quartier A,False
+108,chaud_saison_seche,sans_arbres,41.16,43.63,55.7,2.58,41.23,43.63,2.58,38.58,6.51,c_09_09,Quartier A,False
+108,frais_saison_seche,arbres,26.39,22.06,38.76,3.2,26.39,22.06,3.3,23.2,8.68,c_09_09,Quartier A,False
+108,frais_saison_seche,sans_arbres,26.72,22.51,38.98,3.52,26.72,22.51,3.58,23.2,8.79,c_09_09,Quartier A,False
+108,saison_pluies,arbres,32.82,40.86,60.24,2.76,33.14,41.25,2.9,30.06,0.74,c_09_09,Quartier A,False
+108,saison_pluies,sans_arbres,33.02,41.07,60.29,2.96,33.32,41.45,3.13,30.06,0.75,c_09_09,Quartier A,False
+109,chaud_saison_seche,arbres,40.27,42.52,54.85,1.69,40.43,42.52,1.73,38.58,6.79,c_10_09,Quartier A,False
+109,chaud_saison_seche,sans_arbres,40.79,43.46,54.97,2.21,40.84,43.46,2.24,38.58,7.42,c_10_09,Quartier A,False
+109,frais_saison_seche,arbres,25.81,20.98,38.13,2.61,25.81,20.98,2.79,23.2,9.17,c_10_09,Quartier A,False
+109,frais_saison_seche,sans_arbres,26.39,21.53,38.39,3.19,26.39,21.53,3.33,23.2,10.02,c_10_09,Quartier A,False
+109,saison_pluies,arbres,32.46,40.37,59.65,2.4,32.81,40.91,2.52,30.06,0.78,c_10_09,Quartier A,False
+109,saison_pluies,sans_arbres,32.64,40.38,59.18,2.58,32.94,41.06,2.76,30.06,0.86,c_10_09,Quartier A,False
+110,chaud_saison_seche,arbres,42.04,44.58,57.67,3.46,42.04,44.58,4.28,38.58,4.62,c_11_09,Quartier A,False
+110,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_11_09,Quartier A,False
+110,frais_saison_seche,arbres,27.76,25.07,40.8,4.56,27.76,25.07,4.67,23.2,6.24,c_11_09,Quartier A,False
+110,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_11_09,Quartier A,False
+110,saison_pluies,arbres,33.48,42.19,62.84,3.42,33.86,42.19,4.15,30.06,0.53,c_11_09,Quartier A,False
+110,saison_pluies,sans_arbres,33.53,42.19,62.65,3.47,35.91,42.19,6.2,30.06,0.55,c_11_09,Quartier A,False
+111,chaud_saison_seche,arbres,42.01,44.55,57.69,3.43,42.01,44.55,4.02,38.58,4.58,c_01_10,Servitude climatique 1,False
+111,chaud_saison_seche,sans_arbres,42.2,44.76,57.64,3.62,42.2,44.76,3.62,38.58,4.78,c_01_10,Servitude climatique 1,False
+111,frais_saison_seche,arbres,27.71,25.04,40.79,4.51,27.71,25.04,4.51,23.2,6.18,c_01_10,Servitude climatique 1,False
+111,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.95,28.14,25.46,7.93,23.2,6.46,c_01_10,Servitude climatique 1,False
+111,saison_pluies,arbres,32.49,41.13,62.34,2.43,32.76,41.13,2.43,30.06,0.53,c_01_10,Servitude climatique 1,False
+111,saison_pluies,sans_arbres,33.14,41.76,62.43,3.08,33.94,41.76,4.23,30.06,0.55,c_01_10,Servitude climatique 1,False
+112,chaud_saison_seche,arbres,41.55,44.4,58.68,2.97,41.61,44.4,2.97,38.58,3.35,c_02_10,Servitude climatique 1,False
+112,chaud_saison_seche,sans_arbres,42.16,44.71,57.62,3.58,42.16,44.71,3.58,38.58,4.78,c_02_10,Servitude climatique 1,False
+112,frais_saison_seche,arbres,27.17,25.84,41.43,3.97,27.17,25.84,3.97,23.2,4.52,c_02_10,Servitude climatique 1,False
+112,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_02_10,Servitude climatique 1,False
+112,saison_pluies,arbres,32.67,41.37,62.62,2.61,33.05,41.37,2.61,30.06,0.41,c_02_10,Servitude climatique 1,True
+112,saison_pluies,sans_arbres,33.93,42.65,62.88,3.87,37.59,45.17,7.88,30.06,0.55,c_02_10,Servitude climatique 1,True
+113,chaud_saison_seche,arbres,41.0,43.37,57.15,2.42,41.1,43.41,2.44,38.58,4.36,c_03_10,Quartier A,False
+113,chaud_saison_seche,sans_arbres,41.11,43.45,57.06,2.53,41.19,43.46,2.53,38.58,4.53,c_03_10,Quartier A,False
+113,frais_saison_seche,arbres,26.58,23.78,40.08,3.38,26.58,23.78,3.54,23.2,5.88,c_03_10,Quartier A,False
+113,frais_saison_seche,sans_arbres,26.79,23.89,40.12,3.6,26.79,23.89,3.7,23.2,6.11,c_03_10,Quartier A,False
+113,saison_pluies,arbres,33.49,42.31,63.25,3.43,33.79,42.31,3.51,30.06,0.5,c_03_10,Quartier A,False
+113,saison_pluies,sans_arbres,33.51,42.26,63.01,3.45,33.8,42.26,3.53,30.06,0.52,c_03_10,Quartier A,False
+114,chaud_saison_seche,arbres,41.08,43.37,56.8,2.5,41.15,43.37,2.52,38.58,4.79,c_04_10,Quartier A,False
+114,chaud_saison_seche,sans_arbres,41.12,43.41,56.77,2.54,41.18,43.41,2.55,38.58,4.86,c_04_10,Quartier A,False
+114,frais_saison_seche,arbres,26.74,23.57,39.88,3.54,26.74,23.57,3.69,23.2,6.47,c_04_10,Quartier A,False
+114,frais_saison_seche,sans_arbres,26.83,23.64,39.91,3.63,26.83,23.64,3.76,23.2,6.56,c_04_10,Quartier A,False
+114,saison_pluies,arbres,33.4,42.04,62.56,3.34,33.68,42.04,3.47,30.06,0.55,c_04_10,Quartier A,False
+114,saison_pluies,sans_arbres,33.41,42.03,62.47,3.35,33.69,42.03,3.48,30.06,0.56,c_04_10,Quartier A,False
+115,chaud_saison_seche,arbres,40.68,42.83,56.09,2.1,40.8,42.83,2.14,38.58,5.33,c_05_10,Quartier A,False
+115,chaud_saison_seche,sans_arbres,41.1,43.37,56.25,2.52,41.18,43.37,2.53,38.58,5.54,c_05_10,Quartier A,False
+115,frais_saison_seche,arbres,26.44,22.76,39.34,3.24,26.44,22.76,3.44,23.2,7.2,c_05_10,Quartier A,False
+115,frais_saison_seche,sans_arbres,26.89,23.25,39.57,3.69,26.89,23.25,3.82,23.2,7.48,c_05_10,Quartier A,False
+115,saison_pluies,arbres,33.0,41.41,61.61,2.94,33.33,41.41,3.08,30.06,0.62,c_05_10,Quartier A,False
+115,saison_pluies,sans_arbres,33.25,41.61,61.5,3.19,33.55,41.66,3.35,30.06,0.64,c_05_10,Quartier A,False
+116,chaud_saison_seche,arbres,40.98,43.22,56.19,2.4,41.09,43.22,2.4,38.58,5.49,c_06_10,Quartier A,False
+116,chaud_saison_seche,sans_arbres,41.04,43.29,56.17,2.45,41.13,43.29,2.45,38.58,5.58,c_06_10,Quartier A,False
+116,frais_saison_seche,arbres,26.71,23.02,39.45,3.51,26.71,23.02,3.64,23.2,7.42,c_06_10,Quartier A,False
+116,frais_saison_seche,sans_arbres,26.8,23.11,39.48,3.61,26.8,23.11,3.72,23.2,7.53,c_06_10,Quartier A,False
+116,saison_pluies,arbres,33.19,41.56,61.51,3.13,33.5,41.61,3.26,30.06,0.63,c_06_10,Quartier A,False
+116,saison_pluies,sans_arbres,33.2,41.55,61.43,3.14,33.51,41.61,3.28,30.06,0.64,c_06_10,Quartier A,False
+117,chaud_saison_seche,arbres,40.31,42.38,56.03,1.72,40.48,42.47,1.77,38.58,5.01,c_07_10,Quartier A,False
+117,chaud_saison_seche,sans_arbres,41.15,43.43,56.34,2.57,41.2,43.43,2.61,38.58,5.47,c_07_10,Quartier A,False
+117,frais_saison_seche,arbres,26.11,22.54,39.28,2.91,26.11,22.54,3.14,23.2,6.77,c_07_10,Quartier A,False
+117,frais_saison_seche,sans_arbres,26.92,23.34,39.64,3.72,26.92,23.34,3.88,23.2,7.38,c_07_10,Quartier A,False
+117,saison_pluies,arbres,32.77,41.26,61.86,2.71,33.13,41.26,2.82,30.06,0.58,c_07_10,Quartier A,False
+117,saison_pluies,sans_arbres,33.29,41.69,61.62,3.23,33.57,41.69,3.41,30.06,0.63,c_07_10,Quartier A,False
+118,chaud_saison_seche,arbres,40.58,42.71,55.86,2.0,40.79,42.77,2.0,38.58,5.53,c_08_10,Quartier A,False
+118,chaud_saison_seche,sans_arbres,41.09,43.38,56.04,2.51,41.17,43.38,2.51,38.58,5.83,c_08_10,Quartier A,False
+118,frais_saison_seche,arbres,26.09,22.13,38.94,2.9,26.09,22.13,3.01,23.2,7.47,c_08_10,Quartier A,False
+118,frais_saison_seche,sans_arbres,26.6,22.67,39.18,3.4,26.6,22.67,4.0,23.2,7.87,c_08_10,Quartier A,False
+118,saison_pluies,arbres,32.94,41.27,61.33,2.88,33.31,41.4,3.09,30.06,0.64,c_08_10,Quartier A,False
+118,saison_pluies,sans_arbres,33.17,41.43,61.1,3.11,33.46,41.58,3.18,30.06,0.67,c_08_10,Quartier A,False
+119,chaud_saison_seche,arbres,40.33,42.49,55.16,1.75,40.64,42.51,1.75,38.58,6.35,c_09_10,Quartier A,False
+119,chaud_saison_seche,sans_arbres,40.81,43.2,55.35,2.23,40.95,43.2,2.23,38.58,6.65,c_09_10,Quartier A,False
+119,frais_saison_seche,arbres,26.07,21.62,38.54,2.87,26.07,21.62,3.13,23.2,8.57,c_09_10,Quartier A,False
+119,frais_saison_seche,sans_arbres,26.46,22.05,38.71,3.26,26.46,22.05,4.77,23.2,8.97,c_09_10,Quartier A,False
+119,saison_pluies,arbres,32.96,41.04,60.39,2.9,33.29,41.39,3.58,30.06,0.73,c_09_10,Quartier A,False
+119,saison_pluies,sans_arbres,33.22,41.24,60.27,3.16,35.81,41.59,6.11,30.06,0.77,c_09_10,Quartier A,False
+120,chaud_saison_seche,arbres,39.95,42.13,54.53,1.37,40.16,42.13,1.37,38.58,6.94,c_10_10,Quartier A,False
+120,chaud_saison_seche,sans_arbres,40.45,42.96,54.73,1.87,40.54,42.96,1.87,38.58,7.36,c_10_10,Quartier A,False
+120,frais_saison_seche,arbres,26.64,22.18,38.73,3.45,26.64,22.18,3.45,23.2,9.37,c_10_10,Quartier A,False
+120,frais_saison_seche,sans_arbres,26.74,22.11,38.64,3.54,26.74,22.11,4.14,23.2,9.94,c_10_10,Quartier A,False
+120,saison_pluies,arbres,32.74,40.62,59.67,2.68,32.93,41.04,2.68,30.06,0.8,c_10_10,Quartier A,False
+120,saison_pluies,sans_arbres,33.05,40.86,59.49,2.99,33.72,41.29,4.01,30.06,0.85,c_10_10,Quartier A,False
+121,chaud_saison_seche,arbres,41.72,44.18,57.4,3.14,41.72,44.18,3.25,38.58,4.65,c_01_11,Quartier A,False
+121,chaud_saison_seche,sans_arbres,42.26,44.84,57.7,3.68,42.26,44.84,3.79,38.58,4.77,c_01_11,Quartier A,False
+121,frais_saison_seche,arbres,27.18,24.28,40.33,3.98,27.18,24.28,4.2,23.2,6.27,c_01_11,Quartier A,False
+121,frais_saison_seche,sans_arbres,27.78,24.98,40.72,4.59,27.78,24.98,4.73,23.2,6.44,c_01_11,Quartier A,False
+121,saison_pluies,arbres,33.63,42.35,62.89,3.57,33.86,42.35,3.81,30.06,0.54,c_01_11,Quartier A,False
+121,saison_pluies,sans_arbres,33.94,42.66,62.89,3.88,34.12,42.66,4.17,30.06,0.55,c_01_11,Quartier A,False
+122,chaud_saison_seche,arbres,40.81,43.0,55.99,2.23,40.95,43.0,2.23,38.58,5.59,c_02_11,Quartier A,False
+122,chaud_saison_seche,sans_arbres,41.2,43.51,56.2,2.62,41.29,43.51,2.62,38.58,5.71,c_02_11,Quartier A,False
+122,frais_saison_seche,arbres,26.47,22.63,39.21,3.27,26.47,22.63,3.53,23.2,7.54,c_02_11,Quartier A,False
+122,frais_saison_seche,sans_arbres,26.84,23.08,39.43,3.64,26.84,23.08,3.79,23.2,7.71,c_02_11,Quartier A,False
+122,saison_pluies,arbres,33.09,41.42,61.33,3.03,33.43,41.53,3.1,30.06,0.65,c_02_11,Quartier A,False
+122,saison_pluies,sans_arbres,33.32,41.63,61.33,3.26,33.62,41.74,3.35,30.06,0.66,c_02_11,Quartier A,False
+123,chaud_saison_seche,arbres,40.5,42.61,56.06,1.92,40.67,42.67,1.95,38.58,5.19,c_03_11,Quartier A,False
+123,chaud_saison_seche,sans_arbres,41.02,43.27,56.14,2.44,41.08,43.27,2.46,38.58,5.6,c_03_11,Quartier A,False
+123,frais_saison_seche,arbres,26.19,22.51,39.22,2.99,26.19,22.51,3.17,23.2,7.01,c_03_11,Quartier A,False
+123,frais_saison_seche,sans_arbres,26.74,23.01,39.42,3.54,26.74,23.01,3.66,23.2,7.56,c_03_11,Quartier A,False
+123,saison_pluies,arbres,32.92,41.36,61.72,2.86,33.27,41.36,2.94,30.06,0.6,c_03_11,Quartier A,False
+123,saison_pluies,sans_arbres,33.18,41.52,61.39,3.12,33.47,41.57,3.27,30.06,0.65,c_03_11,Quartier A,False
+124,chaud_saison_seche,arbres,40.49,42.59,55.71,1.9,40.71,42.67,1.9,38.58,5.64,c_04_11,Quartier A,False
+124,chaud_saison_seche,sans_arbres,40.97,43.25,55.91,2.39,41.08,43.25,2.39,38.58,5.89,c_04_11,Quartier A,False
+124,frais_saison_seche,arbres,26.04,21.98,38.84,2.84,26.04,21.98,3.09,23.2,7.62,c_04_11,Quartier A,False
+124,frais_saison_seche,sans_arbres,26.5,22.49,39.07,3.3,26.5,22.49,4.48,23.2,7.96,c_04_11,Quartier A,False
+124,saison_pluies,arbres,32.97,41.26,61.19,2.91,33.33,41.42,3.36,30.06,0.65,c_04_11,Quartier A,False
+124,saison_pluies,sans_arbres,33.2,41.45,61.05,3.14,34.59,41.61,4.88,30.06,0.68,c_04_11,Quartier A,False
+125,chaud_saison_seche,arbres,40.41,42.49,55.61,1.82,40.63,42.55,1.82,38.58,5.7,c_05_11,Quartier A,False
+125,chaud_saison_seche,sans_arbres,40.91,43.17,55.84,2.33,40.99,43.17,2.33,38.58,5.93,c_05_11,Quartier A,False
+125,frais_saison_seche,arbres,26.77,22.99,39.39,3.58,26.77,22.99,3.58,23.2,7.69,c_05_11,Quartier A,False
+125,frais_saison_seche,sans_arbres,26.73,22.8,39.23,3.53,26.73,22.8,5.02,23.2,8.0,c_05_11,Quartier A,False
+125,saison_pluies,arbres,33.26,41.57,61.31,3.2,33.48,41.59,3.51,30.06,0.66,c_05_11,Quartier A,False
+125,saison_pluies,sans_arbres,33.6,41.89,61.25,3.54,35.67,41.89,5.97,30.06,0.68,c_05_11,Quartier A,False
+126,chaud_saison_seche,arbres,42.02,44.55,57.59,3.44,42.02,44.55,4.18,38.58,4.69,c_06_11,Quartier A,False
+126,chaud_saison_seche,sans_arbres,42.15,44.7,57.61,3.57,42.15,44.7,3.57,38.58,4.78,c_06_11,Quartier A,False
+126,frais_saison_seche,arbres,27.86,25.15,40.83,4.67,27.86,25.15,5.42,23.2,6.34,c_06_11,Quartier A,False
+126,frais_saison_seche,sans_arbres,28.14,25.46,40.99,4.94,28.14,25.46,7.94,23.2,6.46,c_06_11,Quartier A,False
+126,saison_pluies,arbres,34.3,43.09,63.21,4.24,34.31,43.09,4.24,30.06,0.54,c_06_11,Quartier A,False
+126,saison_pluies,sans_arbres,34.39,43.16,63.14,4.33,34.39,43.16,4.33,30.06,0.55,c_06_11,Quartier A,False
+127,chaud_saison_seche,arbres,41.71,44.15,57.28,3.12,41.71,44.15,3.12,38.58,4.78,c_01_12,Quartier A,False
+127,chaud_saison_seche,sans_arbres,41.71,44.15,57.28,3.12,41.71,44.15,3.12,38.58,4.78,c_01_12,Quartier A,False
+127,frais_saison_seche,arbres,27.23,24.24,40.28,4.03,27.23,24.24,6.02,23.2,6.46,c_01_12,Quartier A,False
+127,frais_saison_seche,sans_arbres,27.23,24.24,40.28,4.03,27.23,24.24,6.03,23.2,6.46,c_01_12,Quartier A,False
+127,saison_pluies,arbres,34.01,42.73,62.92,3.95,36.84,43.47,7.13,30.06,0.55,c_01_12,Quartier A,False
+127,saison_pluies,sans_arbres,34.01,42.73,62.92,3.95,36.84,43.49,7.14,30.06,0.55,c_01_12,Quartier A,False
+128,chaud_saison_seche,arbres,42.0,44.52,57.55,3.42,42.0,44.52,3.99,38.58,4.73,c_02_12,Quartier A,False
+128,chaud_saison_seche,sans_arbres,42.1,44.63,57.57,3.52,42.1,44.63,3.52,38.58,4.78,c_02_12,Quartier A,False
+128,frais_saison_seche,arbres,27.94,25.22,40.87,4.74,27.94,25.22,6.01,23.2,6.38,c_02_12,Quartier A,False
+128,frais_saison_seche,sans_arbres,28.14,25.45,40.99,4.94,28.14,25.45,7.92,23.2,6.46,c_02_12,Quartier A,False
+128,saison_pluies,arbres,34.31,43.09,63.17,4.25,34.31,43.09,4.25,30.06,0.55,c_02_12,Quartier A,True
+128,saison_pluies,sans_arbres,34.43,43.22,63.16,4.37,38.46,47.33,8.75,30.06,0.55,c_02_12,Quartier A,True

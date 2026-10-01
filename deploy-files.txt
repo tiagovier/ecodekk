@@ -5,6 +5,7 @@ R/presentation.R
 R/scenario_data.R
 R/spatial_data.R
 R/umep_results.R
+R/umep_climate.R
 img/logo_phard_600x250.png
 img/Safru.png
 data/building_control_overrides.csv
@@ -27,3 +28,9 @@ data/sig/quartiers.gpkg
 data/sig/thies13.osm
 data/sig/arbres.gpkg
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/trees_thies_mature_seed20260930.gpkg
+data/scenarios/scenario_01/exports/umep/climat_urbain/display_target/manifest.json
+data/scenarios/scenario_01/exports/umep/climat_urbain/display_target/grille_100m.geojson
+data/scenarios/scenario_01/exports/umep/climat_urbain/display_target/target_cells.csv
+data/scenarios/scenario_01/exports/umep/climat_urbain/display_target/target_cells_effet_arbres.csv
+data/scenarios/scenario_01/exports/umep/climat_urbain/display_target/target_quartiers.csv
+data/scenarios/scenario_01/exports/umep/climat_urbain/display_target/target_hourly_quartiers.csv

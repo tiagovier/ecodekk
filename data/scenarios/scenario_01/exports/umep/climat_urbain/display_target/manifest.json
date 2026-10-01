@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-30T23:44:42+00:00",
+ "generated_at": "2026-09-30T23:54:16+00:00",
  "scenario": "scenario_01",
  "study": "climat_urbain",
  "model": "UMEP TARGET (expérimental), target-py 0.2.1",
@@ -44,6 +44,16 @@
   "target_quartiers.csv": "par quartier (pondération surface maille ∩ quartier)",
   "target_hourly_quartiers.csv": "profils horaires pondérés par quartier"
  },
+ "mask": {
+  "rule": "maille masquée pour une journée si |Δ Ta| > 5 K ou |Δ UTCI| > 3 K (avec − sans arbres, à 14 h ou maximum journalier), dans les deux runs",
+  "reason": "hors du domaine de validité de TARGET : sous couvert arboré dense, le modèle réduit fortement le vent et produit des écarts non physiques",
+  "masked_cell_days": {
+   "chaud_saison_seche": 7,
+   "saison_pluies": 9,
+   "frais_saison_seche": 16
+  },
+  "decided": "2026-09-30, choix « masquer » de l'utilisateur"
+ },
  "units": {
   "ta": "°C",
   "utci": "°C",
@@ -55,7 +65,7 @@
   "forcing": "ERA5 (CDS, série ponctuelle), Ta/HR diagnostiquées à 2 m, vent à 10 m ; 48 h de mise en route",
   "land_cover": "lc_energie_* (bâtiment, arbres, pavés autoblocants = béton à 100 %, eau, sol nu classé « herbe sèche » par TARGET)",
   "morphometry": "Morphometric Calculator (Grid), DSM bâti 1 m",
-  "limits": "TARGET est expérimental et conçu pour des villes australiennes ; comparaison de scénarios plutôt que valeurs absolues. Dans les mailles presque entièrement boisées (fraction d'arbres ≥ 0,7), TARGET réduit fortement le vent et produit des écarts de Ta de 5 à 17 K : à interpréter avec prudence.",
+  "limits": "TARGET est expérimental et conçu pour des villes australiennes ; comparaison de scénarios plutôt que valeurs absolues.",
   "inputs_sha256": {
    "met_target_chaud_saison_seche_20170414.txt": "89d39e2cd3c98c755769dc771c8238f207fcdae18cdedb6883a442720a3a8067",
    "met_target_frais_saison_seche_20180117.txt": "40a295eb7ee00424b13e03551582aa213dd7a8fd0fc3f45bb95b2d007ff6ba0e",

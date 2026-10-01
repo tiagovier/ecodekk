@@ -2045,7 +2045,7 @@
   },
   "files": {
     "app.R": {
-      "checksum": "f80a06d4253c9912e13a78906a02ab64"
+      "checksum": "64416ecb9e18ef4f38aa33f811616246"
     },
     "data/building_control_overrides.csv": {
       "checksum": "b83716255e39facc6afca47ad1581227"
@@ -2058,6 +2058,24 @@
     },
     "data/scenarios/base/spatial.gpkg": {
       "checksum": "010ff972ba469b2653fbc7404c9a2923"
+    },
+    "data/scenarios/scenario_01/exports/umep/climat_urbain/display_target/grille_100m.geojson": {
+      "checksum": "9c4262a0d73dde98ec8aa15703971a19"
+    },
+    "data/scenarios/scenario_01/exports/umep/climat_urbain/display_target/manifest.json": {
+      "checksum": "85331d34e1a54d2cb3e5eef0f729aa51"
+    },
+    "data/scenarios/scenario_01/exports/umep/climat_urbain/display_target/target_cells_effet_arbres.csv": {
+      "checksum": "38992e38d7ed6055e476db713eedddce"
+    },
+    "data/scenarios/scenario_01/exports/umep/climat_urbain/display_target/target_cells.csv": {
+      "checksum": "2594e66affcabe1737a08ddd681af1d3"
+    },
+    "data/scenarios/scenario_01/exports/umep/climat_urbain/display_target/target_hourly_quartiers.csv": {
+      "checksum": "58734df75b6ab8b8659ae386702336be"
+    },
+    "data/scenarios/scenario_01/exports/umep/climat_urbain/display_target/target_quartiers.csv": {
+      "checksum": "a4119f36ab3df45e76c3c32908b733bd"
     },
     "data/scenarios/scenario_01/exports/umep/ombrage_arbres/trees_thies_mature_seed20260930.gpkg": {
       "checksum": "837a5d7a8d72a2e8d76a911ba4b1197e"
@@ -2127,6 +2145,9 @@
     },
     "R/spatial_data.R": {
       "checksum": "daa0694c23cb786ef330f854f0dd50d2"
+    },
+    "R/umep_climate.R": {
+      "checksum": "59fba26cffb42d10f0e339b89834c019"
     },
     "R/umep_results.R": {
       "checksum": "7845e762d4270d37d068f18db959bbf2"

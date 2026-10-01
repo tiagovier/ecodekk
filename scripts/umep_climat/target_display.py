@@ -10,6 +10,11 @@ Lit les sorties CSV horaires des 6 runs (target/prepare/<site>/output/csv/) et
   (intersection maille ∩ quartier) ;
 - target_hourly_quartiers.csv : profils horaires pondérés par quartier ;
 - grille_100m.geojson (EPSG:4326) et manifest.json.
+Masque (décision utilisateur du 2026-09-30) : une maille est masquée pour une
+journée, dans les deux runs, si l'écart avec − sans arbres dépasse 5 K sur Ta
+ou 3 K sur UTCI (à 14 h ou sur le maximum journalier) ; ces valeurs sortent du
+domaine de validité de TARGET (effondrement du vent modélisé sous couvert
+dense). Les mailles masquées sont exclues des moyennes et profils par quartier.
 display_target/ existant n'est pas écrasé.
 """
 
@@ -37,6 +42,8 @@ DAYS = {
 }
 VEGETATION = {"arbres": "Avec arbres", "sans_arbres": "Sans arbres (référence)"}
 PEAK_HOUR = 14
+MASK_TA_K = 5.0
+MASK_UTCI_K = 3.0
 VARIABLES = ["Ta", "UTCI", "Tmrt", "Ws", "Tb_rur"]
 
 
@@ -118,9 +125,18 @@ def main() -> int:
         fractions.append(pd.DataFrame({"grid_id": lc["FID"].astype(int), "day": day,
                                        "fraction_arbres": lc["Veg"].round(3), "fraction_bati": lc["roof"].round(3)}))
     effect = effect.merge(pd.concat(fractions), on=["grid_id", "day"])
+    masked = ((effect[["delta_ta_14h_c", "delta_ta_max_c"]].abs() > MASK_TA_K).any(axis=1)
+              | (effect[["delta_utci_14h_c", "delta_utci_max_c"]].abs() > MASK_UTCI_K).any(axis=1))
+    effect["masque"] = masked
+    mask = effect.loc[masked, ["grid_id", "day"]].assign(masque=True)
+    cells = cells.merge(mask, on=["grid_id", "day"], how="left")
+    cells["masque"] = cells["masque"].fillna(False).astype(bool)
+    cells.to_csv(OUT / "target_cells.csv", index=False)
     effect.to_csv(OUT / "target_cells_effet_arbres.csv", index=False)
+    hourly = hourly.merge(mask, on=["grid_id", "day"], how="left")
+    hourly = hourly[hourly["masque"].isna()].drop(columns="masque")
 
-    quartier_table = weighted(cells, weights, ["day", "vegetation"], indicators)
+    quartier_table = weighted(cells[~cells["masque"]], weights, ["day", "vegetation"], indicators)
     quartier_table.to_csv(OUT / "target_quartiers.csv", index=False)
     hourly_q = weighted(hourly.rename(columns={"Ta": "ta_c", "UTCI": "utci_c", "uhi": "uhi_k"}),
                         weights, ["day", "vegetation", "hour"], ["ta_c", "utci_c", "uhi_k"])
@@ -147,12 +163,18 @@ def main() -> int:
             "target_quartiers.csv": "par quartier (pondération surface maille ∩ quartier)",
             "target_hourly_quartiers.csv": "profils horaires pondérés par quartier",
         },
+        "mask": {
+            "rule": f"maille masquée pour une journée si |Δ Ta| > {MASK_TA_K:g} K ou |Δ UTCI| > {MASK_UTCI_K:g} K (avec − sans arbres, à 14 h ou maximum journalier), dans les deux runs",
+            "reason": "hors du domaine de validité de TARGET : sous couvert arboré dense, le modèle réduit fortement le vent et produit des écarts non physiques",
+            "masked_cell_days": {d: int(masked[effect["day"] == d].sum()) for d in DAYS},
+            "decided": "2026-09-30, choix « masquer » de l'utilisateur",
+        },
         "units": {"ta": "°C", "utci": "°C", "tmrt": "°C", "uhi": "K (Ta − Tb_rur)", "ws": "m/s"},
         "provenance": {
             "forcing": "ERA5 (CDS, série ponctuelle), Ta/HR diagnostiquées à 2 m, vent à 10 m ; 48 h de mise en route",
             "land_cover": "lc_energie_* (bâtiment, arbres, pavés autoblocants = béton à 100 %, eau, sol nu classé « herbe sèche » par TARGET)",
             "morphometry": "Morphometric Calculator (Grid), DSM bâti 1 m",
-            "limits": "TARGET est expérimental et conçu pour des villes australiennes ; comparaison de scénarios plutôt que valeurs absolues. Dans les mailles presque entièrement boisées (fraction d'arbres ≥ 0,7), TARGET réduit fortement le vent et produit des écarts de Ta de 5 à 17 K : à interpréter avec prudence.",
+            "limits": "TARGET est expérimental et conçu pour des villes australiennes ; comparaison de scénarios plutôt que valeurs absolues.",
             "inputs_sha256": {p.name: sha256(p) for p in sorted((C / "met/target").glob("*.txt"))},
         },
     }

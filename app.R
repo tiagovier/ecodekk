@@ -8,6 +8,7 @@ source(file.path("R", "presentation.R"), encoding = "UTF-8")
 source(file.path("R", "spatial_data.R"), encoding = "UTF-8")
 source(file.path("R", "scenario_data.R"), encoding = "UTF-8")
 source(file.path("R", "umep_results.R"), encoding = "UTF-8")
+source(file.path("R", "umep_climate.R"), encoding = "UTF-8")
 
 addResourcePath("branding", normalizePath("img", winslash = "/", mustWork = TRUE))
 
@@ -183,6 +184,35 @@ thermal_comfort_tab <- tabPanel(
   )
 )
 
+urban_climate_tab <- tabPanel(
+  "Climat urbain",
+  fluidPage(
+    h2("Climat urbain : îlot de chaleur"),
+    uiOutput("climate_status"),
+    uiOutput("climate_guide"),
+    fluidRow(
+      column(
+        3,
+        selectInput("climate_day", "Journée", choices = NULL),
+        selectInput("climate_vegetation", "Végétation", choices = target_vegetation_choices),
+        radioButtons("climate_indicator", "Indicateur", choices = target_indicator_choices()),
+        uiOutput("climate_legend"),
+        uiOutput("climate_notes")
+      ),
+      column(9, uiOutput("climate_map"))
+    ),
+    h3("Par quartier"),
+    plotOutput("climate_bar", height = "320px"),
+    p(class = "help-text",
+      "Moyenne par quartier pondérée par la surface des mailles, mailles masquées exclues. En mode « effet des arbres », une barre négative est un rafraîchissement."),
+    h3("Profil journalier"),
+    selectInput("climate_quartier", "Quartier", choices = NULL),
+    plotOutput("climate_profile", height = "340px"),
+    p(class = "help-text",
+      "Évolution horaire de l’indicateur dans le quartier, avec arbres (vert) et sans arbres (brun). Pour la température de l’air, la courbe pointillée est la référence rurale de TARGET : l’écart avec elle est l’îlot de chaleur.")
+  )
+)
+
 ui <- navbarPage(
   title = div(
     class = "ecodekk-brand",
@@ -219,6 +249,15 @@ ui <- navbarPage(
            map.setLayoutProperty('solweig', 'visibility', 'none');
          }
        };
+       window.ecodekkApplyClimateGrid = function() {
+         var map = window.ecodekkClimateMap, m = window.ecodekkClimateGrid;
+         if (!map || !m || !map.ecodekkReady) return;
+         map.getSource('target-grid').setData(m);
+       };
+       Shiny.addCustomMessageHandler('target-grid', function(message) {
+         window.ecodekkClimateGrid = typeof message === 'string' ? JSON.parse(message) : message;
+         window.ecodekkApplyClimateGrid();
+       });
        Shiny.addCustomMessageHandler('umep-overlay', function(message) {
          window.ecodekkThermalOverlay = message;
          window.ecodekkApplyThermalOverlay();
@@ -256,6 +295,7 @@ ui <- navbarPage(
        .map3d-legend-note {margin:6px 0 0;font-size:11px;color:#555;}
        .map3d-code {min-width:42px;font-weight:700;}
        #thermal_map_canvas {height:620px;}
+       #climate_map_canvas {height:560px;}
        .thermal-legend-bar {height:14px;border:1px solid #bbb;margin:4px 0 2px;}
        .thermal-legend-ticks {display:flex;justify-content:space-between;font-size:11px;color:#444;}
        .thermal-note {font-size:12px;color:#555;margin-top:10px;}
@@ -434,7 +474,8 @@ ui <- navbarPage(
   building_control_tab,
   navbarMenu(
     "Analyses et simulations",
-    thermal_comfort_tab
+    thermal_comfort_tab,
+    urban_climate_tab
   )
 )
 
@@ -2534,6 +2575,170 @@ server <- function(input, output, session) {
     graphics::lines(air$hour, air$tair_c, col = "#000000", lwd = 1.6, lty = 2)
     graphics::legend("topleft", legend = c(labels, "Température de l’air (ERA5)"),
       col = c(colors, "#000000"), lty = c(types, 2L), lwd = 2, bty = "n", cex = 0.85)
+  })
+
+  target_display <- reactive({
+    req(scenario$path)
+    directory <- find_target_display_directory(scenario$path)
+    if (is.null(directory)) return(NULL)
+    tryCatch(read_target_display(directory), error = function(error) {
+      structure(list(message = conditionMessage(error)), class = "umep_display_error")
+    })
+  })
+
+  target_ready <- reactive({
+    display <- target_display()
+    if (is.null(display) || inherits(display, "umep_display_error")) NULL else display
+  })
+
+  observeEvent(target_ready(), {
+    display <- target_ready()
+    updateSelectInput(session, "climate_day", choices = stats::setNames(
+      display$days$id,
+      paste0(display$days$label, " (", format(as.Date(display$days$date), "%d/%m/%Y"), ")")
+    ))
+    updateSelectInput(session, "climate_quartier", choices = sort(unique(display$hourly$quartier)))
+  })
+
+  output$climate_status <- renderUI({
+    display <- target_display()
+    if (is.null(display)) {
+      return(div(class = "alert alert-info",
+        "Aucun résultat TARGET pour ce scénario. L’étude de climat urbain porte sur le scénario scenario_01 : chargez-le pour afficher ses résultats."))
+    }
+    if (inherits(display, "umep_display_error")) {
+      return(div(class = "alert alert-danger", "Résultats TARGET illisibles : ", display$message))
+    }
+    p(class = "help-text", paste0(
+      display$manifest$model, ", maille de ", display$manifest$grid$cell_m, " m (",
+      display$manifest$grid$cells, " mailles). Météorologie ERA5 : climat régional, pas le microclimat mesuré du site."
+    ))
+  })
+
+  output$climate_guide <- renderUI({
+    display <- target_ready()
+    req(display)
+    target_reading_guide(display)
+  })
+
+  output$climate_map <- renderUI({
+    display <- target_ready()
+    validate(need(!is.null(display), "Aucun résultat TARGET à cartographier."))
+    validate(need(!is.null(scenario$context), "Les couches contextuelles ne peuvent pas être chargées."))
+    districts_geojson <- sf_to_geojson(scenario$context$quartiers[, "district_label"])
+    bounds <- as.numeric(sf::st_bbox(display$grid))
+    javascript <- sprintf(
+      paste0(
+        "(function(){function init(){",
+        "if(typeof maplibregl==='undefined'){setTimeout(init,100);return;}",
+        "if(window.ecodekkClimateMap){try{window.ecodekkClimateMap.remove();}catch(e){}}",
+        "var districts=%s;var bounds=%s;",
+        "var map=new maplibregl.Map({container:'climate_map_canvas',bounds:bounds,fitBoundsOptions:{padding:20},",
+        "style:{version:8,sources:{osm:{type:'raster',tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],",
+        "tileSize:256,attribution:'© contributeurs OpenStreetMap'}},layers:[{id:'osm',type:'raster',source:'osm'}]}});",
+        "window.ecodekkClimateMap=map;",
+        "map.addControl(new maplibregl.NavigationControl(),'top-left');",
+        "map.addControl(new maplibregl.ScaleControl({unit:'metric'}));",
+        "map.on('load',function(){",
+        "map.addSource('target-grid',{type:'geojson',data:{type:'FeatureCollection',features:[]}});",
+        "map.addLayer({id:'target-fill',type:'fill',source:'target-grid',filter:['==',['get','masque'],false],",
+        "paint:{'fill-color':['get','color'],'fill-opacity':0.8}});",
+        "map.addLayer({id:'target-hit',type:'fill',source:'target-grid',paint:{'fill-color':'#000','fill-opacity':0}});",
+        "map.addLayer({id:'target-line',type:'line',source:'target-grid',paint:{'line-color':'#666','line-width':0.5}});",
+        "map.addSource('quartiers',{type:'geojson',data:districts});",
+        "map.addLayer({id:'quartiers',type:'line',source:'quartiers',paint:{'line-color':'#222','line-width':1.8,'line-dasharray':[4,3]}});",
+        "map.on('click','target-hit',function(e){new maplibregl.Popup().setLngLat(e.lngLat)",
+        ".setText(e.features[0].properties.cell_id+' : '+e.features[0].properties.label).addTo(map);});",
+        "map.ecodekkReady=true;window.ecodekkApplyClimateGrid();",
+        "});}init();})();"
+      ),
+      districts_geojson,
+      jsonlite::toJSON(list(bounds[1:2], bounds[3:4]))
+    )
+    tagList(
+      div(id = "climate_map_canvas"),
+      tags$script(HTML(gsub("</", "<\\/", javascript, fixed = TRUE)))
+    )
+  })
+
+  observe({
+    display <- target_ready()
+    req(display, input$climate_day, input$climate_vegetation, input$climate_indicator)
+    values <- target_cell_values(display, input$climate_indicator, input$climate_day, input$climate_vegetation)
+    unit <- if (identical(input$climate_vegetation, "effet")) "K" else target_indicator(input$climate_indicator)$unit
+    geojson <- target_grid_geojson(display, values,
+      target_scale(input$climate_indicator, input$climate_vegetation), unit)
+    session$sendCustomMessage("target-grid", geojson)
+  })
+
+  output$climate_legend <- renderUI({
+    req(input$climate_indicator, input$climate_vegetation)
+    info <- target_indicator(input$climate_indicator)
+    scale <- target_scale(input$climate_indicator, input$climate_vegetation)
+    title <- if (identical(input$climate_vegetation, "effet")) {
+      paste0("Effet des arbres sur ", tolower(substring(info$label, 1, 1)), substring(info$label, 2), " (K)")
+    } else paste0(info$label, " (", info$unit, ")")
+    div(
+      tags$strong(title),
+      div(class = "thermal-legend-bar", style = paste0("background:", target_gradient(scale), ";")),
+      div(class = "thermal-legend-ticks", lapply(scale$stops, function(tick) span(format_number_fr(tick, 0))))
+    )
+  })
+
+  output$climate_notes <- renderUI({
+    display <- target_ready()
+    req(display, input$climate_day, input$climate_indicator, input$climate_vegetation)
+    masked <- target_masked_summary(display, input$climate_day)
+    tagList(
+      p(class = "thermal-note", target_indicator_guidance(input$climate_indicator, input$climate_vegetation)),
+      p(class = "thermal-note", paste0(
+        masked[["masked"]], " maille(s) sur ", masked[["total"]],
+        " masquée(s) pour cette journée (hors domaine de validité de TARGET) : elles restent vides sur la carte."
+      ))
+    )
+  })
+
+  output$climate_bar <- renderPlot({
+    display <- target_ready()
+    req(display, input$climate_day, input$climate_vegetation, input$climate_indicator)
+    values <- target_quartier_values(display, input$climate_indicator, input$climate_day, input$climate_vegetation)
+    validate(need(length(values) > 0, "Indicateur non disponible pour cette combinaison."))
+    info <- target_indicator(input$climate_indicator)
+    values <- sort(values)
+    colors <- target_colors(values, target_scale(input$climate_indicator, input$climate_vegetation))
+    old <- graphics::par(mar = c(10, 5, 1, 1))
+    on.exit(graphics::par(old), add = TRUE)
+    graphics::barplot(values, col = colors, border = "#555555", las = 2, cex.names = 0.85,
+      ylab = if (identical(input$climate_vegetation, "effet")) "Écart avec − sans arbres (K)" else paste0(info$label, " (", info$unit, ")"))
+    graphics::abline(h = 0, col = "#555555")
+  })
+
+  output$climate_profile <- renderPlot({
+    display <- target_ready()
+    req(display, input$climate_day, input$climate_quartier, input$climate_indicator)
+    data <- target_hourly_profile(display, input$climate_day, input$climate_quartier)
+    validate(need(nrow(data) > 0, "Profil horaire non disponible pour ce quartier."))
+    column <- switch(input$climate_indicator, utci_14h = "utci_c", uhi_14h = "uhi_k", "ta_c")
+    info <- target_indicator(input$climate_indicator)
+    rural <- if (column == "ta_c") unique(data[data$vegetation == "arbres", c("hour", "tb_rur_c")]) else NULL
+    range_y <- range(c(data[[column]], rural$tb_rur_c), na.rm = TRUE)
+    old <- graphics::par(mar = c(5, 5, 2, 1))
+    on.exit(graphics::par(old), add = TRUE)
+    graphics::plot(NA, xlim = c(0, 23), ylim = range_y, xaxt = "n",
+      xlab = "Heure (UTC = heure locale)", ylab = paste0(sub(" à 14 h| maximale", "", info$label), " (", info$unit, ")"))
+    graphics::axis(1, at = seq(0, 22, 2))
+    graphics::grid(col = "#e0e0e0")
+    series <- list(arbres = c("#238b45", "Avec arbres"), sans_arbres = c("#8c510a", "Sans arbres"))
+    for (veg in names(series)) {
+      rows <- data[data$vegetation == veg, , drop = FALSE]
+      graphics::lines(rows$hour, rows[[column]], col = series[[veg]][1], lwd = 2.4)
+    }
+    labels <- c("Avec arbres", "Sans arbres"); colors <- c("#238b45", "#8c510a"); types <- c(1, 1)
+    if (!is.null(rural)) {
+      graphics::lines(rural$hour, rural$tb_rur_c, col = "#000000", lwd = 1.6, lty = 2)
+      labels <- c(labels, "Référence rurale (TARGET)"); colors <- c(colors, "#000000"); types <- c(types, 2)
+    }
+    graphics::legend("topleft", legend = labels, col = colors, lty = types, lwd = 2, bty = "n", cex = 0.85)
   })
 
   observeEvent(input$program_table_cell_edit, {
