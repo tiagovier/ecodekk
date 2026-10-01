@@ -1,0 +1,649 @@
+day,vegetation,hour,class,tmrt_median_c,tair_c
+chaud_saison_seche,trans3,1,"Soleil, sans houppier",,25.02
+chaud_saison_seche,trans3,1,Sous houppier,20.62,25.02
+chaud_saison_seche,trans3,1,Ombre des bâtiments,,25.02
+chaud_saison_seche,trans3,2,"Soleil, sans houppier",,23.5
+chaud_saison_seche,trans3,2,Sous houppier,19.12,23.5
+chaud_saison_seche,trans3,2,Ombre des bâtiments,,23.5
+chaud_saison_seche,trans3,3,"Soleil, sans houppier",,23.75
+chaud_saison_seche,trans3,3,Sous houppier,19.37,23.75
+chaud_saison_seche,trans3,3,Ombre des bâtiments,,23.75
+chaud_saison_seche,trans3,4,"Soleil, sans houppier",,24.18
+chaud_saison_seche,trans3,4,Sous houppier,19.79,24.18
+chaud_saison_seche,trans3,4,Ombre des bâtiments,,24.18
+chaud_saison_seche,trans3,5,"Soleil, sans houppier",,23.61
+chaud_saison_seche,trans3,5,Sous houppier,19.23,23.61
+chaud_saison_seche,trans3,5,Ombre des bâtiments,,23.61
+chaud_saison_seche,trans3,6,"Soleil, sans houppier",,24.25
+chaud_saison_seche,trans3,6,Sous houppier,19.86,24.25
+chaud_saison_seche,trans3,6,Ombre des bâtiments,,24.25
+chaud_saison_seche,trans3,7,"Soleil, sans houppier",,25.04
+chaud_saison_seche,trans3,7,Sous houppier,20.64,25.04
+chaud_saison_seche,trans3,7,Ombre des bâtiments,,25.04
+chaud_saison_seche,trans3,8,"Soleil, sans houppier",37.69,28.09
+chaud_saison_seche,trans3,8,Sous houppier,24.7,28.09
+chaud_saison_seche,trans3,8,Ombre des bâtiments,24.1,28.09
+chaud_saison_seche,trans3,9,"Soleil, sans houppier",54.33,30.08
+chaud_saison_seche,trans3,9,Sous houppier,27.81,30.08
+chaud_saison_seche,trans3,9,Ombre des bâtiments,29.26,30.08
+chaud_saison_seche,trans3,10,"Soleil, sans houppier",65.34,35.62
+chaud_saison_seche,trans3,10,Sous houppier,33.4,35.62
+chaud_saison_seche,trans3,10,Ombre des bâtiments,35.24,35.62
+chaud_saison_seche,trans3,11,"Soleil, sans houppier",70.2,38.05
+chaud_saison_seche,trans3,11,Sous houppier,36.51,38.05
+chaud_saison_seche,trans3,11,Ombre des bâtiments,39.32,38.05
+chaud_saison_seche,trans3,12,"Soleil, sans houppier",71.31,39.82
+chaud_saison_seche,trans3,12,Sous houppier,38.75,39.82
+chaud_saison_seche,trans3,12,Ombre des bâtiments,42.18,39.82
+chaud_saison_seche,trans3,13,"Soleil, sans houppier",69.22,40.41
+chaud_saison_seche,trans3,13,Sous houppier,40.22,40.41
+chaud_saison_seche,trans3,13,Ombre des bâtiments,44.93,40.41
+chaud_saison_seche,trans3,14,"Soleil, sans houppier",69.28,41.79
+chaud_saison_seche,trans3,14,Sous houppier,41.66,41.79
+chaud_saison_seche,trans3,14,Ombre des bâtiments,46.67,41.79
+chaud_saison_seche,trans3,15,"Soleil, sans houppier",73.31,42.18
+chaud_saison_seche,trans3,15,Sous houppier,41.61,42.18
+chaud_saison_seche,trans3,15,Ombre des bâtiments,47.0,42.18
+chaud_saison_seche,trans3,16,"Soleil, sans houppier",75.13,42.22
+chaud_saison_seche,trans3,16,Sous houppier,41.28,42.22
+chaud_saison_seche,trans3,16,Ombre des bâtiments,45.66,42.22
+chaud_saison_seche,trans3,17,"Soleil, sans houppier",73.16,40.6
+chaud_saison_seche,trans3,17,Sous houppier,39.53,40.6
+chaud_saison_seche,trans3,17,Ombre des bâtiments,43.18,40.6
+chaud_saison_seche,trans3,18,"Soleil, sans houppier",66.69,38.75
+chaud_saison_seche,trans3,18,Sous houppier,37.24,38.75
+chaud_saison_seche,trans3,18,Ombre des bâtiments,39.84,38.75
+chaud_saison_seche,trans3,19,"Soleil, sans houppier",53.62,36.95
+chaud_saison_seche,trans3,19,Sous houppier,34.43,36.95
+chaud_saison_seche,trans3,19,Ombre des bâtiments,36.17,36.95
+chaud_saison_seche,trans3,20,"Soleil, sans houppier",,29.95
+chaud_saison_seche,trans3,20,Sous houppier,25.48,29.95
+chaud_saison_seche,trans3,20,Ombre des bâtiments,,29.95
+chaud_saison_seche,trans3,21,"Soleil, sans houppier",,29.41
+chaud_saison_seche,trans3,21,Sous houppier,24.94,29.41
+chaud_saison_seche,trans3,21,Ombre des bâtiments,,29.41
+chaud_saison_seche,trans3,22,"Soleil, sans houppier",,26.51
+chaud_saison_seche,trans3,22,Sous houppier,22.09,26.51
+chaud_saison_seche,trans3,22,Ombre des bâtiments,,26.51
+chaud_saison_seche,trans3,23,"Soleil, sans houppier",,26.27
+chaud_saison_seche,trans3,23,Sous houppier,21.85,26.27
+chaud_saison_seche,trans3,23,Ombre des bâtiments,,26.27
+chaud_saison_seche,trans3,24,"Soleil, sans houppier",,26.14
+chaud_saison_seche,trans3,24,Sous houppier,21.72,26.14
+chaud_saison_seche,trans3,24,Ombre des bâtiments,,26.14
+chaud_saison_seche,trans15,1,"Soleil, sans houppier",,25.02
+chaud_saison_seche,trans15,1,Sous houppier,20.62,25.02
+chaud_saison_seche,trans15,1,Ombre des bâtiments,,25.02
+chaud_saison_seche,trans15,2,"Soleil, sans houppier",,23.5
+chaud_saison_seche,trans15,2,Sous houppier,19.12,23.5
+chaud_saison_seche,trans15,2,Ombre des bâtiments,,23.5
+chaud_saison_seche,trans15,3,"Soleil, sans houppier",,23.75
+chaud_saison_seche,trans15,3,Sous houppier,19.37,23.75
+chaud_saison_seche,trans15,3,Ombre des bâtiments,,23.75
+chaud_saison_seche,trans15,4,"Soleil, sans houppier",,24.18
+chaud_saison_seche,trans15,4,Sous houppier,19.79,24.18
+chaud_saison_seche,trans15,4,Ombre des bâtiments,,24.18
+chaud_saison_seche,trans15,5,"Soleil, sans houppier",,23.61
+chaud_saison_seche,trans15,5,Sous houppier,19.23,23.61
+chaud_saison_seche,trans15,5,Ombre des bâtiments,,23.61
+chaud_saison_seche,trans15,6,"Soleil, sans houppier",,24.25
+chaud_saison_seche,trans15,6,Sous houppier,19.86,24.25
+chaud_saison_seche,trans15,6,Ombre des bâtiments,,24.25
+chaud_saison_seche,trans15,7,"Soleil, sans houppier",,25.04
+chaud_saison_seche,trans15,7,Sous houppier,20.64,25.04
+chaud_saison_seche,trans15,7,Ombre des bâtiments,,25.04
+chaud_saison_seche,trans15,8,"Soleil, sans houppier",37.7,28.09
+chaud_saison_seche,trans15,8,Sous houppier,26.4,28.09
+chaud_saison_seche,trans15,8,Ombre des bâtiments,25.06,28.09
+chaud_saison_seche,trans15,9,"Soleil, sans houppier",54.34,30.08
+chaud_saison_seche,trans15,9,Sous houppier,31.14,30.08
+chaud_saison_seche,trans15,9,Ombre des bâtiments,31.38,30.08
+chaud_saison_seche,trans15,10,"Soleil, sans houppier",65.35,35.62
+chaud_saison_seche,trans15,10,Sous houppier,37.69,35.62
+chaud_saison_seche,trans15,10,Ombre des bâtiments,38.23,35.62
+chaud_saison_seche,trans15,11,"Soleil, sans houppier",70.21,38.05
+chaud_saison_seche,trans15,11,Sous houppier,41.17,38.05
+chaud_saison_seche,trans15,11,Ombre des bâtiments,42.64,38.05
+chaud_saison_seche,trans15,12,"Soleil, sans houppier",71.32,39.82
+chaud_saison_seche,trans15,12,Sous houppier,43.28,39.82
+chaud_saison_seche,trans15,12,Ombre des bâtiments,45.77,39.82
+chaud_saison_seche,trans15,13,"Soleil, sans houppier",69.23,40.41
+chaud_saison_seche,trans15,13,Sous houppier,44.26,40.41
+chaud_saison_seche,trans15,13,Ombre des bâtiments,48.32,40.41
+chaud_saison_seche,trans15,14,"Soleil, sans houppier",69.3,41.79
+chaud_saison_seche,trans15,14,Sous houppier,45.57,41.79
+chaud_saison_seche,trans15,14,Ombre des bâtiments,49.89,41.79
+chaud_saison_seche,trans15,15,"Soleil, sans houppier",73.32,42.18
+chaud_saison_seche,trans15,15,Sous houppier,46.12,42.18
+chaud_saison_seche,trans15,15,Ombre des bâtiments,50.24,42.18
+chaud_saison_seche,trans15,16,"Soleil, sans houppier",75.14,42.22
+chaud_saison_seche,trans15,16,Sous houppier,46.11,42.22
+chaud_saison_seche,trans15,16,Ombre des bâtiments,49.18,42.22
+chaud_saison_seche,trans15,17,"Soleil, sans houppier",73.16,40.6
+chaud_saison_seche,trans15,17,Sous houppier,44.27,40.6
+chaud_saison_seche,trans15,17,Ombre des bâtiments,46.44,40.6
+chaud_saison_seche,trans15,18,"Soleil, sans houppier",66.69,38.75
+chaud_saison_seche,trans15,18,Sous houppier,41.26,38.75
+chaud_saison_seche,trans15,18,Ombre des bâtiments,42.39,38.75
+chaud_saison_seche,trans15,19,"Soleil, sans houppier",53.63,36.95
+chaud_saison_seche,trans15,19,Sous houppier,36.85,36.95
+chaud_saison_seche,trans15,19,Ombre des bâtiments,37.56,36.95
+chaud_saison_seche,trans15,20,"Soleil, sans houppier",,29.95
+chaud_saison_seche,trans15,20,Sous houppier,25.48,29.95
+chaud_saison_seche,trans15,20,Ombre des bâtiments,,29.95
+chaud_saison_seche,trans15,21,"Soleil, sans houppier",,29.41
+chaud_saison_seche,trans15,21,Sous houppier,24.94,29.41
+chaud_saison_seche,trans15,21,Ombre des bâtiments,,29.41
+chaud_saison_seche,trans15,22,"Soleil, sans houppier",,26.51
+chaud_saison_seche,trans15,22,Sous houppier,22.09,26.51
+chaud_saison_seche,trans15,22,Ombre des bâtiments,,26.51
+chaud_saison_seche,trans15,23,"Soleil, sans houppier",,26.27
+chaud_saison_seche,trans15,23,Sous houppier,21.85,26.27
+chaud_saison_seche,trans15,23,Ombre des bâtiments,,26.27
+chaud_saison_seche,trans15,24,"Soleil, sans houppier",,26.14
+chaud_saison_seche,trans15,24,Sous houppier,21.72,26.14
+chaud_saison_seche,trans15,24,Ombre des bâtiments,,26.14
+chaud_saison_seche,sans_arbres,1,"Soleil, sans houppier",,25.02
+chaud_saison_seche,sans_arbres,1,Sous houppier,20.62,25.02
+chaud_saison_seche,sans_arbres,1,Ombre des bâtiments,,25.02
+chaud_saison_seche,sans_arbres,2,"Soleil, sans houppier",,23.5
+chaud_saison_seche,sans_arbres,2,Sous houppier,19.12,23.5
+chaud_saison_seche,sans_arbres,2,Ombre des bâtiments,,23.5
+chaud_saison_seche,sans_arbres,3,"Soleil, sans houppier",,23.75
+chaud_saison_seche,sans_arbres,3,Sous houppier,19.37,23.75
+chaud_saison_seche,sans_arbres,3,Ombre des bâtiments,,23.75
+chaud_saison_seche,sans_arbres,4,"Soleil, sans houppier",,24.18
+chaud_saison_seche,sans_arbres,4,Sous houppier,19.79,24.18
+chaud_saison_seche,sans_arbres,4,Ombre des bâtiments,,24.18
+chaud_saison_seche,sans_arbres,5,"Soleil, sans houppier",,23.61
+chaud_saison_seche,sans_arbres,5,Sous houppier,19.23,23.61
+chaud_saison_seche,sans_arbres,5,Ombre des bâtiments,,23.61
+chaud_saison_seche,sans_arbres,6,"Soleil, sans houppier",,24.25
+chaud_saison_seche,sans_arbres,6,Sous houppier,19.86,24.25
+chaud_saison_seche,sans_arbres,6,Ombre des bâtiments,,24.25
+chaud_saison_seche,sans_arbres,7,"Soleil, sans houppier",,25.04
+chaud_saison_seche,sans_arbres,7,Sous houppier,20.64,25.04
+chaud_saison_seche,sans_arbres,7,Ombre des bâtiments,,25.04
+chaud_saison_seche,sans_arbres,8,"Soleil, sans houppier",38.47,28.09
+chaud_saison_seche,sans_arbres,8,Sous houppier,38.39,28.09
+chaud_saison_seche,sans_arbres,8,Ombre des bâtiments,25.13,28.09
+chaud_saison_seche,sans_arbres,9,"Soleil, sans houppier",52.7,30.08
+chaud_saison_seche,sans_arbres,9,Sous houppier,52.65,30.08
+chaud_saison_seche,sans_arbres,9,Ombre des bâtiments,28.54,30.08
+chaud_saison_seche,sans_arbres,10,"Soleil, sans houppier",64.63,35.62
+chaud_saison_seche,sans_arbres,10,Sous houppier,64.6,35.62
+chaud_saison_seche,sans_arbres,10,Ombre des bâtiments,34.6,35.62
+chaud_saison_seche,sans_arbres,11,"Soleil, sans houppier",69.91,38.05
+chaud_saison_seche,sans_arbres,11,Sous houppier,69.89,38.05
+chaud_saison_seche,sans_arbres,11,Ombre des bâtiments,38.2,38.05
+chaud_saison_seche,sans_arbres,12,"Soleil, sans houppier",71.4,39.82
+chaud_saison_seche,sans_arbres,12,Sous houppier,71.38,39.82
+chaud_saison_seche,sans_arbres,12,Ombre des bâtiments,41.08,39.82
+chaud_saison_seche,sans_arbres,13,"Soleil, sans houppier",69.64,40.41
+chaud_saison_seche,sans_arbres,13,Sous houppier,69.62,40.41
+chaud_saison_seche,sans_arbres,13,Ombre des bâtiments,,40.41
+chaud_saison_seche,sans_arbres,14,"Soleil, sans houppier",70.05,41.79
+chaud_saison_seche,sans_arbres,14,Sous houppier,70.04,41.79
+chaud_saison_seche,sans_arbres,14,Ombre des bâtiments,,41.79
+chaud_saison_seche,sans_arbres,15,"Soleil, sans houppier",73.92,42.18
+chaud_saison_seche,sans_arbres,15,Sous houppier,73.91,42.18
+chaud_saison_seche,sans_arbres,15,Ombre des bâtiments,46.58,42.18
+chaud_saison_seche,sans_arbres,16,"Soleil, sans houppier",75.54,42.22
+chaud_saison_seche,sans_arbres,16,Sous houppier,75.53,42.22
+chaud_saison_seche,sans_arbres,16,Ombre des bâtiments,44.71,42.22
+chaud_saison_seche,sans_arbres,17,"Soleil, sans houppier",73.04,40.6
+chaud_saison_seche,sans_arbres,17,Sous houppier,73.03,40.6
+chaud_saison_seche,sans_arbres,17,Ombre des bâtiments,42.42,40.6
+chaud_saison_seche,sans_arbres,18,"Soleil, sans houppier",66.16,38.75
+chaud_saison_seche,sans_arbres,18,Sous houppier,66.15,38.75
+chaud_saison_seche,sans_arbres,18,Ombre des bâtiments,40.1,38.75
+chaud_saison_seche,sans_arbres,19,"Soleil, sans houppier",53.46,36.95
+chaud_saison_seche,sans_arbres,19,Sous houppier,53.44,36.95
+chaud_saison_seche,sans_arbres,19,Ombre des bâtiments,36.78,36.95
+chaud_saison_seche,sans_arbres,20,"Soleil, sans houppier",,29.95
+chaud_saison_seche,sans_arbres,20,Sous houppier,25.48,29.95
+chaud_saison_seche,sans_arbres,20,Ombre des bâtiments,,29.95
+chaud_saison_seche,sans_arbres,21,"Soleil, sans houppier",,29.41
+chaud_saison_seche,sans_arbres,21,Sous houppier,24.94,29.41
+chaud_saison_seche,sans_arbres,21,Ombre des bâtiments,,29.41
+chaud_saison_seche,sans_arbres,22,"Soleil, sans houppier",,26.51
+chaud_saison_seche,sans_arbres,22,Sous houppier,22.09,26.51
+chaud_saison_seche,sans_arbres,22,Ombre des bâtiments,,26.51
+chaud_saison_seche,sans_arbres,23,"Soleil, sans houppier",,26.27
+chaud_saison_seche,sans_arbres,23,Sous houppier,21.85,26.27
+chaud_saison_seche,sans_arbres,23,Ombre des bâtiments,,26.27
+chaud_saison_seche,sans_arbres,24,"Soleil, sans houppier",,26.14
+chaud_saison_seche,sans_arbres,24,Sous houppier,21.72,26.14
+chaud_saison_seche,sans_arbres,24,Ombre des bâtiments,,26.14
+saison_pluies,trans3,1,"Soleil, sans houppier",,27.04
+saison_pluies,trans3,1,Sous houppier,22.64,27.04
+saison_pluies,trans3,1,Ombre des bâtiments,,27.04
+saison_pluies,trans3,2,"Soleil, sans houppier",,26.81
+saison_pluies,trans3,2,Sous houppier,22.41,26.81
+saison_pluies,trans3,2,Ombre des bâtiments,,26.81
+saison_pluies,trans3,3,"Soleil, sans houppier",,26.89
+saison_pluies,trans3,3,Sous houppier,22.49,26.89
+saison_pluies,trans3,3,Ombre des bâtiments,,26.89
+saison_pluies,trans3,4,"Soleil, sans houppier",,26.91
+saison_pluies,trans3,4,Sous houppier,22.52,26.91
+saison_pluies,trans3,4,Ombre des bâtiments,,26.91
+saison_pluies,trans3,5,"Soleil, sans houppier",,26.32
+saison_pluies,trans3,5,Sous houppier,21.93,26.32
+saison_pluies,trans3,5,Ombre des bâtiments,,26.32
+saison_pluies,trans3,6,"Soleil, sans houppier",,26.58
+saison_pluies,trans3,6,Sous houppier,22.19,26.58
+saison_pluies,trans3,6,Ombre des bâtiments,,26.58
+saison_pluies,trans3,7,"Soleil, sans houppier",,26.41
+saison_pluies,trans3,7,Sous houppier,22.01,26.41
+saison_pluies,trans3,7,Ombre des bâtiments,,26.41
+saison_pluies,trans3,8,"Soleil, sans houppier",38.7,27.45
+saison_pluies,trans3,8,Sous houppier,24.24,27.45
+saison_pluies,trans3,8,Ombre des bâtiments,26.08,27.45
+saison_pluies,trans3,9,"Soleil, sans houppier",54.33,27.95
+saison_pluies,trans3,9,Sous houppier,26.29,27.95
+saison_pluies,trans3,9,Ombre des bâtiments,29.81,27.95
+saison_pluies,trans3,10,"Soleil, sans houppier",64.76,31.67
+saison_pluies,trans3,10,Sous houppier,30.25,31.67
+saison_pluies,trans3,10,Ombre des bâtiments,34.58,31.67
+saison_pluies,trans3,11,"Soleil, sans houppier",68.28,31.99
+saison_pluies,trans3,11,Sous houppier,31.47,31.99
+saison_pluies,trans3,11,Ombre des bâtiments,36.83,31.99
+saison_pluies,trans3,12,"Soleil, sans houppier",69.11,32.88
+saison_pluies,trans3,12,Sous houppier,32.94,32.88
+saison_pluies,trans3,12,Ombre des bâtiments,39.08,32.88
+saison_pluies,trans3,13,"Soleil, sans houppier",68.22,33.3
+saison_pluies,trans3,13,Sous houppier,34.02,33.3
+saison_pluies,trans3,13,Ombre des bâtiments,40.52,33.3
+saison_pluies,trans3,14,"Soleil, sans houppier",69.15,34.47
+saison_pluies,trans3,14,Sous houppier,35.12,34.47
+saison_pluies,trans3,14,Ombre des bâtiments,42.47,34.47
+saison_pluies,trans3,15,"Soleil, sans houppier",71.33,35.04
+saison_pluies,trans3,15,Sous houppier,35.25,35.04
+saison_pluies,trans3,15,Ombre des bâtiments,42.08,35.04
+saison_pluies,trans3,16,"Soleil, sans houppier",71.11,34.18
+saison_pluies,trans3,16,Sous houppier,34.03,34.18
+saison_pluies,trans3,16,Ombre des bâtiments,40.33,34.18
+saison_pluies,trans3,17,"Soleil, sans houppier",67.14,31.96
+saison_pluies,trans3,17,Sous houppier,31.56,31.96
+saison_pluies,trans3,17,Ombre des bâtiments,36.87,31.96
+saison_pluies,trans3,18,"Soleil, sans houppier",59.88,31.21
+saison_pluies,trans3,18,Sous houppier,29.9,31.21
+saison_pluies,trans3,18,Ombre des bâtiments,34.06,31.21
+saison_pluies,trans3,19,"Soleil, sans houppier",44.47,30.17
+saison_pluies,trans3,19,Sous houppier,27.37,30.17
+saison_pluies,trans3,19,Ombre des bâtiments,30.4,30.17
+saison_pluies,trans3,20,"Soleil, sans houppier",,27.19
+saison_pluies,trans3,20,Sous houppier,22.77,27.19
+saison_pluies,trans3,20,Ombre des bâtiments,,27.19
+saison_pluies,trans3,21,"Soleil, sans houppier",,26.63
+saison_pluies,trans3,21,Sous houppier,22.22,26.63
+saison_pluies,trans3,21,Ombre des bâtiments,,26.63
+saison_pluies,trans3,22,"Soleil, sans houppier",,25.97
+saison_pluies,trans3,22,Sous houppier,21.59,25.97
+saison_pluies,trans3,22,Ombre des bâtiments,,25.97
+saison_pluies,trans3,23,"Soleil, sans houppier",,25.97
+saison_pluies,trans3,23,Sous houppier,21.59,25.97
+saison_pluies,trans3,23,Ombre des bâtiments,,25.97
+saison_pluies,trans3,24,"Soleil, sans houppier",,26.02
+saison_pluies,trans3,24,Sous houppier,21.62,26.02
+saison_pluies,trans3,24,Ombre des bâtiments,,26.02
+saison_pluies,trans15,1,"Soleil, sans houppier",,27.04
+saison_pluies,trans15,1,Sous houppier,22.64,27.04
+saison_pluies,trans15,1,Ombre des bâtiments,,27.04
+saison_pluies,trans15,2,"Soleil, sans houppier",,26.81
+saison_pluies,trans15,2,Sous houppier,22.41,26.81
+saison_pluies,trans15,2,Ombre des bâtiments,,26.81
+saison_pluies,trans15,3,"Soleil, sans houppier",,26.89
+saison_pluies,trans15,3,Sous houppier,22.49,26.89
+saison_pluies,trans15,3,Ombre des bâtiments,,26.89
+saison_pluies,trans15,4,"Soleil, sans houppier",,26.91
+saison_pluies,trans15,4,Sous houppier,22.52,26.91
+saison_pluies,trans15,4,Ombre des bâtiments,,26.91
+saison_pluies,trans15,5,"Soleil, sans houppier",,26.32
+saison_pluies,trans15,5,Sous houppier,21.93,26.32
+saison_pluies,trans15,5,Ombre des bâtiments,,26.32
+saison_pluies,trans15,6,"Soleil, sans houppier",,26.58
+saison_pluies,trans15,6,Sous houppier,22.19,26.58
+saison_pluies,trans15,6,Ombre des bâtiments,,26.58
+saison_pluies,trans15,7,"Soleil, sans houppier",,26.41
+saison_pluies,trans15,7,Sous houppier,22.01,26.41
+saison_pluies,trans15,7,Ombre des bâtiments,,26.41
+saison_pluies,trans15,8,"Soleil, sans houppier",38.7,27.45
+saison_pluies,trans15,8,Sous houppier,25.64,27.45
+saison_pluies,trans15,8,Ombre des bâtiments,26.92,27.45
+saison_pluies,trans15,9,"Soleil, sans houppier",54.34,27.95
+saison_pluies,trans15,9,Sous houppier,29.15,27.95
+saison_pluies,trans15,9,Ombre des bâtiments,31.7,27.95
+saison_pluies,trans15,10,"Soleil, sans houppier",64.77,31.67
+saison_pluies,trans15,10,Sous houppier,34.11,31.67
+saison_pluies,trans15,10,Ombre des bâtiments,37.12,31.67
+saison_pluies,trans15,11,"Soleil, sans houppier",68.29,31.99
+saison_pluies,trans15,11,Sous houppier,35.75,31.99
+saison_pluies,trans15,11,Ombre des bâtiments,39.71,31.99
+saison_pluies,trans15,12,"Soleil, sans houppier",69.12,32.88
+saison_pluies,trans15,12,Sous houppier,37.15,32.88
+saison_pluies,trans15,12,Ombre des bâtiments,42.19,32.88
+saison_pluies,trans15,13,"Soleil, sans houppier",68.23,33.3
+saison_pluies,trans15,13,Sous houppier,37.99,33.3
+saison_pluies,trans15,13,Ombre des bâtiments,43.96,33.3
+saison_pluies,trans15,14,"Soleil, sans houppier",69.16,34.47
+saison_pluies,trans15,14,Sous houppier,39.1,34.47
+saison_pluies,trans15,14,Ombre des bâtiments,45.84,34.47
+saison_pluies,trans15,15,"Soleil, sans houppier",71.34,35.04
+saison_pluies,trans15,15,Sous houppier,39.47,35.04
+saison_pluies,trans15,15,Ombre des bâtiments,45.36,35.04
+saison_pluies,trans15,16,"Soleil, sans houppier",71.11,34.18
+saison_pluies,trans15,16,Sous houppier,38.47,34.18
+saison_pluies,trans15,16,Ombre des bâtiments,43.37,34.18
+saison_pluies,trans15,17,"Soleil, sans houppier",67.15,31.96
+saison_pluies,trans15,17,Sous houppier,35.79,31.96
+saison_pluies,trans15,17,Ombre des bâtiments,39.55,31.96
+saison_pluies,trans15,18,"Soleil, sans houppier",59.89,31.21
+saison_pluies,trans15,18,Sous houppier,33.28,31.21
+saison_pluies,trans15,18,Ombre des bâtiments,36.25,31.21
+saison_pluies,trans15,19,"Soleil, sans houppier",44.47,30.17
+saison_pluies,trans15,19,Sous houppier,29.2,30.17
+saison_pluies,trans15,19,Ombre des bâtiments,31.2,30.17
+saison_pluies,trans15,20,"Soleil, sans houppier",,27.19
+saison_pluies,trans15,20,Sous houppier,22.77,27.19
+saison_pluies,trans15,20,Ombre des bâtiments,,27.19
+saison_pluies,trans15,21,"Soleil, sans houppier",,26.63
+saison_pluies,trans15,21,Sous houppier,22.22,26.63
+saison_pluies,trans15,21,Ombre des bâtiments,,26.63
+saison_pluies,trans15,22,"Soleil, sans houppier",,25.97
+saison_pluies,trans15,22,Sous houppier,21.59,25.97
+saison_pluies,trans15,22,Ombre des bâtiments,,25.97
+saison_pluies,trans15,23,"Soleil, sans houppier",,25.97
+saison_pluies,trans15,23,Sous houppier,21.59,25.97
+saison_pluies,trans15,23,Ombre des bâtiments,,25.97
+saison_pluies,trans15,24,"Soleil, sans houppier",,26.02
+saison_pluies,trans15,24,Sous houppier,21.62,26.02
+saison_pluies,trans15,24,Ombre des bâtiments,,26.02
+saison_pluies,sans_arbres,1,"Soleil, sans houppier",,27.04
+saison_pluies,sans_arbres,1,Sous houppier,22.61,27.04
+saison_pluies,sans_arbres,1,Ombre des bâtiments,,27.04
+saison_pluies,sans_arbres,2,"Soleil, sans houppier",,26.81
+saison_pluies,sans_arbres,2,Sous houppier,22.38,26.81
+saison_pluies,sans_arbres,2,Ombre des bâtiments,,26.81
+saison_pluies,sans_arbres,3,"Soleil, sans houppier",,26.89
+saison_pluies,sans_arbres,3,Sous houppier,22.46,26.89
+saison_pluies,sans_arbres,3,Ombre des bâtiments,,26.89
+saison_pluies,sans_arbres,4,"Soleil, sans houppier",,26.91
+saison_pluies,sans_arbres,4,Sous houppier,22.48,26.91
+saison_pluies,sans_arbres,4,Ombre des bâtiments,,26.91
+saison_pluies,sans_arbres,5,"Soleil, sans houppier",,26.32
+saison_pluies,sans_arbres,5,Sous houppier,21.9,26.32
+saison_pluies,sans_arbres,5,Ombre des bâtiments,,26.32
+saison_pluies,sans_arbres,6,"Soleil, sans houppier",,26.58
+saison_pluies,sans_arbres,6,Sous houppier,22.16,26.58
+saison_pluies,sans_arbres,6,Ombre des bâtiments,,26.58
+saison_pluies,sans_arbres,7,"Soleil, sans houppier",,26.41
+saison_pluies,sans_arbres,7,Sous houppier,21.99,26.41
+saison_pluies,sans_arbres,7,Ombre des bâtiments,,26.41
+saison_pluies,sans_arbres,8,"Soleil, sans houppier",36.61,27.45
+saison_pluies,sans_arbres,8,Sous houppier,36.2,27.45
+saison_pluies,sans_arbres,8,Ombre des bâtiments,24.49,27.45
+saison_pluies,sans_arbres,9,"Soleil, sans houppier",49.41,27.95
+saison_pluies,sans_arbres,9,Sous houppier,49.03,27.95
+saison_pluies,sans_arbres,9,Ombre des bâtiments,26.9,27.95
+saison_pluies,sans_arbres,10,"Soleil, sans houppier",59.96,31.67
+saison_pluies,sans_arbres,10,Sous houppier,59.68,31.67
+saison_pluies,sans_arbres,10,Ombre des bâtiments,31.49,31.67
+saison_pluies,sans_arbres,11,"Soleil, sans houppier",63.61,31.99
+saison_pluies,sans_arbres,11,Sous houppier,63.4,31.99
+saison_pluies,sans_arbres,11,Ombre des bâtiments,33.44,31.99
+saison_pluies,sans_arbres,12,"Soleil, sans houppier",64.69,32.88
+saison_pluies,sans_arbres,12,Sous houppier,64.51,32.88
+saison_pluies,sans_arbres,12,Ombre des bâtiments,35.42,32.88
+saison_pluies,sans_arbres,13,"Soleil, sans houppier",64.02,33.3
+saison_pluies,sans_arbres,13,Sous houppier,63.86,33.3
+saison_pluies,sans_arbres,13,Ombre des bâtiments,36.8,33.3
+saison_pluies,sans_arbres,14,"Soleil, sans houppier",65.13,34.47
+saison_pluies,sans_arbres,14,Sous houppier,65.0,34.47
+saison_pluies,sans_arbres,14,Ombre des bâtiments,39.42,34.47
+saison_pluies,sans_arbres,15,"Soleil, sans houppier",67.29,35.04
+saison_pluies,sans_arbres,15,Sous houppier,67.18,35.04
+saison_pluies,sans_arbres,15,Ombre des bâtiments,39.89,35.04
+saison_pluies,sans_arbres,16,"Soleil, sans houppier",67.0,34.18
+saison_pluies,sans_arbres,16,Sous houppier,66.91,34.18
+saison_pluies,sans_arbres,16,Ombre des bâtiments,37.97,34.18
+saison_pluies,sans_arbres,17,"Soleil, sans houppier",62.92,31.96
+saison_pluies,sans_arbres,17,Sous houppier,62.83,31.96
+saison_pluies,sans_arbres,17,Ombre des bâtiments,34.72,31.96
+saison_pluies,sans_arbres,18,"Soleil, sans houppier",55.94,31.21
+saison_pluies,sans_arbres,18,Sous houppier,55.87,31.21
+saison_pluies,sans_arbres,18,Ombre des bâtiments,32.08,31.21
+saison_pluies,sans_arbres,19,"Soleil, sans houppier",42.74,30.17
+saison_pluies,sans_arbres,19,Sous houppier,42.5,30.17
+saison_pluies,sans_arbres,19,Ombre des bâtiments,29.38,30.17
+saison_pluies,sans_arbres,20,"Soleil, sans houppier",,27.19
+saison_pluies,sans_arbres,20,Sous houppier,22.76,27.19
+saison_pluies,sans_arbres,20,Ombre des bâtiments,,27.19
+saison_pluies,sans_arbres,21,"Soleil, sans houppier",,26.63
+saison_pluies,sans_arbres,21,Sous houppier,22.2,26.63
+saison_pluies,sans_arbres,21,Ombre des bâtiments,,26.63
+saison_pluies,sans_arbres,22,"Soleil, sans houppier",,25.97
+saison_pluies,sans_arbres,22,Sous houppier,21.55,25.97
+saison_pluies,sans_arbres,22,Ombre des bâtiments,,25.97
+saison_pluies,sans_arbres,23,"Soleil, sans houppier",,25.97
+saison_pluies,sans_arbres,23,Sous houppier,21.55,25.97
+saison_pluies,sans_arbres,23,Ombre des bâtiments,,25.97
+saison_pluies,sans_arbres,24,"Soleil, sans houppier",,26.02
+saison_pluies,sans_arbres,24,Sous houppier,21.6,26.02
+saison_pluies,sans_arbres,24,Ombre des bâtiments,,26.02
+frais_saison_seche,trans3,1,"Soleil, sans houppier",,17.77
+frais_saison_seche,trans3,1,Sous houppier,13.47,17.77
+frais_saison_seche,trans3,1,Ombre des bâtiments,,17.77
+frais_saison_seche,trans3,2,"Soleil, sans houppier",,16.64
+frais_saison_seche,trans3,2,Sous houppier,12.36,16.64
+frais_saison_seche,trans3,2,Ombre des bâtiments,,16.64
+frais_saison_seche,trans3,3,"Soleil, sans houppier",,16.56
+frais_saison_seche,trans3,3,Sous houppier,12.28,16.56
+frais_saison_seche,trans3,3,Ombre des bâtiments,,16.56
+frais_saison_seche,trans3,4,"Soleil, sans houppier",,16.54
+frais_saison_seche,trans3,4,Sous houppier,12.26,16.54
+frais_saison_seche,trans3,4,Ombre des bâtiments,,16.54
+frais_saison_seche,trans3,5,"Soleil, sans houppier",,15.48
+frais_saison_seche,trans3,5,Sous houppier,11.22,15.48
+frais_saison_seche,trans3,5,Ombre des bâtiments,,15.48
+frais_saison_seche,trans3,6,"Soleil, sans houppier",,15.33
+frais_saison_seche,trans3,6,Sous houppier,11.07,15.33
+frais_saison_seche,trans3,6,Ombre des bâtiments,,15.33
+frais_saison_seche,trans3,7,"Soleil, sans houppier",,14.71
+frais_saison_seche,trans3,7,Sous houppier,10.46,14.71
+frais_saison_seche,trans3,7,Ombre des bâtiments,,14.71
+frais_saison_seche,trans3,8,"Soleil, sans houppier",,15.43
+frais_saison_seche,trans3,8,Sous houppier,11.17,15.43
+frais_saison_seche,trans3,8,Ombre des bâtiments,,15.43
+frais_saison_seche,trans3,9,"Soleil, sans houppier",32.6,16.18
+frais_saison_seche,trans3,9,Sous houppier,13.58,16.18
+frais_saison_seche,trans3,9,Ombre des bâtiments,14.04,16.18
+frais_saison_seche,trans3,10,"Soleil, sans houppier",49.27,20.86
+frais_saison_seche,trans3,10,Sous houppier,18.72,20.86
+frais_saison_seche,trans3,10,Ombre des bâtiments,20.08,20.86
+frais_saison_seche,trans3,11,"Soleil, sans houppier",56.57,22.44
+frais_saison_seche,trans3,11,Sous houppier,21.19,22.44
+frais_saison_seche,trans3,11,Ombre des bâtiments,23.47,22.44
+frais_saison_seche,trans3,12,"Soleil, sans houppier",59.64,23.41
+frais_saison_seche,trans3,12,Sous houppier,22.67,23.41
+frais_saison_seche,trans3,12,Ombre des bâtiments,25.76,23.41
+frais_saison_seche,trans3,13,"Soleil, sans houppier",60.54,23.87
+frais_saison_seche,trans3,13,Sous houppier,23.46,23.87
+frais_saison_seche,trans3,13,Ombre des bâtiments,27.06,23.87
+frais_saison_seche,trans3,14,"Soleil, sans houppier",62.42,27.05
+frais_saison_seche,trans3,14,Sous houppier,26.15,27.05
+frais_saison_seche,trans3,14,Ombre des bâtiments,29.59,27.05
+frais_saison_seche,trans3,15,"Soleil, sans houppier",62.73,26.92
+frais_saison_seche,trans3,15,Sous houppier,26.28,26.92
+frais_saison_seche,trans3,15,Ombre des bâtiments,30.08,26.92
+frais_saison_seche,trans3,16,"Soleil, sans houppier",62.06,26.87
+frais_saison_seche,trans3,16,Sous houppier,26.05,26.87
+frais_saison_seche,trans3,16,Ombre des bâtiments,29.19,26.87
+frais_saison_seche,trans3,17,"Soleil, sans houppier",58.04,25.04
+frais_saison_seche,trans3,17,Sous houppier,24.17,25.04
+frais_saison_seche,trans3,17,Ombre des bâtiments,26.86,25.04
+frais_saison_seche,trans3,18,"Soleil, sans houppier",48.21,22.4
+frais_saison_seche,trans3,18,Sous houppier,21.04,22.4
+frais_saison_seche,trans3,18,Ombre des bâtiments,23.23,22.4
+frais_saison_seche,trans3,19,"Soleil, sans houppier",30.11,20.33
+frais_saison_seche,trans3,19,Sous houppier,17.43,20.33
+frais_saison_seche,trans3,19,Ombre des bâtiments,17.98,20.33
+frais_saison_seche,trans3,20,"Soleil, sans houppier",,16.55
+frais_saison_seche,trans3,20,Sous houppier,12.27,16.55
+frais_saison_seche,trans3,20,Ombre des bâtiments,,16.55
+frais_saison_seche,trans3,21,"Soleil, sans houppier",,16.67
+frais_saison_seche,trans3,21,Sous houppier,12.39,16.67
+frais_saison_seche,trans3,21,Ombre des bâtiments,,16.67
+frais_saison_seche,trans3,22,"Soleil, sans houppier",,16.53
+frais_saison_seche,trans3,22,Sous houppier,12.25,16.53
+frais_saison_seche,trans3,22,Ombre des bâtiments,,16.53
+frais_saison_seche,trans3,23,"Soleil, sans houppier",,16.43
+frais_saison_seche,trans3,23,Sous houppier,12.15,16.43
+frais_saison_seche,trans3,23,Ombre des bâtiments,,16.43
+frais_saison_seche,trans3,24,"Soleil, sans houppier",,16.92
+frais_saison_seche,trans3,24,Sous houppier,12.64,16.92
+frais_saison_seche,trans3,24,Ombre des bâtiments,,16.92
+frais_saison_seche,trans15,1,"Soleil, sans houppier",,17.77
+frais_saison_seche,trans15,1,Sous houppier,13.47,17.77
+frais_saison_seche,trans15,1,Ombre des bâtiments,,17.77
+frais_saison_seche,trans15,2,"Soleil, sans houppier",,16.64
+frais_saison_seche,trans15,2,Sous houppier,12.36,16.64
+frais_saison_seche,trans15,2,Ombre des bâtiments,,16.64
+frais_saison_seche,trans15,3,"Soleil, sans houppier",,16.56
+frais_saison_seche,trans15,3,Sous houppier,12.28,16.56
+frais_saison_seche,trans15,3,Ombre des bâtiments,,16.56
+frais_saison_seche,trans15,4,"Soleil, sans houppier",,16.54
+frais_saison_seche,trans15,4,Sous houppier,12.26,16.54
+frais_saison_seche,trans15,4,Ombre des bâtiments,,16.54
+frais_saison_seche,trans15,5,"Soleil, sans houppier",,15.48
+frais_saison_seche,trans15,5,Sous houppier,11.22,15.48
+frais_saison_seche,trans15,5,Ombre des bâtiments,,15.48
+frais_saison_seche,trans15,6,"Soleil, sans houppier",,15.33
+frais_saison_seche,trans15,6,Sous houppier,11.07,15.33
+frais_saison_seche,trans15,6,Ombre des bâtiments,,15.33
+frais_saison_seche,trans15,7,"Soleil, sans houppier",,14.71
+frais_saison_seche,trans15,7,Sous houppier,10.46,14.71
+frais_saison_seche,trans15,7,Ombre des bâtiments,,14.71
+frais_saison_seche,trans15,8,"Soleil, sans houppier",,15.43
+frais_saison_seche,trans15,8,Sous houppier,11.17,15.43
+frais_saison_seche,trans15,8,Ombre des bâtiments,,15.43
+frais_saison_seche,trans15,9,"Soleil, sans houppier",32.61,16.18
+frais_saison_seche,trans15,9,Sous houppier,15.83,16.18
+frais_saison_seche,trans15,9,Ombre des bâtiments,15.65,16.18
+frais_saison_seche,trans15,10,"Soleil, sans houppier",49.28,20.86
+frais_saison_seche,trans15,10,Sous houppier,22.6,20.86
+frais_saison_seche,trans15,10,Ombre des bâtiments,22.95,20.86
+frais_saison_seche,trans15,11,"Soleil, sans houppier",56.58,22.44
+frais_saison_seche,trans15,11,Sous houppier,25.92,22.44
+frais_saison_seche,trans15,11,Ombre des bâtiments,27.26,22.44
+frais_saison_seche,trans15,12,"Soleil, sans houppier",59.65,23.41
+frais_saison_seche,trans15,12,Sous houppier,27.68,23.41
+frais_saison_seche,trans15,12,Ombre des bâtiments,29.71,23.41
+frais_saison_seche,trans15,13,"Soleil, sans houppier",60.54,23.87
+frais_saison_seche,trans15,13,Sous houppier,28.49,23.87
+frais_saison_seche,trans15,13,Ombre des bâtiments,31.16,23.87
+frais_saison_seche,trans15,14,"Soleil, sans houppier",62.43,27.05
+frais_saison_seche,trans15,14,Sous houppier,31.14,27.05
+frais_saison_seche,trans15,14,Ombre des bâtiments,33.61,27.05
+frais_saison_seche,trans15,15,"Soleil, sans houppier",62.74,26.92
+frais_saison_seche,trans15,15,Sous houppier,31.3,26.92
+frais_saison_seche,trans15,15,Ombre des bâtiments,33.79,26.92
+frais_saison_seche,trans15,16,"Soleil, sans houppier",62.07,26.87
+frais_saison_seche,trans15,16,Sous houppier,30.98,26.87
+frais_saison_seche,trans15,16,Ombre des bâtiments,32.96,26.87
+frais_saison_seche,trans15,17,"Soleil, sans houppier",58.05,25.04
+frais_saison_seche,trans15,17,Sous houppier,28.62,25.04
+frais_saison_seche,trans15,17,Ombre des bâtiments,29.96,25.04
+frais_saison_seche,trans15,18,"Soleil, sans houppier",48.22,22.4
+frais_saison_seche,trans15,18,Sous houppier,24.42,22.4
+frais_saison_seche,trans15,18,Ombre des bâtiments,25.4,22.4
+frais_saison_seche,trans15,19,"Soleil, sans houppier",30.11,20.33
+frais_saison_seche,trans15,19,Sous houppier,18.98,20.33
+frais_saison_seche,trans15,19,Ombre des bâtiments,18.66,20.33
+frais_saison_seche,trans15,20,"Soleil, sans houppier",,16.55
+frais_saison_seche,trans15,20,Sous houppier,12.27,16.55
+frais_saison_seche,trans15,20,Ombre des bâtiments,,16.55
+frais_saison_seche,trans15,21,"Soleil, sans houppier",,16.67
+frais_saison_seche,trans15,21,Sous houppier,12.39,16.67
+frais_saison_seche,trans15,21,Ombre des bâtiments,,16.67
+frais_saison_seche,trans15,22,"Soleil, sans houppier",,16.53
+frais_saison_seche,trans15,22,Sous houppier,12.25,16.53
+frais_saison_seche,trans15,22,Ombre des bâtiments,,16.53
+frais_saison_seche,trans15,23,"Soleil, sans houppier",,16.43
+frais_saison_seche,trans15,23,Sous houppier,12.15,16.43
+frais_saison_seche,trans15,23,Ombre des bâtiments,,16.43
+frais_saison_seche,trans15,24,"Soleil, sans houppier",,16.92
+frais_saison_seche,trans15,24,Sous houppier,12.64,16.92
+frais_saison_seche,trans15,24,Ombre des bâtiments,,16.92
+frais_saison_seche,sans_arbres,1,"Soleil, sans houppier",,17.77
+frais_saison_seche,sans_arbres,1,Sous houppier,13.47,17.77
+frais_saison_seche,sans_arbres,1,Ombre des bâtiments,,17.77
+frais_saison_seche,sans_arbres,2,"Soleil, sans houppier",,16.64
+frais_saison_seche,sans_arbres,2,Sous houppier,12.36,16.64
+frais_saison_seche,sans_arbres,2,Ombre des bâtiments,,16.64
+frais_saison_seche,sans_arbres,3,"Soleil, sans houppier",,16.56
+frais_saison_seche,sans_arbres,3,Sous houppier,12.28,16.56
+frais_saison_seche,sans_arbres,3,Ombre des bâtiments,,16.56
+frais_saison_seche,sans_arbres,4,"Soleil, sans houppier",,16.54
+frais_saison_seche,sans_arbres,4,Sous houppier,12.26,16.54
+frais_saison_seche,sans_arbres,4,Ombre des bâtiments,,16.54
+frais_saison_seche,sans_arbres,5,"Soleil, sans houppier",,15.48
+frais_saison_seche,sans_arbres,5,Sous houppier,11.22,15.48
+frais_saison_seche,sans_arbres,5,Ombre des bâtiments,,15.48
+frais_saison_seche,sans_arbres,6,"Soleil, sans houppier",,15.33
+frais_saison_seche,sans_arbres,6,Sous houppier,11.07,15.33
+frais_saison_seche,sans_arbres,6,Ombre des bâtiments,,15.33
+frais_saison_seche,sans_arbres,7,"Soleil, sans houppier",,14.71
+frais_saison_seche,sans_arbres,7,Sous houppier,10.46,14.71
+frais_saison_seche,sans_arbres,7,Ombre des bâtiments,,14.71
+frais_saison_seche,sans_arbres,8,"Soleil, sans houppier",,15.43
+frais_saison_seche,sans_arbres,8,Sous houppier,11.17,15.43
+frais_saison_seche,sans_arbres,8,Ombre des bâtiments,,15.43
+frais_saison_seche,sans_arbres,9,"Soleil, sans houppier",31.6,16.18
+frais_saison_seche,sans_arbres,9,Sous houppier,31.48,16.18
+frais_saison_seche,sans_arbres,9,Ombre des bâtiments,14.0,16.18
+frais_saison_seche,sans_arbres,10,"Soleil, sans houppier",47.36,20.86
+frais_saison_seche,sans_arbres,10,Sous houppier,47.25,20.86
+frais_saison_seche,sans_arbres,10,Ombre des bâtiments,19.31,20.86
+frais_saison_seche,sans_arbres,11,"Soleil, sans houppier",54.74,22.44
+frais_saison_seche,sans_arbres,11,Sous houppier,54.65,22.44
+frais_saison_seche,sans_arbres,11,Ombre des bâtiments,21.96,22.44
+frais_saison_seche,sans_arbres,12,"Soleil, sans houppier",57.96,23.41
+frais_saison_seche,sans_arbres,12,Sous houppier,57.87,23.41
+frais_saison_seche,sans_arbres,12,Ombre des bâtiments,23.95,23.41
+frais_saison_seche,sans_arbres,13,"Soleil, sans houppier",59.0,23.87
+frais_saison_seche,sans_arbres,13,Sous houppier,58.93,23.87
+frais_saison_seche,sans_arbres,13,Ombre des bâtiments,25.25,23.87
+frais_saison_seche,sans_arbres,14,"Soleil, sans houppier",61.38,27.05
+frais_saison_seche,sans_arbres,14,Sous houppier,61.33,27.05
+frais_saison_seche,sans_arbres,14,Ombre des bâtiments,28.02,27.05
+frais_saison_seche,sans_arbres,15,"Soleil, sans houppier",61.61,26.92
+frais_saison_seche,sans_arbres,15,Sous houppier,61.57,26.92
+frais_saison_seche,sans_arbres,15,Ombre des bâtiments,28.81,26.92
+frais_saison_seche,sans_arbres,16,"Soleil, sans houppier",60.76,26.87
+frais_saison_seche,sans_arbres,16,Sous houppier,60.73,26.87
+frais_saison_seche,sans_arbres,16,Ombre des bâtiments,27.64,26.87
+frais_saison_seche,sans_arbres,17,"Soleil, sans houppier",56.12,25.04
+frais_saison_seche,sans_arbres,17,Sous houppier,56.09,25.04
+frais_saison_seche,sans_arbres,17,Ombre des bâtiments,26.02,25.04
+frais_saison_seche,sans_arbres,18,"Soleil, sans houppier",46.03,22.4
+frais_saison_seche,sans_arbres,18,Sous houppier,46.01,22.4
+frais_saison_seche,sans_arbres,18,Ombre des bâtiments,22.67,22.4
+frais_saison_seche,sans_arbres,19,"Soleil, sans houppier",30.51,20.33
+frais_saison_seche,sans_arbres,19,Sous houppier,30.46,20.33
+frais_saison_seche,sans_arbres,19,Ombre des bâtiments,18.88,20.33
+frais_saison_seche,sans_arbres,20,"Soleil, sans houppier",,16.55
+frais_saison_seche,sans_arbres,20,Sous houppier,12.27,16.55
+frais_saison_seche,sans_arbres,20,Ombre des bâtiments,,16.55
+frais_saison_seche,sans_arbres,21,"Soleil, sans houppier",,16.67
+frais_saison_seche,sans_arbres,21,Sous houppier,12.39,16.67
+frais_saison_seche,sans_arbres,21,Ombre des bâtiments,,16.67
+frais_saison_seche,sans_arbres,22,"Soleil, sans houppier",,16.53
+frais_saison_seche,sans_arbres,22,Sous houppier,12.25,16.53
+frais_saison_seche,sans_arbres,22,Ombre des bâtiments,,16.53
+frais_saison_seche,sans_arbres,23,"Soleil, sans houppier",,16.43
+frais_saison_seche,sans_arbres,23,Sous houppier,12.15,16.43
+frais_saison_seche,sans_arbres,23,Ombre des bâtiments,,16.43
+frais_saison_seche,sans_arbres,24,"Soleil, sans houppier",,16.92
+frais_saison_seche,sans_arbres,24,Sous houppier,12.64,16.92
+frais_saison_seche,sans_arbres,24,Ombre des bâtiments,,16.92

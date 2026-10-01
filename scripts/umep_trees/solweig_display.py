@@ -70,7 +70,7 @@ def hourly_files(run_dir: Path, prefix: str) -> dict[int, Path]:
     """{heure de fin de pas : fichier} pour Tmrt_* ou Shadow_* (24 pas)."""
     files = {}
     for path in sorted(run_dir.glob(f"{prefix}_*_*_????[DN].tif")):
-        match = re.search(r"_(\d{4})_(\d{3})_(\d{2})(\d{2})[DN]\.tif$", path.name)
+        match = re.search(r"_(\d{4})_(\d{1,3})_(\d{2})(\d{2})[DN]\.tif$", path.name)
         hour = int(match.group(3)) or 24
         files[hour] = path
     if len(files) != 24:
@@ -248,7 +248,7 @@ def main() -> int:
         "vegetation": [{"id": v, "label": l} for v, l in VEGETATION.items()],
         "legends": LEGENDS,
         "layers": layers,
-        "source": "UMEP SOLWEIG v2025a, ERA5 (2 m), grille 1 m EPSG:32628",
+        "source": f"UMEP SOLWEIG v2025a, ERA5 (2 m), EPSG:32628",
     }
     (out / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"Produits d'affichage écrits : {out} ({len(layers)} couches)")

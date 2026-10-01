@@ -38,9 +38,12 @@ make_umep_display <- function(root) {
 test_that("les résultats SOLWEIG préparés sont trouvés et lus", {
   root <- tempfile("umep-display-")
   on.exit(unlink(root, recursive = TRUE), add = TRUE)
-  expect_null(find_umep_display_directory(root))
+  expect_null(find_umep_display_directory(root, "etude"))
   directory <- make_umep_display(root)
-  expect_identical(normalizePath(find_umep_display_directory(root)), normalizePath(directory))
+  expect_identical(normalizePath(find_umep_display_directory(root, "etude")), normalizePath(directory))
+  dir.create(file.path(root, "exports", "umep", "autre", "display"), recursive = TRUE)
+  writeLines("{}", file.path(root, "exports", "umep", "autre", "display", "manifest.json"))
+  expect_identical(normalizePath(find_umep_display_directory(root, "etude")), normalizePath(directory))
 
   display <- read_umep_display(directory)
   expect_identical(unname(umep_day_choices(display)), c("chaud", "pluies"))

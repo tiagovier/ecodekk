@@ -16,15 +16,11 @@ umep_profile_colors <- c(
   "Sous houppier" = "#238b45"
 )
 
-# Dossier display/ le plus récent sous exports/umep/<study_id>/.
-find_umep_display_directory <- function(scenario_directory) {
-  root <- file.path(scenario_directory, "exports", "umep")
-  if (!dir.exists(root)) return(NULL)
-  manifests <- list.files(root, pattern = "^manifest\\.json$", recursive = TRUE, full.names = TRUE)
-  manifests <- manifests[basename(dirname(manifests)) == "display"]
-  manifests <- manifests[!grepl("/superseded/", manifests, fixed = TRUE)]
-  if (!length(manifests)) return(NULL)
-  dirname(manifests[order(file.mtime(manifests), manifests, decreasing = TRUE)][[1]])
+# Dossier display/ de l'étude SOLWEIG (exports/umep/<study>/display/). Chaque
+# étude a son propre dossier : ne jamais prendre le display/ d'une autre étude.
+find_umep_display_directory <- function(scenario_directory, study = "ombrage_arbres") {
+  directory <- file.path(scenario_directory, "exports", "umep", study, "display")
+  if (file.exists(file.path(directory, "manifest.json"))) directory else NULL
 }
 
 read_umep_display <- function(directory) {

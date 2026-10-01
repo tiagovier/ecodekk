@@ -9,6 +9,7 @@ source(file.path("R", "spatial_data.R"), encoding = "UTF-8")
 source(file.path("R", "scenario_data.R"), encoding = "UTF-8")
 source(file.path("R", "umep_results.R"), encoding = "UTF-8")
 source(file.path("R", "umep_climate.R"), encoding = "UTF-8")
+source(file.path("R", "umep_energy.R"), encoding = "UTF-8")
 
 addResourcePath("branding", normalizePath("img", winslash = "/", mustWork = TRUE))
 
@@ -185,6 +186,44 @@ thermal_comfort_tab <- tabPanel(
   )
 )
 
+# Carte MapLibre d'une grille colorée (propriétés color, masque, label),
+# alimentée par le message « grid-data » ; affichage seulement.
+grid_map_ui <- function(container_id, quartiers, grid) {
+  districts_geojson <- sf_to_geojson(quartiers[, "district_label"])
+  bounds <- as.numeric(sf::st_bbox(grid))
+  javascript <- sprintf(
+    paste0(
+      "(function(){var id='%s';function init(){",
+      "if(typeof maplibregl==='undefined'){setTimeout(init,100);return;}",
+      "if(window.ecodekkGridMaps[id]){try{window.ecodekkGridMaps[id].remove();}catch(e){}}",
+      "var districts=%s;var bounds=%s;",
+      "var map=new maplibregl.Map({container:id,bounds:bounds,fitBoundsOptions:{padding:20},",
+      "style:{version:8,sources:{osm:{type:'raster',tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],",
+      "tileSize:256,attribution:'© contributeurs OpenStreetMap'}},layers:[{id:'osm',type:'raster',source:'osm'}]}});",
+      "window.ecodekkGridMaps[id]=map;",
+      "map.addControl(new maplibregl.NavigationControl(),'top-left');",
+      "map.addControl(new maplibregl.ScaleControl({unit:'metric'}));",
+      "map.on('load',function(){",
+      "map.addSource('grid',{type:'geojson',data:{type:'FeatureCollection',features:[]}});",
+      "map.addLayer({id:'grid-fill',type:'fill',source:'grid',filter:['==',['get','masque'],false],",
+      "paint:{'fill-color':['get','color'],'fill-opacity':0.8}});",
+      "map.addLayer({id:'grid-hit',type:'fill',source:'grid',paint:{'fill-color':'#000','fill-opacity':0}});",
+      "map.addLayer({id:'grid-line',type:'line',source:'grid',paint:{'line-color':'#666','line-width':0.5}});",
+      "map.addSource('quartiers',{type:'geojson',data:districts});",
+      "map.addLayer({id:'quartiers',type:'line',source:'quartiers',paint:{'line-color':'#222','line-width':1.8,'line-dasharray':[4,3]}});",
+      "map.on('click','grid-hit',function(e){new maplibregl.Popup().setLngLat(e.lngLat)",
+      ".setText(e.features[0].properties.cell_id+' : '+e.features[0].properties.label).addTo(map);});",
+      "map.ecodekkReady=true;window.ecodekkApplyGrid(id);",
+      "});}init();})();"
+    ),
+    container_id, districts_geojson, jsonlite::toJSON(list(bounds[1:2], bounds[3:4]))
+  )
+  tagList(
+    div(id = container_id),
+    tags$script(HTML(gsub("</", "<\\/", javascript, fixed = TRUE)))
+  )
+}
+
 urban_climate_tab <- tabPanel(
   "Climat urbain",
   fluidPage(
@@ -211,6 +250,36 @@ urban_climate_tab <- tabPanel(
     plotOutput("climate_profile", height = "340px"),
     p(class = "help-text",
       "Évolution horaire de l’indicateur dans le quartier, avec arbres (vert) et sans arbres (brun). Pour la température de l’air, la courbe pointillée est la référence rurale de TARGET : l’écart avec elle est l’îlot de chaleur.")
+  )
+)
+
+energy_balance_tab <- tabPanel(
+  "Bilan énergétique",
+  fluidPage(
+    h2("Bilan énergétique de surface"),
+    uiOutput("energy_status"),
+    uiOutput("energy_guide"),
+    fluidRow(
+      column(
+        3,
+        selectInput("energy_day", "Journée", choices = NULL),
+        selectInput("energy_scenario", "Végétation", choices = energy_scenario_choices),
+        radioButtons("energy_variable", "Variable à 14 h",
+          choices = stats::setNames(energy_variables$id, energy_variables$label)),
+        uiOutput("energy_legend"),
+        uiOutput("energy_notes")
+      ),
+      column(9, uiOutput("energy_map"))
+    ),
+    h3("Cycle journalier du bilan d’énergie"),
+    selectInput("energy_quartier", "Quartier", choices = NULL),
+    plotOutput("energy_cycle", height = "360px"),
+    p(class = "help-text",
+      "Flux horaires moyens du quartier pour la journée choisie. Le jour, Q* (rayonnement net) se répartit entre QH, QE et ΔQS ; la nuit, ΔQS devient négatif : les matériaux restituent la chaleur stockée."),
+    h3("Moyennes mensuelles"),
+    plotOutput("energy_monthly", height = "320px"),
+    p(class = "help-text",
+      "Moyenne mensuelle de la variable choisie dans le quartier, avec arbres (vert) et sans arbres (brun), de janvier 2017 à janvier 2018.")
   )
 )
 
@@ -250,14 +319,16 @@ ui <- navbarPage(
            map.setLayoutProperty('solweig', 'visibility', 'none');
          }
        };
-       window.ecodekkApplyClimateGrid = function() {
-         var map = window.ecodekkClimateMap, m = window.ecodekkClimateGrid;
-         if (!map || !m || !map.ecodekkReady) return;
-         map.getSource('target-grid').setData(m);
+       window.ecodekkGridMaps = window.ecodekkGridMaps || {};
+       window.ecodekkGridData = window.ecodekkGridData || {};
+       window.ecodekkApplyGrid = function(id) {
+         var map = window.ecodekkGridMaps[id], data = window.ecodekkGridData[id];
+         if (!map || !data || !map.ecodekkReady) return;
+         map.getSource('grid').setData(data);
        };
-       Shiny.addCustomMessageHandler('target-grid', function(message) {
-         window.ecodekkClimateGrid = typeof message === 'string' ? JSON.parse(message) : message;
-         window.ecodekkApplyClimateGrid();
+       Shiny.addCustomMessageHandler('grid-data', function(message) {
+         window.ecodekkGridData[message.map] = typeof message.data === 'string' ? JSON.parse(message.data) : message.data;
+         window.ecodekkApplyGrid(message.map);
        });
        Shiny.addCustomMessageHandler('umep-overlay', function(message) {
          window.ecodekkThermalOverlay = message;
@@ -296,7 +367,7 @@ ui <- navbarPage(
        .map3d-legend-note {margin:6px 0 0;font-size:11px;color:#555;}
        .map3d-code {min-width:42px;font-weight:700;}
        #thermal_map_canvas {height:620px;}
-       #climate_map_canvas {height:560px;}
+       #climate_map_canvas, #energy_map_canvas {height:560px;}
        .thermal-legend-bar {height:14px;border:1px solid #bbb;margin:4px 0 2px;}
        .thermal-legend-ticks {display:flex;justify-content:space-between;font-size:11px;color:#444;}
        .thermal-note {font-size:12px;color:#555;margin-top:10px;}
@@ -477,7 +548,8 @@ ui <- navbarPage(
   navbarMenu(
     "Analyses et simulations",
     thermal_comfort_tab,
-    urban_climate_tab
+    urban_climate_tab,
+    energy_balance_tab
   )
 )
 
@@ -2693,40 +2765,7 @@ server <- function(input, output, session) {
     display <- target_ready()
     validate(need(!is.null(display), "Aucun résultat TARGET à cartographier."))
     validate(need(!is.null(scenario$context), "Les couches contextuelles ne peuvent pas être chargées."))
-    districts_geojson <- sf_to_geojson(scenario$context$quartiers[, "district_label"])
-    bounds <- as.numeric(sf::st_bbox(display$grid))
-    javascript <- sprintf(
-      paste0(
-        "(function(){function init(){",
-        "if(typeof maplibregl==='undefined'){setTimeout(init,100);return;}",
-        "if(window.ecodekkClimateMap){try{window.ecodekkClimateMap.remove();}catch(e){}}",
-        "var districts=%s;var bounds=%s;",
-        "var map=new maplibregl.Map({container:'climate_map_canvas',bounds:bounds,fitBoundsOptions:{padding:20},",
-        "style:{version:8,sources:{osm:{type:'raster',tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],",
-        "tileSize:256,attribution:'© contributeurs OpenStreetMap'}},layers:[{id:'osm',type:'raster',source:'osm'}]}});",
-        "window.ecodekkClimateMap=map;",
-        "map.addControl(new maplibregl.NavigationControl(),'top-left');",
-        "map.addControl(new maplibregl.ScaleControl({unit:'metric'}));",
-        "map.on('load',function(){",
-        "map.addSource('target-grid',{type:'geojson',data:{type:'FeatureCollection',features:[]}});",
-        "map.addLayer({id:'target-fill',type:'fill',source:'target-grid',filter:['==',['get','masque'],false],",
-        "paint:{'fill-color':['get','color'],'fill-opacity':0.8}});",
-        "map.addLayer({id:'target-hit',type:'fill',source:'target-grid',paint:{'fill-color':'#000','fill-opacity':0}});",
-        "map.addLayer({id:'target-line',type:'line',source:'target-grid',paint:{'line-color':'#666','line-width':0.5}});",
-        "map.addSource('quartiers',{type:'geojson',data:districts});",
-        "map.addLayer({id:'quartiers',type:'line',source:'quartiers',paint:{'line-color':'#222','line-width':1.8,'line-dasharray':[4,3]}});",
-        "map.on('click','target-hit',function(e){new maplibregl.Popup().setLngLat(e.lngLat)",
-        ".setText(e.features[0].properties.cell_id+' : '+e.features[0].properties.label).addTo(map);});",
-        "map.ecodekkReady=true;window.ecodekkApplyClimateGrid();",
-        "});}init();})();"
-      ),
-      districts_geojson,
-      jsonlite::toJSON(list(bounds[1:2], bounds[3:4]))
-    )
-    tagList(
-      div(id = "climate_map_canvas"),
-      tags$script(HTML(gsub("</", "<\\/", javascript, fixed = TRUE)))
-    )
+    grid_map_ui("climate_map_canvas", scenario$context$quartiers, display$grid)
   })
 
   observe({
@@ -2736,7 +2775,7 @@ server <- function(input, output, session) {
     unit <- if (identical(input$climate_vegetation, "effet")) "K" else target_indicator(input$climate_indicator)$unit
     geojson <- target_grid_geojson(display, values,
       target_scale(input$climate_indicator, input$climate_vegetation), unit)
-    session$sendCustomMessage("target-grid", geojson)
+    session$sendCustomMessage("grid-data", list(map = "climate_map_canvas", data = geojson))
   })
 
   output$climate_legend <- renderUI({
@@ -2807,6 +2846,129 @@ server <- function(input, output, session) {
       labels <- c(labels, "Référence rurale (TARGET)"); colors <- c(colors, "#000000"); types <- c(types, 2)
     }
     graphics::legend("topleft", legend = labels, col = colors, lty = types, lwd = 2, bty = "n", cex = 0.85)
+  })
+
+  energy_display <- reactive({
+    req(scenario$path)
+    directory <- find_energy_display_directory(scenario$path)
+    if (is.null(directory)) return(NULL)
+    tryCatch(read_energy_display(directory), error = function(error) {
+      structure(list(message = conditionMessage(error)), class = "umep_display_error")
+    })
+  })
+
+  energy_ready <- reactive({
+    display <- energy_display()
+    if (is.null(display) || inherits(display, "umep_display_error")) NULL else display
+  })
+
+  observeEvent(energy_ready(), {
+    display <- energy_ready()
+    labels <- c(chaud_saison_seche = "Journée chaude de saison sèche", saison_pluies = "Journée de saison des pluies",
+                frais_saison_seche = "Journée fraîche de saison sèche")
+    day_labels <- ifelse(is.na(labels[display$days$id]), display$days$id, labels[display$days$id])
+    updateSelectInput(session, "energy_day", choices = stats::setNames(
+      display$days$id, paste0(day_labels, " (", format(as.Date(display$days$date), "%d/%m/%Y"), ")")
+    ))
+    updateSelectInput(session, "energy_quartier", choices = sort(unique(display$quartiers$quartier)))
+  })
+
+  output$energy_status <- renderUI({
+    display <- energy_display()
+    if (is.null(display)) {
+      return(div(class = "alert alert-info",
+        "Aucun résultat SUEWS pour ce scénario. L’étude de bilan énergétique porte sur le scénario scenario_01."))
+    }
+    if (inherits(display, "umep_display_error")) {
+      return(div(class = "alert alert-danger", "Résultats SUEWS illisibles : ", display$message))
+    }
+    p(class = "help-text", paste0(
+      display$manifest$model, ". Analyse de janvier 2017 à janvier 2018 après une année de mise en route (2016)."
+    ))
+  })
+
+  output$energy_guide <- renderUI({
+    display <- energy_ready()
+    req(display)
+    energy_reading_guide(display)
+  })
+
+  output$energy_map <- renderUI({
+    display <- energy_ready()
+    validate(need(!is.null(display), "Aucun résultat SUEWS à cartographier."))
+    validate(need(!is.null(scenario$context), "Les couches contextuelles ne peuvent pas être chargées."))
+    grid_map_ui("energy_map_canvas", scenario$context$quartiers, display$grid)
+  })
+
+  observe({
+    display <- energy_ready()
+    req(display, input$energy_day, input$energy_scenario, input$energy_variable)
+    values <- energy_cell_values(display, input$energy_variable, input$energy_day, input$energy_scenario)
+    unit <- if (identical(input$energy_scenario, "difference_arbres_moins_sans") && identical(input$energy_variable, "T2")) {
+      "K"
+    } else energy_variable(input$energy_variable)$unit
+    geojson <- energy_grid_geojson(display, values, energy_scale(input$energy_variable, input$energy_scenario), unit)
+    session$sendCustomMessage("grid-data", list(map = "energy_map_canvas", data = geojson))
+  })
+
+  output$energy_legend <- renderUI({
+    req(input$energy_variable, input$energy_scenario)
+    info <- energy_variable(input$energy_variable)
+    scale <- energy_scale(input$energy_variable, input$energy_scenario)
+    effect <- identical(input$energy_scenario, "difference_arbres_moins_sans")
+    unit <- if (effect && identical(input$energy_variable, "T2")) "K" else info$unit
+    div(
+      tags$strong(paste0(if (effect) "Effet des arbres : " else "", info$label, " à 14 h (", unit, ")")),
+      div(class = "thermal-legend-bar", style = paste0("background:", target_gradient(scale), ";")),
+      div(class = "thermal-legend-ticks", lapply(scale$stops, function(tick) span(format_number_fr(tick, 0))))
+    )
+  })
+
+  output$energy_notes <- renderUI({
+    req(input$energy_variable)
+    p(class = "thermal-note", energy_variable_guidance(input$energy_variable))
+  })
+
+  output$energy_cycle <- renderPlot({
+    display <- energy_ready()
+    req(display, input$energy_quartier, input$energy_day, input$energy_scenario)
+    data <- energy_daily_cycle(display, input$energy_quartier, input$energy_day, input$energy_scenario)
+    validate(need(nrow(data) > 0, "Cycle journalier non disponible pour ce quartier."))
+    fluxes <- energy_variables[energy_variables$unit == "W/m²", , drop = FALSE]
+    range_y <- range(unlist(data[fluxes$id]), 0, na.rm = TRUE)
+    old <- graphics::par(mar = c(5, 5, 2, 1))
+    on.exit(graphics::par(old), add = TRUE)
+    graphics::plot(NA, xlim = c(1, 24), ylim = range_y, xaxt = "n",
+      xlab = "Heure de fin de pas (UTC = heure locale)",
+      ylab = if (identical(input$energy_scenario, "difference_arbres_moins_sans")) "Écart avec − sans arbres (W/m²)" else "Flux (W/m²)")
+    graphics::axis(1, at = seq(2, 24, 2))
+    graphics::grid(col = "#e0e0e0")
+    graphics::abline(h = 0, col = "#555555")
+    for (index in seq_len(nrow(fluxes))) {
+      graphics::lines(data$hour, data[[fluxes$id[index]]], col = fluxes$color[index], lwd = 2.2)
+    }
+    graphics::legend("topleft", legend = fluxes$label, col = fluxes$color, lwd = 2, bty = "n", cex = 0.8)
+  })
+
+  output$energy_monthly <- renderPlot({
+    display <- energy_ready()
+    req(display, input$energy_quartier, input$energy_variable)
+    data <- energy_monthly_series(display, input$energy_quartier, input$energy_variable)
+    validate(need(nrow(data) > 0, "Moyennes mensuelles non disponibles."))
+    info <- energy_variable(input$energy_variable)
+    months <- sort(unique(data$month))
+    old <- graphics::par(mar = c(6, 5, 2, 1))
+    on.exit(graphics::par(old), add = TRUE)
+    graphics::plot(NA, xlim = c(1, length(months)), ylim = range(data$value, na.rm = TRUE), xaxt = "n",
+      xlab = "", ylab = paste0(info$label, " (", info$unit, ")"))
+    graphics::axis(1, at = seq_along(months), labels = months, las = 2, cex.axis = 0.8)
+    graphics::grid(col = "#e0e0e0")
+    series <- list(arbres = c("#238b45", "Avec arbres"), sans_arbres = c("#8c510a", "Sans arbres"))
+    for (name in names(series)) {
+      rows <- data[data$scenario == name, , drop = FALSE]
+      graphics::lines(match(rows$month, months), rows$value, col = series[[name]][1], lwd = 2.4, type = "b", pch = 16)
+    }
+    graphics::legend("topleft", legend = c("Avec arbres", "Sans arbres"), col = c("#238b45", "#8c510a"), lwd = 2, bty = "n", cex = 0.85)
   })
 
   observeEvent(input$program_table_cell_edit, {

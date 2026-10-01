@@ -21,6 +21,7 @@ SOURCE_DEM="$ROOT/data/sig/MNT_THIES_50cm.tif"
 case "$RES" in
   0.5) TAG=""; DEM="$S/dem/mnt_50cm_etude.tif"; DSM_NAME="dsm_bati_sol_50cm.tif" ;;
   1) TAG="_1m"; DEM="$S/dem/mnt_1m_etude.tif"; DSM_NAME="dsm_bati_sol_1m.tif" ;;
+  5) TAG="_5m"; DEM="$S/dem/mnt_5m_etude.tif"; DSM_NAME="dsm_bati_sol_5m.tif" ;;
   *) echo "Résolution non prévue : $RES" >&2; exit 2 ;;
 esac
 SPATIAL_OUT="$S/rasters$TAG"
@@ -28,16 +29,28 @@ SVF_OUT="$S/svf$TAG"
 SOLWEIG_OUT="$S/solweig$TAG"
 mkdir -p "$SPATIAL_OUT"
 export GDAL_PAM_ENABLED=NO
+# Contournement (2026-10-01) : QGIS 3.44.15 est lié à GDAL 3.8 alors que le pilote
+# GRASS de GDAL (libgdal-grass, ubuntugis) vise GDAL 3.11 et bloque le chargement
+# des greffons Python. Les pilotes GDAL optionnels ne sont pas chargés pour les
+# runs UMEP (GeoTIFF, GeoPackage et CSV sont intégrés à GDAL).
+if [[ -z "${GDAL_DRIVER_PATH:-}" ]]; then
+  export GDAL_DRIVER_PATH="$S/logs/gdal_no_plugins"
+  mkdir -p "$GDAL_DRIVER_PATH"
+fi
 
 qp() { qgis_process run "$@" 2> >(grep -v -E "GRASS|numexpr|bottleneck|NUMPY driver|binary incompatibility|NoneType|cad_to_gis|^$|_builtin_import" >&2); }
 need_absent() { for f in "$@"; do [[ -e "$f" ]] && { echo "Sortie existante, non écrasée : $f" >&2; exit 1; }; done; return 0; }
 
 # MNT 1 m : moyenne des pixels 0,5 m de la source, même origine que la grille
 # 0,5 m (283091 ; 1634538,5) ; hauteur arrondie à 1372 px (+0,5 m au sud).
+# MNT 5 m : même origine, emprise arrondie vers l'extérieur à 263 × 275 px
+# (vue d'ensemble rapide ; zooms à 1 m sur des secteurs choisis).
 step_dem() {
-  [[ "$RES" == 1 ]] || { echo "Le MNT 0,5 m existe déjà ; étape dem réservée à RES=1." >&2; exit 2; }
+  [[ "$RES" != 0.5 ]] || { echo "Le MNT 0,5 m existe déjà." >&2; exit 2; }
   need_absent "$DEM"
-  gdalwarp -q -of GTiff -r average -tr 1 1 -te 283091 1633166.5 284403 1634538.5 \
+  local te="283091 1633166.5 284403 1634538.5"
+  [[ "$RES" == 5 ]] && te="283091 1633163.5 284406 1634538.5"
+  gdalwarp -q -of GTiff -r average -tr "$RES" "$RES" -te $te \
     -co COMPRESS=DEFLATE -co TILED=YES -co PREDICTOR=3 "$SOURCE_DEM" "$DEM"
 }
 [[ "$STEP" == dem ]] && { step_dem; exit 0; }

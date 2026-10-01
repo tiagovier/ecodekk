@@ -1,0 +1,208 @@
+day,vegetation,quartier,context,area_m2,tmrt_14h_median_c,share_above_60c_pct,shade_hours_mean,cooling_14h_mean_k
+chaud_saison_seche,trans3,Servitude climatique 1,Voirie,5325.0,41.09,3.3,5.67,31.61
+chaud_saison_seche,trans3,Servitude climatique 1,Zones inondables,68400.0,43.17,42.3,3.55,17.67
+chaud_saison_seche,trans3,Servitude climatique 1,Îlots,135525.0,39.91,14.0,5.05,25.95
+chaud_saison_seche,trans3,Quartier SC2,Voirie,10300.0,42.66,10.4,4.85,28.25
+chaud_saison_seche,trans3,Quartier SC2,Zones inondables,5900.0,43.58,36.0,3.85,19.04
+chaud_saison_seche,trans3,Quartier SC2,Îlots,54575.0,41.43,18.0,4.83,24.07
+chaud_saison_seche,trans3,Quartier 1,Voirie,12975.0,49.67,44.9,3.59,16.13
+chaud_saison_seche,trans3,Quartier 1,Îlots,66750.0,47.72,47.9,3.23,14.75
+chaud_saison_seche,trans3,Quartier A,Voirie,49425.0,70.9,64.3,2.28,10.18
+chaud_saison_seche,trans3,Quartier A,Zones inondables,12525.0,43.99,33.1,4.05,19.12
+chaud_saison_seche,trans3,Quartier A,Îlots,101125.0,69.1,77.8,1.72,5.52
+chaud_saison_seche,trans3,Quartier 6,Voirie,6000.0,42.01,20.0,4.82,26.17
+chaud_saison_seche,trans3,Quartier 6,Îlots,48600.0,67.81,67.1,2.01,10.47
+chaud_saison_seche,trans3,Quartier 4,Voirie,6600.0,46.82,28.0,4.08,20.31
+chaud_saison_seche,trans3,Quartier 4,Îlots,58000.0,65.33,53.5,3.01,11.44
+chaud_saison_seche,trans3,Quartier 5,Voirie,10750.0,45.34,31.2,4.78,20.9
+chaud_saison_seche,trans3,Quartier 5,Îlots,43725.0,46.06,35.5,3.87,17.0
+chaud_saison_seche,trans3,Quartier 3,Voirie,26575.0,43.67,21.6,5.02,24.83
+chaud_saison_seche,trans3,Quartier 3,Zones inondables,475.0,42.1,21.1,5.63,22.84
+chaud_saison_seche,trans3,Quartier 3,Îlots,135750.0,41.03,9.4,5.56,25.8
+chaud_saison_seche,trans3,Quartier 2,Voirie,15750.0,56.28,49.5,3.12,14.16
+chaud_saison_seche,trans3,Quartier 2,Zones inondables,725.0,40.78,0.0,5.82,29.37
+chaud_saison_seche,trans3,Quartier 2,Îlots,59700.0,68.16,68.1,2.2,8.37
+chaud_saison_seche,trans15,Servitude climatique 1,Voirie,5325.0,45.32,3.3,4.96,27.44
+chaud_saison_seche,trans15,Servitude climatique 1,Zones inondables,68400.0,46.82,42.3,3.11,15.32
+chaud_saison_seche,trans15,Servitude climatique 1,Îlots,135525.0,44.02,14.0,4.42,22.44
+chaud_saison_seche,trans15,Quartier SC2,Voirie,10300.0,46.68,10.4,4.25,24.56
+chaud_saison_seche,trans15,Quartier SC2,Zones inondables,5900.0,47.1,36.0,3.37,16.48
+chaud_saison_seche,trans15,Quartier SC2,Îlots,54575.0,45.33,18.0,4.23,20.81
+chaud_saison_seche,trans15,Quartier 1,Voirie,12975.0,52.79,45.3,3.15,13.96
+chaud_saison_seche,trans15,Quartier 1,Îlots,66750.0,50.9,48.0,2.85,12.69
+chaud_saison_seche,trans15,Quartier A,Voirie,49425.0,71.2,64.3,2.01,8.77
+chaud_saison_seche,trans15,Quartier A,Zones inondables,12525.0,47.54,33.1,3.55,16.52
+chaud_saison_seche,trans15,Quartier A,Îlots,101125.0,69.16,77.9,1.54,4.66
+chaud_saison_seche,trans15,Quartier 6,Voirie,6000.0,46.21,20.0,4.22,22.76
+chaud_saison_seche,trans15,Quartier 6,Îlots,48600.0,67.98,67.1,1.76,9.16
+chaud_saison_seche,trans15,Quartier 4,Voirie,6600.0,50.27,28.0,3.57,17.62
+chaud_saison_seche,trans15,Quartier 4,Îlots,58000.0,65.86,53.5,2.64,9.81
+chaud_saison_seche,trans15,Quartier 5,Voirie,10750.0,49.0,31.2,4.19,18.12
+chaud_saison_seche,trans15,Quartier 5,Îlots,43725.0,49.24,35.5,3.4,14.62
+chaud_saison_seche,trans15,Quartier 3,Voirie,26575.0,47.61,21.6,4.4,21.55
+chaud_saison_seche,trans15,Quartier 3,Zones inondables,475.0,45.92,21.1,4.97,19.68
+chaud_saison_seche,trans15,Quartier 3,Îlots,135750.0,44.95,9.4,4.91,22.25
+chaud_saison_seche,trans15,Quartier 2,Voirie,15750.0,58.47,49.5,2.74,12.27
+chaud_saison_seche,trans15,Quartier 2,Zones inondables,725.0,44.81,0.0,5.1,25.4
+chaud_saison_seche,trans15,Quartier 2,Îlots,59700.0,68.29,68.1,1.94,7.18
+chaud_saison_seche,sans_arbres,Servitude climatique 1,Voirie,5325.0,73.49,100.0,0.0,
+chaud_saison_seche,sans_arbres,Servitude climatique 1,Zones inondables,68400.0,70.05,100.0,0.0,
+chaud_saison_seche,sans_arbres,Servitude climatique 1,Îlots,135525.0,70.05,100.0,0.0,
+chaud_saison_seche,sans_arbres,Quartier SC2,Voirie,10300.0,73.31,100.0,0.0,
+chaud_saison_seche,sans_arbres,Quartier SC2,Zones inondables,5900.0,70.0,100.0,0.0,
+chaud_saison_seche,sans_arbres,Quartier SC2,Îlots,54575.0,70.04,100.0,0.0,
+chaud_saison_seche,sans_arbres,Quartier 1,Voirie,12975.0,72.74,100.0,0.02,
+chaud_saison_seche,sans_arbres,Quartier 1,Îlots,66750.0,69.89,100.0,0.11,
+chaud_saison_seche,sans_arbres,Quartier A,Voirie,49425.0,73.29,100.0,0.13,
+chaud_saison_seche,sans_arbres,Quartier A,Zones inondables,12525.0,69.99,100.0,0.0,
+chaud_saison_seche,sans_arbres,Quartier A,Îlots,101125.0,70.01,100.0,0.3,
+chaud_saison_seche,sans_arbres,Quartier 6,Voirie,6000.0,73.59,100.0,0.0,
+chaud_saison_seche,sans_arbres,Quartier 6,Îlots,48600.0,70.03,100.0,0.01,
+chaud_saison_seche,sans_arbres,Quartier 4,Voirie,6600.0,72.88,100.0,0.0,
+chaud_saison_seche,sans_arbres,Quartier 4,Îlots,58000.0,69.56,100.0,0.03,
+chaud_saison_seche,sans_arbres,Quartier 5,Voirie,10750.0,72.97,100.0,0.0,
+chaud_saison_seche,sans_arbres,Quartier 5,Îlots,43725.0,69.6,100.0,0.02,
+chaud_saison_seche,sans_arbres,Quartier 3,Voirie,26575.0,73.2,100.0,0.02,
+chaud_saison_seche,sans_arbres,Quartier 3,Zones inondables,475.0,69.46,100.0,0.32,
+chaud_saison_seche,sans_arbres,Quartier 3,Îlots,135750.0,69.85,100.0,0.31,
+chaud_saison_seche,sans_arbres,Quartier 2,Voirie,15750.0,72.93,100.0,0.01,
+chaud_saison_seche,sans_arbres,Quartier 2,Zones inondables,725.0,70.33,100.0,0.0,
+chaud_saison_seche,sans_arbres,Quartier 2,Îlots,59700.0,69.83,100.0,0.13,
+saison_pluies,trans3,Servitude climatique 1,Voirie,5325.0,34.59,0.5,5.58,31.64
+saison_pluies,trans3,Servitude climatique 1,Zones inondables,68400.0,35.91,0.0,3.49,6.83
+saison_pluies,trans3,Servitude climatique 1,Îlots,135525.0,33.54,13.0,5.02,26.05
+saison_pluies,trans3,Quartier SC2,Voirie,10300.0,37.22,9.0,5.28,27.65
+saison_pluies,trans3,Quartier SC2,Zones inondables,5900.0,36.94,0.0,3.74,9.76
+saison_pluies,trans3,Quartier SC2,Îlots,54575.0,34.91,16.8,4.85,24.28
+saison_pluies,trans3,Quartier 1,Voirie,12975.0,45.46,45.1,3.44,14.7
+saison_pluies,trans3,Quartier 1,Îlots,66750.0,44.32,46.7,3.25,13.62
+saison_pluies,trans3,Quartier A,Voirie,49425.0,67.42,65.1,2.54,7.88
+saison_pluies,trans3,Quartier A,Zones inondables,12525.0,36.34,0.0,4.05,8.08
+saison_pluies,trans3,Quartier A,Îlots,101125.0,67.22,77.5,1.78,3.09
+saison_pluies,trans3,Quartier 6,Voirie,6000.0,35.77,20.4,4.76,25.61
+saison_pluies,trans3,Quartier 6,Îlots,48600.0,65.88,68.0,2.03,7.98
+saison_pluies,trans3,Quartier 4,Voirie,6600.0,41.89,29.5,4.55,19.15
+saison_pluies,trans3,Quartier 4,Îlots,58000.0,61.79,54.0,3.03,9.95
+saison_pluies,trans3,Quartier 5,Voirie,10750.0,40.01,30.9,4.85,20.32
+saison_pluies,trans3,Quartier 5,Îlots,43725.0,41.21,34.8,3.86,16.39
+saison_pluies,trans3,Quartier 3,Voirie,26575.0,37.87,22.4,4.83,23.87
+saison_pluies,trans3,Quartier 3,Zones inondables,475.0,36.23,0.0,5.63,13.1
+saison_pluies,trans3,Quartier 3,Îlots,135750.0,34.64,3.1,5.55,26.74
+saison_pluies,trans3,Quartier 2,Voirie,15750.0,52.02,49.5,3.34,12.32
+saison_pluies,trans3,Quartier 2,Zones inondables,725.0,34.97,0.0,5.82,18.66
+saison_pluies,trans3,Quartier 2,Îlots,59700.0,65.93,68.2,2.26,6.2
+saison_pluies,trans15,Servitude climatique 1,Voirie,5325.0,38.99,0.9,4.89,27.38
+saison_pluies,trans15,Servitude climatique 1,Zones inondables,68400.0,37.97,0.0,3.06,5.69
+saison_pluies,trans15,Servitude climatique 1,Îlots,135525.0,37.86,13.6,4.4,22.41
+saison_pluies,trans15,Quartier SC2,Voirie,10300.0,41.29,10.7,4.63,23.88
+saison_pluies,trans15,Quartier SC2,Zones inondables,5900.0,38.84,0.0,3.28,8.28
+saison_pluies,trans15,Quartier SC2,Îlots,54575.0,39.05,17.1,4.25,20.86
+saison_pluies,trans15,Quartier 1,Voirie,12975.0,48.51,45.9,3.02,12.48
+saison_pluies,trans15,Quartier 1,Îlots,66750.0,47.35,47.0,2.87,11.44
+saison_pluies,trans15,Quartier A,Voirie,49425.0,67.72,65.1,2.24,6.45
+saison_pluies,trans15,Quartier A,Zones inondables,12525.0,38.29,0.0,3.55,6.78
+saison_pluies,trans15,Quartier A,Îlots,101125.0,67.3,77.7,1.61,2.2
+saison_pluies,trans15,Quartier 6,Voirie,6000.0,40.1,20.4,4.17,22.1
+saison_pluies,trans15,Quartier 6,Îlots,48600.0,66.06,68.4,1.78,6.64
+saison_pluies,trans15,Quartier 4,Voirie,6600.0,45.51,29.5,3.99,16.39
+saison_pluies,trans15,Quartier 4,Îlots,58000.0,62.29,54.6,2.66,8.24
+saison_pluies,trans15,Quartier 5,Voirie,10750.0,43.82,31.2,4.25,17.42
+saison_pluies,trans15,Quartier 5,Îlots,43725.0,44.56,36.1,3.39,13.89
+saison_pluies,trans15,Quartier 3,Voirie,26575.0,41.9,23.2,4.24,20.58
+saison_pluies,trans15,Quartier 3,Zones inondables,475.0,38.54,0.0,5.0,11.22
+saison_pluies,trans15,Quartier 3,Îlots,135750.0,38.8,3.7,4.91,23.0
+saison_pluies,trans15,Quartier 2,Voirie,15750.0,54.34,49.7,2.93,10.37
+saison_pluies,trans15,Quartier 2,Zones inondables,725.0,37.44,0.0,5.1,16.18
+saison_pluies,trans15,Quartier 2,Îlots,59700.0,66.07,68.4,2.0,4.94
+saison_pluies,sans_arbres,Servitude climatique 1,Voirie,5325.0,67.59,100.0,0.0,
+saison_pluies,sans_arbres,Servitude climatique 1,Zones inondables,68400.0,47.86,0.0,0.0,
+saison_pluies,sans_arbres,Servitude climatique 1,Îlots,135525.0,65.11,100.0,0.0,
+saison_pluies,sans_arbres,Quartier SC2,Voirie,10300.0,67.5,100.0,0.0,
+saison_pluies,sans_arbres,Quartier SC2,Zones inondables,5900.0,51.06,0.0,0.0,
+saison_pluies,sans_arbres,Quartier SC2,Îlots,54575.0,65.07,100.0,0.01,
+saison_pluies,sans_arbres,Quartier 1,Voirie,12975.0,66.96,100.0,0.03,
+saison_pluies,sans_arbres,Quartier 1,Îlots,66750.0,64.88,100.0,0.16,
+saison_pluies,sans_arbres,Quartier A,Voirie,49425.0,67.43,100.0,0.18,
+saison_pluies,sans_arbres,Quartier A,Zones inondables,12525.0,48.24,0.0,0.0,
+saison_pluies,sans_arbres,Quartier A,Îlots,101125.0,64.94,99.2,0.41,
+saison_pluies,sans_arbres,Quartier 6,Voirie,6000.0,67.76,100.0,0.0,
+saison_pluies,sans_arbres,Quartier 6,Îlots,48600.0,65.12,100.0,0.01,
+saison_pluies,sans_arbres,Quartier 4,Voirie,6600.0,67.11,100.0,0.0,
+saison_pluies,sans_arbres,Quartier 4,Îlots,58000.0,64.61,100.0,0.05,
+saison_pluies,sans_arbres,Quartier 5,Voirie,10750.0,67.2,100.0,0.03,
+saison_pluies,sans_arbres,Quartier 5,Îlots,43725.0,64.65,100.0,0.03,
+saison_pluies,sans_arbres,Quartier 3,Voirie,26575.0,67.35,100.0,0.05,
+saison_pluies,sans_arbres,Quartier 3,Zones inondables,475.0,52.07,0.0,0.53,
+saison_pluies,sans_arbres,Quartier 3,Îlots,135750.0,64.77,100.0,0.37,
+saison_pluies,sans_arbres,Quartier 2,Voirie,15750.0,67.03,100.0,0.02,
+saison_pluies,sans_arbres,Quartier 2,Zones inondables,725.0,53.59,0.0,0.0,
+saison_pluies,sans_arbres,Quartier 2,Îlots,59700.0,64.72,99.7,0.18,
+frais_saison_seche,trans3,Servitude climatique 1,Voirie,5325.0,25.5,0.0,5.8,35.71
+frais_saison_seche,trans3,Servitude climatique 1,Zones inondables,68400.0,27.17,33.2,3.71,22.2
+frais_saison_seche,trans3,Servitude climatique 1,Îlots,135525.0,25.22,9.5,5.16,31.67
+frais_saison_seche,trans3,Quartier SC2,Voirie,10300.0,26.6,0.0,5.74,34.72
+frais_saison_seche,trans3,Quartier SC2,Zones inondables,5900.0,27.07,21.6,4.21,23.91
+frais_saison_seche,trans3,Quartier SC2,Îlots,54575.0,25.98,8.0,5.13,30.42
+frais_saison_seche,trans3,Quartier 1,Voirie,12975.0,29.9,23.9,3.69,20.43
+frais_saison_seche,trans3,Quartier 1,Îlots,66750.0,29.09,36.5,3.58,18.12
+frais_saison_seche,trans3,Quartier A,Voirie,49425.0,32.24,36.8,3.5,15.86
+frais_saison_seche,trans3,Quartier A,Zones inondables,12525.0,27.83,20.0,4.28,24.39
+frais_saison_seche,trans3,Quartier A,Îlots,101125.0,61.11,60.9,2.3,7.2
+frais_saison_seche,trans3,Quartier 6,Voirie,6000.0,26.38,7.5,5.04,31.05
+frais_saison_seche,trans3,Quartier 6,Îlots,48600.0,59.73,47.8,2.49,13.94
+frais_saison_seche,trans3,Quartier 4,Voirie,6600.0,29.1,0.8,5.39,30.59
+frais_saison_seche,trans3,Quartier 4,Îlots,58000.0,30.79,29.7,3.73,18.38
+frais_saison_seche,trans3,Quartier 5,Voirie,10750.0,28.69,4.9,5.07,28.96
+frais_saison_seche,trans3,Quartier 5,Îlots,43725.0,29.06,19.5,4.25,22.61
+frais_saison_seche,trans3,Quartier 3,Voirie,26575.0,27.34,6.8,5.06,29.79
+frais_saison_seche,trans3,Quartier 3,Zones inondables,475.0,27.05,0.0,5.8,28.65
+frais_saison_seche,trans3,Quartier 3,Îlots,135750.0,25.83,0.9,5.76,30.82
+frais_saison_seche,trans3,Quartier 2,Voirie,15750.0,31.06,25.6,3.7,19.22
+frais_saison_seche,trans3,Quartier 2,Zones inondables,725.0,25.47,0.0,5.82,35.62
+frais_saison_seche,trans3,Quartier 2,Îlots,59700.0,59.93,49.4,2.71,11.63
+frais_saison_seche,trans15,Servitude climatique 1,Voirie,5325.0,30.62,0.0,5.08,30.66
+frais_saison_seche,trans15,Servitude climatique 1,Zones inondables,68400.0,32.05,33.7,3.25,18.99
+frais_saison_seche,trans15,Servitude climatique 1,Îlots,135525.0,30.39,9.8,4.53,27.13
+frais_saison_seche,trans15,Quartier SC2,Voirie,10300.0,31.51,0.0,5.03,29.84
+frais_saison_seche,trans15,Quartier SC2,Zones inondables,5900.0,31.96,22.0,3.69,20.47
+frais_saison_seche,trans15,Quartier SC2,Îlots,54575.0,31.06,8.4,4.5,26.05
+frais_saison_seche,trans15,Quartier 1,Voirie,12975.0,34.3,24.5,3.26,17.45
+frais_saison_seche,trans15,Quartier 1,Îlots,66750.0,33.13,37.0,3.18,15.4
+frais_saison_seche,trans15,Quartier A,Voirie,49425.0,36.42,38.3,3.13,13.48
+frais_saison_seche,trans15,Quartier A,Zones inondables,12525.0,32.73,21.2,3.75,20.85
+frais_saison_seche,trans15,Quartier A,Îlots,101125.0,61.21,62.2,2.11,5.96
+frais_saison_seche,trans15,Quartier 6,Voirie,6000.0,31.38,8.3,4.42,26.66
+frais_saison_seche,trans15,Quartier 6,Îlots,48600.0,59.91,49.3,2.18,11.95
+frais_saison_seche,trans15,Quartier 4,Voirie,6600.0,33.7,1.1,4.72,26.21
+frais_saison_seche,trans15,Quartier 4,Îlots,58000.0,35.11,31.6,3.28,15.63
+frais_saison_seche,trans15,Quartier 5,Voirie,10750.0,33.38,6.5,4.46,24.79
+frais_saison_seche,trans15,Quartier 5,Îlots,43725.0,33.58,21.5,3.73,19.26
+frais_saison_seche,trans15,Quartier 3,Voirie,26575.0,32.17,7.7,4.45,25.54
+frais_saison_seche,trans15,Quartier 3,Zones inondables,475.0,31.57,0.0,5.21,24.43
+frais_saison_seche,trans15,Quartier 3,Îlots,135750.0,30.75,1.0,5.14,26.36
+frais_saison_seche,trans15,Quartier 2,Voirie,15750.0,35.4,26.7,3.26,16.42
+frais_saison_seche,trans15,Quartier 2,Zones inondables,725.0,30.57,0.0,5.1,30.54
+frais_saison_seche,trans15,Quartier 2,Îlots,59700.0,60.08,50.6,2.43,9.81
+frais_saison_seche,sans_arbres,Servitude climatique 1,Voirie,5325.0,61.72,100.0,0.0,
+frais_saison_seche,sans_arbres,Servitude climatique 1,Zones inondables,68400.0,61.38,100.0,0.0,
+frais_saison_seche,sans_arbres,Servitude climatique 1,Îlots,135525.0,61.38,99.9,0.01,
+frais_saison_seche,sans_arbres,Quartier SC2,Voirie,10300.0,61.67,100.0,0.01,
+frais_saison_seche,sans_arbres,Quartier SC2,Zones inondables,5900.0,61.29,100.0,0.0,
+frais_saison_seche,sans_arbres,Quartier SC2,Îlots,54575.0,61.32,98.6,0.04,
+frais_saison_seche,sans_arbres,Quartier 1,Voirie,12975.0,61.04,88.6,0.24,
+frais_saison_seche,sans_arbres,Quartier 1,Îlots,66750.0,61.05,75.2,0.39,
+frais_saison_seche,sans_arbres,Quartier A,Voirie,49425.0,61.55,87.7,0.51,
+frais_saison_seche,sans_arbres,Quartier A,Zones inondables,12525.0,61.32,100.0,0.0,
+frais_saison_seche,sans_arbres,Quartier A,Îlots,101125.0,61.2,79.3,0.75,
+frais_saison_seche,sans_arbres,Quartier 6,Voirie,6000.0,61.72,100.0,0.0,
+frais_saison_seche,sans_arbres,Quartier 6,Îlots,48600.0,61.36,98.7,0.03,
+frais_saison_seche,sans_arbres,Quartier 4,Voirie,6600.0,61.38,99.6,0.03,
+frais_saison_seche,sans_arbres,Quartier 4,Îlots,58000.0,60.87,83.2,0.11,
+frais_saison_seche,sans_arbres,Quartier 5,Voirie,10750.0,61.42,98.4,0.08,
+frais_saison_seche,sans_arbres,Quartier 5,Îlots,43725.0,60.89,79.8,0.06,
+frais_saison_seche,sans_arbres,Quartier 3,Voirie,26575.0,61.6,97.7,0.13,
+frais_saison_seche,sans_arbres,Quartier 3,Zones inondables,475.0,60.59,63.2,1.0,
+frais_saison_seche,sans_arbres,Quartier 3,Îlots,135750.0,61.01,76.0,0.75,
+frais_saison_seche,sans_arbres,Quartier 2,Voirie,15750.0,61.38,87.1,0.09,
+frais_saison_seche,sans_arbres,Quartier 2,Zones inondables,725.0,61.31,100.0,0.0,
+frais_saison_seche,sans_arbres,Quartier 2,Îlots,59700.0,61.0,77.2,0.38,

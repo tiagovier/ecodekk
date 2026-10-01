@@ -1,0 +1,305 @@
+{
+ "generated_at": "2026-10-01T18:00:16+00:00",
+ "scenario": "scenario_01",
+ "study": "ombrage_arbres",
+ "resolution_m": 5.0,
+ "peak_hour": 14,
+ "shade_window": "10 h–16 h",
+ "hot_threshold_c": 60.0,
+ "coordinates": [
+  [
+   -17.0151724,
+   14.7762375
+  ],
+  [
+   -17.002828,
+   14.7762375
+  ],
+  [
+   -17.002828,
+   14.7637154
+  ],
+  [
+   -17.0151724,
+   14.7637154
+  ]
+ ],
+ "days": [
+  {
+   "id": "chaud_saison_seche",
+   "label": "Journée chaude de saison sèche",
+   "date": "2017-04-14"
+  },
+  {
+   "id": "saison_pluies",
+   "label": "Journée de saison des pluies",
+   "date": "2017-09-21"
+  },
+  {
+   "id": "frais_saison_seche",
+   "label": "Journée fraîche de saison sèche",
+   "date": "2018-01-17"
+  }
+ ],
+ "vegetation": [
+  {
+   "id": "trans3",
+   "label": "Arbres, transmissivité 3 %"
+  },
+  {
+   "id": "trans15",
+   "label": "Arbres, transmissivité 15 %"
+  },
+  {
+   "id": "sans_arbres",
+   "label": "Sans arbres (référence)"
+  }
+ ],
+ "legends": {
+  "tmrt": {
+   "label": "Tmrt à 14 h (°C)",
+   "unit": "°C",
+   "stops": [
+    [
+     20,
+     "#313695"
+    ],
+    [
+     30,
+     "#74add1"
+    ],
+    [
+     40,
+     "#fee090"
+    ],
+    [
+     50,
+     "#fdae61"
+    ],
+    [
+     60,
+     "#f46d43"
+    ],
+    [
+     70,
+     "#a50026"
+    ],
+    [
+     75,
+     "#67001f"
+    ]
+   ]
+  },
+  "shade": {
+   "label": "Heures d'ombre de 10 h à 16 h",
+   "unit": "h",
+   "stops": [
+    [
+     0,
+     "#fff7bc"
+    ],
+    [
+     1,
+     "#fee391"
+    ],
+    [
+     2,
+     "#c6dbef"
+    ],
+    [
+     3,
+     "#9ecae1"
+    ],
+    [
+     4,
+     "#6baed6"
+    ],
+    [
+     5,
+     "#2171b5"
+    ],
+    [
+     6,
+     "#08306b"
+    ]
+   ]
+  },
+  "cooling": {
+   "label": "Gain des arbres sur la Tmrt à 14 h (K)",
+   "unit": "K",
+   "stops": [
+    [
+     -5,
+     "#b2182b"
+    ],
+    [
+     0,
+     "#f7f7f7"
+    ],
+    [
+     5,
+     "#c7e9c0"
+    ],
+    [
+     10,
+     "#74c476"
+    ],
+    [
+     20,
+     "#238b45"
+    ],
+    [
+     30,
+     "#00441b"
+    ]
+   ]
+  }
+ },
+ "layers": [
+  {
+   "indicator": "tmrt",
+   "day": "chaud_saison_seche",
+   "vegetation": "trans3",
+   "file": "tmrt_chaud_saison_seche_trans3.png"
+  },
+  {
+   "indicator": "shade",
+   "day": "chaud_saison_seche",
+   "vegetation": "trans3",
+   "file": "shade_chaud_saison_seche_trans3.png"
+  },
+  {
+   "indicator": "tmrt",
+   "day": "chaud_saison_seche",
+   "vegetation": "trans15",
+   "file": "tmrt_chaud_saison_seche_trans15.png"
+  },
+  {
+   "indicator": "shade",
+   "day": "chaud_saison_seche",
+   "vegetation": "trans15",
+   "file": "shade_chaud_saison_seche_trans15.png"
+  },
+  {
+   "indicator": "tmrt",
+   "day": "chaud_saison_seche",
+   "vegetation": "sans_arbres",
+   "file": "tmrt_chaud_saison_seche_sans_arbres.png"
+  },
+  {
+   "indicator": "shade",
+   "day": "chaud_saison_seche",
+   "vegetation": "sans_arbres",
+   "file": "shade_chaud_saison_seche_sans_arbres.png"
+  },
+  {
+   "indicator": "cooling",
+   "day": "chaud_saison_seche",
+   "vegetation": "trans3",
+   "file": "cooling_chaud_saison_seche_trans3.png"
+  },
+  {
+   "indicator": "cooling",
+   "day": "chaud_saison_seche",
+   "vegetation": "trans15",
+   "file": "cooling_chaud_saison_seche_trans15.png"
+  },
+  {
+   "indicator": "tmrt",
+   "day": "saison_pluies",
+   "vegetation": "trans3",
+   "file": "tmrt_saison_pluies_trans3.png"
+  },
+  {
+   "indicator": "shade",
+   "day": "saison_pluies",
+   "vegetation": "trans3",
+   "file": "shade_saison_pluies_trans3.png"
+  },
+  {
+   "indicator": "tmrt",
+   "day": "saison_pluies",
+   "vegetation": "trans15",
+   "file": "tmrt_saison_pluies_trans15.png"
+  },
+  {
+   "indicator": "shade",
+   "day": "saison_pluies",
+   "vegetation": "trans15",
+   "file": "shade_saison_pluies_trans15.png"
+  },
+  {
+   "indicator": "tmrt",
+   "day": "saison_pluies",
+   "vegetation": "sans_arbres",
+   "file": "tmrt_saison_pluies_sans_arbres.png"
+  },
+  {
+   "indicator": "shade",
+   "day": "saison_pluies",
+   "vegetation": "sans_arbres",
+   "file": "shade_saison_pluies_sans_arbres.png"
+  },
+  {
+   "indicator": "cooling",
+   "day": "saison_pluies",
+   "vegetation": "trans3",
+   "file": "cooling_saison_pluies_trans3.png"
+  },
+  {
+   "indicator": "cooling",
+   "day": "saison_pluies",
+   "vegetation": "trans15",
+   "file": "cooling_saison_pluies_trans15.png"
+  },
+  {
+   "indicator": "tmrt",
+   "day": "frais_saison_seche",
+   "vegetation": "trans3",
+   "file": "tmrt_frais_saison_seche_trans3.png"
+  },
+  {
+   "indicator": "shade",
+   "day": "frais_saison_seche",
+   "vegetation": "trans3",
+   "file": "shade_frais_saison_seche_trans3.png"
+  },
+  {
+   "indicator": "tmrt",
+   "day": "frais_saison_seche",
+   "vegetation": "trans15",
+   "file": "tmrt_frais_saison_seche_trans15.png"
+  },
+  {
+   "indicator": "shade",
+   "day": "frais_saison_seche",
+   "vegetation": "trans15",
+   "file": "shade_frais_saison_seche_trans15.png"
+  },
+  {
+   "indicator": "tmrt",
+   "day": "frais_saison_seche",
+   "vegetation": "sans_arbres",
+   "file": "tmrt_frais_saison_seche_sans_arbres.png"
+  },
+  {
+   "indicator": "shade",
+   "day": "frais_saison_seche",
+   "vegetation": "sans_arbres",
+   "file": "shade_frais_saison_seche_sans_arbres.png"
+  },
+  {
+   "indicator": "cooling",
+   "day": "frais_saison_seche",
+   "vegetation": "trans3",
+   "file": "cooling_frais_saison_seche_trans3.png"
+  },
+  {
+   "indicator": "cooling",
+   "day": "frais_saison_seche",
+   "vegetation": "trans15",
+   "file": "cooling_frais_saison_seche_trans15.png"
+  }
+ ],
+ "source": "UMEP SOLWEIG v2025a, ERA5 (2 m), EPSG:32628"
+}
