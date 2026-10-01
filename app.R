@@ -10,6 +10,8 @@ source(file.path("R", "scenario_data.R"), encoding = "UTF-8")
 source(file.path("R", "umep_results.R"), encoding = "UTF-8")
 source(file.path("R", "umep_climate.R"), encoding = "UTF-8")
 source(file.path("R", "umep_energy.R"), encoding = "UTF-8")
+source(file.path("R", "charte_inputs.R"), encoding = "UTF-8")
+source(file.path("R", "charte_inputs_page.R"), encoding = "UTF-8")
 
 addResourcePath("branding", normalizePath("img", winslash = "/", mustWork = TRUE))
 
@@ -550,6 +552,10 @@ ui <- navbarPage(
     thermal_comfort_tab,
     urban_climate_tab,
     energy_balance_tab
+  ),
+  navbarMenu(
+    "Charte de performance",
+    charte_inputs_tab()
   )
 )
 
@@ -3038,6 +3044,8 @@ server <- function(input, output, session) {
       )
     )
   })
+
+  charte_inputs_server(input, output, session, scenario)
 }
 
 shinyApp(ui, server)

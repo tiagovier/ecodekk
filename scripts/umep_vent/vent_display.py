@@ -2,7 +2,8 @@
 """Produits d'affichage vent (URock) et confort (UTCI/PET) : vent_confort/display/.
 
 - wind_<cas>.png : vitesse du vent à 1,5 m (5 cas), grille 2 m ;
-- utci_<jour>_<veg>.png, pet_<jour>_<veg>.png : indices à 14 h, grille 1 m ;
+- utci_<jour>_<veg>.png, pet_<jour>_<veg>.png : indices à 14 h, grille SOLWEIG
+  (5 m par défaut, --res 1 pour la grille 1 m) ;
 - utci_gain_<jour>.png : UTCI sans arbres − UTCI avec arbres (3 %) ;
 - indicators.csv : médianes par quartier et contexte ; manifest.json.
 PNG en EPSG:3857 avec coins lon/lat (fonctions de scripts/umep_trees/solweig_display.py),
@@ -73,6 +74,11 @@ def zonal(values, ds, prefix, indicators, key, stats):
 
 
 def main() -> int:
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--res", default="5", choices=("1", "5"), help="résolution des indices de confort (m)")
+    args = parser.parse_args()
+    tc_root = V / ("tc" if args.res == "1" else f"tc_{args.res}m")
     out = V / "display"
     if out.exists() and any(out.iterdir()):
         raise SystemExit(f"Sortie existante, non écrasée : {out}")
@@ -95,11 +101,11 @@ def main() -> int:
     utci = {}
     for day in DAYS:
         for veg in VEGETATION:
-            work = V / "tc" / f"{day}_{veg}"
+            work = tc_root / f"{day}_{veg}"
             for index in ("UTCI", "PET"):
                 found = sorted(work.glob(f"{index}_*_1400D.tif")) if work.exists() else []
                 if not found:
-                    missing.append(f"vent_confort/tc/{day}_{veg}/{index}_*_1400D.tif")
+                    missing.append(f"vent_confort/{tc_root.name}/{day}_{veg}/{index}_*_1400D.tif")
                     continue
                 values, ds = load(found[0])
                 if index == "UTCI":
@@ -128,7 +134,22 @@ def main() -> int:
                   for k, v in {**DAYS, **DOMINANT}.items()],
         "vegetation": [{"id": k, "label": v} for k, v in VEGETATION.items()],
         "legends": LEGENDS, "layers": layers, "missing": missing,
-        "source": "UMEP URock v2023a (2 m, sortie 1,5 m) et Spatial Thermal Comfort (UTCI, PET) sur SOLWEIG 1 m",
+        "source": f"UMEP URock v2023a (2 m, sortie 1,5 m) et Spatial Thermal Comfort (UTCI, PET) sur SOLWEIG {args.res} m",
+        "resolution_confort_m": int(args.res),
+        "provenance": {
+            "vent": "vent_confort/wind_reference.yml (ERA5 10 m à 14 h ; vents dominants 2015–2024, secteur modal)",
+            "vent_regrille": "moyenne des pixels URock 2 m vers la grille SOLWEIG" if args.res != "1" else "plus proche voisin 2 m vers 1 m",
+            "tmrt": f"ombrage_arbres/solweig_{args.res}m/<journée>_<végétation>/Tmrt_*_1400D.tif",
+            "personne": "valeurs par défaut UMEP : 35 ans, 75 kg, 180 cm, 0,9 clo, 80 W, homme, debout",
+            "attenuation_vegetation": "1,00 (défaut URock, plantation de mélèzes, Cionco 1978) — non locale",
+        },
+        "avertissements": [
+            "Vent de référence ERA5 (maille d'environ 31 km) : un instant (14 h) par journée, pas un champ moyen.",
+            "URock est un modèle diagnostique (Röckle) : il représente les sillages et accélérations, pas la turbulence.",
+            "L'atténuation du vent par les arbres utilise la valeur par défaut d'URock, non calibrée pour ces essences.",
+            "UTCI et PET pour une personne type (valeurs par défaut UMEP) ; le vent est moyenné sur la maille de confort.",
+            "Résultats surtout comparatifs (avec ou sans arbres, d'une journée ou d'un quartier à l'autre).",
+        ],
     }
     (out / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{len(layers)} couches ; manquants : {len(missing)}")
