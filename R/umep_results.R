@@ -182,11 +182,27 @@ umep_thermal_reading_guide <- function() {
       "le rayonnement reçu par un piéton debout, à partir des bâtiments, des arbres attribués du scénario,",
       "de l'occupation du sol et de la météorologie ERA5 des journées retenues."
     ),
-    htmltools::tags$h4("Les trois journées"),
+    htmltools::tags$h4("Les quatre journées"),
     htmltools::tags$ul(
-      htmltools::tags$li(htmltools::tags$strong("Journée chaude de saison sèche"), " : cas principal, où le stress thermique est maximal et l'ombre la plus utile."),
-      htmltools::tags$li(htmltools::tags$strong("Journée de saison des pluies"), " : moins chaude mais humide ; Faidherbia albida, sans feuilles à cette saison, est retiré et les zones inondables sont en eau."),
-      htmltools::tags$li(htmltools::tags$strong("Journée fraîche de saison sèche"), " : référence, soleil plus bas et harmattan ; Faidherbia albida est en feuilles.")
+      htmltools::tags$li(htmltools::tags$strong("Journée chaude extrême (14/04/2017)"), " : 42,2 °C de maximum, parmi les 2 % des jours d'avril les plus chauds de 2015 à 2024. Elle montre le pire cas : vague de chaleur, soleil presque au zénith, air très sec."),
+      htmltools::tags$li(htmltools::tags$strong("Journée chaude typique (11/05/2022)"), " : 36,7 °C de maximum, proche du 90e centile des jours d'avril à juin. Elle représente une journée chaude ordinaire de saison sèche, à privilégier pour les comparaisons courantes."),
+      htmltools::tags$li(htmltools::tags$strong("Journée de saison des pluies (21/09/2017)"), " : moins chaude mais humide ; Faidherbia albida, sans feuilles à cette saison, est retiré et les zones inondables sont en eau."),
+      htmltools::tags$li(htmltools::tags$strong("Journée fraîche de saison sèche (17/01/2018)"), " : référence, soleil plus bas et harmattan ; Faidherbia albida est en feuilles.")
+    ),
+    htmltools::tags$h4("Fiabilité des données météorologiques"),
+    htmltools::tags$p(
+      "Les journées proviennent de la réanalyse ERA5 (maille d'environ 31 km), qui n'est pas une mesure sur le site.",
+      "Elle a été comparée aux stations météorologiques (NOAA GHCN-Daily) : la climatologie d'avril d'ERA5",
+      "(maximum moyen 33,4 °C, 90e centile 38,6 °C, record 44,5 °C) est très proche de celle de l'ancienne station de Thiès",
+      "(1940-1983 : 33,0 / 39,1 / 43,5 °C). Le 14/04/2017, la station de Diourbel a relevé 42,4 °C pour 42,2 °C dans ERA5 :",
+      "la vague de chaleur est réelle. Les stations actuelles les plus proches encadrent Thiès : Diourbel, à l'intérieur, est",
+      "nettement plus chaude ; Dakar-Yoff, sur le littoral, nettement plus fraîche. Aucune station actuelle n'existe à Thiès."
+    ),
+    htmltools::tags$p(
+      "La température moyenne radiante en plein soleil (environ 69 °C à 14 h lors de la journée extrême) dépasse la",
+      "température de l'air de 20 à 30 °C, un écart courant par ciel clair en climat chaud et sec. Elle peut être un peu",
+      "surestimée si la journée était poussiéreuse (harmattan), ce qu'ERA5 ne représente qu'en moyenne. Des mesures au",
+      "thermomètre à globe sur le site permettraient de la confirmer."
     ),
     htmltools::tags$h4("Végétation et transmissivité"),
     htmltools::tags$p(
@@ -205,9 +221,10 @@ umep_thermal_reading_guide <- function() {
     htmltools::tags$h4("Limites"),
     htmltools::tags$ul(
       htmltools::tags$li("La Tmrt n'est pas un indice de confort : elle ne tient compte ni du vent ni de l'humidité. Les indices UTCI et PET seront ajoutés avec l'étude du vent."),
-      htmltools::tags$li("La météorologie ERA5 représente le climat régional (maille d'environ 31 km), pas un microclimat mesuré sur le site."),
+      htmltools::tags$li("La météorologie ERA5 représente le climat régional (maille d'environ 31 km), pas un microclimat mesuré sur le site ; voir ci-dessus sa comparaison aux stations."),
       htmltools::tags$li("Les dimensions et essences des arbres sont des ordres de grandeur issus de la littérature, à valider par des relevés de terrain."),
       htmltools::tags$li("Les propriétés des matériaux sont les valeurs par défaut d'UMEP ; les pavés autoblocants prévus peuvent réfléchir davantage que le revêtement par défaut."),
+      htmltools::tags$li("La carte couvre tout le site avec des pixels de 5 m : un houppier occupe 1 à 3 pixels. Des zooms à 1 m sont prévus sur des secteurs choisis."),
       htmltools::tags$li("Les résultats sont surtout comparatifs (avec ou sans arbres, d'une journée ou d'un quartier à l'autre) ; aucune mesure de terrain ne les valide encore.")
     )
   )

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-01T18:00:16+00:00",
+ "generated_at": "2026-10-01T18:23:11+00:00",
  "scenario": "scenario_01",
  "study": "ombrage_arbres",
  "resolution_m": 5.0,
@@ -27,8 +27,13 @@
  "days": [
   {
    "id": "chaud_saison_seche",
-   "label": "Journée chaude de saison sèche",
+   "label": "Journée chaude extrême de saison sèche",
    "date": "2017-04-14"
+  },
+  {
+   "id": "chaud_typique",
+   "label": "Journée chaude typique de saison sèche",
+   "date": "2022-05-11"
   },
   {
    "id": "saison_pluies",
@@ -203,6 +208,54 @@
    "day": "chaud_saison_seche",
    "vegetation": "trans15",
    "file": "cooling_chaud_saison_seche_trans15.png"
+  },
+  {
+   "indicator": "tmrt",
+   "day": "chaud_typique",
+   "vegetation": "trans3",
+   "file": "tmrt_chaud_typique_trans3.png"
+  },
+  {
+   "indicator": "shade",
+   "day": "chaud_typique",
+   "vegetation": "trans3",
+   "file": "shade_chaud_typique_trans3.png"
+  },
+  {
+   "indicator": "tmrt",
+   "day": "chaud_typique",
+   "vegetation": "trans15",
+   "file": "tmrt_chaud_typique_trans15.png"
+  },
+  {
+   "indicator": "shade",
+   "day": "chaud_typique",
+   "vegetation": "trans15",
+   "file": "shade_chaud_typique_trans15.png"
+  },
+  {
+   "indicator": "tmrt",
+   "day": "chaud_typique",
+   "vegetation": "sans_arbres",
+   "file": "tmrt_chaud_typique_sans_arbres.png"
+  },
+  {
+   "indicator": "shade",
+   "day": "chaud_typique",
+   "vegetation": "sans_arbres",
+   "file": "shade_chaud_typique_sans_arbres.png"
+  },
+  {
+   "indicator": "cooling",
+   "day": "chaud_typique",
+   "vegetation": "trans3",
+   "file": "cooling_chaud_typique_trans3.png"
+  },
+  {
+   "indicator": "cooling",
+   "day": "chaud_typique",
+   "vegetation": "trans15",
+   "file": "cooling_chaud_typique_trans15.png"
   },
   {
    "indicator": "tmrt",

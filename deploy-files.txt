@@ -37,6 +37,8 @@ data/scenarios/scenario_01/exports/umep/climat_urbain/display_target/target_quar
 data/scenarios/scenario_01/exports/umep/climat_urbain/display_target/target_hourly_quartiers.csv
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/cooling_chaud_saison_seche_trans15.png
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/cooling_chaud_saison_seche_trans3.png
+data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/cooling_chaud_typique_trans15.png
+data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/cooling_chaud_typique_trans3.png
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/cooling_frais_saison_seche_trans15.png
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/cooling_frais_saison_seche_trans3.png
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/cooling_saison_pluies_trans15.png
@@ -47,6 +49,9 @@ data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/manifest.json
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/shade_chaud_saison_seche_sans_arbres.png
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/shade_chaud_saison_seche_trans15.png
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/shade_chaud_saison_seche_trans3.png
+data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/shade_chaud_typique_sans_arbres.png
+data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/shade_chaud_typique_trans15.png
+data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/shade_chaud_typique_trans3.png
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/shade_frais_saison_seche_sans_arbres.png
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/shade_frais_saison_seche_trans15.png
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/shade_frais_saison_seche_trans3.png
@@ -56,6 +61,9 @@ data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/shade_saison_plui
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/tmrt_chaud_saison_seche_sans_arbres.png
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/tmrt_chaud_saison_seche_trans15.png
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/tmrt_chaud_saison_seche_trans3.png
+data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/tmrt_chaud_typique_sans_arbres.png
+data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/tmrt_chaud_typique_trans15.png
+data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/tmrt_chaud_typique_trans3.png
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/tmrt_frais_saison_seche_sans_arbres.png
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/tmrt_frais_saison_seche_trans15.png
 data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/tmrt_frais_saison_seche_trans3.png

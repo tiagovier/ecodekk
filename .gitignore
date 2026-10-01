@@ -46,3 +46,6 @@ data/scenarios/*/exports/umep/**/*.aux.xml
 
 # Scénarios supprimés depuis l’application (récupérables)
 data/scenarios_supprimes/
+# Données brutes de stations (NOAA) : seul le tableau de comparaison est versionné
+data/scenarios/*/exports/umep/*/met/station_*/*
+!data/scenarios/*/exports/umep/*/met/station_*/comparaison_era5_stations.csv

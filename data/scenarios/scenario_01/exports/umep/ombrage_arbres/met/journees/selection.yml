@@ -80,5 +80,38 @@ journees:
     pluie_jour_mm: 0.0
     pluie_72h_prec_mm: 0.0
     vent_moy_m_s: 3.952
+  chaud_typique:
+    date: '2022-05-11'
+    doy: 131
+    met_file: met_chaud_typique_20220511.txt
+    criteres:
+      mois:
+      - 4
+      - 5
+      - 6
+      regle: ciel clair (Kt >= 75e centile avril-juin) et Tmax la plus proche du 90e
+        centile avril-juin (36,6 °C)
+      kt_min: 0.706
+      tmax_p90_c: 36.63
+    choix: 'règle (ajout demandé par l’utilisateur le 2026-10-01 : journée chaude
+      typique à côté de la journée extrême)'
+    tmax_c: 36.7
+    tmin_c: 20.55
+    hr_moy_pct: 67.856
+    kt: 0.721
+    rayonnement_mj_m2: 27.613
+    pluie_jour_mm: 0.0
+    vent_moy_m_s: 2.287
 limites: 'ERA5 ~31 km : climat régional, pas le microclimat du site ; Kt calculé sur
   l''éclairement extraterrestre horizontal.'
+validation_stations:
+  fichier: station_thies/comparaison_era5_stations.csv
+  source: NOAA GHCN-Daily (Thiès SG00000O067 1940-1983, Diourbel SGM00061666, Dakar-Yoff
+    SG000061641), téléchargé le 2026-10-01
+  conclusion: Climatologie d'avril ERA5 (33,4 / 38,6 / 44,5 °C) proche de celle de
+    la station historique de Thiès (33,0 / 39,1 / 43,5 °C) ; le 14/04/2017, Diourbel
+    a relevé 42,4 °C (ERA5 42,2 °C). Diourbel (intérieur) et Dakar-Yoff (littoral)
+    encadrent Thiès.
+  onebuilding: 'climate.onebuilding.org : pas de fichier pour Thiès ; années types
+    TMYx disponibles pour Diourbel, Dakar, Kaolack, Saint-Louis, Linguère, Tambacounda
+    (non utilisées).'

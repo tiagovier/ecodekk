@@ -1,0 +1,5 @@
+station,ghcnd,distance,periode,tmax_avril_moy_c,tmax_avril_p90_c,tmax_avril_max_c,biais_era5_avril_mai_c,jours_communs_avril_mai,tmax_2017_04_14_c
+Thiès (1940-1983),SG00000O067,~5 km,1940-1983,33.0,39.1,43.5,,0.0,
+Diourbel,SGM00061666,"~80 km à l'est, intérieur",1973-2025,39.7,43.2,47.0,-7.8,467.0,42.4
+Dakar-Yoff,SG000061641,"~65 km à l'ouest, littoral",1944-2025,25.1,27.3,37.8,6.7,347.0,
+"ERA5 (maille du site, 2015-2024)",,maille ~31 km,2015-2024,33.4,38.6,44.5,,,42.2

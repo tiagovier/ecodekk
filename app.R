@@ -2650,6 +2650,10 @@ server <- function(input, output, session) {
       notes <- c(notes, list(p(class = "thermal-note",
         "Le gain des arbres compare un calcul avec arbres à la référence sans arbres : choisissez une végétation avec arbres.")))
     }
+    if (identical(input$thermal_day, "chaud_saison_seche")) {
+      notes <- c(notes, list(p(class = "thermal-note",
+        "Journée extrême (parmi les 2 % les plus chaudes d’avril) ; la journée chaude typique est disponible pour les comparaisons courantes.")))
+    }
     if (identical(input$thermal_day, "saison_pluies")) {
       notes <- c(notes, list(p(class = "thermal-note",
         "Saison des pluies : Faidherbia albida, défeuillé, est retiré ; les zones inondables sont en eau.")))

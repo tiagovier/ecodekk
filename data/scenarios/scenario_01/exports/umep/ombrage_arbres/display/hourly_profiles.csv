@@ -215,6 +215,222 @@ chaud_saison_seche,sans_arbres,23,Ombre des bâtiments,,26.27
 chaud_saison_seche,sans_arbres,24,"Soleil, sans houppier",,26.14
 chaud_saison_seche,sans_arbres,24,Sous houppier,21.72,26.14
 chaud_saison_seche,sans_arbres,24,Ombre des bâtiments,,26.14
+chaud_typique,trans3,1,"Soleil, sans houppier",,22.05
+chaud_typique,trans3,1,Sous houppier,17.69,22.05
+chaud_typique,trans3,1,Ombre des bâtiments,,22.05
+chaud_typique,trans3,2,"Soleil, sans houppier",,21.37
+chaud_typique,trans3,2,Sous houppier,17.02,21.37
+chaud_typique,trans3,2,Ombre des bâtiments,,21.37
+chaud_typique,trans3,3,"Soleil, sans houppier",,21.34
+chaud_typique,trans3,3,Sous houppier,16.99,21.34
+chaud_typique,trans3,3,Ombre des bâtiments,,21.34
+chaud_typique,trans3,4,"Soleil, sans houppier",,21.51
+chaud_typique,trans3,4,Sous houppier,17.16,21.51
+chaud_typique,trans3,4,Ombre des bâtiments,,21.51
+chaud_typique,trans3,5,"Soleil, sans houppier",,20.55
+chaud_typique,trans3,5,Sous houppier,16.21,20.55
+chaud_typique,trans3,5,Ombre des bâtiments,,20.55
+chaud_typique,trans3,6,"Soleil, sans houppier",,20.83
+chaud_typique,trans3,6,Sous houppier,16.49,20.83
+chaud_typique,trans3,6,Ombre des bâtiments,,20.83
+chaud_typique,trans3,7,"Soleil, sans houppier",,20.97
+chaud_typique,trans3,7,Sous houppier,16.63,20.97
+chaud_typique,trans3,7,Ombre des bâtiments,,20.97
+chaud_typique,trans3,8,"Soleil, sans houppier",37.37,22.91
+chaud_typique,trans3,8,Sous houppier,20.12,22.91
+chaud_typique,trans3,8,Ombre des bâtiments,22.32,22.91
+chaud_typique,trans3,9,"Soleil, sans houppier",52.67,24.43
+chaud_typique,trans3,9,Sous houppier,22.93,24.43
+chaud_typique,trans3,9,Ombre des bâtiments,26.61,24.43
+chaud_typique,trans3,10,"Soleil, sans houppier",63.27,29.0
+chaud_typique,trans3,10,Sous houppier,27.78,29.0
+chaud_typique,trans3,10,Ombre des bâtiments,32.33,29.0
+chaud_typique,trans3,11,"Soleil, sans houppier",67.41,30.48
+chaud_typique,trans3,11,Sous houppier,30.11,30.48
+chaud_typique,trans3,11,Ombre des bâtiments,35.61,30.48
+chaud_typique,trans3,12,"Soleil, sans houppier",68.27,32.05
+chaud_typique,trans3,12,Sous houppier,32.16,32.05
+chaud_typique,trans3,12,Ombre des bâtiments,38.03,32.05
+chaud_typique,trans3,13,"Soleil, sans houppier",65.84,32.5
+chaud_typique,trans3,13,Sous houppier,33.44,32.5
+chaud_typique,trans3,13,Ombre des bâtiments,39.21,32.5
+chaud_typique,trans3,14,"Soleil, sans houppier",66.74,35.07
+chaud_typique,trans3,14,Sous houppier,35.77,35.07
+chaud_typique,trans3,14,Ombre des bâtiments,43.47,35.07
+chaud_typique,trans3,15,"Soleil, sans houppier",71.54,36.53
+chaud_typique,trans3,15,Sous houppier,36.63,36.53
+chaud_typique,trans3,15,Ombre des bâtiments,43.68,36.53
+chaud_typique,trans3,16,"Soleil, sans houppier",73.27,36.7
+chaud_typique,trans3,16,Sous houppier,36.46,36.7
+chaud_typique,trans3,16,Ombre des bâtiments,42.78,36.7
+chaud_typique,trans3,17,"Soleil, sans houppier",70.01,34.16
+chaud_typique,trans3,17,Sous houppier,33.87,34.16
+chaud_typique,trans3,17,Ombre des bâtiments,39.64,34.16
+chaud_typique,trans3,18,"Soleil, sans houppier",61.25,29.74
+chaud_typique,trans3,18,Sous houppier,29.26,29.74
+chaud_typique,trans3,18,Ombre des bâtiments,33.8,29.74
+chaud_typique,trans3,19,"Soleil, sans houppier",47.92,28.27
+chaud_typique,trans3,19,Sous houppier,26.22,28.27
+chaud_typique,trans3,19,Ombre des bâtiments,29.74,28.27
+chaud_typique,trans3,20,"Soleil, sans houppier",,24.44
+chaud_typique,trans3,20,Sous houppier,20.05,24.44
+chaud_typique,trans3,20,Ombre des bâtiments,,24.44
+chaud_typique,trans3,21,"Soleil, sans houppier",,24.49
+chaud_typique,trans3,21,Sous houppier,20.1,24.49
+chaud_typique,trans3,21,Ombre des bâtiments,,24.49
+chaud_typique,trans3,22,"Soleil, sans houppier",,23.34
+chaud_typique,trans3,22,Sous houppier,18.96,23.34
+chaud_typique,trans3,22,Ombre des bâtiments,,23.34
+chaud_typique,trans3,23,"Soleil, sans houppier",,23.25
+chaud_typique,trans3,23,Sous houppier,18.87,23.25
+chaud_typique,trans3,23,Ombre des bâtiments,,23.25
+chaud_typique,trans3,24,"Soleil, sans houppier",,22.97
+chaud_typique,trans3,24,Sous houppier,18.6,22.97
+chaud_typique,trans3,24,Ombre des bâtiments,,22.97
+chaud_typique,trans15,1,"Soleil, sans houppier",,22.05
+chaud_typique,trans15,1,Sous houppier,17.69,22.05
+chaud_typique,trans15,1,Ombre des bâtiments,,22.05
+chaud_typique,trans15,2,"Soleil, sans houppier",,21.37
+chaud_typique,trans15,2,Sous houppier,17.02,21.37
+chaud_typique,trans15,2,Ombre des bâtiments,,21.37
+chaud_typique,trans15,3,"Soleil, sans houppier",,21.34
+chaud_typique,trans15,3,Sous houppier,16.99,21.34
+chaud_typique,trans15,3,Ombre des bâtiments,,21.34
+chaud_typique,trans15,4,"Soleil, sans houppier",,21.51
+chaud_typique,trans15,4,Sous houppier,17.16,21.51
+chaud_typique,trans15,4,Ombre des bâtiments,,21.51
+chaud_typique,trans15,5,"Soleil, sans houppier",,20.55
+chaud_typique,trans15,5,Sous houppier,16.21,20.55
+chaud_typique,trans15,5,Ombre des bâtiments,,20.55
+chaud_typique,trans15,6,"Soleil, sans houppier",,20.83
+chaud_typique,trans15,6,Sous houppier,16.49,20.83
+chaud_typique,trans15,6,Ombre des bâtiments,,20.83
+chaud_typique,trans15,7,"Soleil, sans houppier",,20.97
+chaud_typique,trans15,7,Sous houppier,16.63,20.97
+chaud_typique,trans15,7,Ombre des bâtiments,,20.97
+chaud_typique,trans15,8,"Soleil, sans houppier",37.37,22.91
+chaud_typique,trans15,8,Sous houppier,21.92,22.91
+chaud_typique,trans15,8,Ombre des bâtiments,23.44,22.91
+chaud_typique,trans15,9,"Soleil, sans houppier",52.68,24.43
+chaud_typique,trans15,9,Sous houppier,26.25,24.43
+chaud_typique,trans15,9,Ombre des bâtiments,28.79,24.43
+chaud_typique,trans15,10,"Soleil, sans houppier",63.28,29.0
+chaud_typique,trans15,10,Sous houppier,32.06,29.0
+chaud_typique,trans15,10,Ombre des bâtiments,35.26,29.0
+chaud_typique,trans15,11,"Soleil, sans houppier",67.42,30.48
+chaud_typique,trans15,11,Sous houppier,34.75,30.48
+chaud_typique,trans15,11,Ombre des bâtiments,38.72,30.48
+chaud_typique,trans15,12,"Soleil, sans houppier",68.28,32.05
+chaud_typique,trans15,12,Sous houppier,36.67,32.05
+chaud_typique,trans15,12,Ombre des bâtiments,41.48,32.05
+chaud_typique,trans15,13,"Soleil, sans houppier",65.85,32.5
+chaud_typique,trans15,13,Sous houppier,37.49,32.5
+chaud_typique,trans15,13,Ombre des bâtiments,42.62,32.5
+chaud_typique,trans15,14,"Soleil, sans houppier",66.75,35.07
+chaud_typique,trans15,14,Sous houppier,39.72,35.07
+chaud_typique,trans15,14,Ombre des bâtiments,46.45,35.07
+chaud_typique,trans15,15,"Soleil, sans houppier",71.55,36.53
+chaud_typique,trans15,15,Sous houppier,41.12,36.53
+chaud_typique,trans15,15,Ombre des bâtiments,46.74,36.53
+chaud_typique,trans15,16,"Soleil, sans houppier",73.28,36.7
+chaud_typique,trans15,16,Sous houppier,41.21,36.7
+chaud_typique,trans15,16,Ombre des bâtiments,46.04,36.7
+chaud_typique,trans15,17,"Soleil, sans houppier",70.01,34.16
+chaud_typique,trans15,17,Sous houppier,38.5,34.16
+chaud_typique,trans15,17,Ombre des bâtiments,42.63,34.16
+chaud_typique,trans15,18,"Soleil, sans houppier",61.26,29.74
+chaud_typique,trans15,18,Sous houppier,33.22,29.74
+chaud_typique,trans15,18,Ombre des bâtiments,36.24,29.74
+chaud_typique,trans15,19,"Soleil, sans houppier",47.92,28.27
+chaud_typique,trans15,19,Sous houppier,28.68,28.27
+chaud_typique,trans15,19,Ombre des bâtiments,31.08,28.27
+chaud_typique,trans15,20,"Soleil, sans houppier",,24.44
+chaud_typique,trans15,20,Sous houppier,20.05,24.44
+chaud_typique,trans15,20,Ombre des bâtiments,,24.44
+chaud_typique,trans15,21,"Soleil, sans houppier",,24.49
+chaud_typique,trans15,21,Sous houppier,20.1,24.49
+chaud_typique,trans15,21,Ombre des bâtiments,,24.49
+chaud_typique,trans15,22,"Soleil, sans houppier",,23.34
+chaud_typique,trans15,22,Sous houppier,18.96,23.34
+chaud_typique,trans15,22,Ombre des bâtiments,,23.34
+chaud_typique,trans15,23,"Soleil, sans houppier",,23.25
+chaud_typique,trans15,23,Sous houppier,18.87,23.25
+chaud_typique,trans15,23,Ombre des bâtiments,,23.25
+chaud_typique,trans15,24,"Soleil, sans houppier",,22.97
+chaud_typique,trans15,24,Sous houppier,18.6,22.97
+chaud_typique,trans15,24,Ombre des bâtiments,,22.97
+chaud_typique,sans_arbres,1,"Soleil, sans houppier",,22.05
+chaud_typique,sans_arbres,1,Sous houppier,17.69,22.05
+chaud_typique,sans_arbres,1,Ombre des bâtiments,,22.05
+chaud_typique,sans_arbres,2,"Soleil, sans houppier",,21.37
+chaud_typique,sans_arbres,2,Sous houppier,17.02,21.37
+chaud_typique,sans_arbres,2,Ombre des bâtiments,,21.37
+chaud_typique,sans_arbres,3,"Soleil, sans houppier",,21.34
+chaud_typique,sans_arbres,3,Sous houppier,16.99,21.34
+chaud_typique,sans_arbres,3,Ombre des bâtiments,,21.34
+chaud_typique,sans_arbres,4,"Soleil, sans houppier",,21.51
+chaud_typique,sans_arbres,4,Sous houppier,17.16,21.51
+chaud_typique,sans_arbres,4,Ombre des bâtiments,,21.51
+chaud_typique,sans_arbres,5,"Soleil, sans houppier",,20.55
+chaud_typique,sans_arbres,5,Sous houppier,16.21,20.55
+chaud_typique,sans_arbres,5,Ombre des bâtiments,,20.55
+chaud_typique,sans_arbres,6,"Soleil, sans houppier",,20.83
+chaud_typique,sans_arbres,6,Sous houppier,16.49,20.83
+chaud_typique,sans_arbres,6,Ombre des bâtiments,,20.83
+chaud_typique,sans_arbres,7,"Soleil, sans houppier",,20.97
+chaud_typique,sans_arbres,7,Sous houppier,16.63,20.97
+chaud_typique,sans_arbres,7,Ombre des bâtiments,,20.97
+chaud_typique,sans_arbres,8,"Soleil, sans houppier",34.74,22.91
+chaud_typique,sans_arbres,8,Sous houppier,34.69,22.91
+chaud_typique,sans_arbres,8,Ombre des bâtiments,20.87,22.91
+chaud_typique,sans_arbres,9,"Soleil, sans houppier",47.93,24.43
+chaud_typique,sans_arbres,9,Sous houppier,47.88,24.43
+chaud_typique,sans_arbres,9,Ombre des bâtiments,24.06,24.43
+chaud_typique,sans_arbres,10,"Soleil, sans houppier",58.78,29.0
+chaud_typique,sans_arbres,10,Sous houppier,58.74,29.0
+chaud_typique,sans_arbres,10,Ombre des bâtiments,29.45,29.0
+chaud_typique,sans_arbres,11,"Soleil, sans houppier",63.32,30.48
+chaud_typique,sans_arbres,11,Sous houppier,63.28,30.48
+chaud_typique,sans_arbres,11,Ombre des bâtiments,32.36,30.48
+chaud_typique,sans_arbres,12,"Soleil, sans houppier",64.71,32.05
+chaud_typique,sans_arbres,12,Sous houppier,64.68,32.05
+chaud_typique,sans_arbres,12,Ombre des bâtiments,34.98,32.05
+chaud_typique,sans_arbres,13,"Soleil, sans houppier",62.82,32.5
+chaud_typique,sans_arbres,13,Sous houppier,62.78,32.5
+chaud_typique,sans_arbres,13,Ombre des bâtiments,,32.5
+chaud_typique,sans_arbres,14,"Soleil, sans houppier",64.37,35.07
+chaud_typique,sans_arbres,14,Sous houppier,64.34,35.07
+chaud_typique,sans_arbres,14,Ombre des bâtiments,,35.07
+chaud_typique,sans_arbres,15,"Soleil, sans houppier",68.9,36.53
+chaud_typique,sans_arbres,15,Sous houppier,68.87,36.53
+chaud_typique,sans_arbres,15,Ombre des bâtiments,41.79,36.53
+chaud_typique,sans_arbres,16,"Soleil, sans houppier",70.27,36.7
+chaud_typique,sans_arbres,16,Sous houppier,70.25,36.7
+chaud_typique,sans_arbres,16,Ombre des bâtiments,40.2,36.7
+chaud_typique,sans_arbres,17,"Soleil, sans houppier",66.78,34.16
+chaud_typique,sans_arbres,17,Sous houppier,66.76,34.16
+chaud_typique,sans_arbres,17,Ombre des bâtiments,37.49,34.16
+chaud_typique,sans_arbres,18,"Soleil, sans houppier",57.85,29.74
+chaud_typique,sans_arbres,18,Sous houppier,57.83,29.74
+chaud_typique,sans_arbres,18,Ombre des bâtiments,32.53,29.74
+chaud_typique,sans_arbres,19,"Soleil, sans houppier",45.6,28.27
+chaud_typique,sans_arbres,19,Sous houppier,45.58,28.27
+chaud_typique,sans_arbres,19,Ombre des bâtiments,28.94,28.27
+chaud_typique,sans_arbres,20,"Soleil, sans houppier",,24.44
+chaud_typique,sans_arbres,20,Sous houppier,20.05,24.44
+chaud_typique,sans_arbres,20,Ombre des bâtiments,,24.44
+chaud_typique,sans_arbres,21,"Soleil, sans houppier",,24.49
+chaud_typique,sans_arbres,21,Sous houppier,20.1,24.49
+chaud_typique,sans_arbres,21,Ombre des bâtiments,,24.49
+chaud_typique,sans_arbres,22,"Soleil, sans houppier",,23.34
+chaud_typique,sans_arbres,22,Sous houppier,18.96,23.34
+chaud_typique,sans_arbres,22,Ombre des bâtiments,,23.34
+chaud_typique,sans_arbres,23,"Soleil, sans houppier",,23.25
+chaud_typique,sans_arbres,23,Sous houppier,18.87,23.25
+chaud_typique,sans_arbres,23,Ombre des bâtiments,,23.25
+chaud_typique,sans_arbres,24,"Soleil, sans houppier",,22.97
+chaud_typique,sans_arbres,24,Sous houppier,18.6,22.97
+chaud_typique,sans_arbres,24,Ombre des bâtiments,,22.97
 saison_pluies,trans3,1,"Soleil, sans houppier",,27.04
 saison_pluies,trans3,1,Sous houppier,22.64,27.04
 saison_pluies,trans3,1,Ombre des bâtiments,,27.04

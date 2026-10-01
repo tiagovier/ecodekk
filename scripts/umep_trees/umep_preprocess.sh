@@ -160,6 +160,7 @@ step_solweig() {  # $1 = nom exact du run (optionnel)
   local met="$S/met/journees"
   local runs=(
     "chaud_saison_seche:$(ls "$met"/met_chaud_saison_seche_*.txt):saison_seche"
+    "chaud_typique:$(ls "$met"/met_chaud_typique_*.txt 2>/dev/null):saison_seche"
     "saison_pluies:$(ls "$met"/met_saison_pluies_*.txt):saison_pluies"
     "frais_saison_seche:$(ls "$met"/met_frais_saison_seche_*.txt):saison_seche"
   )

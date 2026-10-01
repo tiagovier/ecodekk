@@ -68,6 +68,75 @@ chaud_saison_seche,sans_arbres,Quartier 3,Îlots,135750.0,69.85,100.0,0.31,
 chaud_saison_seche,sans_arbres,Quartier 2,Voirie,15750.0,72.93,100.0,0.01,
 chaud_saison_seche,sans_arbres,Quartier 2,Zones inondables,725.0,70.33,100.0,0.0,
 chaud_saison_seche,sans_arbres,Quartier 2,Îlots,59700.0,69.83,100.0,0.13,
+chaud_typique,trans3,Servitude climatique 1,Voirie,5325.0,35.09,0.0,5.63,31.45
+chaud_typique,trans3,Servitude climatique 1,Zones inondables,68400.0,37.21,39.3,3.56,17.09
+chaud_typique,trans3,Servitude climatique 1,Îlots,135525.0,34.1,11.8,5.04,25.61
+chaud_typique,trans3,Quartier SC2,Voirie,10300.0,39.55,37.4,4.41,20.56
+chaud_typique,trans3,Quartier SC2,Zones inondables,5900.0,39.78,32.6,3.87,18.31
+chaud_typique,trans3,Quartier SC2,Îlots,54575.0,35.88,16.5,4.79,23.08
+chaud_typique,trans3,Quartier 1,Voirie,12975.0,42.75,32.8,3.78,17.99
+chaud_typique,trans3,Quartier 1,Îlots,66750.0,44.75,44.6,3.24,13.67
+chaud_typique,trans3,Quartier A,Voirie,49425.0,67.7,72.1,2.13,6.71
+chaud_typique,trans3,Quartier A,Zones inondables,12525.0,38.26,31.1,4.07,18.9
+chaud_typique,trans3,Quartier A,Îlots,101125.0,65.3,73.6,1.77,4.54
+chaud_typique,trans3,Quartier 6,Voirie,6000.0,36.27,15.4,4.85,26.85
+chaud_typique,trans3,Quartier 6,Îlots,48600.0,63.63,67.0,1.97,8.11
+chaud_typique,trans3,Quartier 4,Voirie,6600.0,44.07,46.6,3.75,15.16
+chaud_typique,trans3,Quartier 4,Îlots,58000.0,60.48,52.1,2.96,9.47
+chaud_typique,trans3,Quartier 5,Voirie,10750.0,40.05,34.9,4.71,19.66
+chaud_typique,trans3,Quartier 5,Îlots,43725.0,41.67,29.9,3.88,16.18
+chaud_typique,trans3,Quartier 3,Voirie,26575.0,36.87,10.6,5.18,27.67
+chaud_typique,trans3,Quartier 3,Zones inondables,475.0,35.67,0.0,5.78,26.58
+chaud_typique,trans3,Quartier 3,Îlots,135750.0,35.03,2.2,5.57,25.74
+chaud_typique,trans3,Quartier 2,Voirie,15750.0,64.47,68.9,2.87,8.88
+chaud_typique,trans3,Quartier 2,Zones inondables,725.0,35.13,0.0,5.79,28.86
+chaud_typique,trans3,Quartier 2,Îlots,59700.0,63.99,64.3,2.2,6.76
+chaud_typique,trans15,Servitude climatique 1,Voirie,5325.0,39.46,0.9,4.93,27.29
+chaud_typique,trans15,Servitude climatique 1,Zones inondables,68400.0,40.96,39.9,3.12,14.67
+chaud_typique,trans15,Servitude climatique 1,Îlots,135525.0,38.29,12.1,4.42,22.1
+chaud_typique,trans15,Quartier SC2,Voirie,10300.0,43.26,37.9,3.87,17.83
+chaud_typique,trans15,Quartier SC2,Zones inondables,5900.0,43.14,33.5,3.39,15.73
+chaud_typique,trans15,Quartier SC2,Îlots,54575.0,39.8,17.5,4.2,19.89
+chaud_typique,trans15,Quartier 1,Voirie,12975.0,46.1,32.9,3.31,15.41
+chaud_typique,trans15,Quartier 1,Îlots,66750.0,47.63,45.2,2.85,11.58
+chaud_typique,trans15,Quartier A,Voirie,49425.0,67.9,72.2,1.88,5.55
+chaud_typique,trans15,Quartier A,Zones inondables,12525.0,41.92,31.7,3.56,16.23
+chaud_typique,trans15,Quartier A,Îlots,101125.0,65.39,74.7,1.59,3.6
+chaud_typique,trans15,Quartier 6,Voirie,6000.0,40.49,16.2,4.25,23.31
+chaud_typique,trans15,Quartier 6,Îlots,48600.0,63.83,69.2,1.72,6.92
+chaud_typique,trans15,Quartier 4,Voirie,6600.0,47.17,47.0,3.29,13.03
+chaud_typique,trans15,Quartier 4,Îlots,58000.0,61.01,55.1,2.59,7.95
+chaud_typique,trans15,Quartier 5,Voirie,10750.0,43.73,35.8,4.13,16.98
+chaud_typique,trans15,Quartier 5,Îlots,43725.0,44.85,31.2,3.4,13.82
+chaud_typique,trans15,Quartier 3,Voirie,26575.0,40.98,11.1,4.54,23.98
+chaud_typique,trans15,Quartier 3,Zones inondables,475.0,39.67,0.0,5.1,22.89
+chaud_typique,trans15,Quartier 3,Îlots,135750.0,38.99,2.6,4.92,22.17
+chaud_typique,trans15,Quartier 2,Voirie,15750.0,64.99,68.9,2.52,7.52
+chaud_typique,trans15,Quartier 2,Zones inondables,725.0,39.21,0.0,5.07,24.88
+chaud_typique,trans15,Quartier 2,Îlots,59700.0,64.17,65.8,1.94,5.58
+chaud_typique,sans_arbres,Servitude climatique 1,Voirie,5325.0,68.0,100.0,0.0,
+chaud_typique,sans_arbres,Servitude climatique 1,Zones inondables,68400.0,64.36,100.0,0.0,
+chaud_typique,sans_arbres,Servitude climatique 1,Îlots,135525.0,64.37,100.0,0.0,
+chaud_typique,sans_arbres,Quartier SC2,Voirie,10300.0,67.79,100.0,0.0,
+chaud_typique,sans_arbres,Quartier SC2,Zones inondables,5900.0,64.28,100.0,0.0,
+chaud_typique,sans_arbres,Quartier SC2,Îlots,54575.0,64.34,100.0,0.0,
+chaud_typique,sans_arbres,Quartier 1,Voirie,12975.0,67.39,100.0,0.02,
+chaud_typique,sans_arbres,Quartier 1,Îlots,66750.0,64.16,99.9,0.11,
+chaud_typique,sans_arbres,Quartier A,Voirie,49425.0,67.73,100.0,0.12,
+chaud_typique,sans_arbres,Quartier A,Zones inondables,12525.0,64.27,100.0,0.0,
+chaud_typique,sans_arbres,Quartier A,Îlots,101125.0,64.26,98.5,0.3,
+chaud_typique,sans_arbres,Quartier 6,Voirie,6000.0,68.1,100.0,0.0,
+chaud_typique,sans_arbres,Quartier 6,Îlots,48600.0,64.33,100.0,0.01,
+chaud_typique,sans_arbres,Quartier 4,Voirie,6600.0,67.27,100.0,0.0,
+chaud_typique,sans_arbres,Quartier 4,Îlots,58000.0,63.6,99.8,0.03,
+chaud_typique,sans_arbres,Quartier 5,Voirie,10750.0,67.43,100.0,0.0,
+chaud_typique,sans_arbres,Quartier 5,Îlots,43725.0,63.85,99.8,0.01,
+chaud_typique,sans_arbres,Quartier 3,Voirie,26575.0,67.65,100.0,0.01,
+chaud_typique,sans_arbres,Quartier 3,Zones inondables,475.0,63.6,100.0,0.32,
+chaud_typique,sans_arbres,Quartier 3,Îlots,135750.0,64.02,100.0,0.3,
+chaud_typique,sans_arbres,Quartier 2,Voirie,15750.0,67.31,100.0,0.0,
+chaud_typique,sans_arbres,Quartier 2,Zones inondables,725.0,64.59,100.0,0.0,
+chaud_typique,sans_arbres,Quartier 2,Îlots,59700.0,64.02,98.3,0.12,
 saison_pluies,trans3,Servitude climatique 1,Voirie,5325.0,34.59,0.5,5.58,31.64
 saison_pluies,trans3,Servitude climatique 1,Zones inondables,68400.0,35.91,0.0,3.49,6.83
 saison_pluies,trans3,Servitude climatique 1,Îlots,135525.0,33.54,13.0,5.02,26.05

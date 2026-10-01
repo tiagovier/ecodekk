@@ -29,11 +29,12 @@ HERE = Path(__file__).resolve().parent
 STUDY = HERE.parents[1] / "data/scenarios/scenario_01/exports/umep/ombrage_arbres"
 
 DAYS = {
-    "chaud_saison_seche": "Journée chaude de saison sèche",
+    "chaud_saison_seche": "Journée chaude extrême de saison sèche",
+    "chaud_typique": "Journée chaude typique de saison sèche",
     "saison_pluies": "Journée de saison des pluies",
     "frais_saison_seche": "Journée fraîche de saison sèche",
 }
-DAY_VARIANT = {"chaud_saison_seche": "saison_seche", "saison_pluies": "saison_pluies",
+DAY_VARIANT = {"chaud_saison_seche": "saison_seche", "chaud_typique": "saison_seche", "saison_pluies": "saison_pluies",
                "frais_saison_seche": "saison_seche"}
 VEGETATION = {
     "trans3": "Arbres, transmissivité 3 %",
