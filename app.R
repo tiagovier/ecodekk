@@ -2341,7 +2341,7 @@ server <- function(input, output, session) {
         "var treeFeatures=trees.lon.map(function(lon,i){return {type:\u0027Feature\u0027,properties:trees.species?{s:trees.species[i]}:{},geometry:{type:\u0027Point\u0027,coordinates:[lon,trees.lat[i]]}};});",
         "map.addSource(\u0027arbres\u0027,{type:\u0027geojson\u0027,data:{type:\u0027FeatureCollection\u0027,features:treeFeatures}});",
         "var treeColor=\u0027#238b45\u0027;if(trees.species){treeColor=[\u0027match\u0027,[\u0027get\u0027,\u0027s\u0027]];trees.species_colors.forEach(function(c,i){treeColor.push(i,c);});treeColor.push(\u0027#238b45\u0027);}",
-        "map.addLayer({id:\u0027arbres\u0027,type:\u0027circle\u0027,source:\u0027arbres\u0027,paint:{\u0027circle-radius\u0027:[\u0027interpolate\u0027,[\u0027linear\u0027],[\u0027zoom\u0027],13,1.2,17,3.5],\u0027circle-color\u0027:treeColor,\u0027circle-opacity\u0027:0.82,\u0027circle-stroke-color\u0027:\u0027#0b5d2a\u0027,\u0027circle-stroke-width\u0027:0.5}});",
+        "map.addLayer({id:\u0027arbres\u0027,type:\u0027circle\u0027,source:\u0027arbres\u0027,layout:{visibility:\u0027none\u0027},paint:{\u0027circle-radius\u0027:[\u0027interpolate\u0027,[\u0027linear\u0027],[\u0027zoom\u0027],13,1.2,17,3.5],\u0027circle-color\u0027:treeColor,\u0027circle-opacity\u0027:0.82,\u0027circle-stroke-color\u0027:\u0027#0b5d2a\u0027,\u0027circle-stroke-width\u0027:0.5}});",
         "map.addSource(\u0027batiments\u0027,{type:\u0027geojson\u0027,data:buildings});",
         "map.addSource(\u0027niveaux-batiments\u0027,{type:\u0027geojson\u0027,data:levelBlocks});",
         "map.addLayer({id:\u0027batiments-par-niveau\u0027,type:\u0027fill-extrusion\u0027,source:\u0027niveaux-batiments\u0027,paint:{\u0027fill-extrusion-color\u0027:expression,\u0027fill-extrusion-height\u0027:[\u0027get\u0027,\u0027top_height_m\u0027],\u0027fill-extrusion-base\u0027:[\u0027get\u0027,\u0027base_height_m\u0027],\u0027fill-extrusion-opacity\u0027:0.92}});",
@@ -2401,7 +2401,7 @@ server <- function(input, output, session) {
       c("Bâtiments par niveau", "batiments-par-niveau,batiments-controle", "true"),
       c("Signalements", "signalements-coherence", "false"),
       c("Axes de voirie", "voiries-projet", "false"),
-      c("Arbres", "arbres", "true"),
+      c("Arbres", "arbres", "false"),
       c("Emprises de voirie", "emprises-voirie", "true"),
       c("Quartiers", "quartiers", "true"),
       c("Emprise du projet", "emprise-projet", "true"),
@@ -2439,7 +2439,7 @@ server <- function(input, output, session) {
         div(legend_rows)
       ),
       tags$details(
-        class = "map3d-legend map3d-legend-trees", open = if (length(species_rows)) NA else NULL,
+        class = "map3d-legend map3d-legend-trees",
         tags$summary("Essences d'arbres"),
         div(
           species_rows,
