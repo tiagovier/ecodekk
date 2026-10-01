@@ -446,3 +446,58 @@ migrate_legacy_scenario <- function(legacy_path, directory) {
   )
   read_scenario_bundle(directory)
 }
+
+# Scénario de référence protégé et scénarios masqués à l'utilisateur.
+baseline_scenario_id <- "scenario_01"
+hidden_scenario_ids <- c("base")
+
+visible_scenario_inventory <- function(inventory) {
+  inventory[!inventory$label %in% hidden_scenario_ids, , drop = FALSE]
+}
+
+scenario_label_from_path <- function(directory, root) {
+  root_path <- normalizePath(root, winslash = "/", mustWork = TRUE)
+  path <- normalizePath(directory, winslash = "/", mustWork = TRUE)
+  if (!startsWith(path, paste0(root_path, "/"))) {
+    stop("Le dossier n’appartient pas au répertoire des scénarios.")
+  }
+  substring(path, nchar(root_path) + 2L)
+}
+
+# Nouveau scénario à partir de l'état enregistré d'un scénario existant.
+# Les résultats d'études (exports/umep) ne sont pas copiés.
+duplicate_scenario_bundle <- function(source_directory, root, scenario_id) {
+  data <- read_scenario_bundle(source_directory)
+  spatial <- data$spatial
+  context <- spatial[setdiff(names(spatial), c("buildings", "roads", "parcels"))]
+  create_scenario_snapshot(
+    root = root,
+    scenario_id = scenario_id,
+    model = data$model,
+    buildings = spatial$buildings,
+    roads = spatial$roads,
+    parcels = spatial$parcels,
+    context = context
+  )
+}
+
+# Suppression réversible : le dossier est déplacé dans trash_root, jamais effacé.
+delete_scenario_bundle <- function(directory, root, trash_root, timestamp = Sys.time()) {
+  label <- scenario_label_from_path(directory, root)
+  if (identical(label, baseline_scenario_id)) {
+    stop("Le scénario de référence ", baseline_scenario_id, " ne peut pas être supprimé.")
+  }
+  if (label %in% hidden_scenario_ids) {
+    stop("Ce scénario est réservé et ne peut pas être supprimé depuis l’application.")
+  }
+  if (!dir.exists(trash_root) && !dir.create(trash_root, recursive = TRUE)) {
+    stop("Impossible de créer le dossier des scénarios supprimés.")
+  }
+  target <- file.path(
+    trash_root,
+    paste0(gsub("/", "__", label, fixed = TRUE), "_", format(timestamp, "%Y%m%d_%H%M%S"))
+  )
+  if (file.exists(target)) stop("Un scénario supprimé porte déjà ce nom.")
+  if (!file.rename(directory, target)) stop("Impossible de supprimer le scénario.")
+  normalizePath(target, winslash = "/", mustWork = TRUE)
+}

@@ -187,3 +187,48 @@ test_that("un scénario sans arbres reste lisible", {
   stored <- empty_project_trees()
   expect_identical(resolve_scenario_trees(list(trees = stored), missing_reference), stored)
 })
+
+test_that("les scénarios se dupliquent depuis un scénario choisi et se suppriment de façon réversible", {
+  root <- tempfile("scenarios-")
+  trash <- tempfile("scenarios-supprimes-")
+  dir.create(root)
+  on.exit(unlink(c(root, trash), recursive = TRUE), add = TRUE)
+  point <- sf::st_sfc(sf::st_point(c(-17, 14)), crs = 4326)
+  buildings <- sf::st_sf(building_id = "b1", product_id = "rm_2", included_in_simulation = TRUE, geometry = point)
+  one <- buildings[, "building_id", drop = FALSE]
+  context <- list(quartiers = one, land_use = one, road_footprints = one, flood_areas = one,
+                  project_boundary = one, title_boundary = one)
+  model <- scenario_model(
+    scenario_id = "scenario_01", reference_building_count = 1,
+    sources = data.frame(scenario_layer = "buildings", reference_source = "ref.gpkg", stringsAsFactors = FALSE),
+    construction_categories = initial_construction_categories(), products = initial_products(),
+    districts = initial_districts(), program = initial_program(),
+    development_expenses = initial_development_expenses(),
+    financial_assumptions = initial_financial_assumptions(),
+    height_assumptions = initial_height_assumptions(),
+    building_level_allocations = data.frame(building_id = character(), level_number = integer(),
+                                            product_id = character(), stringsAsFactors = FALSE)
+  )
+  for (id in c("scenario_01", "base")) {
+    model$scenario_id <- id
+    write_scenario_bundle(file.path(root, id), model, buildings, one, one, context)
+  }
+
+  inventory <- discover_scenario_bundles(root)
+  expect_setequal(inventory$label, c("base", "scenario_01"))
+  expect_identical(visible_scenario_inventory(inventory)$label, "scenario_01")
+
+  copy <- duplicate_scenario_bundle(file.path(root, "scenario_01"), root, "scenario_02")
+  restored <- read_scenario_bundle(copy)
+  expect_identical(restored$model$scenario_id, "scenario_02")
+  expect_identical(restored$spatial$buildings$building_id, "b1")
+  expect_error(duplicate_scenario_bundle(file.path(root, "scenario_01"), root, "scenario_02"), "existe déjà")
+
+  expect_error(delete_scenario_bundle(file.path(root, "scenario_01"), root, trash), "référence")
+  expect_error(delete_scenario_bundle(file.path(root, "base"), root, trash), "réservé")
+  moved <- delete_scenario_bundle(copy, root, trash, timestamp = as.POSIXct("2026-10-01 10:00:00", tz = "UTC"))
+  expect_false(dir.exists(file.path(root, "scenario_02")))
+  expect_true(file.exists(file.path(moved, "spatial.gpkg")))
+  expect_match(basename(moved), "^scenario_02_20261001_100000$")
+  expect_error(scenario_label_from_path(trash, root), "n’appartient pas")
+})

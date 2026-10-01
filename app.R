@@ -13,7 +13,8 @@ source(file.path("R", "umep_climate.R"), encoding = "UTF-8")
 addResourcePath("branding", normalizePath("img", winslash = "/", mustWork = TRUE))
 
 scenario_root <- file.path("data", "scenarios")
-default_scenario_id <- normalize_scenario_id(Sys.getenv("ECODEKK_SCENARIO_ID", "base"))
+default_scenario_id <- normalize_scenario_id(Sys.getenv("ECODEKK_SCENARIO_ID", baseline_scenario_id))
+scenario_trash_root <- file.path("data", "scenarios_supprimes")
 default_scenario_directory <- file.path(scenario_root, default_scenario_id)
 legacy_building_overrides_path <- file.path("data", "building_control_overrides.csv")
 
@@ -89,7 +90,7 @@ scenario_choice_values <- function(inventory) {
 }
 
 initial_scenario_inventory <- discover_scenario_bundles(scenario_root)
-initial_scenario_choices <- scenario_choice_values(initial_scenario_inventory)
+initial_scenario_choices <- scenario_choice_values(visible_scenario_inventory(initial_scenario_inventory))
 if (!length(initial_scenario_choices)) {
   initial_scenario_choices <- stats::setNames(
     default_scenario_directory, default_scenario_id
@@ -339,6 +340,7 @@ ui <- navbarPage(
             5,
             br(),
             actionButton("new_scenario", "Nouveau scénario"),
+            actionButton("delete_scenario", "Supprimer un scénario", class = "btn-danger"),
             downloadButton(
               "download_scenario", "Télécharger le scénario",
               class = "btn-success"
@@ -617,7 +619,7 @@ server <- function(input, output, session) {
         apply_scenario_data(data, requested)
         updateSelectInput(
           session, "scenario_file",
-          choices = scenario_choice_values(discover_scenario_bundles(scenario_root)),
+          choices = scenario_choice_values(visible_scenario_inventory(discover_scenario_bundles(scenario_root))),
           selected = scenario$path
         )
         scenario$status <- paste0("Scénario chargé : ", scenario$id)
@@ -665,7 +667,7 @@ server <- function(input, output, session) {
   refresh_scenario_choices <- function(selected = isolate(input$scenario_file)) {
     inventory <- discover_scenario_bundles(scenario_root)
     scenario_inventory(inventory)
-    choices <- scenario_choice_values(inventory)
+    choices <- scenario_choice_values(visible_scenario_inventory(inventory))
     if (!length(choices)) {
       choices <- stats::setNames(default_scenario_directory, default_scenario_id)
     }
@@ -809,18 +811,33 @@ server <- function(input, output, session) {
     )
   }
 
+  visible_scenario_choices <- function() {
+    scenario_choice_values(visible_scenario_inventory(discover_scenario_bundles(scenario_root)))
+  }
+
+  baseline_scenario_path <- function() {
+    normalizePath(file.path(scenario_root, baseline_scenario_id), winslash = "/", mustWork = FALSE)
+  }
+
   observeEvent(input$new_scenario, {
-    req(scenario$path, !scenario$loading)
+    req(!scenario$loading)
+    choices <- visible_scenario_choices()
+    selected <- if (baseline_scenario_path() %in% unname(choices)) baseline_scenario_path() else unname(choices)[1]
     suggested_id <- paste0("scenario_", format(Sys.time(), "%Y%m%d_%H%M"))
     showModal(modalDialog(
       title = "Créer un nouveau scénario",
+      selectInput("new_scenario_source", "À partir du scénario", choices = choices, selected = selected),
       textInput(
-        "new_scenario_id", "Identifiant du scénario",
+        "new_scenario_id", "Identifiant du nouveau scénario",
         value = suggested_id
       ),
       p(
         class = "help-text",
-        "Le nouveau scénario sera une copie complète de l’état courant. Son programme sera recalculé depuis les bâtiments SIG."
+        paste0(
+          "Le nouveau scénario est une copie de l’état enregistré du scénario choisi (",
+          baseline_scenario_id, " par défaut, scénario de référence). Son programme est recalculé depuis les bâtiments SIG. ",
+          "Les résultats des études UMEP ne sont pas copiés : ils restent propres à leur scénario."
+        )
       ),
       footer = tagList(
         modalButton("Annuler"),
@@ -831,22 +848,73 @@ server <- function(input, output, session) {
   })
 
   observeEvent(input$confirm_new_scenario, {
-    req(input$new_scenario_id, scenario$path, !scenario$loading)
+    req(input$new_scenario_id, input$new_scenario_source, !scenario$loading)
     tryCatch(
       {
-        new_path <- create_scenario_snapshot(
+        new_path <- duplicate_scenario_bundle(
+          source_directory = input$new_scenario_source,
           root = scenario_root,
-          scenario_id = trimws(input$new_scenario_id),
-          model = current_scenario_model(),
-          buildings = state$buildings,
-          roads = scenario$roads,
-          parcels = scenario$parcels,
-          context = scenario$context
+          scenario_id = trimws(input$new_scenario_id)
         )
         removeModal()
         refresh_scenario_choices(new_path)
         schedule_scenario_load(new_path)
         showNotification("Nouveau scénario créé.", type = "message")
+      },
+      error = function(error) {
+        showNotification(conditionMessage(error), type = "error", duration = NULL)
+      }
+    )
+  })
+
+  observeEvent(input$delete_scenario, {
+    req(!scenario$loading)
+    choices <- visible_scenario_choices()
+    choices <- choices[unname(choices) != baseline_scenario_path()]
+    if (!length(choices)) {
+      showNotification("Aucun scénario supprimable : le scénario de référence est protégé.", type = "warning")
+      return()
+    }
+    showModal(modalDialog(
+      title = "Supprimer un scénario",
+      selectInput("delete_scenario_path", "Scénario à supprimer", choices = choices),
+      textInput("delete_scenario_confirm", "Pour confirmer, saisissez l’identifiant du scénario"),
+      p(
+        class = "help-text",
+        paste0(
+          "Le scénario de référence ", baseline_scenario_id, " ne peut pas être supprimé. ",
+          "Le dossier supprimé est déplacé dans data/scenarios_supprimes/ et peut être restauré manuellement."
+        )
+      ),
+      footer = tagList(
+        modalButton("Annuler"),
+        actionButton("confirm_delete_scenario", "Supprimer", class = "btn-danger")
+      ),
+      easyClose = TRUE
+    ))
+  })
+
+  observeEvent(input$confirm_delete_scenario, {
+    req(input$delete_scenario_path, !scenario$loading)
+    tryCatch(
+      {
+        label <- scenario_label_from_path(input$delete_scenario_path, scenario_root)
+        if (!identical(trimws(input$delete_scenario_confirm), label)) {
+          stop("L’identifiant saisi ne correspond pas au scénario à supprimer.")
+        }
+        was_loaded <- identical(
+          normalizePath(input$delete_scenario_path, winslash = "/", mustWork = TRUE),
+          scenario$path
+        )
+        delete_scenario_bundle(input$delete_scenario_path, scenario_root, scenario_trash_root)
+        removeModal()
+        if (was_loaded) {
+          refresh_scenario_choices(baseline_scenario_path())
+          schedule_scenario_load(baseline_scenario_path())
+        } else {
+          refresh_scenario_choices(scenario$path)
+        }
+        showNotification(paste0("Scénario « ", label, " » supprimé."), type = "message")
       },
       error = function(error) {
         showNotification(conditionMessage(error), type = "error", duration = NULL)

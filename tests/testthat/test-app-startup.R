@@ -9,8 +9,8 @@ test_that("le chargement différé conserve la session Shiny", {
 
     expect_false(scenario$loading)
     expect_null(scenario$error)
-    expect_equal(scenario$id, "base")
-    expect_equal(nrow(state$buildings), 528)
+    expect_equal(scenario$id, "scenario_01")
+    expect_equal(nrow(state$buildings), 496)
     buildings <- all_buildings()
     expect_equal(
       control_buildings()$building_id,
