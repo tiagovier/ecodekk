@@ -1,0 +1,426 @@
+{
+ "generated_at": "2026-10-02T21:31:56+00:00",
+ "scenario": "scenario_01",
+ "study": "vent_confort",
+ "coordinates": {
+  "wind": [
+   [
+    -17.0151724,
+    14.7762372
+   ],
+   [
+    -17.0028745,
+    14.7762372
+   ],
+   [
+    -17.0028745,
+    14.7637332
+   ],
+   [
+    -17.0151724,
+    14.7637332
+   ]
+  ],
+  "comfort": [
+   [
+    -17.0151724,
+    14.7762375
+   ],
+   [
+    -17.002828,
+    14.7762375
+   ],
+   [
+    -17.002828,
+    14.7637154
+   ],
+   [
+    -17.0151724,
+    14.7637154
+   ]
+  ]
+ },
+ "cases": [
+  {
+   "id": "chaud_saison_seche",
+   "label": "Journée chaude extrême de saison sèche",
+   "date": "2017-04-14"
+  },
+  {
+   "id": "chaud_typique",
+   "label": "Journée chaude typique de saison sèche",
+   "date": "2022-05-11"
+  },
+  {
+   "id": "saison_pluies",
+   "label": "Journée de saison des pluies",
+   "date": "2017-09-21"
+  },
+  {
+   "id": "frais_saison_seche",
+   "label": "Journée fraîche de saison sèche",
+   "date": "2018-01-17"
+  },
+  {
+   "id": "dominant_saison_seche",
+   "label": "Vent dominant de saison sèche (nov.–mai)"
+  },
+  {
+   "id": "dominant_saison_pluies",
+   "label": "Vent dominant de saison des pluies (juin–oct.)"
+  }
+ ],
+ "vegetation": [
+  {
+   "id": "trans3",
+   "label": "Arbres, transmissivité 3 %"
+  },
+  {
+   "id": "sans_arbres",
+   "label": "Sans arbres (référence)"
+  }
+ ],
+ "legends": {
+  "wind": {
+   "label": "Vent à 1,5 m (m/s)",
+   "unit": "m/s",
+   "stops": [
+    [
+     0,
+     "#f7fbff"
+    ],
+    [
+     0.5,
+     "#c6dbef"
+    ],
+    [
+     1,
+     "#6baed6"
+    ],
+    [
+     2,
+     "#2171b5"
+    ],
+    [
+     3,
+     "#6a51a3"
+    ],
+    [
+     5,
+     "#3f007d"
+    ]
+   ]
+  },
+  "utci": {
+   "label": "UTCI à 14 h (°C)",
+   "unit": "°C",
+   "stops": [
+    [
+     9,
+     "#2c7bb6"
+    ],
+    [
+     26,
+     "#ffffbf"
+    ],
+    [
+     32,
+     "#fdae61"
+    ],
+    [
+     38,
+     "#f46d43"
+    ],
+    [
+     46,
+     "#a50026"
+    ],
+    [
+     52,
+     "#67001f"
+    ]
+   ],
+   "classes": [
+    [
+     26,
+     "sans stress thermique"
+    ],
+    [
+     32,
+     "stress modéré"
+    ],
+    [
+     38,
+     "stress fort"
+    ],
+    [
+     46,
+     "stress très fort"
+    ],
+    [
+     99,
+     "stress extrême"
+    ]
+   ]
+  },
+  "pet": {
+   "label": "PET à 14 h (°C)",
+   "unit": "°C",
+   "stops": [
+    [
+     20,
+     "#2c7bb6"
+    ],
+    [
+     29,
+     "#ffffbf"
+    ],
+    [
+     35,
+     "#fdae61"
+    ],
+    [
+     41,
+     "#d7301f"
+    ],
+    [
+     50,
+     "#a50026"
+    ],
+    [
+     60,
+     "#67001f"
+    ]
+   ]
+  },
+  "utci_gain": {
+   "label": "Gain des arbres sur l'UTCI à 14 h (K)",
+   "unit": "K",
+   "stops": [
+    [
+     -2,
+     "#b2182b"
+    ],
+    [
+     0,
+     "#f7f7f7"
+    ],
+    [
+     2,
+     "#c7e9c0"
+    ],
+    [
+     4,
+     "#74c476"
+    ],
+    [
+     8,
+     "#238b45"
+    ],
+    [
+     12,
+     "#00441b"
+    ]
+   ]
+  }
+ },
+ "layers": [
+  {
+   "indicator": "wind",
+   "case": "chaud_saison_seche",
+   "vegetation": null,
+   "file": "wind_chaud_saison_seche.png",
+   "reference": {
+    "vitesse_10m_m_s": 4.94,
+    "direction_deg": 62.6
+   }
+  },
+  {
+   "indicator": "wind",
+   "case": "chaud_typique",
+   "vegetation": null,
+   "file": "wind_chaud_typique.png",
+   "reference": {
+    "vitesse_10m_m_s": 3.43,
+    "direction_deg": 325.0
+   }
+  },
+  {
+   "indicator": "wind",
+   "case": "saison_pluies",
+   "vegetation": null,
+   "file": "wind_saison_pluies.png",
+   "reference": {
+    "vitesse_10m_m_s": 0.57,
+    "direction_deg": 4.3
+   }
+  },
+  {
+   "indicator": "wind",
+   "case": "frais_saison_seche",
+   "vegetation": null,
+   "file": "wind_frais_saison_seche.png",
+   "reference": {
+    "vitesse_10m_m_s": 6.67,
+    "direction_deg": 30.0
+   }
+  },
+  {
+   "indicator": "wind",
+   "case": "dominant_saison_seche",
+   "vegetation": null,
+   "file": "wind_dominant_saison_seche.png",
+   "reference": {
+    "vitesse_10m_m_s": 4.91,
+    "direction_deg": 0.0
+   }
+  },
+  {
+   "indicator": "wind",
+   "case": "dominant_saison_pluies",
+   "vegetation": null,
+   "file": "wind_dominant_saison_pluies.png",
+   "reference": {
+    "vitesse_10m_m_s": 2.9,
+    "direction_deg": 292.5
+   }
+  },
+  {
+   "indicator": "utci",
+   "case": "chaud_saison_seche",
+   "vegetation": "trans3",
+   "file": "utci_chaud_saison_seche_trans3.png"
+  },
+  {
+   "indicator": "pet",
+   "case": "chaud_saison_seche",
+   "vegetation": "trans3",
+   "file": "pet_chaud_saison_seche_trans3.png"
+  },
+  {
+   "indicator": "utci",
+   "case": "chaud_saison_seche",
+   "vegetation": "sans_arbres",
+   "file": "utci_chaud_saison_seche_sans_arbres.png"
+  },
+  {
+   "indicator": "pet",
+   "case": "chaud_saison_seche",
+   "vegetation": "sans_arbres",
+   "file": "pet_chaud_saison_seche_sans_arbres.png"
+  },
+  {
+   "indicator": "utci_gain",
+   "case": "chaud_saison_seche",
+   "vegetation": "trans3",
+   "file": "utci_gain_chaud_saison_seche.png"
+  },
+  {
+   "indicator": "utci",
+   "case": "chaud_typique",
+   "vegetation": "trans3",
+   "file": "utci_chaud_typique_trans3.png"
+  },
+  {
+   "indicator": "pet",
+   "case": "chaud_typique",
+   "vegetation": "trans3",
+   "file": "pet_chaud_typique_trans3.png"
+  },
+  {
+   "indicator": "utci",
+   "case": "chaud_typique",
+   "vegetation": "sans_arbres",
+   "file": "utci_chaud_typique_sans_arbres.png"
+  },
+  {
+   "indicator": "pet",
+   "case": "chaud_typique",
+   "vegetation": "sans_arbres",
+   "file": "pet_chaud_typique_sans_arbres.png"
+  },
+  {
+   "indicator": "utci_gain",
+   "case": "chaud_typique",
+   "vegetation": "trans3",
+   "file": "utci_gain_chaud_typique.png"
+  },
+  {
+   "indicator": "utci",
+   "case": "saison_pluies",
+   "vegetation": "trans3",
+   "file": "utci_saison_pluies_trans3.png"
+  },
+  {
+   "indicator": "pet",
+   "case": "saison_pluies",
+   "vegetation": "trans3",
+   "file": "pet_saison_pluies_trans3.png"
+  },
+  {
+   "indicator": "utci",
+   "case": "saison_pluies",
+   "vegetation": "sans_arbres",
+   "file": "utci_saison_pluies_sans_arbres.png"
+  },
+  {
+   "indicator": "pet",
+   "case": "saison_pluies",
+   "vegetation": "sans_arbres",
+   "file": "pet_saison_pluies_sans_arbres.png"
+  },
+  {
+   "indicator": "utci_gain",
+   "case": "saison_pluies",
+   "vegetation": "trans3",
+   "file": "utci_gain_saison_pluies.png"
+  },
+  {
+   "indicator": "utci",
+   "case": "frais_saison_seche",
+   "vegetation": "trans3",
+   "file": "utci_frais_saison_seche_trans3.png"
+  },
+  {
+   "indicator": "pet",
+   "case": "frais_saison_seche",
+   "vegetation": "trans3",
+   "file": "pet_frais_saison_seche_trans3.png"
+  },
+  {
+   "indicator": "utci",
+   "case": "frais_saison_seche",
+   "vegetation": "sans_arbres",
+   "file": "utci_frais_saison_seche_sans_arbres.png"
+  },
+  {
+   "indicator": "pet",
+   "case": "frais_saison_seche",
+   "vegetation": "sans_arbres",
+   "file": "pet_frais_saison_seche_sans_arbres.png"
+  },
+  {
+   "indicator": "utci_gain",
+   "case": "frais_saison_seche",
+   "vegetation": "trans3",
+   "file": "utci_gain_frais_saison_seche.png"
+  }
+ ],
+ "missing": [],
+ "source": "UMEP URock v2023a (2 m, sortie 1,5 m) et Spatial Thermal Comfort (UTCI, PET) sur SOLWEIG 5 m",
+ "resolution_confort_m": 5,
+ "provenance": {
+  "vent": "vent_confort/wind_reference.yml (ERA5 10 m à 14 h ; vents dominants 2015–2024, secteur modal)",
+  "vent_regrille": "moyenne des pixels URock 2 m vers la grille SOLWEIG",
+  "tmrt": "ombrage_arbres/solweig_5m/<journée>_<végétation>/Tmrt_*_1400D.tif",
+  "personne": "valeurs par défaut UMEP : 35 ans, 75 kg, 180 cm, 0,9 clo, 80 W, homme, debout",
+  "attenuation_vegetation": "1,00 (défaut URock, plantation de mélèzes, Cionco 1978) — non locale"
+ },
+ "avertissements": [
+  "Vent de référence ERA5 (maille d'environ 31 km) : un instant (14 h) par journée, pas un champ moyen.",
+  "URock est un modèle diagnostique (Röckle) : il représente les sillages et accélérations, pas la turbulence.",
+  "L'atténuation du vent par les arbres utilise la valeur par défaut d'URock, non calibrée pour ces essences.",
+  "UTCI et PET pour une personne type (valeurs par défaut UMEP) ; le vent est moyenné sur la maille de confort.",
+  "Résultats surtout comparatifs (avec ou sans arbres, d'une journée ou d'un quartier à l'autre)."
+ ]
+}

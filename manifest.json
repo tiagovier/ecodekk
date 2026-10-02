@@ -2045,7 +2045,7 @@
   },
   "files": {
     "app.R": {
-      "checksum": "f1b158964e61df107a29f06f8163a1e0"
+      "checksum": "265bb88312c4473e72a51901d3634e47"
     },
     "data/building_control_overrides.csv": {
       "checksum": "b83716255e39facc6afca47ad1581227"
@@ -2203,6 +2203,90 @@
     "data/scenarios/scenario_01/exports/umep/ombrage_arbres/trees_thies_mature_seed20260930.gpkg": {
       "checksum": "837a5d7a8d72a2e8d76a911ba4b1197e"
     },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/indicators.csv": {
+      "checksum": "18c6ab4567b1a72a56beb7977d1145bc"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/manifest.json": {
+      "checksum": "1ef036e1f6b6542ce857860a641c3325"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/pet_chaud_saison_seche_sans_arbres.png": {
+      "checksum": "e29cccd534e6964b78c0b246ad29234e"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/pet_chaud_saison_seche_trans3.png": {
+      "checksum": "3824043aa33226031f9bbdba9d4de344"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/pet_chaud_typique_sans_arbres.png": {
+      "checksum": "a818e35de1216dc17c9256cce3bbe1e9"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/pet_chaud_typique_trans3.png": {
+      "checksum": "7a4a428bb4c1cc27816dfd1f20a92c05"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/pet_frais_saison_seche_sans_arbres.png": {
+      "checksum": "747daa88e55a41ab94153c44e6bca650"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/pet_frais_saison_seche_trans3.png": {
+      "checksum": "08c0a2dc6c58567e023c58f85eb98bbe"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/pet_saison_pluies_sans_arbres.png": {
+      "checksum": "03bd9c2a7d49312409efca31f5291404"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/pet_saison_pluies_trans3.png": {
+      "checksum": "2f388c06b23a32d59a0b5adcbe98f317"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/utci_chaud_saison_seche_sans_arbres.png": {
+      "checksum": "ccfbff91c1d721dc474d43f9d6baeb08"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/utci_chaud_saison_seche_trans3.png": {
+      "checksum": "a4b6b905e622f2dd3150b302a8591d7d"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/utci_chaud_typique_sans_arbres.png": {
+      "checksum": "8a6520cfd58c9a630ae46874643ca4be"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/utci_chaud_typique_trans3.png": {
+      "checksum": "e770813f0066536712bb32cb50b96cbe"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/utci_frais_saison_seche_sans_arbres.png": {
+      "checksum": "8a9f10c22e83841053212d292eb35535"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/utci_frais_saison_seche_trans3.png": {
+      "checksum": "a1db58569d4e979b48794c761c9dc709"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/utci_gain_chaud_saison_seche.png": {
+      "checksum": "403cd544e1a11339f96c8791a6dcdbb3"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/utci_gain_chaud_typique.png": {
+      "checksum": "35bf7d2c167ad17b0ea8a9d098bf8a65"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/utci_gain_frais_saison_seche.png": {
+      "checksum": "8662d98aafb41ce8a68dd35cdcb7b1cb"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/utci_gain_saison_pluies.png": {
+      "checksum": "d8f4d6ca035df4bacea0bcff13f92820"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/utci_saison_pluies_sans_arbres.png": {
+      "checksum": "73cb9a5ab6c970074dc9a38ce2fd88c1"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/utci_saison_pluies_trans3.png": {
+      "checksum": "87466276bebf0ede4e1a528b2d29f64a"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/wind_chaud_saison_seche.png": {
+      "checksum": "e730f9537f50ed37d4982bcf9853166c"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/wind_chaud_typique.png": {
+      "checksum": "6feb7814b73a8a0b7c50b285cec1ac08"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/wind_dominant_saison_pluies.png": {
+      "checksum": "58633c52c2b8d11256ffe288b96fb3b8"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/wind_dominant_saison_seche.png": {
+      "checksum": "06166ba3e3429239e69dc61835764244"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/wind_frais_saison_seche.png": {
+      "checksum": "13688e4487cbc766893ce34880c06eec"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/display/wind_saison_pluies.png": {
+      "checksum": "1c33ec64c920b8152125c5b47bb8240e"
+    },
     "data/scenarios/scenario_01/model.rds": {
       "checksum": "137d091347aed697feb70f0868c68970"
     },
@@ -2285,7 +2369,7 @@
       "checksum": "7ce9452c06b932613090d0be5b49e18f"
     },
     "R/umep_wind.R": {
-      "checksum": "db40cae0a6556467be726169fea44f2b"
+      "checksum": "c516bdbff8df667d2618d17322bcdf10"
     }
   },
   "users": null

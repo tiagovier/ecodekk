@@ -286,7 +286,7 @@ wind_comfort_tab <- tabPanel(
     ),
     h3("Par quartier"),
     p(class = "help-text",
-      "Valeurs médianes par quartier et par contexte (voirie, îlots, zones inondables) pour la journée ou le vent choisi, avec arbres."),
+      "Valeurs médianes par quartier et par contexte (voirie, îlots, zones inondables) : vent de la journée ou du vent choisi, confort ressenti pour la végétation choisie. Le gain d’UTCI compare la simulation avec arbres à la référence sans arbres."),
     DTOutput("wind_table")
   )
 )
@@ -3236,7 +3236,8 @@ server <- function(input, output, session) {
   output$wind_table <- renderDT({
     display <- wind_ready()
     req(display, input$wind_case)
-    datatable(wind_indicator_table(display, input$wind_case), rownames = FALSE, options = list(dom = "t", pageLength = 50))
+    datatable(wind_indicator_table(display, input$wind_case, input$wind_vegetation %||% "trans3"),
+      rownames = FALSE, options = list(dom = "t", pageLength = 50))
   })
 
   observeEvent(input$program_table_cell_edit, {

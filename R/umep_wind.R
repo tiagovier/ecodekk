@@ -82,9 +82,19 @@ wind_direction_label <- function(degrees) {
   sectors[(round((degrees %% 360) / 22.5) %% 16) + 1]
 }
 
-wind_indicator_table <- function(display, case) {
-  data <- display$indicators[display$indicators$cas == case, , drop = FALSE]
+# Tableau par quartier et contexte : vent de la journée (ligne `cas` = journée)
+# et confort ressenti de la végétation choisie (`cas` = journée_végétation).
+wind_indicator_table <- function(display, case, vegetation = "trans3") {
+  keys <- c("quartier", "contexte")
+  wind <- display$indicators[display$indicators$cas == case, c(keys, "vent_median_m_s", "vent_p90_m_s"), drop = FALSE]
+  comfort_columns <- c("utci_median_c", "utci_part_stress_tres_fort_pct", "pet_median_c", "gain_utci_moyen_k")
+  comfort <- display$indicators[display$indicators$cas == paste0(case, "_", vegetation),
+                                c(keys, comfort_columns), drop = FALSE]
+  data <- if (nrow(wind) && nrow(comfort)) {
+    merge(wind, comfort, by = keys, all = TRUE)
+  } else if (nrow(wind)) wind else comfort
   if (!nrow(data)) return(data.frame())
+  for (column in setdiff(c("vent_median_m_s", "vent_p90_m_s", comfort_columns), names(data))) data[[column]] <- NA_real_
   data$contexte <- factor(data$contexte, levels = umep_context_levels)
   data <- data[order(data$quartier, data$contexte), , drop = FALSE]
   out <- data.frame(
@@ -99,6 +109,7 @@ wind_indicator_table <- function(display, case) {
     check.names = FALSE,
     stringsAsFactors = FALSE
   )
+  rownames(out) <- NULL
   keep <- vapply(out, function(column) !all(is.na(column)), logical(1))
   out[, keep, drop = FALSE]
 }
@@ -156,6 +167,15 @@ wind_reading_guide <- function(display) {
         "Directions arrondies : pour le 17/01/2018 et le 11/05/2022, URock échoue avec la direction exacte d'ERA5",
         "(28,6° et 322,7°, défaut du modèle reproduit sur un extrait). Les calculs utilisent 30° et 325°, un écart",
         "inférieur à l'incertitude d'une direction horaire ERA5."
+      )),
+      htmltools::tags$li(paste(
+        "Sous les houppiers, le vent à 1,5 m est presque aussi fort qu'en terrain dégagé : URock laisse l'air passer sous",
+        "la couronne (zone des troncs) avec une atténuation générique. Le freinage du vent par les arbres à hauteur de piéton",
+        "est donc sous-estimé ; l'effet des arbres sur l'UTCI vient surtout de leur ombre."
+      )),
+      htmltools::tags$li(paste(
+        "Validation (échantillon de 500 m, 2026-10-02) : vent à 1,5 m égal à environ un tiers du vent ERA5 à 10 m en terrain",
+        "dégagé, sillages derrière les bâtiments ; un extrait reproduit le calcul du site complet (corrélation 0,98)."
       )),
       lapply(warnings, htmltools::tags$li)
     )

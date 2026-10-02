@@ -19,9 +19,12 @@ make_wind_display <- function(root) {
     avertissements = c("Limite vent")
   )
   jsonlite::write_json(manifest, file.path(directory, "manifest.json"), auto_unbox = TRUE, na = "null")
-  indicators <- data.frame(cas = "chaud", quartier = "Quartier 1", contexte = c("Îlots", "Voirie"),
-                           vent_median_m_s = c(1.2, 1.8), vent_p90_m_s = 2, utci_median_c = c(40, 42),
-                           utci_part_stress_tres_fort_pct = 50, pet_median_c = NA, gain_utci_moyen_k = 1.5)
+  indicators <- data.frame(
+    cas = c("chaud", "chaud", "chaud_trans3", "chaud_trans3", "chaud_sans_arbres"),
+    quartier = "Quartier 1", contexte = c("Îlots", "Voirie", "Îlots", "Voirie", "Îlots"),
+    vent_median_m_s = c(1.2, 1.8, NA, NA, NA), vent_p90_m_s = c(2, 2, NA, NA, NA),
+    utci_median_c = c(NA, NA, 40, 42, 47), utci_part_stress_tres_fort_pct = c(NA, NA, 50, 50, 100),
+    pet_median_c = NA, gain_utci_moyen_k = c(NA, NA, 1.5, 1.5, NA))
   utils::write.csv(indicators, file.path(directory, "indicators.csv"), row.names = FALSE, fileEncoding = "UTF-8")
   directory
 }
@@ -48,7 +51,11 @@ test_that("les résultats vent et confort ressenti sont lus et sélectionnés", 
 
   table <- wind_indicator_table(display, "chaud")
   expect_identical(table$Contexte, c("Voirie", "Îlots"))
+  expect_equal(table$`Vent médian à 1,5 m (m/s)`, c(1.8, 1.2))
+  expect_equal(table$`UTCI médiane (°C)`, c(42, 40))
   expect_false("PET médiane (°C)" %in% names(table))
+  expect_equal(wind_indicator_table(display, "chaud", "sans_arbres")$`UTCI médiane (°C)`, c(NA, 47))
+  expect_equal(nrow(wind_indicator_table(display, "dominant")), 0)
   expect_identical(wind_direction_label(c(0, 62.6, 292.5, 359)), c("du nord", "de l'est-nord-est", "de l'ouest-nord-ouest", "du nord"))
 })
 

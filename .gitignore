@@ -59,3 +59,4 @@ hs_err_pid*.log
 restart.txt
 data/scenarios/*/exports/umep/*/echantillon/
 *_styles.db
+data/scenarios/*/exports/umep/*/tmp/
