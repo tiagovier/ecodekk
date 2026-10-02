@@ -615,3 +615,25 @@ test_that("les cours intérieures issues de la polygonisation ne sont pas des b�
   expect_false(normalized$included_in_simulation[normalized$building_id == "bat_a_2"])
   expect_true(all(normalized$included_in_simulation[normalized$building_id != "bat_a_2"]))
 })
+
+test_that("l'aléa fort est ramené à un seul polygone à ses limites extérieures", {
+  square <- function(x0, y0, size) {
+    sf::st_polygon(list(rbind(c(x0, y0), c(x0 + size, y0), c(x0 + size, y0 + size), c(x0, y0 + size), c(x0, y0))))
+  }
+  with_hole <- sf::st_polygon(list(
+    rbind(c(0, 0), c(100, 0), c(100, 100), c(0, 100), c(0, 0)),
+    rbind(c(40, 40), c(60, 40), c(60, 60), c(40, 60), c(40, 40))
+  ))
+  layer <- sf::st_sf(
+    DN = c(1001, 1002, 1001, 1003),
+    geometry = sf::st_sfc(with_hole, square(100, 0, 50), square(300, 300, 5), square(500, 0, 20), crs = 32628)
+  )
+  geometry <- alea_fort_geometry(layer)
+  expect_equal(as.numeric(sf::st_area(geometry)), 100 * 100 + 50 * 50 + 20 * 20)
+  expect_length(geometry, 1)
+  outline <- alea_fort_outline(layer)
+  expect_equal(sf::st_crs(outline)$epsg, 4326L)
+  expect_true(all(sf::st_geometry_type(outline) == "MULTILINESTRING"))
+  expect_length(alea_fort_geometry(NULL), 0)
+  expect_equal(nrow(alea_fort_outline(layer[0, ])), 0)
+})

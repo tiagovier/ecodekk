@@ -17,6 +17,10 @@ import hashlib
 import json
 from pathlib import Path
 
+import pandas as _pd_compat
+# pandas 3 (~/.local, dépendance d'UMEP) et geopandas 0.14 (Ubuntu) : garder le type
+# objet pour le texte, que geopandas 0.14 sait écrire en GeoPackage.
+_pd_compat.set_option("future.infer_string", False)
 import geopandas as gpd
 import numpy as np
 import pandas as pd

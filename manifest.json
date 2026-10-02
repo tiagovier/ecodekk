@@ -2045,7 +2045,7 @@
   },
   "files": {
     "app.R": {
-      "checksum": "5470e5763d79db71a4d3aefee80d45fa"
+      "checksum": "f1b158964e61df107a29f06f8163a1e0"
     },
     "data/building_control_overrides.csv": {
       "checksum": "b83716255e39facc6afca47ad1581227"
@@ -2258,10 +2258,10 @@
       "checksum": "39a52d1852955e662a267642dca5afcd"
     },
     "R/charte_inputs_page.R": {
-      "checksum": "135089f06813eef999679cbd4551314c"
+      "checksum": "a9691ae4a1535c3b93f583e7ce789de3"
     },
     "R/charte_inputs.R": {
-      "checksum": "b90b94b319395953f15c0504b036fcb8"
+      "checksum": "031d89bb3f105c689141081e17c7fa2f"
     },
     "R/initial_data.R": {
       "checksum": "60de119171cb8826087a6099c07e4424"
@@ -2270,10 +2270,10 @@
       "checksum": "ef36ff8ed3247ebc229deb4285e578d5"
     },
     "R/scenario_data.R": {
-      "checksum": "7c4473a84ef2278d2027d34a977097ed"
+      "checksum": "3f07f2a988db6a529c0eb2e935692a35"
     },
     "R/spatial_data.R": {
-      "checksum": "b95e5363a09a9d08dee79a954b30f8a4"
+      "checksum": "b89277fffd2c41f7a022a110a99515ed"
     },
     "R/umep_climate.R": {
       "checksum": "59fba26cffb42d10f0e339b89834c019"
@@ -2283,6 +2283,9 @@
     },
     "R/umep_results.R": {
       "checksum": "7ce9452c06b932613090d0be5b49e18f"
+    },
+    "R/umep_wind.R": {
+      "checksum": "db40cae0a6556467be726169fea44f2b"
     }
   },
   "users": null

@@ -10,6 +10,7 @@ source(file.path("R", "scenario_data.R"), encoding = "UTF-8")
 source(file.path("R", "umep_results.R"), encoding = "UTF-8")
 source(file.path("R", "umep_climate.R"), encoding = "UTF-8")
 source(file.path("R", "umep_energy.R"), encoding = "UTF-8")
+source(file.path("R", "umep_wind.R"), encoding = "UTF-8")
 source(file.path("R", "charte_inputs.R"), encoding = "UTF-8")
 source(file.path("R", "charte_inputs_page.R"), encoding = "UTF-8")
 
@@ -226,6 +227,70 @@ grid_map_ui <- function(container_id, quartiers, grid) {
   )
 }
 
+# Carte MapLibre avec une image superposée (message « image-overlay »),
+# bâtiments et quartiers ; affichage seulement.
+image_map_ui <- function(container_id, quartiers, buildings, coordinates) {
+  districts_geojson <- sf_to_geojson(quartiers[, "district_label"])
+  buildings_geojson <- sf_to_geojson(sf::st_sf(geometry = sf::st_geometry(buildings)))
+  corners <- matrix(unlist(coordinates), ncol = 2, byrow = is.list(coordinates))
+  bounds <- c(min(corners[, 1]), min(corners[, 2]), max(corners[, 1]), max(corners[, 2]))
+  javascript <- sprintf(
+    paste0(
+      "(function(){var id='%s';function init(){",
+      "if(typeof maplibregl==='undefined'){setTimeout(init,100);return;}",
+      "if(window.ecodekkOverlayMaps[id]){try{window.ecodekkOverlayMaps[id].remove();}catch(e){}}",
+      "var districts=%s;var buildings=%s;var bounds=%s;",
+      "var map=new maplibregl.Map({container:id,bounds:bounds,fitBoundsOptions:{padding:20},",
+      "style:{version:8,sources:{osm:{type:'raster',tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],",
+      "tileSize:256,attribution:'© contributeurs OpenStreetMap'}},layers:[{id:'osm',type:'raster',source:'osm'}]}});",
+      "window.ecodekkOverlayMaps[id]=map;",
+      "map.addControl(new maplibregl.NavigationControl(),'top-left');",
+      "map.addControl(new maplibregl.ScaleControl({unit:'metric'}));",
+      "map.on('load',function(){",
+      "map.addSource('batiments',{type:'geojson',data:buildings});",
+      "map.addLayer({id:'batiments',type:'fill',source:'batiments',paint:{'fill-color':'#9e9e9e','fill-outline-color':'#424242','fill-opacity':0.9}});",
+      "map.addSource('quartiers',{type:'geojson',data:districts});",
+      "map.addLayer({id:'quartiers',type:'line',source:'quartiers',paint:{'line-color':'#333','line-width':1.6,'line-dasharray':[4,3]}});",
+      "map.ecodekkReady=true;window.ecodekkApplyOverlay(id);",
+      "});}init();})();"
+    ),
+    container_id, districts_geojson, buildings_geojson,
+    jsonlite::toJSON(list(bounds[1:2], bounds[3:4]))
+  )
+  tagList(
+    div(id = container_id),
+    tags$script(HTML(gsub("</", "<\\/", javascript, fixed = TRUE)))
+  )
+}
+
+wind_comfort_tab <- tabPanel(
+  "Vent et confort ressenti",
+  fluidPage(
+    h2("Vent et confort ressenti"),
+    uiOutput("wind_status"),
+    uiOutput("wind_guide"),
+    fluidRow(
+      column(
+        3,
+        radioButtons("wind_indicator", "Indicateur",
+          choices = stats::setNames(names(wind_indicator_labels), wind_indicator_labels)),
+        selectInput("wind_case", "Journée ou vent", choices = NULL),
+        conditionalPanel(
+          "input.wind_indicator == 'utci' || input.wind_indicator == 'pet'",
+          selectInput("wind_vegetation", "Végétation", choices = NULL)
+        ),
+        uiOutput("wind_legend"),
+        uiOutput("wind_notes")
+      ),
+      column(9, uiOutput("wind_map"))
+    ),
+    h3("Par quartier"),
+    p(class = "help-text",
+      "Valeurs médianes par quartier et par contexte (voirie, îlots, zones inondables) pour la journée ou le vent choisi, avec arbres."),
+    DTOutput("wind_table")
+  )
+)
+
 urban_climate_tab <- tabPanel(
   "Climat urbain",
   fluidPage(
@@ -321,6 +386,27 @@ ui <- navbarPage(
            map.setLayoutProperty('solweig', 'visibility', 'none');
          }
        };
+       window.ecodekkOverlayMaps = window.ecodekkOverlayMaps || {};
+       window.ecodekkOverlayData = window.ecodekkOverlayData || {};
+       window.ecodekkApplyOverlay = function(id) {
+         var map = window.ecodekkOverlayMaps[id], m = window.ecodekkOverlayData[id];
+         if (!map || !m || !map.ecodekkReady) return;
+         var source = map.getSource('overlay');
+         if (m.url && !source) {
+           map.addSource('overlay', {type: 'image', url: m.url, coordinates: m.coordinates});
+           map.addLayer({id: 'overlay', type: 'raster', source: 'overlay',
+             paint: {'raster-opacity': 0.85, 'raster-resampling': 'nearest'}}, 'batiments');
+         } else if (m.url) {
+           source.updateImage({url: m.url, coordinates: m.coordinates});
+           map.setLayoutProperty('overlay', 'visibility', 'visible');
+         } else if (source) {
+           map.setLayoutProperty('overlay', 'visibility', 'none');
+         }
+       };
+       Shiny.addCustomMessageHandler('image-overlay', function(message) {
+         window.ecodekkOverlayData[message.map] = message;
+         window.ecodekkApplyOverlay(message.map);
+       });
        window.ecodekkGridMaps = window.ecodekkGridMaps || {};
        window.ecodekkGridData = window.ecodekkGridData || {};
        window.ecodekkApplyGrid = function(id) {
@@ -370,6 +456,7 @@ ui <- navbarPage(
        .map3d-code {min-width:42px;font-weight:700;}
        #thermal_map_canvas {height:620px;}
        #climate_map_canvas, #energy_map_canvas {height:560px;}
+       #wind_map_canvas {height:620px;}
        .thermal-legend-bar {height:14px;border:1px solid #bbb;margin:4px 0 2px;}
        .thermal-legend-ticks {display:flex;justify-content:space-between;font-size:11px;color:#444;}
        .thermal-note {font-size:12px;color:#555;margin-top:10px;}
@@ -557,7 +644,8 @@ ui <- navbarPage(
     "Analyses et simulations",
     thermal_comfort_tab,
     urban_climate_tab,
-    energy_balance_tab
+    energy_balance_tab,
+    wind_comfort_tab
   ),
   navbarMenu(
     "Charte de performance",
@@ -619,6 +707,7 @@ server <- function(input, output, session) {
       quartiers = data$spatial$quartiers,
       land_use = data$spatial$land_use,
       trees = trees,
+      alea_fort = data$spatial$alea_fort,
       road_footprints = data$spatial$road_footprints,
       flood_areas = data$spatial$flood_areas,
       project_boundary = data$spatial$project_boundary,
@@ -2410,6 +2499,11 @@ server <- function(input, output, session) {
     road_footprints_geojson <- sf_to_geojson(
       scenario$context$road_footprints[, c("road_footprint_label", "Class")]
     )
+    alea_geojson <- if (is.null(scenario$context$alea_fort)) {
+      '{"type":"FeatureCollection","features":[]}'
+    } else {
+      sf_to_geojson(alea_fort_outline(scenario$context$alea_fort))
+    }
     flood_geojson <- sf_to_geojson(
       scenario$context$flood_areas[, c("flood_type", "basin", "surface_sqm")]
     )
@@ -2438,7 +2532,7 @@ server <- function(input, output, session) {
         "if(!container){return;}",
         "if(window.ecodekkMap3d){try{window.ecodekkMap3d.remove();}catch(e){}}",
         "var buildings=%s;var levelBlocks=%s;var roads=%s;var parcels=%s;var landuse=%s;",
-        "var roadFootprints=%s;var floods=%s;var districts=%s;",
+        "var roadFootprints=%s;var floods=%s;var aleaFort=%s;var districts=%s;",
         "var projectBoundary=%s;var titleBoundary=%s;var trees=%s;var colors=%s;var bounds=%s;",
         "var productExpression=[\u0027match\u0027,[\u0027get\u0027,\u0027typology_code\u0027]];",
         "Object.keys(colors).forEach(function(key){productExpression.push(key,colors[key]);});",
@@ -2457,6 +2551,8 @@ server <- function(input, output, session) {
         "map.addLayer({id:\u0027occupation-sol\u0027,type:\u0027fill\u0027,source:\u0027occupation-sol\u0027,layout:{visibility:\u0027none\u0027},paint:{\u0027fill-color\u0027:\u0027#9bb884\u0027,\u0027fill-opacity\u0027:0.18,\u0027fill-outline-color\u0027:\u0027#6c8057\u0027}});",
         "map.addSource(\u0027zones-inondables\u0027,{type:\u0027geojson\u0027,data:floods});",
         "map.addLayer({id:\u0027zones-inondables\u0027,type:\u0027fill\u0027,source:\u0027zones-inondables\u0027,paint:{\u0027fill-color\u0027:\u0027#56a6d8\u0027,\u0027fill-opacity\u0027:0.3,\u0027fill-outline-color\u0027:\u0027#286f9e\u0027}});",
+        "map.addSource(\u0027alea-fort\u0027,{type:\u0027geojson\u0027,data:aleaFort});",
+        "map.addLayer({id:\u0027alea-fort\u0027,type:\u0027line\u0027,source:\u0027alea-fort\u0027,paint:{\u0027line-color\u0027:\u0027#01579b\u0027,\u0027line-width\u0027:0.9,\u0027line-opacity\u0027:0.95,\u0027line-dasharray\u0027:[2,2]}});",
         "map.addSource(\u0027emprises-voirie\u0027,{type:\u0027geojson\u0027,data:roadFootprints});",
         "map.addLayer({id:\u0027emprises-voirie\u0027,type:\u0027fill\u0027,source:\u0027emprises-voirie\u0027,paint:{\u0027fill-color\u0027:\u0027#a5a5a5\u0027,\u0027fill-opacity\u0027:0.45,\u0027fill-outline-color\u0027:\u0027#777777\u0027}});",
         "map.addSource(\u0027quartiers\u0027,{type:\u0027geojson\u0027,data:districts});",
@@ -2500,6 +2596,7 @@ server <- function(input, output, session) {
       land_use_geojson,
       road_footprints_geojson,
       flood_geojson,
+      alea_geojson,
       districts_geojson,
       project_boundary_geojson,
       title_boundary_geojson,
@@ -2539,7 +2636,8 @@ server <- function(input, output, session) {
       c("Titre foncier", "titre-foncier", "true"),
       c("Limites parcellaires", "limites-parcellaires", "false"),
       c("Occupation du sol", "occupation-sol", "false"),
-      c("Zones inondables", "zones-inondables", "true")
+      c("Zones inondables", "zones-inondables", "true"),
+      c("Limite de l’aléa fort", "alea-fort", "true")
     )
     layer_controls <- lapply(layer_specs, function(spec) {
       tags$label(
@@ -3030,6 +3128,115 @@ server <- function(input, output, session) {
       graphics::lines(match(rows$month, months), rows$value, col = series[[name]][1], lwd = 2.4, type = "b", pch = 16)
     }
     graphics::legend("topleft", legend = c("Avec arbres", "Sans arbres"), col = c("#238b45", "#8c510a"), lwd = 2, bty = "n", cex = 0.85)
+  })
+
+  wind_display <- reactive({
+    req(scenario$path)
+    directory <- find_wind_display_directory(scenario$path)
+    if (is.null(directory)) return(NULL)
+    tryCatch(read_wind_display(directory), error = function(error) {
+      structure(list(message = conditionMessage(error)), class = "umep_display_error")
+    })
+  })
+
+  wind_ready <- reactive({
+    display <- wind_display()
+    if (is.null(display) || inherits(display, "umep_display_error")) NULL else display
+  })
+
+  wind_resource_prefix <- reactive({
+    display <- wind_ready()
+    req(display)
+    prefix <- paste0("umep_wind_", gsub("[^A-Za-z0-9_]", "_", scenario$id))
+    addResourcePath(prefix, normalizePath(display$directory, winslash = "/", mustWork = TRUE))
+    prefix
+  })
+
+  observeEvent(list(wind_ready(), input$wind_indicator), {
+    display <- wind_ready()
+    req(display, input$wind_indicator)
+    choices <- wind_case_choices(display, input$wind_indicator)
+    selected <- if (isolate(input$wind_case) %in% choices) isolate(input$wind_case) else unname(choices)[1]
+    updateSelectInput(session, "wind_case", choices = choices, selected = selected)
+    updateSelectInput(session, "wind_vegetation",
+      choices = stats::setNames(display$vegetation$id, display$vegetation$label),
+      selected = if (isolate(input$wind_vegetation) %in% display$vegetation$id) isolate(input$wind_vegetation) else display$vegetation$id[1])
+  })
+
+  output$wind_status <- renderUI({
+    display <- wind_display()
+    if (is.null(display)) {
+      return(div(class = "alert alert-info",
+        "Aucun résultat de vent pour ce scénario. L’étude de vent et de confort porte sur le scénario scenario_01."))
+    }
+    if (inherits(display, "umep_display_error")) {
+      return(div(class = "alert alert-danger", "Résultats vent/confort illisibles : ", display$message))
+    }
+    p(class = "help-text", paste0(
+      "URock (UMEP), vent à 1,5 m sur une grille de 2 m ; UTCI et PET à 14 h sur la grille de confort de ",
+      format_number_fr(display$manifest$resolution_confort_m, 0), " m. Vent de référence ERA5 : climat régional, pas une mesure sur le site."
+    ))
+  })
+
+  output$wind_guide <- renderUI({
+    display <- wind_ready()
+    req(display)
+    wind_reading_guide(display)
+  })
+
+  output$wind_map <- renderUI({
+    display <- wind_ready()
+    validate(need(!is.null(display), "Aucun résultat de vent à cartographier."))
+    validate(need(!is.null(scenario$context), "Les couches contextuelles ne peuvent pas être chargées."))
+    image_map_ui("wind_map_canvas", scenario$context$quartiers, urban_buildings(), display$manifest$coordinates$comfort)
+  })
+
+  observe({
+    display <- wind_ready()
+    req(display, input$wind_indicator, input$wind_case)
+    layer <- wind_layer(display, input$wind_indicator, input$wind_case, input$wind_vegetation %||% "")
+    url <- if (is.null(layer)) NULL else {
+      stamp <- as.integer(file.mtime(file.path(display$directory, layer$file)))
+      paste0(wind_resource_prefix(), "/", layer$file, "?v=", stamp)
+    }
+    session$sendCustomMessage("image-overlay", list(
+      map = "wind_map_canvas", url = url, coordinates = if (is.null(layer)) NULL else layer$coordinates
+    ))
+  })
+
+  output$wind_legend <- renderUI({
+    display <- wind_ready()
+    req(display, input$wind_indicator)
+    legend <- umep_legend(display, input$wind_indicator)
+    div(
+      tags$strong(legend$label),
+      div(class = "thermal-legend-bar", style = paste0("background:", legend$gradient, ";")),
+      div(class = "thermal-legend-ticks", lapply(legend$ticks, function(tick) span(format_number_fr(tick, if (tick %% 1 == 0) 0 else 1))))
+    )
+  })
+
+  output$wind_notes <- renderUI({
+    display <- wind_ready()
+    req(display, input$wind_indicator, input$wind_case)
+    layer <- wind_layer(display, input$wind_indicator, input$wind_case, input$wind_vegetation %||% "")
+    notes <- list(p(class = "thermal-note", wind_indicator_guidance(input$wind_indicator)))
+    reference <- if (!is.null(layer)) wind_reference_text(layer) else NULL
+    if (!is.null(reference)) notes <- c(notes, list(p(class = "thermal-note", reference)))
+    if (is.null(layer)) notes <- c(notes, list(p(class = "thermal-note", "Combinaison non disponible.")))
+    missing_cases <- setdiff(display$cases$id[!is.na(display$cases$date)], unique(display$layers$case[display$layers$indicator == "utci"]))
+    if (length(missing_cases) && input$wind_indicator %in% c("utci", "pet", "utci_gain")) {
+      labels <- display$cases$label[match(missing_cases, display$cases$id)]
+      notes <- c(notes, list(p(class = "thermal-note", paste0(
+        "Non disponible pour : ", paste(labels, collapse = ", "),
+        " (calcul du vent non abouti, voir le guide)."))))
+    }
+    tagList(notes)
+  })
+
+  output$wind_table <- renderDT({
+    display <- wind_ready()
+    req(display, input$wind_case)
+    datatable(wind_indicator_table(display, input$wind_case), rownames = FALSE, options = list(dom = "t", pageLength = 50))
   })
 
   observeEvent(input$program_table_cell_edit, {

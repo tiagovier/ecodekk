@@ -130,6 +130,18 @@ write_scenario_spatial_geopackage <- function(
       append = FALSE, quiet = TRUE
     )
   }
+  # Les couches ajoutées dans QGIS et inconnues de l'application sont
+  # recopiées telles quelles : une sauvegarde ne doit jamais les supprimer.
+  if (file.exists(path)) {
+    extra <- setdiff(sf::st_layers(path)$name, sf::st_layers(temporary)$name)
+    for (layer_name in extra) {
+      sf::gdal_utils(
+        "vectortranslate", path, temporary,
+        options = c("-update", "-preserve_fid", "-nln", layer_name, layer_name),
+        quiet = TRUE
+      )
+    }
+  }
   atomic_replace_file(temporary, path)
 }
 
@@ -144,7 +156,7 @@ read_scenario_spatial_geopackage <- function(path) {
   if (length(missing)) {
     stop("Couches manquantes dans le GeoPackage spatial : ", paste(missing, collapse = ", "), ".")
   }
-  layers <- c(expected, intersect("trees", available))
+  layers <- c(expected, intersect(c("trees", "alea_fort"), available))
   stats::setNames(
     lapply(layers, function(layer) sf::st_read(path, layer = layer, quiet = TRUE)),
     layers

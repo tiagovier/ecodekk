@@ -9,6 +9,7 @@ charte_layer_styles <- list(
   buildings = list(label = "Bâtiments", color = "#c0392b"),
   quartiers = list(label = "Quartiers", color = "#e67e22"),
   flood_areas = list(label = "Zones inondables", color = "#0277bd"),
+  alea_fort = list(label = "Aléa fort", color = "#01579b"),
   title_boundary = list(label = "Titre foncier", color = "#222222"),
   project_boundary = list(label = "Emprise du projet", color = "#222222")
 )
@@ -37,7 +38,7 @@ charte_inputs_tab <- function() {
       ),
       p(
         class = "help-text",
-        "Surface de référence : titre foncier. Zone d'aléa fort : zones inondables de flood_areas (lit mineur, lit moyen, rétention 50 cm, cuvettes de rétention)."
+        "Surface de référence : titre foncier. Zone d'aléa fort : couche alea_fort du scénario (zone réellement inondée), fusionnée en un seul polygone à ses limites extérieures (trous comblés, parcelles isolées de moins de 100 m² écartées) et tracée en pointillé fin sur la carte ; à défaut, zones inondables de flood_areas. Les usages compatibles et non compatibles sont mesurés dans cette zone."
       ),
       div(
         style = "margin-bottom: 10px;",
@@ -229,6 +230,8 @@ charte_inputs_server <- function(input, output, session, scenario, population = 
     charte_input_feature_table(result(), snapshot()$layers, selected_input()$input_id)
   })
 
+  alea_outline <- reactive(alea_fort_outline(snapshot()$layers$alea_fort))
+
   layer_with_rules <- function(name) {
     current <- result()
     if (name == "land_use") return(current$land_use)
@@ -257,7 +260,19 @@ charte_inputs_server <- function(input, output, session, scenario, population = 
         )
     }
     groups <- "Surface de référence"
+    outline <- alea_outline()
+    if (nrow(outline)) {
+      map <- map |>
+        addPolylines(
+          data = outline, color = "#01579b", weight = 1, opacity = 0.95, dashArray = "2 3",
+          label = "Limite de l'aléa fort", group = "Limite de l'aléa fort"
+        )
+      groups <- c(groups, "Limite de l'aléa fort")
+    }
     for (name in unique(ids$layer)) {
+      # L'aléa fort est représenté par sa limite et sa géométrie fusionnée,
+      # pas par ses milliers de polygones vectorisés.
+      if (identical(name, "alea_fort")) next
       layer <- layer_with_rules(name)
       if (is.null(layer) || !nrow(layer)) next
       style <- charte_layer_styles[[name]]

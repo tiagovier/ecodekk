@@ -29,14 +29,6 @@ SVF_OUT="$S/svf$TAG"
 SOLWEIG_OUT="$S/solweig$TAG"
 mkdir -p "$SPATIAL_OUT"
 export GDAL_PAM_ENABLED=NO
-# Contournement (2026-10-01) : QGIS 3.44.15 est lié à GDAL 3.8 alors que le pilote
-# GRASS de GDAL (libgdal-grass, ubuntugis) vise GDAL 3.11 et bloque le chargement
-# des greffons Python. Les pilotes GDAL optionnels ne sont pas chargés pour les
-# runs UMEP (GeoTIFF, GeoPackage et CSV sont intégrés à GDAL).
-if [[ -z "${GDAL_DRIVER_PATH:-}" ]]; then
-  export GDAL_DRIVER_PATH="$S/logs/gdal_no_plugins"
-  mkdir -p "$GDAL_DRIVER_PATH"
-fi
 
 qp() { qgis_process run "$@" 2> >(grep -v -E "GRASS|numexpr|bottleneck|NUMPY driver|binary incompatibility|NoneType|cad_to_gis|^$|_builtin_import" >&2); }
 need_absent() { for f in "$@"; do [[ -e "$f" ]] && { echo "Sortie existante, non écrasée : $f" >&2; exit 1; }; done; return 0; }

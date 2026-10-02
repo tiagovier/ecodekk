@@ -19,10 +19,15 @@ runs:
     date: '2022-05-11'
     heure_utc: '14:00'
     vitesse_10m_m_s: 3.43
-    direction_deg: 322.7
+    direction_deg: 325.0
     vegetation: saison_seche
     ajoute: 2026-10-01, journée chaude typique approuvée par l'utilisateur ; même
       méthode (u10, v10 ERA5 à 14 h)
+    direction_era5_deg: 322.7
+    ajustement_direction: 'arrondi au multiple de 5° le plus proche (2026-10-02, approuvé
+      par l''utilisateur) : URock plante à l''itération 413 pour la direction exacte
+      (défaut du modèle, reproduit sur un extrait ; 30° passe). Écart inférieur à
+      l''incertitude d''une direction horaire ERA5.'
   saison_pluies:
     type: journee
     date: '2017-09-21'
@@ -35,8 +40,13 @@ runs:
     date: '2018-01-17'
     heure_utc: '14:00'
     vitesse_10m_m_s: 6.67
-    direction_deg: 28.6
+    direction_deg: 30.0
     vegetation: saison_seche
+    direction_era5_deg: 28.6
+    ajustement_direction: 'arrondi au multiple de 5° le plus proche (2026-10-02, approuvé
+      par l''utilisateur) : URock plante à l''itération 413 pour la direction exacte
+      (défaut du modèle, reproduit sur un extrait ; 30° passe). Écart inférieur à
+      l''incertitude d''une direction horaire ERA5.'
   dominant_saison_seche:
     type: dominant
     mois:

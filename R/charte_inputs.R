@@ -12,7 +12,8 @@ charte_metric_crs <- 32628L
 
 charte_spatial_layer_names <- c(
   "buildings", "roads", "parcels", "quartiers", "land_use",
-  "road_footprints", "flood_areas", "project_boundary", "title_boundary"
+  "road_footprints", "flood_areas", "project_boundary", "title_boundary",
+  "alea_fort"
 )
 
 charte_class_labels <- c(
@@ -377,17 +378,30 @@ charte_reference_geometry <- function(layers, reference_area) {
   )
 }
 
+# Zone d'aléa fort : la couche `alea_fort` du scénario quand elle existe
+# (zone réellement inondée, ramenée à ses limites extérieures), sinon les
+# types d'inondation de flood_areas.
 charte_hazard_features <- function(layers, flood_types = charte_hazard_flood_types) {
+  alea <- layers$alea_fort
+  if (!is.null(alea) && nrow(alea)) {
+    return(list(
+      layer = "alea_fort", data = alea, missing_types = character(),
+      geometry = alea_fort_geometry(alea, crs = charte_metric_crs)
+    ))
+  }
   flood_areas <- layers$flood_areas
   if (is.null(flood_areas)) {
-    return(list(layer = "flood_areas", data = NULL, missing_types = flood_types))
+    return(list(layer = "flood_areas", data = NULL, missing_types = flood_types,
+                geometry = sf::st_sfc(crs = charte_metric_crs)))
   }
   type <- as.character(flood_areas$flood_type)
   keep <- !is.na(type) & type %in% flood_types
+  data <- flood_areas[keep, ]
   list(
     layer = "flood_areas",
-    data = flood_areas[keep, ],
-    missing_types = setdiff(flood_types, unique(type[keep]))
+    data = data,
+    missing_types = setdiff(flood_types, unique(type[keep])),
+    geometry = if (nrow(data)) charte_union(sf::st_geometry(data)) else sf::st_sfc(crs = charte_metric_crs)
   )
 }
 
@@ -481,15 +495,18 @@ compute_charte_spatial_inputs <- function(layers,
 
   # Trame bleue : aléa fort et usages compatibles.
   hazard <- charte_hazard_features(layers, parameters$hazard_flood_types)
-  hazard_geometry <- if (is.null(hazard$data)) {
-    sf::st_sfc(crs = charte_metric_crs)
-  } else {
-    charte_union(sf::st_geometry(hazard$data))
-  }
+  hazard_geometry <- hazard$geometry
   add(
     charte_input_row(
       "alea_fort", "Zone d'aléa fort", "TB-1, RES-3", hazard$layer,
-      paste0("flood_type ∈ {", paste(parameters$hazard_flood_types, collapse = ", "), "}"),
+      if (identical(hazard$layer, "alea_fort")) {
+        paste0(
+          "Couche alea_fort fusionnée en un seul polygone : limites extérieures, trous comblés, ",
+          "parcelles isolées < ", alea_fort_minimum_part_sqm, " m² écartées"
+        )
+      } else {
+        paste0("flood_type ∈ {", paste(parameters$hazard_flood_types, collapse = ", "), "} (couche alea_fort absente)")
+      },
       if (is.null(hazard$data)) 0 else nrow(hazard$data),
       charte_area(hazard_geometry), "m²",
       if (!length(hazard_geometry)) "Aucune entité" else if (length(hazard$missing_types)) {
@@ -521,6 +538,19 @@ compute_charte_spatial_inputs <- function(layers,
     ),
     charte_feature_ids("land_use", land_use, compatible),
     hazard_valorised
+  )
+  hazard_not_compatible <- charte_intersection(
+    charte_union(sf::st_geometry(land_use)[!compatible]), hazard_geometry
+  )
+  touching <- !compatible & lengths(sf::st_intersects(land_use, hazard_geometry)) > 0
+  add(
+    charte_input_row(
+      "alea_fort_non_compatible", "Aléa fort en usage non compatible", "TB-1, RES-3", "land_use",
+      "ch_alea_compatible = 0, découpé par la zone d'aléa fort",
+      sum(touching), charte_area(hazard_not_compatible), "m²"
+    ),
+    charte_feature_ids("land_use", land_use, touching),
+    hazard_not_compatible
   )
 
   biotope <- land_use$coef_biotope_resolved > 0

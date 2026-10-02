@@ -1631,3 +1631,35 @@ sf_to_geojson <- function(features) {
   sf::st_write(features, output_file, driver = "GeoJSON", quiet = TRUE)
   paste(readLines(output_file, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
 }
+
+# Aléa fort (couche optionnelle `alea_fort` du scénario, issue d'un raster
+# vectorisé) : traité comme un seul polygone, ses limites extérieures. Les
+# polygones sont fusionnés, les trous intérieurs comblés et les parcelles
+# isolées de moins de `minimum_part_sqm` (bruit de vectorisation) écartées
+# (décision utilisateur du 2026-10-02).
+alea_fort_minimum_part_sqm <- 100
+
+alea_fort_geometry <- function(layer, minimum_part_sqm = alea_fort_minimum_part_sqm, crs = 32628) {
+  empty <- sf::st_sfc(crs = crs)
+  if (is.null(layer) || !nrow(layer)) return(empty)
+  geometry <- sf::st_make_valid(sf::st_geometry(sf::st_transform(layer, crs)))
+  union <- sf::st_union(geometry)
+  if (!length(union) || sf::st_is_empty(union)) return(empty)
+  polygons <- if (any(sf::st_geometry_type(union) == "GEOMETRYCOLLECTION")) {
+    sf::st_collection_extract(union, "POLYGON")
+  } else {
+    union
+  }
+  parts <- if (all(sf::st_geometry_type(polygons) == "POLYGON")) polygons else sf::st_cast(polygons, "POLYGON")
+  outer <- sf::st_sfc(lapply(parts, function(part) sf::st_polygon(list(part[[1]]))), crs = crs)
+  outer <- outer[as.numeric(sf::st_area(outer)) >= minimum_part_sqm]
+  if (!length(outer)) return(empty)
+  sf::st_cast(sf::st_union(outer), "MULTIPOLYGON")
+}
+
+alea_fort_outline <- function(layer, minimum_part_sqm = alea_fort_minimum_part_sqm) {
+  geometry <- alea_fort_geometry(layer, minimum_part_sqm)
+  if (!length(geometry)) return(sf::st_sf(geometry = sf::st_sfc(crs = 4326)))
+  boundary <- sf::st_cast(sf::st_boundary(geometry), "MULTILINESTRING")
+  sf::st_sf(geometry = sf::st_transform(boundary, 4326))
+}

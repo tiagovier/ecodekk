@@ -7,6 +7,7 @@ R/spatial_data.R
 R/umep_results.R
 R/umep_climate.R
 R/umep_energy.R
+R/umep_wind.R
 R/charte_inputs.R
 R/charte_inputs_page.R
 img/logo_phard_600x250.png

@@ -232,3 +232,28 @@ test_that("les scénarios se dupliquent depuis un scénario choisi et se supprim
   expect_match(basename(moved), "^scenario_02_20261001_100000$")
   expect_error(scenario_label_from_path(trash, root), "n’appartient pas")
 })
+
+test_that("une sauvegarde conserve les couches ajoutées dans QGIS", {
+  point <- sf::st_sfc(sf::st_point(c(-17, 14)), crs = 4326)
+  buildings <- sf::st_sf(building_id = "b1", product_id = "rm_2", included_in_simulation = TRUE, geometry = point)
+  one <- buildings[, "building_id", drop = FALSE]
+  context <- list(quartiers = one, land_use = one, road_footprints = one, flood_areas = one,
+                  project_boundary = one, title_boundary = one)
+  path <- tempfile("spatial-extra-", fileext = ".gpkg")
+  on.exit(unlink(path), add = TRUE)
+  write_scenario_spatial_geopackage(path, buildings, one, one, context)
+  alea <- sf::st_sf(DN = c(1001L, 1002L), geometry = sf::st_sfc(
+    sf::st_polygon(list(rbind(c(0, 0), c(1, 0), c(1, 1), c(0, 0)))),
+    sf::st_polygon(list(rbind(c(2, 0), c(3, 0), c(3, 1), c(2, 0)))), crs = 32628))
+  sf::st_write(alea, path, layer = "alea_fort", quiet = TRUE)
+  sf::st_write(alea[1, ], path, layer = "bassins_versants", quiet = TRUE)
+
+  write_scenario_spatial_geopackage(path, buildings, one, one, context)
+  expect_true(all(c("alea_fort", "bassins_versants") %in% sf::st_layers(path)$name))
+  kept <- sf::st_read(path, layer = "alea_fort", quiet = TRUE)
+  expect_identical(kept$DN, c(1001L, 1002L))
+  expect_equal(sf::st_crs(kept)$epsg, 32628L)
+  restored <- read_scenario_spatial_geopackage(path)
+  expect_true("alea_fort" %in% names(restored))
+  expect_false("bassins_versants" %in% names(restored))
+})
