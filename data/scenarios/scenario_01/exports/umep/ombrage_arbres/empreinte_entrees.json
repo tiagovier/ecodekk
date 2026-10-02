@@ -1,0 +1,13 @@
+{
+  "study": "ombrage_arbres",
+  "computed_for": "scenario_01",
+  "recorded_at": "2026-10-02T19:06:11-0300",
+  "components": {
+    "batiments": "205f06beb7597684d21d3208c04e8f1e7704fee9ffa85491502796a2e649846b",
+    "arbres": "b51ae86cbf332e232904bfaed5525552ff798804dee6d3f8549a97cf07a2ee17",
+    "voirie_emprises": "9f46aa2e565480abaa3ebed3b7e7f33c1511423560ff60097a55598672a1e0cc",
+    "zones_inondables": "01e5e9a910e13b27ff452bbedabf5f8b07b8c0c26cc95831dbd5ef130283359d",
+    "quartiers": "358186fa7f14e0fc168021db97963a56b7260386451edd1713207867a05fde37"
+  },
+  "tree_base": "659872acfc009f9d8a9ecd33e98089f1429ca61ae41f83566b5198f1159a1092"
+}

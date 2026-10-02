@@ -8,6 +8,7 @@ R/umep_results.R
 R/umep_climate.R
 R/umep_energy.R
 R/umep_wind.R
+R/umep_sharing.R
 R/charte_inputs.R
 R/charte_inputs_page.R
 img/logo_phard_600x250.png
@@ -107,3 +108,11 @@ data/scenarios/scenario_01/exports/umep/vent_confort/display/wind_dominant_saiso
 data/scenarios/scenario_01/exports/umep/vent_confort/display/wind_dominant_saison_seche.png
 data/scenarios/scenario_01/exports/umep/vent_confort/display/wind_frais_saison_seche.png
 data/scenarios/scenario_01/exports/umep/vent_confort/display/wind_saison_pluies.png
+data/scenarios/scenario_01/exports/umep/bilan_energetique/empreinte_arbres.csv.gz
+data/scenarios/scenario_01/exports/umep/bilan_energetique/empreinte_entrees.json
+data/scenarios/scenario_01/exports/umep/climat_urbain/empreinte_arbres.csv.gz
+data/scenarios/scenario_01/exports/umep/climat_urbain/empreinte_entrees.json
+data/scenarios/scenario_01/exports/umep/ombrage_arbres/empreinte_arbres.csv.gz
+data/scenarios/scenario_01/exports/umep/ombrage_arbres/empreinte_entrees.json
+data/scenarios/scenario_01/exports/umep/vent_confort/empreinte_arbres.csv.gz
+data/scenarios/scenario_01/exports/umep/vent_confort/empreinte_entrees.json

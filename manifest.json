@@ -2045,7 +2045,7 @@
   },
   "files": {
     "app.R": {
-      "checksum": "265bb88312c4473e72a51901d3634e47"
+      "checksum": "a0608a4d98238918f4883de621b60137"
     },
     "data/building_control_overrides.csv": {
       "checksum": "b83716255e39facc6afca47ad1581227"
@@ -2077,6 +2077,12 @@
     "data/scenarios/scenario_01/exports/umep/bilan_energetique/display/validation.csv": {
       "checksum": "f43e3e1149037b0db7101561ccb94e7f"
     },
+    "data/scenarios/scenario_01/exports/umep/bilan_energetique/empreinte_arbres.csv.gz": {
+      "checksum": "fc16ae02684b4e44daba27408fe24931"
+    },
+    "data/scenarios/scenario_01/exports/umep/bilan_energetique/empreinte_entrees.json": {
+      "checksum": "d1c7c24843201a1cc63c24446737cd60"
+    },
     "data/scenarios/scenario_01/exports/umep/climat_urbain/display_target/grille_100m.geojson": {
       "checksum": "9c4262a0d73dde98ec8aa15703971a19"
     },
@@ -2094,6 +2100,12 @@
     },
     "data/scenarios/scenario_01/exports/umep/climat_urbain/display_target/target_quartiers.csv": {
       "checksum": "a4119f36ab3df45e76c3c32908b733bd"
+    },
+    "data/scenarios/scenario_01/exports/umep/climat_urbain/empreinte_arbres.csv.gz": {
+      "checksum": "fc16ae02684b4e44daba27408fe24931"
+    },
+    "data/scenarios/scenario_01/exports/umep/climat_urbain/empreinte_entrees.json": {
+      "checksum": "9b4849a902fa7a8a9e78692ec2443e93"
     },
     "data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/cooling_chaud_saison_seche_trans15.png": {
       "checksum": "4777a60ba2028aecab4298c5ea942809"
@@ -2200,6 +2212,12 @@
     "data/scenarios/scenario_01/exports/umep/ombrage_arbres/display/tmrt_saison_pluies_trans3.png": {
       "checksum": "244da0f28708a51edd1ad6cc9191e8bd"
     },
+    "data/scenarios/scenario_01/exports/umep/ombrage_arbres/empreinte_arbres.csv.gz": {
+      "checksum": "fc16ae02684b4e44daba27408fe24931"
+    },
+    "data/scenarios/scenario_01/exports/umep/ombrage_arbres/empreinte_entrees.json": {
+      "checksum": "269e703cbeb44f883074580d0d93ee0c"
+    },
     "data/scenarios/scenario_01/exports/umep/ombrage_arbres/trees_thies_mature_seed20260930.gpkg": {
       "checksum": "837a5d7a8d72a2e8d76a911ba4b1197e"
     },
@@ -2287,6 +2305,12 @@
     "data/scenarios/scenario_01/exports/umep/vent_confort/display/wind_saison_pluies.png": {
       "checksum": "1c33ec64c920b8152125c5b47bb8240e"
     },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/empreinte_arbres.csv.gz": {
+      "checksum": "fc16ae02684b4e44daba27408fe24931"
+    },
+    "data/scenarios/scenario_01/exports/umep/vent_confort/empreinte_entrees.json": {
+      "checksum": "4e3b7e5a220384e86e5c8a158c083a29"
+    },
     "data/scenarios/scenario_01/model.rds": {
       "checksum": "137d091347aed697feb70f0868c68970"
     },
@@ -2342,7 +2366,7 @@
       "checksum": "39a52d1852955e662a267642dca5afcd"
     },
     "R/charte_inputs_page.R": {
-      "checksum": "a9691ae4a1535c3b93f583e7ce789de3"
+      "checksum": "4ddd59d6838ad6597a21cd6efae524f5"
     },
     "R/charte_inputs.R": {
       "checksum": "031d89bb3f105c689141081e17c7fa2f"
@@ -2367,6 +2391,9 @@
     },
     "R/umep_results.R": {
       "checksum": "7ce9452c06b932613090d0be5b49e18f"
+    },
+    "R/umep_sharing.R": {
+      "checksum": "3400febdb358fe1495bf38a79e1b7962"
     },
     "R/umep_wind.R": {
       "checksum": "c516bdbff8df667d2618d17322bcdf10"

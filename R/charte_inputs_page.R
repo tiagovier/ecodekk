@@ -125,7 +125,9 @@ charte_inputs_server <- function(input, output, session, scenario, population = 
     withProgress(message = "Lecture des couches de la charte", value = 0.2, {
       layers <- read_charte_spatial_layers(paths$spatial)
       incProgress(0.3, detail = "Canopée des arbres UMEP")
-      tree_path <- find_umep_tree_layer(scenario$path)
+      # Arbres attribués de l'étude d'ombrage utilisable par ce scénario
+      # (la sienne ou celle d'un scénario aux entrées identiques).
+      tree_path <- scenario$umep_tree_path
       trees <- if (is.null(tree_path)) NULL else load_umep_trees(tree_path)
       canopy <- charte_canopy_geometry(trees)
       list(

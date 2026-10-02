@@ -11,6 +11,7 @@ source(file.path("R", "umep_results.R"), encoding = "UTF-8")
 source(file.path("R", "umep_climate.R"), encoding = "UTF-8")
 source(file.path("R", "umep_energy.R"), encoding = "UTF-8")
 source(file.path("R", "umep_wind.R"), encoding = "UTF-8")
+source(file.path("R", "umep_sharing.R"), encoding = "UTF-8")
 source(file.path("R", "charte_inputs.R"), encoding = "UTF-8")
 source(file.path("R", "charte_inputs_page.R"), encoding = "UTF-8")
 
@@ -696,7 +697,16 @@ server <- function(input, output, session) {
     trees <- resolve_scenario_trees(
       data$spatial, file.path("data", "sig", "arbres.gpkg")
     )
-    umep_trees_path <- find_umep_tree_layer(directory)
+    scenario$umep_records <- umep_study_records(scenario_root)
+    scenario$umep_inputs <- tryCatch(
+      umep_scenario_fingerprints(data$spatial, model, scenario_id_from_directory(directory), trees),
+      error = function(error) NULL
+    )
+    tree_resolution <- resolve_umep_study(
+      "ombrage_arbres", scenario_id_from_directory(directory), scenario$umep_inputs, scenario$umep_records
+    )
+    umep_trees_path <- umep_study_tree_layer(tree_resolution)
+    scenario$umep_tree_path <- umep_trees_path
     scenario$display_trees <- if (is.null(umep_trees_path)) NULL else load_umep_trees(umep_trees_path)
     scenario$tree_source_label <- if (is.null(umep_trees_path)) {
       "Arbres : inventaire CAO, essences non attribuées"
@@ -2680,9 +2690,22 @@ server <- function(input, output, session) {
     )
   })
 
+  # Résultats d'étude réutilisables par le scénario (voir R/umep_sharing.R).
+  study_resolution <- function(study) {
+    req(scenario$path)
+    resolve_umep_study(study, scenario$id, scenario$umep_inputs, scenario$umep_records)
+  }
+
+  sharing_note <- function(study) {
+    resolution <- study_resolution(study)
+    message <- umep_sharing_message(resolution, scenario$id)
+    if (is.null(message)) return(NULL)
+    div(class = if (is.null(resolution$directory)) "alert alert-warning" else "alert alert-info", message)
+  }
+
   umep_display <- reactive({
     req(scenario$path)
-    directory <- find_umep_display_directory(scenario$path)
+    directory <- umep_study_display_directory(study_resolution("ombrage_arbres"))
     if (is.null(directory)) return(NULL)
     tryCatch(read_umep_display(directory), error = function(error) {
       structure(list(message = conditionMessage(error)), class = "umep_display_error")
@@ -2709,10 +2732,12 @@ server <- function(input, output, session) {
   })
 
   output$thermal_status <- renderUI({
+    tagList(sharing_note("ombrage_arbres"), (function() {
     display <- umep_display()
     if (is.null(display)) {
+      if (!is.null(umep_sharing_message(study_resolution("ombrage_arbres"), scenario$id))) return(NULL)
       return(div(class = "alert alert-info",
-        "Aucun résultat SOLWEIG pour ce scénario. L’étude d’ombrage porte sur le scénario scenario_01 : chargez-le pour afficher ses résultats."))
+        "Aucun résultat SOLWEIG pour ce scénario : aucune étude calculée pour lui ni pour un scénario aux entrées identiques."))
     }
     if (inherits(display, "umep_display_error")) {
       return(div(class = "alert alert-danger", "Résultats SOLWEIG illisibles : ", display$message))
@@ -2728,6 +2753,7 @@ server <- function(input, output, session) {
         "Dimensions des arbres issues de la littérature, à valider par des relevés de terrain."
       )
     )
+    })())
   })
 
   output$thermal_map <- renderUI({
@@ -2880,7 +2906,7 @@ server <- function(input, output, session) {
 
   target_display <- reactive({
     req(scenario$path)
-    directory <- find_target_display_directory(scenario$path)
+    directory <- umep_study_display_directory(study_resolution("climat_urbain"), "display_target")
     if (is.null(directory)) return(NULL)
     tryCatch(read_target_display(directory), error = function(error) {
       structure(list(message = conditionMessage(error)), class = "umep_display_error")
@@ -2902,10 +2928,12 @@ server <- function(input, output, session) {
   })
 
   output$climate_status <- renderUI({
+    tagList(sharing_note("climat_urbain"), (function() {
     display <- target_display()
     if (is.null(display)) {
+      if (!is.null(umep_sharing_message(study_resolution("climat_urbain"), scenario$id))) return(NULL)
       return(div(class = "alert alert-info",
-        "Aucun résultat TARGET pour ce scénario. L’étude de climat urbain porte sur le scénario scenario_01 : chargez-le pour afficher ses résultats."))
+        "Aucun résultat TARGET pour ce scénario : aucune étude calculée pour lui ni pour un scénario aux entrées identiques."))
     }
     if (inherits(display, "umep_display_error")) {
       return(div(class = "alert alert-danger", "Résultats TARGET illisibles : ", display$message))
@@ -2914,6 +2942,7 @@ server <- function(input, output, session) {
       display$manifest$model, ", maille de ", display$manifest$grid$cell_m, " m (",
       display$manifest$grid$cells, " mailles). Météorologie ERA5 : climat régional, pas le microclimat mesuré du site."
     ))
+    })())
   })
 
   output$climate_guide <- renderUI({
@@ -3011,7 +3040,7 @@ server <- function(input, output, session) {
 
   energy_display <- reactive({
     req(scenario$path)
-    directory <- find_energy_display_directory(scenario$path)
+    directory <- umep_study_display_directory(study_resolution("bilan_energetique"))
     if (is.null(directory)) return(NULL)
     tryCatch(read_energy_display(directory), error = function(error) {
       structure(list(message = conditionMessage(error)), class = "umep_display_error")
@@ -3035,10 +3064,12 @@ server <- function(input, output, session) {
   })
 
   output$energy_status <- renderUI({
+    tagList(sharing_note("bilan_energetique"), (function() {
     display <- energy_display()
     if (is.null(display)) {
+      if (!is.null(umep_sharing_message(study_resolution("bilan_energetique"), scenario$id))) return(NULL)
       return(div(class = "alert alert-info",
-        "Aucun résultat SUEWS pour ce scénario. L’étude de bilan énergétique porte sur le scénario scenario_01."))
+        "Aucun résultat SUEWS pour ce scénario : aucune étude calculée pour lui ni pour un scénario aux entrées identiques."))
     }
     if (inherits(display, "umep_display_error")) {
       return(div(class = "alert alert-danger", "Résultats SUEWS illisibles : ", display$message))
@@ -3046,6 +3077,7 @@ server <- function(input, output, session) {
     p(class = "help-text", paste0(
       display$manifest$model, ". Analyse de janvier 2017 à janvier 2018 après une année de mise en route (2016)."
     ))
+    })())
   })
 
   output$energy_guide <- renderUI({
@@ -3132,7 +3164,7 @@ server <- function(input, output, session) {
 
   wind_display <- reactive({
     req(scenario$path)
-    directory <- find_wind_display_directory(scenario$path)
+    directory <- umep_study_display_directory(study_resolution("vent_confort"))
     if (is.null(directory)) return(NULL)
     tryCatch(read_wind_display(directory), error = function(error) {
       structure(list(message = conditionMessage(error)), class = "umep_display_error")
@@ -3164,10 +3196,12 @@ server <- function(input, output, session) {
   })
 
   output$wind_status <- renderUI({
+    tagList(sharing_note("vent_confort"), (function() {
     display <- wind_display()
     if (is.null(display)) {
+      if (!is.null(umep_sharing_message(study_resolution("vent_confort"), scenario$id))) return(NULL)
       return(div(class = "alert alert-info",
-        "Aucun résultat de vent pour ce scénario. L’étude de vent et de confort porte sur le scénario scenario_01."))
+        "Aucun résultat de vent pour ce scénario : aucune étude calculée pour lui ni pour un scénario aux entrées identiques."))
     }
     if (inherits(display, "umep_display_error")) {
       return(div(class = "alert alert-danger", "Résultats vent/confort illisibles : ", display$message))
@@ -3176,6 +3210,7 @@ server <- function(input, output, session) {
       "URock (UMEP), vent à 1,5 m sur une grille de 2 m ; UTCI et PET à 14 h sur la grille de confort de ",
       format_number_fr(display$manifest$resolution_confort_m, 0), " m. Vent de référence ERA5 : climat régional, pas une mesure sur le site."
     ))
+    })())
   })
 
   output$wind_guide <- renderUI({
