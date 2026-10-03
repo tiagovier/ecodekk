@@ -20,6 +20,9 @@ data/scenarios/base/spatial.gpkg
 data/scenarios/scenario_01/model.rds
 data/scenarios/scenario_01/scenario.yml
 data/scenarios/scenario_01/spatial.gpkg
+data/scenarios/scenario_20261002_1110/model.rds
+data/scenarios/scenario_20261002_1110/scenario.yml
+data/scenarios/scenario_20261002_1110/spatial.gpkg
 data/sig/bassins_cuvettes_ret50.gpkg
 data/sig/bassins_ret50.gpkg
 data/sig/buildings.gpkg

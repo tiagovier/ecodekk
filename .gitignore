@@ -60,3 +60,8 @@ restart.txt
 data/scenarios/*/exports/umep/*/echantillon/
 *_styles.db
 data/scenarios/*/exports/umep/*/tmp/
+
+# Fichiers de travail SQLite / QGIS et copies de travail
+*.gpkg-wal
+*.gpkg-shm
+data/scenarios/*/spatial[0-9]*.gpkg

@@ -1,0 +1,6 @@
+"category_id","category_label","construction_cost_cfa_sqm"
+"ECO","Économique",180000
+"STD","Standard",225000
+"MID","Moyen",250000
+"HIGH","Haut de gamme",320000
+"VHIGH","Très haut de gamme",350000
